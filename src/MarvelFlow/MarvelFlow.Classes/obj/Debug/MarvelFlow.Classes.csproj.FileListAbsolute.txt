@@ -1,0 +1,6 @@
+U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.dll
+U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.pdb
+U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.csproj.CoreCompileInputs.cache
+U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.dll
+U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.pdb
+U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.csprojResolveAssemblyReference.cache

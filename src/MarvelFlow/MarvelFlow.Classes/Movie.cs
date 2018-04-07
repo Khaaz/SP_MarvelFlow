@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes
 {
-
-    
-public class Movie
+    public class Movie : Video
     {
         private string Mid { get; set; }
         private string Titre { get; set; }
@@ -19,7 +17,7 @@ public class Movie
 
         private int AvisPublic { get; set; }
 
-        private List<Hero> ListHeros { get;}
+        private List<Hero> ListHeros { get; }
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes
 {
-    public class User
+    public class Serie : Video
     {
     }
 }
