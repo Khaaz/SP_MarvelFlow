@@ -1,5 +1,5 @@
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\bin\Debug\MarvelFlow.Data.dll
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\bin\Debug\MarvelFlow.Data.pdb
-U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.csproj.CoreCompileInputs.cache
+U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.csprojResolveAssemblyReference.cache
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.dll
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.pdb

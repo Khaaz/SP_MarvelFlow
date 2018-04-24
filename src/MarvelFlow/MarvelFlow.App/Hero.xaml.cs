@@ -17,7 +17,7 @@ namespace MarvelFlow.App
     /// <summary>
     /// Logique d'interaction pour Hero.xaml
     /// </summary>
-    public partial class Hero : Window
+    public partial class Hero : Page
     {
         public Hero()
         {

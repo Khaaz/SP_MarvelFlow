@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MarvelFlow.App
@@ -17,7 +18,7 @@ namespace MarvelFlow.App
     /// <summary>
     /// Logique d'interaction pour Movie.xaml
     /// </summary>
-    public partial class Movie : Window
+    public partial class Movie : Page
     {
         public Movie()
         {

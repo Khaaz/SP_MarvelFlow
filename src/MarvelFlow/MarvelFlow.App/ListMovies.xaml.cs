@@ -17,7 +17,7 @@ namespace MarvelFlow.App
     /// <summary>
     /// Logique d'interaction pour ListMovies.xaml
     /// </summary>
-    public partial class ListMovies : Window
+    public partial class ListMovies : Page
     {
         public ListMovies()
         {

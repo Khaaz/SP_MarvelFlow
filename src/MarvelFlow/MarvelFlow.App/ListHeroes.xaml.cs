@@ -17,7 +17,7 @@ namespace MarvelFlow.App
     /// <summary>
     /// Logique d'interaction pour ListHeroes.xaml
     /// </summary>
-    public partial class ListHeroes : Window
+    public partial class ListHeroes : Page
     {
         public ListHeroes()
         {

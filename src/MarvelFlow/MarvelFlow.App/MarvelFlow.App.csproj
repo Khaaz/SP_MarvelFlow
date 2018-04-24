@@ -56,8 +56,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Hero.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ListHeroes.xaml">
       <SubType>Designer</SubType>
@@ -127,6 +127,10 @@
     <ProjectReference Include="..\MarvelFlow.Classes\MarvelFlow.Classes.csproj">
       <Project>{7d5a9ff3-e584-4f7f-8e25-e8011ada1de5}</Project>
       <Name>MarvelFlow.Classes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarvelFlow.Data\MarvelFlow.Data.csproj">
+      <Project>{d81e7ac5-fb16-4eea-bd93-6f93b57660f0}</Project>
+      <Name>MarvelFlow.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
