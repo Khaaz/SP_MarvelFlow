@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes
 {
-    public class Movie : Video
+    class Commentaire
     {
-        
-        private float dureeFilm { get; set; }
+        private int ComID { get; set; }
+
+        private User NomUser { get; set; }
+
+        private DateTime DateCrea { get; set; }
     }
 }

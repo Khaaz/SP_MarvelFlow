@@ -1,5 +1,4 @@
 C:\Users\meelayadi\Documents\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.App.exe.config
-U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.App.exe.config
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\MarvelFlow.App.csprojResolveAssemblyReference.cache
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Hero.g.cs
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\ListHeroes.g.cs
@@ -9,6 +8,7 @@ U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Movie.g.cs
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\App.g.cs
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\MarvelFlow.App_MarkupCompile.cache
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\MarvelFlow.App_MarkupCompile.lref
+U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.App.exe.config
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.App.exe
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.App.pdb
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.Classes.dll

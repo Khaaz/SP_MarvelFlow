@@ -8,5 +8,8 @@ namespace MarvelFlow.Classes
 {
     public class Serie : Video
     {
+        private int NbEp { get; set; }
+
+        private bool diffusion { get; set; }
     }
 }

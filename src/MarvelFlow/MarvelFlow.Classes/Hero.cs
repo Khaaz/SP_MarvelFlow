@@ -15,10 +15,12 @@ namespace MarvelFlow.Classes
 
         private string Desc { get; set; }
 
+        private string Pouvoir { get; set; }
+
         private List<Movie> ListMovies { get;}
 
+        private DateTime DateCrea { get; set; }
 
-
-
+        private float Popularité { get; set; }
     }
 }
