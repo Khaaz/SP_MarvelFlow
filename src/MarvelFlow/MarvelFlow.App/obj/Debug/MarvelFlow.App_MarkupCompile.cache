@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\
+U:\C#Projet\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\
 MarvelFlow.App
 none
 false
 DEBUG;TRACE
-U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.App\App.xaml
-5-1066626501
+U:\C#Projet\marvelflow\src\MarvelFlow\MarvelFlow.App\App.xaml
+7-975088122
 
-9897454066
-15-2122229700
-Hero.xaml;ListHeroes.xaml;ListMovies.xaml;MainWindow.xaml;Movie.xaml;
+11904468197
+151774769633
+controls\UcHero.xaml;controls\UcHome.xaml;controls\UcListHero.xaml;controls\UcListMovie.xaml;controls\UcMovie.xaml;controls\UcProfile.xaml;MainWindow.xaml;
 
 False
 

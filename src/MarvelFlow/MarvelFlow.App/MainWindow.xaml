@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarvelFlow.App"
+        xmlns:control="clr-namespace:MarvelFlow.App.controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
 
@@ -14,48 +15,13 @@
     </Window.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
-        </Grid.RowDefinitions>
-        <!--Background-->
-        <Rectangle Fill="#2c2f33" Grid.ColumnSpan="3" Grid.RowSpan="4"></Rectangle>
-        <!--Logo Menu -->
-        <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png" Grid.Column="1"  Margin="10,5" />
-
-        <!--Menu utilisateur-->
-        <Grid Grid.Column="2" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <TextBlock Foreground="White" TextWrapping="Wrap" Text="User" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1"></TextBlock>
-            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/pdp2.png" Grid.Column="2" Grid.Row="1"/>
+        <Grid x:Name="BANNIERE" Height="36" VerticalAlignment="Top" HorizontalAlignment="Right" Width="517">
+            <Rectangle Fill="Black" Margin="0,0.333,0,0" Stroke="#FFED1D24" StrokeThickness="0"/>
+            <Image x:Name="marvelLogo_png" Margin="226.41,7.914,231.41,8.573" Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png" VerticalAlignment="Center" Stretch="Fill"/>
+            <Image x:Name="pdp_png" Margin="0,3.333,78.653,3.333" Source="pack://application:,,,/MarvelFlow.App;component/Images/pdp.png" Stretch="Fill" HorizontalAlignment="Right" Width="29.334"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,8.906,10,8.573" TextWrapping="Wrap" Width="79.667" Text="Guest" Foreground="White" TextAlignment="Center"/>
         </Grid>
-        
-        <!--Bar de navigation-->
-        <Button Grid.Column="0" Grid.Row="1">Personnages</Button>
-        <Button Grid.Column="1" Grid.Row="1">Films</Button>
-        <Button Grid.Column="2" Grid.Row="1">Communauté</Button>
-        <!--Footer-->
-        <TextBlock Background="Gray" Foreground="Orange" Grid.ColumnSpan="3" Grid.Row="3" >
-                        footer
-        </TextBlock>
-
+        <ContentPresenter Content="{Binding CurrentControl}"></ContentPresenter>
 
     </Grid>
 </Window>

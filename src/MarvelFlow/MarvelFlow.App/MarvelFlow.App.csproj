@@ -55,15 +55,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Hero.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ListHeroes.xaml">
+    <Page Include="controls\UcHero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ListMovies.xaml">
+    <Page Include="controls\UcHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\UcListHero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\UcListMovie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\UcMovie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\UcProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -75,28 +87,30 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Hero.xaml.cs">
-      <DependentUpon>Hero.xaml</DependentUpon>
+    <Compile Include="controls\UcHero.xaml.cs">
+      <DependentUpon>UcHero.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ListHeroes.xaml.cs">
-      <DependentUpon>ListHeroes.xaml</DependentUpon>
+    <Compile Include="controls\UcHome.xaml.cs">
+      <DependentUpon>UcHome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ListMovies.xaml.cs">
-      <DependentUpon>ListMovies.xaml</DependentUpon>
+    <Compile Include="controls\UcListHero.xaml.cs">
+      <DependentUpon>UcListHero.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\UcListMovie.xaml.cs">
+      <DependentUpon>UcListMovie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\UcMovie.xaml.cs">
+      <DependentUpon>UcMovie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\UcProfile.xaml.cs">
+      <DependentUpon>UcProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Movie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Movie.xaml.cs">
-      <DependentUpon>Movie.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,6 +151,9 @@
     <Resource Include="Images\marvelLogo.png" />
     <Resource Include="Images\pdp.png" />
     <Resource Include="Images\pdp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\affichetest.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,3 +2,7 @@ U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.C
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.pdb
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.dll
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.pdb
+U:\C#Projet\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.dll
+U:\C#Projet\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.pdb
+U:\C#Projet\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.dll
+U:\C#Projet\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.pdb

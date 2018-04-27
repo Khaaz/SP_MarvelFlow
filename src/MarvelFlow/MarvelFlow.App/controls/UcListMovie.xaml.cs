@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MarvelFlow.App
+namespace MarvelFlow.App.controls
 {
     /// <summary>
-    /// Logique d'interaction pour Hero.xaml
+    /// Logique d'interaction pour UcListMovie.xaml
     /// </summary>
-    public partial class Hero : Page
+    public partial class UcListMovie : UserControl
     {
-        public Hero()
+        public UcListMovie()
         {
             InitializeComponent();
         }

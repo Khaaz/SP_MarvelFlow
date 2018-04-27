@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MarvelFlow.App
+namespace MarvelFlow.App.controls
 {
     /// <summary>
-    /// Logique d'interaction pour Movie.xaml
+    /// Logique d'interaction pour UcMovie.xaml
     /// </summary>
-    public partial class Movie : Page
+    public partial class UcMovie : UserControl
     {
-        public Movie()
+        public UcMovie()
         {
             InitializeComponent();
         }
