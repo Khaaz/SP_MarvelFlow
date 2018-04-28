@@ -1,0 +1,45 @@
+<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid x:Name="___Grid__Générale">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Black" Grid.Row="1" Stroke="Black" UseLayoutRounding="False"/>
+        <Rectangle Fill="Black" Grid.Row="2" Stroke="Black" UseLayoutRounding="False"/>
+        <Grid x:Name="___Grid__Bannière" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="Black" Grid.Column="0" Stroke="Black" UseLayoutRounding="False"/>
+            <Rectangle Fill="Black" Grid.Column="1" Stroke="Black" UseLayoutRounding="False"/>
+            <Rectangle Fill="Black" Grid.Column="2" Stroke="Black" UseLayoutRounding="False"/>
+            <Image Source="marvelLogo.png"  Stretch="Fill" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27.378" Margin="30,7.311" Width="112.334"/>
+
+
+        </Grid>
+        <Grid x:Name="___Grid__3_Boutons_Home" Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Content="search" Grid.Column="2" Background="Black" Foreground="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <TextBox Grid.Column="2" TextWrapping="Wrap" Text="..." VerticalAlignment="Center" Margin="0,7.684,57,7.683" BorderBrush="White" Background="Black" Foreground="White" BorderThickness="2" />
+            <Button Content="Retour"  Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Black" Foreground="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2" />
+
+            <ComboBox Grid.Column="1" VerticalAlignment="Center" Margin="9,5.684,9,5.683" BorderBrush="Red" Foreground="White" Background="White"   />
+        </Grid>
+
+    </Grid>
+</Window>
