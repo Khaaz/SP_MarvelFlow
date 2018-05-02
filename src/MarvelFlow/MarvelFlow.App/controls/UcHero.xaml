@@ -5,8 +5,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MarvelFlow.App.controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="300" d:DesignWidth="525">
+    <Grid x:Name="___Grid__Générale">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Black" Grid.Row="1" Stroke="Black" UseLayoutRounding="False"/>
+        <Rectangle Fill="Black" Grid.Row="0" Stroke="Black" UseLayoutRounding="False"/>
+        <Rectangle Fill="Black" Grid.Row="2" Stroke="Black" UseLayoutRounding="False"/>
+        <Grid x:Name="___Grid__Bannière" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png"  Stretch="Fill" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27.378" Margin="30,7.311" Width="112.334"/>
+
+
+        </Grid>
+        <Grid x:Name="___Grid___NOM_HERO" Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Retour"  Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Black" Foreground="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2" />
+            <TextBlock Foreground="White" FontWeight="Bold"  TextAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="NOM HERO"/>
+        </Grid>
+        <Grid x:Name="___Grid__Zone_descriptif" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Image  Source="pack://application:,,,/MarvelFlow.App;component/Images/affiche.jpg" Grid.Column="0" Stretch="Uniform" StretchDirection="Both" Margin="0,5,0,0"/>
+            <ScrollBar Grid.Column="2"  Grid.RowSpan="2" HorizontalAlignment="Right" MinWidth="0" Margin="0,10,10,10" Width="13"  />
+            <Button Content="FAV"  Grid.Row="1" Grid.Column="0" Margin="7,24,7,15" MaxWidth="100" MaxHeight="80" Foreground="White" FontWeight="Bold" Background="#FFEEA200" />
+            <Rectangle Grid.Column="0"  Stroke="White" StrokeThickness="1"/>
+            <TextBox Grid.Column="2" Grid.RowSpan="2" Margin="11,0,33,0" Background="{x:Null}" Foreground="White" Text="Voici le texte descriptif du héro" BorderBrush="{x:Null}"/>
+
+        </Grid>
     </Grid>
 </UserControl>

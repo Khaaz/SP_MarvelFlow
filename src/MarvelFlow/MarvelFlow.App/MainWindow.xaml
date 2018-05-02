@@ -13,15 +13,37 @@
             <Setter Property="Margin" Value="10,0,10,0"></Setter>
         </Style>
     </Window.Resources>
+    <Grid x:Name="___Grid__Générale">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Black" Grid.Row="1" Stroke="Black" UseLayoutRounding="False"/>
+        <Rectangle Fill="Black" Grid.Row="2" Stroke="Black" UseLayoutRounding="False"/>
+        <Grid x:Name="___Grid__Bannière" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="Black" Grid.Column="0" Stroke="Black" UseLayoutRounding="False"/>
+            <Rectangle Fill="Black" Grid.Column="1" Stroke="Black" UseLayoutRounding="False"/>
+            <Rectangle Fill="Black" Grid.Column="2" Stroke="Black" UseLayoutRounding="False"/>
+            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png"  Stretch="Fill" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27.378" Margin="30,7.311" Width="112.334"/>
 
-    <Grid>
-        <Grid x:Name="BANNIERE" Height="36" VerticalAlignment="Top" HorizontalAlignment="Right" Width="517">
-            <Rectangle Fill="Black" Margin="0,0.333,0,0" Stroke="#FFED1D24" StrokeThickness="0"/>
-            <Image x:Name="marvelLogo_png" Margin="226.41,7.914,231.41,8.573" Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png" VerticalAlignment="Center" Stretch="Fill"/>
-            <Image x:Name="pdp_png" Margin="0,3.333,78.653,3.333" Source="pack://application:,,,/MarvelFlow.App;component/Images/pdp.png" Stretch="Fill" HorizontalAlignment="Right" Width="29.334"/>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,8.906,10,8.573" TextWrapping="Wrap" Width="79.667" Text="Guest" Foreground="White" TextAlignment="Center"/>
+
         </Grid>
-        <ContentPresenter Content="{Binding CurrentControl}"></ContentPresenter>
+        <Grid x:Name="___Grid__3_Boutons_Home" Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button Content="HEROS" Grid.Column="0" Background="Black" Foreground="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
+            <Button Content="FILM" Grid.Column="1" Background="Black" Foreground="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
+            <Button Content="PROFIL" Grid.Column="2" Background="Black" Foreground="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
 
+        </Grid>
     </Grid>
 </Window>
