@@ -8,24 +8,12 @@
              d:DesignHeight="300" d:DesignWidth="525">
     <Grid x:Name="___Grid__Générale">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="0.75*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
-        <Rectangle Fill="Black" Grid.Row="1" Stroke="Black" UseLayoutRounding="False"/>
-        <Rectangle Fill="Black" Grid.Row="0" Stroke="Black" UseLayoutRounding="False"/>
-        <Rectangle Fill="Black" Grid.Row="2" Stroke="Black" UseLayoutRounding="False"/>
-        <Grid x:Name="___Grid__Bannière" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png"  Stretch="Fill" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27.378" Margin="30,7.311" Width="112.334"/>
 
-
-        </Grid>
-        <Grid x:Name="___Grid__3_Boutons_Home" Grid.Row="1" >
+        <!--Ligne 1-->
+        <Grid x:Name="___Grid__3_Boutons_Home" Grid.Row="0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -36,16 +24,17 @@
             <Button Content="search" Grid.Column="2" Background="Black" Foreground="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"/>
             <TextBox Grid.Column="2" TextWrapping="Wrap" Text="..." VerticalAlignment="Center" Margin="0,7.684,57,7.683" BorderBrush="White" Background="Black" Foreground="White" BorderThickness="2" />
 
-
             <ComboBox Grid.Column="1" VerticalAlignment="Center" Margin="9,5.684,9,5.683" BorderBrush="Red" Foreground="White" Background="White"   />
         </Grid>
-        <Grid x:Name="___Grid__Zone_de_recherche" Grid.Row="2">
+
+        <!--Ligne 2-->
+        <Grid x:Name="___Grid__Zone_de_recherche" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*" />
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
-            <ScrollBar Grid.Column="1" Margin="16.5,10"/>
 
+            <ScrollBar Grid.Column="1" Margin="16.5,10"/>
         </Grid>
     </Grid>
 </UserControl>

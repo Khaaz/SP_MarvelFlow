@@ -2,6 +2,7 @@
 # Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/WpfApplication1
-/WpfApplication1/bin/Debug
-/WpfApplication1/obj/Debug
+/src/.vs/WpfApplication1
+/src/MarvelFlow/.vs/MarvelFlow
+/src/MarvelFlow/bin/Debug
+/src/MarvelFlow/obj/Debug

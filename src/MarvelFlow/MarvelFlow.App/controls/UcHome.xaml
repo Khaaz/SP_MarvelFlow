@@ -5,21 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MarvelFlow.App.controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="525">
     <Grid>
-        <Grid x:Name="Centre" Margin="0,36,0,0">
-            <Rectangle Stroke="#FF101011" StrokeThickness="5" Fill="Black"/>
-            <DockPanel x:Name="_3_boutons" Height="51" VerticalAlignment="Top">
-                <Button x:Name="button" Content="HEROS" Margin="0" Width="173" Height="28" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" BorderThickness="0,1,1,1"/>
-                <Button x:Name="button_Copy" Content="FILMS" Margin="0" Width="173" Height="28" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" BorderThickness="0,1,1,1"/>
-                <Button x:Name="button_Copy1" Content="PROFIL" Margin="0" Width="173" Height="28" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" BorderThickness="0,1,1,1"/>
-            </DockPanel>
-            <TextBlock Height="22.667" Margin="226,58.333,130.333,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        </Grid>
-        <Grid x:Name="Fiche" Margin="0,87,0,0">
-            <Grid x:Name="PosterImage" HorizontalAlignment="Left" Margin="0,0,0,65.333" Width="122.667">
-                <Image x:Name="affichetest_jpg" Margin="10,7.333,12,10" Source="pack://application:,,,/MarvelFlow.App;component/Images/affichetest.jpg" Stretch="Fill"/>
-            </Grid>
-        </Grid>    
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.75*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Content="HERO" Grid.Row="0" Grid.Column="0"
+                Background="Black" Foreground="White" 
+                BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
+        <Button Content="FILM" Grid.Row="0" Grid.Column="1"
+                Background="Black" Foreground="White" 
+                BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
+        <Button Content="PROFIL" Grid.Row="0" Grid.Column="2" 
+                Background="Black" Foreground="White" 
+                BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
+
+        <Image x:Name="affichetest_jpg" Source="pack://application:,,,/MarvelFlow.App;component/Images/affichetest.jpg"
+               Grid.Row="1" Grid.Column="0"
+               Margin="10,7.333,12,10" Stretch="Fill"/>
     </Grid>
 </UserControl>

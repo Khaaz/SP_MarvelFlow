@@ -8,28 +8,15 @@
              d:DesignHeight="300" d:DesignWidth="525">
     <Grid x:Name="___Grid__Générale">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="0.75*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
-        <Rectangle Fill="Black" Grid.Row="1" Stroke="Black" UseLayoutRounding="False"/>
-        <Rectangle Fill="Black" Grid.Row="0" Stroke="Black" UseLayoutRounding="False"/>
-        <Rectangle Fill="Black" Grid.Row="2" Stroke="Black" UseLayoutRounding="False"/>
-        <Grid x:Name="___Grid__Bannière" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png"  Stretch="Fill" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27.378" Margin="30,7.311" Width="112.334"/>
-
-
-        </Grid>
-        <Grid x:Name="___Grid___TITRE_FILM" Grid.Row="1" >
+        
+        <!--Ligne 1-->
+        <Grid x:Name="___Grid___TITRE_FILM" Grid.Row="0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="2*" />
-
             </Grid.ColumnDefinitions>
 
             <Button Content="Retour"  Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Black" Foreground="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2" />
@@ -37,7 +24,9 @@
                 <Run Text="TITRE DU FILM"/>
             </TextBlock>
         </Grid>
-        <Grid x:Name="___Grid__Zone_de_description" Grid.Row="2">
+        
+        <!--Ligne 2-->
+        <Grid x:Name="___Grid__Zone_de_description" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
