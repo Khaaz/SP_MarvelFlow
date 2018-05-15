@@ -7,3 +7,9 @@ U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.C
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.csproj.CoreCompileInputs.cache
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.dll
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.pdb
+C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.dll
+C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.pdb
+C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.dll
+C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.pdb
