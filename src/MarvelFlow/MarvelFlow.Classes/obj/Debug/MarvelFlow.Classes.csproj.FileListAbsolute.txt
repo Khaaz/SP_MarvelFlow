@@ -13,3 +13,9 @@ C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\
 C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.dll
 C:\Users\User\Documents\MARVELFLOW\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.pdb
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.dll
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Classes\bin\Debug\MarvelFlow.Classes.pdb
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.csprojResolveAssemblyReference.cache
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.csproj.CoreCompileInputs.cache
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.dll
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Classes\obj\Debug\MarvelFlow.Classes.pdb

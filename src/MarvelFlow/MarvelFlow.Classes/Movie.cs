@@ -21,7 +21,7 @@ namespace MarvelFlow.Classes
 
         private DateTime dateSortie { get; set; }
 
-        private readonly List<Hero> listHeros1;
+        private List<Hero> listHeros;
 
         
         protected Movie(string mId, string titre, string affiche, string real, DateTime dateSortie, List<Hero> listHeros)
@@ -37,12 +37,12 @@ namespace MarvelFlow.Classes
             {
                 this.sortie = false ;
             }
-            this.listHeros1 = listHeros;
+            this.listHeros = listHeros;
         }
 
         private List<Hero> GetlistHeros()
         {
-            return listHeros1;
+            return listHeros;
         }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes
 {
-    enum Team
+    public enum Team
     {
         Avengers,
         GuardienGalaxy,
@@ -15,18 +15,19 @@ namespace MarvelFlow.Classes
         FamilleAsgardian
     }
 
-    enum Statut
+    public enum Statut
     {
         Neutre,
         Gentil,
-        Méchant
+        Mechant
     }
 
-    enum Universe
+    public enum Universe
     {
         MCU,
         SerieNetflix
     }
+
     public class Hero
     {
         
@@ -51,56 +52,54 @@ namespace MarvelFlow.Classes
         private List<Movie> listMovies { get;}
 
         // CONSTRUCTEURS //
-        private Hero(string hId, string nomHero, string image, string desc, Statut status, Team teamHeros, Universe univers)
-        {
-            if (string.IsNullOrWhiteSpace(nomHero))
-            {
-                throw new ArgumentException("message", nameof(nomHero));
-            }
-
-            this.hId = hId;
-            this.nomHero = nomHero;
-            this.image = image;
-            this.desc = desc;
-            this.status = status;
-            fav = false;
-            this.teamHeros = teamHeros;
-            this.univers = univers;
-        }
         
+
         //constructeur avec certains attributs prédéfinis :
-                //  status = neutre  &  univers = MCU
-        private Hero(string hId, string image, string nomHero, string desc, Team teamHeros)
+        //  status = neutre  &  univers = MCU
+        public Hero(string hId, string nomHero, string image , string desc, Team teamHeros)
         {
-            if (string.IsNullOrWhiteSpace(nomHero))
+            if (string.IsNullOrEmpty(hId))
             {
-                throw new ArgumentException("message", nameof(nomHero));
+                throw new ArgumentException("Id du hero nulle", nameof(hId));
+            }
+
+            if (string.IsNullOrEmpty(nomHero))
+            {
+                throw new ArgumentException("Nom du hero nulle", nameof(nomHero));
             }
 
             this.hId = hId;
             this.nomHero = nomHero;
             this.image = image;
-            this.desc = desc;
-            status = Statut.Neutre;
+            this.desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
+            this.status = Statut.Neutre;
             fav = false;
             this.teamHeros = teamHeros;
-            univers = Universe.MCU;
+            this.univers = Universe.MCU;
+
+        }
+
+        public Hero(string hId, string nomHero, string image, string desc, Statut status, Team teamHeros, Universe univers) 
+            : this(hId, nomHero, image, desc, teamHeros)
+        {
+            this.status = status;
+            this.univers = univers;
         }
 
         // METHODES //
-        private Team setTeamHeros()
-                {
-                    return teamHeros;
-                }
+        public Team GetTeamHeros()
+        {
+           return teamHeros;
+        }
 
-                private void setTeamHeros(Team value)
-                {
-                    teamHeros = value;
-                }
+        private void setTeamHeros(Team value)
+        {
+            teamHeros = value;
+        }
 
         public override string ToString()
         {
-            return base.ToString();
+            return nomHero;
         }
 
         public override bool Equals(object obj)

@@ -7,3 +7,9 @@ U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\bin\Debug\MarvelFlow.Data
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.csproj.CoreCompileInputs.cache
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.dll
 U:\C#Project\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.pdb
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Data\bin\Debug\MarvelFlow.Data.dll
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Data\bin\Debug\MarvelFlow.Data.pdb
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.csprojResolveAssemblyReference.cache
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.csproj.CoreCompileInputs.cache
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.dll
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.Data\obj\Debug\MarvelFlow.Data.pdb
