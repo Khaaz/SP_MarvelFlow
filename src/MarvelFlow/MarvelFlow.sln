@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarvelFlow.App", "MarvelFlow.App\MarvelFlow.App.csproj", "{8C7CE4B0-CF3C-46BA-A45B-636660314D74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarvelFlow.Classes", "MarvelFlow.Classes\MarvelFlow.Classes.csproj", "{7D5A9FF3-E584-4F7F-8E25-E8011ADA1DE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarvelFlow.Data", "MarvelFlow.Data\MarvelFlow.Data.csproj", "{D81E7AC5-FB16-4EEA-BD93-6F93B57660F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarvelFlow.Service", "MarvelFlow.Service\MarvelFlow.Service.csproj", "{3858F0AA-486E-4D21-A4F8-808202B24BE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,15 @@ Global
 		{7D5A9FF3-E584-4F7F-8E25-E8011ADA1DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D5A9FF3-E584-4F7F-8E25-E8011ADA1DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D5A9FF3-E584-4F7F-8E25-E8011ADA1DE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D81E7AC5-FB16-4EEA-BD93-6F93B57660F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D81E7AC5-FB16-4EEA-BD93-6F93B57660F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D81E7AC5-FB16-4EEA-BD93-6F93B57660F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D81E7AC5-FB16-4EEA-BD93-6F93B57660F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3858F0AA-486E-4D21-A4F8-808202B24BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3858F0AA-486E-4D21-A4F8-808202B24BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3858F0AA-486E-4D21-A4F8-808202B24BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3858F0AA-486E-4D21-A4F8-808202B24BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {933281CF-688E-40A6-ACE6-BDCAA2A13798}
 	EndGlobalSection
 EndGlobal

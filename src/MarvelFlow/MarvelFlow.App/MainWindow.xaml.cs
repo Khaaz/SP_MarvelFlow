@@ -1,9 +1,11 @@
-﻿using MarvelFlow.App.controls;
+﻿using MarvelFlow.App.Views;
 using MarvelFlow.Classes;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,33 +34,25 @@ namespace MarvelFlow.App
             InitializeComponent();
             DataContext = this;
             CurrentControl = new UcHome();
-            List < Hero > heros = new List<Hero>();
+
+
+            List<Hero> heros = new List<Hero>();
             heros.Add(new Hero("IM", "Iron Man", "source/image", "description", Team.Avengers));
             heros.Add(new Hero("SM", "Spider Man", "image/spiderman", "description", Team.Avengers));
 
+
+            string filePath = ConfigurationManager.AppSettings["jsonPathHero"];
+
+
+            List<Hero> HeroList = JsonConvert.DeserializeObject<List<Hero>>(File.ReadAllText(filePath));
+
             Console.WriteLine("HELLO WORLD");
-            foreach(Hero h in heros)
-            {
-                Console.WriteLine($"\n {h}");
-            }
 
-            List <Hero> HeroList = new List<Hero>();
+            Hero IM = HeroList.SingleOrDefault(h => h.HId == "IM");
 
+            IEnumerable<Hero> SM = HeroList.Where(h => h.HId == "SM");
 
-            string filePath = "C:\\Users\\AM\\Documents\\GIT\\marvelflow\\src\\MarvelFlow\\MarvelFlow.App\\DBLocal\\Hero.json";
-
-            
-            string res = "";
-
-            using (StreamReader r = new StreamReader(filePath))
-            {
-                var jSon = r.ReadToEnd();
-                Console.WriteLine(jSon);
-                var jObj = JObject.Parse(jSon);
-                Console.WriteLine(jObj);
-            };
-            
-          
+            Console.WriteLine(IM.ToString());
 
         }
 

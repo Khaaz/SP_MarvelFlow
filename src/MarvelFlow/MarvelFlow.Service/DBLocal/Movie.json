@@ -1,0 +1,20 @@
+﻿[
+  {
+    "HId": "IM",
+    "nomHero": "Iron Man",
+    "image": "source/image",
+    "desc": "description",
+    "team": "Avengers",
+    "status": 0,
+    "univers": 0
+  },
+  {
+    "HId": "SM",
+    "nomHero": "Spider Man",
+    "image": "source/image",
+    "desc": "description",
+    "team": "Avengers",
+    "status": 0,
+    "univers": 0
+  }
+]

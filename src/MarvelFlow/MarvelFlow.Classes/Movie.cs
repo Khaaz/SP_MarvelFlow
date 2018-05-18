@@ -19,11 +19,13 @@ namespace MarvelFlow.Classes
 
         private bool sortie { get; }
 
+        private string description { get; set; }
+
         private DateTime dateSortie { get; set; }
 
         private List<Hero> listHeros;
 
-        
+
         protected Movie(string mId, string titre, string affiche, string real, DateTime dateSortie, List<Hero> listHeros)
         {
             this.mId = mId;
@@ -35,9 +37,10 @@ namespace MarvelFlow.Classes
             bool testSortie = dateSortie < DateTime.Now;
             if (testSortie)
             {
-                this.sortie = false ;
+                this.sortie = false;
             }
             this.listHeros = listHeros;
+            description = "TEST DESCRIPTION AVEC RIEN DEDANS";
         }
 
         private List<Hero> GetlistHeros()

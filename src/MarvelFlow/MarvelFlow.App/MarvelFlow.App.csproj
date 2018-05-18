@@ -47,10 +47,8 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -76,27 +74,27 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Page Include="controls\UcHero.xaml">
+    <Page Include="Views\UcHero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\UcHome.xaml">
+    <Page Include="Views\UcHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\UcListHero.xaml">
+    <Page Include="Views\UcListHero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\UcListMovie.xaml">
+    <Page Include="Views\UcListMovie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\UcMovie.xaml">
+    <Page Include="Views\UcMovie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\UcProfile.xaml">
+    <Page Include="Views\UcProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,22 +106,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="controls\UcHero.xaml.cs">
+    <Compile Include="Views\UcHero.xaml.cs">
       <DependentUpon>UcHero.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\UcHome.xaml.cs">
+    <Compile Include="Views\UcHome.xaml.cs">
       <DependentUpon>UcHome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\UcListHero.xaml.cs">
+    <Compile Include="Views\UcListHero.xaml.cs">
       <DependentUpon>UcListHero.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\UcListMovie.xaml.cs">
+    <Compile Include="Views\UcListMovie.xaml.cs">
       <DependentUpon>UcListMovie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\UcMovie.xaml.cs">
+    <Compile Include="Views\UcMovie.xaml.cs">
       <DependentUpon>UcMovie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\UcProfile.xaml.cs">
+    <Compile Include="Views\UcProfile.xaml.cs">
       <DependentUpon>UcProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -149,7 +147,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="DBLocal\Hero.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -165,9 +162,9 @@
       <Project>{7d5a9ff3-e584-4f7f-8e25-e8011ada1de5}</Project>
       <Name>MarvelFlow.Classes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MarvelFlow.Data\MarvelFlow.Data.csproj">
-      <Project>{d81e7ac5-fb16-4eea-bd93-6f93b57660f0}</Project>
-      <Name>MarvelFlow.Data</Name>
+    <ProjectReference Include="..\MarvelFlow.Service\MarvelFlow.Service.csproj">
+      <Project>{3858f0aa-486e-4d21-a4f8-808202b24be6}</Project>
+      <Name>MarvelFlow.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\affichetest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

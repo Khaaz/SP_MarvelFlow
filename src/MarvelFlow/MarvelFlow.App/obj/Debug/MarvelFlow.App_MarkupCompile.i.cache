@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\App.xaml
-7-975088122
+7-519542231
 
-17-1895210154
-721554996166
-controls\UcHero.xaml;controls\UcHome.xaml;controls\UcListHero.xaml;controls\UcListMovie.xaml;controls\UcMovie.xaml;controls\UcProfile.xaml;MainWindow.xaml;
+171902324758
+722035494614
+Views\UcHero.xaml;Views\UcHome.xaml;Views\UcListHero.xaml;Views\UcListMovie.xaml;Views\UcMovie.xaml;Views\UcProfile.xaml;MainWindow.xaml;
 
-True
+False
 

@@ -33,7 +33,7 @@ namespace MarvelFlow.Classes
         
         // ATTRIBUT //
 
-        private string hId { get; set; }
+        private string hId { get;  set; }
 
         private string nomHero { get; set; }
 
@@ -43,16 +43,15 @@ namespace MarvelFlow.Classes
 
         private Statut status { get; set; }
 
-        private Boolean fav { get; set; }
-
-        private Team teamHeros;
+        private Team teamHeros { get; set; }
 
         private Universe univers { get; set; }
 
         private List<Movie> listMovies { get;}
 
+        private Boolean fav { get; set; }
+
         // CONSTRUCTEURS //
-        
 
         //constructeur avec certains attributs prédéfinis :
         //  status = neutre  &  univers = MCU
@@ -87,16 +86,7 @@ namespace MarvelFlow.Classes
         }
 
         // METHODES //
-        public Team GetTeamHeros()
-        {
-           return teamHeros;
-        }
-
-        private void setTeamHeros(Team value)
-        {
-            teamHeros = value;
-        }
-
+        
         public override string ToString()
         {
             return nomHero;

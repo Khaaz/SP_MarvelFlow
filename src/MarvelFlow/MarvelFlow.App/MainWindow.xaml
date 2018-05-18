@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarvelFlow.App"
-        xmlns:control="clr-namespace:MarvelFlow.App.controls"
+        xmlns:View="clr-namespace:MarvelFlow.App.Views"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
@@ -37,6 +37,6 @@
                Height="27.378" Margin="30,7.311" Width="112.334"/>
 
         <!-- Ligne 2 (UC) -->
-        <control:UcHome Grid.Row="1" Grid.ColumnSpan="3"></control:UcHome>
+        <View:UcHome Grid.Row="1" Grid.ColumnSpan="3"></View:UcHome>
     </Grid>
 </Window>
