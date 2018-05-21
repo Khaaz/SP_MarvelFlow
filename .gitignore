@@ -2,7 +2,100 @@
 # Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
 ################################################################################
 
-/src/.vs/WpfApplication1
-/src/MarvelFlow/.vs/MarvelFlow
+/src/MarvelFlow/.vs/
 /src/MarvelFlow/bin/Debug
 /src/MarvelFlow/obj/Debug
+
+# App
+/src/MarvelFlow.App/bin/Debug
+/src/MarvelFlow.App/obj/Debug
+# Classes
+/src/MarvelFlow.Classes/bin/Debug
+/src/MarvelFlow.Classes/obj/Debug
+# Service
+/src/MarvelFlow.Service/bin/Debug
+/src/MarvelFlow.Service/obj/Debug
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.log
+*.scc
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+
+# Windows Azure Build Output
+csx
+*.build.csdef
+
+# Windows Store app package directory
+AppPackages/
+
+# Others
+*.Cache
+ClientBin/
+[Ss]tyle[Cc]op.*
+~$*
+*~
+*.dbmdl
+*.[Pp]ublish.xml
+*.pfx
+*.publishsettings
+modulesbin/
+tempbin/
+
+# =========================
+# Windows detritus
+# =========================
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Visual Studio temp something
+.vs/
+
+# dotnet stuff
+project.lock.json
+
+# VS 2015+
+*.vc.vc.opendb
+*.vc.db
