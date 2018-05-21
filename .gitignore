@@ -3,6 +3,7 @@
 ################################################################################
 
 /src/MarvelFlow/.vs/
+*.vs/
 # App
 /src/MarvelFlow/MarvelFlow.App/bin/Debug
 /src/MarvelFlow/MarvelFlow.App/obj/Debug
