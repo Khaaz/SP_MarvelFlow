@@ -1,4 +1,7 @@
 ﻿using MarvelFlow.Classes;
+using MarvelFlow.Service.Data;
+using MarvelFlow.Service.Factory;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -10,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Service
 {
-    class ManagerJson
+    public class ManagerJson
     {
         public static List<Hero> InitJsonDB()
         {
@@ -18,11 +21,11 @@ namespace MarvelFlow.Service
 
             string jsonAsString = File.ReadAllText(filePath);
 
-            Object tempListHero = JObject.Parse(jsonAsString);
-            Console.WriteLine(tempListHero);
+            List<HeroJson> HeroList = JsonConvert.DeserializeObject<List<HeroJson>>(jsonAsString);
 
-            return new List<Hero>();
-            //https://www.newtonsoft.com/json/help/html/SerializingJSONFragments.htm
-        }
+            List<Hero> listHero = HeroList.ToListHero().ToList();
+                
+            return listHero;
+        }      
     }
 }

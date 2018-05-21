@@ -1,7 +1,6 @@
 ﻿using MarvelFlow.App.Views;
 using MarvelFlow.Classes;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,16 +42,17 @@ namespace MarvelFlow.App
 
             string filePath = ConfigurationManager.AppSettings["jsonPathHero"];
 
+            ManagerJson.InitJsonDB();
 
-            List<Hero> HeroList = JsonConvert.DeserializeObject<List<Hero>>(File.ReadAllText(filePath));
+            //List<Hero> HeroList = JsonConvert.DeserializeObject<List<Hero>>(File.ReadAllText(filePath));
 
-            Console.WriteLine("HELLO WORLD");
+            //Console.WriteLine("HELLO WORLD");
 
-            Hero IM = HeroList.SingleOrDefault(h => h.HId == "IM");
+            //Hero IM = HeroList.SingleOrDefault(h => h.HId == "IM");
 
-            IEnumerable<Hero> SM = HeroList.Where(h => h.HId == "SM");
+            //IEnumerable<Hero> SM = HeroList.Where(h => h.HId == "SM");
 
-            Console.WriteLine(IM.ToString());
+            //Console.WriteLine(IM.ToString());
 
         }
 

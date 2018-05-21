@@ -72,10 +72,9 @@ namespace MarvelFlow.Classes
             this.image = image;
             this.desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
             this.status = Statut.Neutre;
-            fav = false;
             this.teamHeros = teamHeros;
             this.univers = Universe.MCU;
-
+            fav = false;
         }
 
         public Hero(string hId, string nomHero, string image, string desc, Statut status, Team teamHeros, Universe univers) 

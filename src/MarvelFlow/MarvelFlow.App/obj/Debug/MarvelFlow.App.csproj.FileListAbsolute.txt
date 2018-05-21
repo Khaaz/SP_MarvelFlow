@@ -126,10 +126,8 @@ C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\Gal
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\GalaSoft.MvvmLight.Extras.dll
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\GalaSoft.MvvmLight.Platform.dll
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.Classes.dll
-C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.Data.dll
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.Classes.pdb
-C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.Data.pdb
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\GalaSoft.MvvmLight.pdb
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\GalaSoft.MvvmLight.xml
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
@@ -151,8 +149,6 @@ C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Mar
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\MarvelFlow.App.csproj.CopyComplete
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\MarvelFlow.App.exe
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\MarvelFlow.App.pdb
-C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\Newtonsoft.Json.dll
-C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\Newtonsoft.Json.xml
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Views\UcHero.g.cs
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Views\UcHome.g.cs
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Views\UcListHero.g.cs
@@ -165,3 +161,7 @@ C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Vie
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Views\UcListMovie.baml
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Views\UcMovie.baml
 C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\obj\Debug\Views\UcProfile.baml
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.Service.dll
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\Newtonsoft.Json.dll
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\MarvelFlow.Service.pdb
+C:\Users\AM\Documents\GIT\marvelflow\src\MarvelFlow\MarvelFlow.App\bin\Debug\Newtonsoft.Json.xml
