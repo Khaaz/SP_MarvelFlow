@@ -1,19 +1,19 @@
 ﻿[
   {
-    "HId": "IM",
-    "NomHero": "Iron Man",
+    "Id": "IM",
+    "Name": "Iron Man",
     "Image": "source/image",
     "Desc": "description",
-    "Team": "Avengers",
+    "Team": 0,
     "Status": 0,
     "Universe": 0
   },
   {
-    "HId": "SM",
-    "NomHero": "Spider Man",
+    "Id": "SM",
+    "Name": "Spider Man",
     "Image": "source/image",
     "Desc": "description",
-    "Team": "Avengers",
+    "Team": 0,
     "Status": 0,
     "Universe": 0
   }

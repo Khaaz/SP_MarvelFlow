@@ -1,0 +1,33 @@
+﻿[
+  {
+    "ID": "DD",
+    "Title": "Dare Devil",
+    "Desc":  "description",
+    "NumberSeason": 2,
+    "ListSeason": [
+      {
+        "SeasonNumber": 1,
+        "NumberEpisodes": 10,
+        "ListEpisodes": [
+          {
+            "EpisodeNumber": 1,
+            "Title": "Intro",
+            "Affiche": "source/image",
+            "Desc": "description",
+            "Realisateur": "real",
+            "Date": "Date"
+          },
+          {
+            "EpisodeNumber": 2,
+            "Title": "1er ep",
+            "Affiche": "source/image",
+            "Desc": "description",
+            "Realisateur": "real",
+            "Date": "Date"
+          }
+        ]
+      }
+    ],
+    "isOver": false
+  }
+]

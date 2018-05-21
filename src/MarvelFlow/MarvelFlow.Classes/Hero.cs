@@ -6,89 +6,90 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes
 {
-    public enum Team
-    {
-        Avengers,
-        GuardienGalaxy,
-        Dora,
-        BlackOrder,
-        FamilleAsgardian
-    }
-
-    public enum Statut
-    {
-        Neutre,
-        Gentil,
-        Mechant
-    }
-
-    public enum Universe
-    {
-        MCU,
-        SerieNetflix
-    }
-
     public class Hero
     {
-        
-        // ATTRIBUT //
 
-        private string hId { get;  set; }
+        private string id { get;  set; }
 
-        private string nomHero { get; set; }
+        private string name { get; set; }
 
         private string image { get; set; }
 
         private string desc { get; set; }
 
-        private Statut status { get; set; }
+        private Status status { get; set; }
 
-        private Team teamHeros { get; set; }
+        private Team team { get; set; }
 
-        private Universe univers { get; set; }
+        private Universe universe { get; set; }
 
-        private List<Movie> listMovies { get;}
+        private List<Movie> listMovies { get; set; }
 
         private Boolean fav { get; set; }
 
-        // CONSTRUCTEURS //
-
-        //constructeur avec certains attributs prédéfinis :
-        //  status = neutre  &  univers = MCU
-        public Hero(string hId, string nomHero, string image , string desc, Team teamHeros)
+        /// <summary>
+        /// Default constructor. Status + universe default (neutral +  MCU)
+        /// 
+        /// fav is default to false
+        /// desc if null default to "desc"
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="image"></param>
+        /// <param name="desc"></param>
+        /// <param name="team"></param>
+        /// <exception cref="ArgumentException">id + name can't be null</exception>
+        public Hero(string id, string name, string image , string desc, Team team)
         {
-            if (string.IsNullOrEmpty(hId))
+            if (string.IsNullOrEmpty(id))
             {
-                throw new ArgumentException("Id du hero nulle", nameof(hId));
+                throw new ArgumentException("Id du hero null", nameof(id));
             }
 
-            if (string.IsNullOrEmpty(nomHero))
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentException("Nom du hero nulle", nameof(nomHero));
+                throw new ArgumentException("Nom du hero null", nameof(name));
             }
 
-            this.hId = hId;
-            this.nomHero = nomHero;
+            this.id = id;
+            this.name = name;
             this.image = image;
             this.desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
-            this.status = Statut.Neutre;
-            this.teamHeros = teamHeros;
-            this.univers = Universe.MCU;
-            fav = false;
+            this.status = Status.Neutre;
+            this.team = team;
+            this.universe = Universe.MCU;
+            this.fav = false;
         }
 
-        public Hero(string hId, string nomHero, string image, string desc, Statut status, Team teamHeros, Universe univers) 
-            : this(hId, nomHero, image, desc, teamHeros)
+        /// <summary>
+        /// Extends the default constructor
+        /// Adding custom value for status and universe
+        ///
+        /// fav is default to false
+        /// desc if null default to "desc"
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="image"></param>
+        /// <param name="desc"></param>
+        /// <param name="status"></param>
+        /// <param name="team"></param>
+        /// <param name="universe"></param>
+        /// <exception cref="ArgumentException">id + name can't be null</exception>
+        public Hero(string id, string name, string image, string desc, Status status, Team team, Universe universe) 
+            : this(id, name, image, desc, team)
         {
             this.status = status;
-            this.univers = univers;
+            this.universe = universe;
         }
 
-        // METHODES //
+        // Generic //
         
         public override string ToString()
         {
-            return nomHero;
+            return name;
         }
 
         public override bool Equals(object obj)
@@ -100,7 +101,7 @@ namespace MarvelFlow.Classes
         {
             return base.GetHashCode();
         }
-
-       
+        
+        // Custom //
     }
 }

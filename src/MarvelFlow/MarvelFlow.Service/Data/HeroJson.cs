@@ -7,19 +7,17 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Service.Data
 {
-
     public class HeroJson
     {
-        
-        public string HId { get;  set; }
+        public string Id { get;  set; }
 
-        public string NomHero { get; set; }
+        public string Name { get; set; }
 
         public string Image { get; set; }
 
         public string Desc { get; set; }
 
-        public Statut Status { get; set; }
+        public Status Status { get; set; }
 
         public Team Team { get; set; }
 

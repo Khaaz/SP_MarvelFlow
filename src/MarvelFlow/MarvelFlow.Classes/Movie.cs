@@ -9,45 +9,48 @@ namespace MarvelFlow.Classes
 {
     public abstract class Movie
     {
-        private string mId { get; set; }
+        private string title { get; set; }
 
-        private string titre { get; set; }
+        private string affiche { get; set; } // image
 
-        private string affiche { get; set; }
+        private string desc { get; set; }
 
-        private string real { get; set; }
+        private string real { get; set; } // realisateur
 
-        private bool sortie { get; }
+        private bool isOut { get; set; }
 
-        private string description { get; set; }
+        private DateTime date { get; set; } // date de sortie
 
-        private DateTime dateSortie { get; set; }
-
-        private List<Hero> listHeros;
-
-
-        protected Movie(string mId, string titre, string affiche, string real, DateTime dateSortie, List<Hero> listHeros)
+        /// <summary>
+        /// Default constructor Movie
+        /// Abstract => Film or Serie.Season.Episode
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="affiche"></param>
+        /// <param name="desc"></param>
+        /// <param name="real"></param>
+        /// <param name="date"></param>
+        public Movie(string title, string affiche, string desc, string real, DateTime date)
         {
-            this.mId = mId;
-            this.titre = titre;
-            this.affiche = affiche;
-            this.real = real;
-            this.sortie = true;
-            this.dateSortie = dateSortie;
-            bool testSortie = dateSortie < DateTime.Now;
-            if (testSortie)
+
+            if (string.IsNullOrEmpty(title))
             {
-                this.sortie = false;
+                throw new ArgumentException("Titre du film null", nameof(title));
             }
-            this.listHeros = listHeros;
-            description = "TEST DESCRIPTION AVEC RIEN DEDANS";
+
+            this.title = title;
+            this.affiche = affiche;
+            this.desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
+            this.real = real;
+            this.isOut = true;
+            this.date = date;
+            this.isOut = date < DateTime.Now ? false : true;
         }
 
-        private List<Hero> GetlistHeros()
+        public override string ToString()
         {
-            return listHeros;
+            return title + " - " + date;
         }
-
 
         public override bool Equals(object obj)
         {
@@ -57,11 +60,6 @@ namespace MarvelFlow.Classes
         public override int GetHashCode()
         {
             return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
         }
     }
 }

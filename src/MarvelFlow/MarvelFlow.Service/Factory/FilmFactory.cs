@@ -8,22 +8,21 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Service.Factory
 {
-    public static class HeroFactory
+    public static class FilmFactory
     {
-
-        public static IEnumerable<Hero> ToListHero (this IEnumerable<HeroJson> l)
+        public static IEnumerable<Film> ToListFilm(this IEnumerable<FilmJson> l)
         {
-            foreach(HeroJson h in l)
+            foreach (FilmJson f in l)
             {
-                yield return h.ToHero();
+                yield return f.ToFilm();
             }
         }
 
-        public static Hero ToHero(this HeroJson h)
+        public static Film ToFilm(this FilmJson f)
         {
-            Hero NewHero = new Hero(h.Id, h.Name, h.Image, h.Desc, h.Status, h.Team, h.Universe);
+            Film NewFilm = new Film(f.Id, f.Title, f.Affiche, f.Desc, f.Productor, f.Real, f.Date);
 
-            return NewHero;
+            return NewFilm;
         }
 
         /*

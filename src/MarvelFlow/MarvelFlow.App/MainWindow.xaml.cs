@@ -39,10 +39,7 @@ namespace MarvelFlow.App
             heros.Add(new Hero("IM", "Iron Man", "source/image", "description", Team.Avengers));
             heros.Add(new Hero("SM", "Spider Man", "image/spiderman", "description", Team.Avengers));
 
-
-            string filePath = ConfigurationManager.AppSettings["jsonPathHero"];
-
-            ManagerJson.InitJsonDB();
+            ManagerJson.GetHeroes();
 
             //List<Hero> HeroList = JsonConvert.DeserializeObject<List<Hero>>(File.ReadAllText(filePath));
 
