@@ -45,15 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Moviejson.cs" />
+    <Compile Include="Data\SeasonJson.cs" />
+    <Compile Include="Data\EpisodeJson.cs" />
+    <Compile Include="Data\SerieJson.cs" />
     <Compile Include="Data\HeroJson.cs" />
-    <Compile Include="Data\MovieJson.cs" />
+    <Compile Include="Data\FilmJson.cs" />
     <Compile Include="Factory\HeroFactory.cs" />
-    <Compile Include="Factory\MovieFactory.cs" />
+    <Compile Include="Factory\FilmFactory.cs" />
     <Compile Include="ManagerJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DBLocal\Movie.json" />
+    <None Include="DBLocal\Film.json" />
+    <None Include="DBLocal\Serie.json" />
     <None Include="DBLocal\Hero.json" />
     <None Include="packages.config" />
   </ItemGroup>
