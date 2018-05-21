@@ -3,18 +3,15 @@
 ################################################################################
 
 /src/MarvelFlow/.vs/
-/src/MarvelFlow/bin/Debug
-/src/MarvelFlow/obj/Debug
-
 # App
-/src/MarvelFlow.App/bin/Debug
-/src/MarvelFlow.App/obj/Debug
+/src/MarvelFlow/MarvelFlow.App/bin/Debug
+/src/MarvelFlow/MarvelFlow.App/obj/Debug
 # Classes
-/src/MarvelFlow.Classes/bin/Debug
-/src/MarvelFlow.Classes/obj/Debug
+/src/MarvelFlow/MarvelFlow.Classes/bin/Debug
+/src/MarvelFlow/MarvelFlow.Classes/obj/Debug
 # Service
-/src/MarvelFlow.Service/bin/Debug
-/src/MarvelFlow.Service/obj/Debug
+/src/MarvelFlow/MarvelFlow.Service/bin/Debug
+/src/MarvelFlow/MarvelFlow.Service/obj/Debug
 
 # Build results
 [Dd]ebug/
