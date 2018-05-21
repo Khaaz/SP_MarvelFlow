@@ -35,11 +35,9 @@ namespace MarvelFlow.App
             CurrentControl = new UcHome();
 
 
-            List<Hero> heros = new List<Hero>();
-            heros.Add(new Hero("IM", "Iron Man", "source/image", "description", Team.Avengers));
-            heros.Add(new Hero("SM", "Spider Man", "image/spiderman", "description", Team.Avengers));
+            List<Hero> ListHeros = ManagerJson.GetHeroes();
+            List<Film> ListFilms = ManagerJson.GetFilms();
 
-            ManagerJson.GetHeroes();
 
             //List<Hero> HeroList = JsonConvert.DeserializeObject<List<Hero>>(File.ReadAllText(filePath));
 

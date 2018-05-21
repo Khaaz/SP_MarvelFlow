@@ -30,7 +30,7 @@ namespace MarvelFlow.Classes
         /// <param name="desc"></param>
         /// <param name="real"></param>
         /// <param name="date"></param>
-        public Movie(string title, string affiche, string desc, string real, DateTime date)
+        public Movie(string title, string affiche, string desc, string real, string date)
         {
 
             if (string.IsNullOrEmpty(title))
@@ -43,8 +43,11 @@ namespace MarvelFlow.Classes
             this.desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
             this.real = real;
             this.isOut = true;
-            this.date = date;
-            this.isOut = date < DateTime.Now ? false : true;
+
+            DateTime tmpDate = Convert.ToDateTime(date);
+
+            this.date = tmpDate;
+            this.isOut = tmpDate < DateTime.Now ? false : true;
         }
 
         public override string ToString()

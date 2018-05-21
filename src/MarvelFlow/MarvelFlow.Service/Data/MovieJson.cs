@@ -16,7 +16,7 @@ namespace MarvelFlow.Service.Data
 
         public string Real { get; set; }
 
-        public DateTime Date { get; set; }
+        public String Date { get; set; }
 
 
         public Moviejson() { }

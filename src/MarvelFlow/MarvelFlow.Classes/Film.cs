@@ -25,7 +25,7 @@ namespace MarvelFlow.Classes
         /// <param name="productor"></param>
         /// <param name="real"></param>
         /// <param name="date"></param>
-        public Film(string id, string title, string affiche, string desc, Productor productor, string real, DateTime date) 
+        public Film(string id, string title, string affiche, string desc, Productor productor, string real, string date) 
             : base(title, affiche, desc, real, date)
         {
             if (string.IsNullOrEmpty(id))

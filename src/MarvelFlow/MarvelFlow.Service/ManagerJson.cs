@@ -28,7 +28,7 @@ namespace MarvelFlow.Service
             return listHero;
         }
 
-        public static List<Film> getFilms()
+        public static List<Film> GetFilms()
         {
             string filePath = ConfigurationManager.AppSettings["jsonPathFilm"];
 

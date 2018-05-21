@@ -20,7 +20,7 @@ namespace MarvelFlow.Classes
         /// <param name="desc"></param>
         /// <param name="real"></param>
         /// <param name="date"></param>
-        public Episode(int episodeNumber, string title, string affiche, string desc, string real, DateTime date)
+        public Episode(int episodeNumber, string title, string affiche, string desc, string real, string date)
             : base(title, affiche, desc, real, date)
         {
             this.EpisodeNumber = episodeNumber;
