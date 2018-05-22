@@ -7,11 +7,11 @@ using System.Drawing;
 
 namespace MarvelFlow.Service.Data
 {
-    public class EpisodeJson : Moviejson
+    public class EpisodeJson : MovieJson
     {
         public string EpisodeNumber { get; set; }
 
 
-        public EpisodeJson() { }
+        public EpisodeJson() : base() { }
     }
 }

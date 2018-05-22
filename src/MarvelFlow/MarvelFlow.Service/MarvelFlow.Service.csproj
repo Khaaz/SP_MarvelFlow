@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Moviejson.cs" />
+    <Compile Include="Data\MovieJson.cs" />
     <Compile Include="Data\SeasonJson.cs" />
     <Compile Include="Data\EpisodeJson.cs" />
     <Compile Include="Data\SerieJson.cs" />

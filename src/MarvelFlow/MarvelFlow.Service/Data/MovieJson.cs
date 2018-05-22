@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Service.Data
 {
-    public abstract class Moviejson
+    public abstract class MovieJson
     {
         public string Title { get; set; }
 
@@ -16,9 +16,9 @@ namespace MarvelFlow.Service.Data
 
         public string Real { get; set; }
 
-        public String Date { get; set; }
+        public string Date { get; set; }
 
 
-        public Moviejson() { }
+        public MovieJson() { }
     }
 }

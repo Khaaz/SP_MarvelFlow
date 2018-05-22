@@ -2,12 +2,16 @@
   {
     "ID": "DD",
     "Title": "Dare Devil",
-    "Desc":  "description",
-    "NumberSeason": 2,
+    "Affiche": "source/image",
+    "Desc": "description",
+    "Realisateur": "real",
+    "Universe":  0,
+    "Date": "Date",
+    "NumberSeason": 1,
     "ListSeason": [
       {
         "SeasonNumber": 1,
-        "NumberEpisodes": 10,
+        "NumberEpisodes": 2,
         "ListEpisodes": [
           {
             "EpisodeNumber": 1,

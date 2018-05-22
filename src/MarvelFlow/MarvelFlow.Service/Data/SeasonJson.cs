@@ -15,6 +15,7 @@ namespace MarvelFlow.Service.Data
 
         public List<EpisodeJson> ListEpisodes { get; set; }
 
+
         public SeasonJson() { }
     }
 }

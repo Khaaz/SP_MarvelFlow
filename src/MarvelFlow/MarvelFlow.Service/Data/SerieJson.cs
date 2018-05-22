@@ -8,23 +8,19 @@ using MarvelFlow.Classes;
 
 namespace MarvelFlow.Service.Data
 {
-    public class SerieJson
+    public class SerieJson : MovieJson
     {
         public string Id { get; set; }
 
-        public string Title { get; set; }
-
-        public string Desc { get; set; }
-
-        public Productor Productor { get; set; }
+        public Universe Universe { get; set; }
 
         public int NumberSeason { get; set; }
 
         public List<SeasonJson> ListSeasons { get; set; }
 
-        public bool isOver { get; set; }
+        public bool IsOver { get; set; }
 
 
-        public SerieJson() { }
+        public SerieJson() : base() { }
     }
 }

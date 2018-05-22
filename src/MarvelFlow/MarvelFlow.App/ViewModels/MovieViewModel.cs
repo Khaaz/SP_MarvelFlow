@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarvelFlow.App.ViewModel
+namespace MarvelFlow.App.ViewModels
 {
     class MovieViewModel : ViewModelBase
     {

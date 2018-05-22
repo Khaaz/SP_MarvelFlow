@@ -72,14 +72,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\HeroViewModel.cs" />
-    <Compile Include="ViewModel\HomeViewModel.cs" />
-    <Compile Include="ViewModel\ListHeroViewModel.cs" />
-    <Compile Include="ViewModel\ListMovieViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\MovieViewModel.cs" />
-    <Compile Include="ViewModel\ProfileViewModel.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\HeroViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\ListHeroViewModel.cs" />
+    <Compile Include="ViewModels\ListMovieViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MovieViewModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Page Include="Views\UcAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UcHero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UcListMovie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UcLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,6 +120,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\UcAdmin.xaml.cs">
+      <DependentUpon>UcAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UcHero.xaml.cs">
       <DependentUpon>UcHero.xaml</DependentUpon>
     </Compile>
@@ -123,6 +134,9 @@
     </Compile>
     <Compile Include="Views\UcListMovie.xaml.cs">
       <DependentUpon>UcListMovie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcLogin.xaml.cs">
+      <DependentUpon>UcLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UcMovie.xaml.cs">
       <DependentUpon>UcMovie.xaml</DependentUpon>

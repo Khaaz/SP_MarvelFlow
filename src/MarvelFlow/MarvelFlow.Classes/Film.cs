@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarvelFlow.Classes.Lib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes
 {
-    public class Film : Movie
+    public class Film : Movie, IEnumerableMovie
     {
-        private string id { get; set; }
+        public string Id { get; private set; }
 
-        private Productor productor { get; set; }
+        public Universe Universe { get; private set; }
 
         private List<Hero> listHeroes { get; set; }
 
@@ -25,7 +26,7 @@ namespace MarvelFlow.Classes
         /// <param name="productor"></param>
         /// <param name="real"></param>
         /// <param name="date"></param>
-        public Film(string id, string title, string affiche, string desc, Productor productor, string real, string date) 
+        public Film(string id, string title, string affiche, string desc, string real, string date, Universe universe) 
             : base(title, affiche, desc, real, date)
         {
             if (string.IsNullOrEmpty(id))
@@ -33,9 +34,28 @@ namespace MarvelFlow.Classes
                 throw new ArgumentException("Id du film null", nameof(id));
             }
 
-            this.id = id;
-            this.productor = productor;
-            
+            this.Id = id;
+            this.Universe = Universe;
+        }
+
+        public string GetId()
+        {
+            return Id;
+        }
+
+        public string GetTitle()
+        {
+            return Title;
+        }
+
+        public string GetAffiche()
+        {
+            return Affiche;
+        }
+
+        public Universe GetUniverse()
+        {
+            return Universe;
         }
 
         // Custom //

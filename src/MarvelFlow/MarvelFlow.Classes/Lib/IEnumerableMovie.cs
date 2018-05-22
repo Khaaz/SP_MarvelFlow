@@ -8,5 +8,9 @@ namespace MarvelFlow.Classes.Lib
 {
     interface IEnumerableMovie
     {
+        string GetId();
+        string GetTitle();
+        string GetAffiche();
+        Universe GetUniverse();
     }
 }

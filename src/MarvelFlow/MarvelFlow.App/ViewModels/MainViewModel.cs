@@ -1,6 +1,6 @@
 using GalaSoft.MvvmLight;
 
-namespace MarvelFlow.App.ViewModel
+namespace MarvelFlow.App.ViewModels
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.

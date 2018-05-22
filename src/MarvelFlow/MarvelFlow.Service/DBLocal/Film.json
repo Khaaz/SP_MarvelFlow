@@ -4,7 +4,7 @@
     "Title": "Iron Man",
     "Affiche": "source/image",
     "Desc": "description",
-    "Productor": 0,
+    "Universe": 0,
     "Real": "realisateur",
     "Date": "11/02/98"
   },
@@ -13,7 +13,7 @@
     "Title": "Iron Man 2",
     "Affiche": "source/image",
     "Desc": "description",
-    "Productor": 0,
+    "Universe":  0,
     "Real": "realisateur",
     "Date": "11/02/98"
   }

@@ -27,10 +27,4 @@ namespace MarvelFlow.Classes
         MCU,
         SerieNetflix
     }
-
-    public enum Productor
-    {
-        Disney,
-        Netflix
-    }
 }

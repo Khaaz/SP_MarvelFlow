@@ -9,9 +9,9 @@ namespace MarvelFlow.Classes
 {
     public abstract class Movie
     {
-        private string title { get; set; }
+        public string Title { get; private set; }
 
-        private string affiche { get; set; } // image
+        public string Affiche { get; private set; } // image
 
         private string desc { get; set; }
 
@@ -38,11 +38,10 @@ namespace MarvelFlow.Classes
                 throw new ArgumentException("Titre du film null", nameof(title));
             }
 
-            this.title = title;
-            this.affiche = affiche;
+            this.Title = title;
+            this.Affiche = affiche;
             this.desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
             this.real = real;
-            this.isOut = true;
 
             DateTime tmpDate = Convert.ToDateTime(date);
 
@@ -52,7 +51,7 @@ namespace MarvelFlow.Classes
 
         public override string ToString()
         {
-            return title + " - " + date;
+            return Title + " - " + date;
         }
 
         public override bool Equals(object obj)

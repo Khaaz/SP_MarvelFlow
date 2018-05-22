@@ -20,7 +20,7 @@ namespace MarvelFlow.Service.Factory
 
         public static Film ToFilm(this FilmJson f)
         {
-            Film NewFilm = new Film(f.Id, f.Title, f.Affiche, f.Desc, f.Productor, f.Real, f.Date);
+            Film NewFilm = new Film(f.Id, f.Title, f.Affiche, f.Desc, f.Real, f.Date, f.Universe);
 
             return NewFilm;
         }

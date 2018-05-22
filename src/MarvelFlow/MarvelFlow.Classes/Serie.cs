@@ -1,4 +1,5 @@
-﻿using MarvelFlow.Classes.Lib.ExceptionFormat;
+﻿using MarvelFlow.Classes.Lib;
+using MarvelFlow.Classes.Lib.ExceptionFormat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,11 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes
 {
-    public class Serie
+    public class Serie : Movie, IEnumerableMovie
     {
-        private string id { get; set; }
+        public string Id { get; private set; }
 
-        private string title { get; set; }
-
-        private string desc { get; set; }
-
-        private Productor productor { get; set; }
+        public Universe Universe { get; private set; }
 
         private int numberSeasons { get; set; }
 
@@ -36,7 +33,8 @@ namespace MarvelFlow.Classes
         /// <param name="numberSeasons"></param>
         /// <param name="listSeasons"></param>
         /// <param name="isOver"></param>
-        public Serie(string id, string title, string desc, Productor productor, int numberSeasons, Dictionary<int, Season> listSeasons, bool isOver)
+        public Serie(string id, string title, string affiche, string desc, string real, string date, Universe universe, int numberSeasons, Dictionary<int, Season> listSeasons, bool isOver) 
+            : base(title, affiche, desc, real, date)
         {
 
             if (string.IsNullOrEmpty(id))
@@ -44,10 +42,8 @@ namespace MarvelFlow.Classes
                 throw new ArgumentException("Id de la serie null", nameof(id));
             }
 
-            this.id = id;
-            this.title = title;
-            this.desc = desc;
-            this.productor = productor;
+            this.Id = id;
+            this.Universe = universe;
             this.numberSeasons = numberSeasons;
             this.listSeasons = listSeasons;
             this.isOver = isOver;
@@ -131,6 +127,26 @@ namespace MarvelFlow.Classes
             {
                 throw new SerieException(SerieEnum.NOTMATCH);
             }
+        }
+
+        public string GetId()
+        {
+            return Id;
+        }
+
+        public string GetTitle()
+        {
+            return Title;
+        }
+
+        public string GetAffiche()
+        {
+            return Affiche;
+        }
+
+        public Universe GetUniverse()
+        {
+            return Universe;
         }
     }
 }
