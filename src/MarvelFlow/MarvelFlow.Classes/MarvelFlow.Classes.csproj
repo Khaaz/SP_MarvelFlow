@@ -44,8 +44,9 @@
     <Compile Include="Film.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Episode.cs" />
-    <Compile Include="Lib\SerieException.cs" />
-    <Compile Include="Lib\SeasonException.cs" />
+    <Compile Include="Lib\IEnumerableMovie.cs" />
+    <Compile Include="Lib\ExceptionFormat\SerieException.cs" />
+    <Compile Include="Lib\ExceptionFormat\SeasonException.cs" />
     <Compile Include="Season.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serie.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarvelFlow.Classes.Lib
+namespace MarvelFlow.Classes.Lib.ExceptionFormat
 {
     public static class SeasonEnum
     {
