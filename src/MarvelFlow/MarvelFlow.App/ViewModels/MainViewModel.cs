@@ -1,4 +1,8 @@
 using GalaSoft.MvvmLight;
+using MarvelFlow.Classes;
+using MarvelFlow.Service;
+using System;
+using System.Collections.Generic;
 
 namespace MarvelFlow.App.ViewModels
 {
@@ -29,6 +33,11 @@ namespace MarvelFlow.App.ViewModels
             ////{
             ////    // Code runs "for real"
             ////}
+
+            List<Hero> ListHeros = ManagerJson.GetHeroes();
+            List<Film> ListFilms = ManagerJson.GetFilms();
+
+            Console.WriteLine("Hello WORLD");
         }
     }
 }

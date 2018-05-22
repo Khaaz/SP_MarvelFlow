@@ -51,7 +51,55 @@ namespace MarvelFlow.App.ViewModels
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+
+        public HomeViewModel Home
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<HomeViewModel>();
+            }
+        }
+
+        public HeroViewModel Hero
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<HeroViewModel>();
+            }
+        }
+
+        public MovieViewModel Movie
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MovieViewModel>();
+            }
+        }
+
+        public ListHeroViewModel ListHero
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ListHeroViewModel>();
+            }
+        }
+
+        public ListMovieViewModel ListMovie
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ListMovieViewModel>();
+            }
+        }
+
+        public ProfileViewModel Profile
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ProfileViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

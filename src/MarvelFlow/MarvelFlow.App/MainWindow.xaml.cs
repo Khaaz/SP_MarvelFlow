@@ -34,21 +34,6 @@ namespace MarvelFlow.App
             DataContext = this;
             CurrentControl = new UcHome();
 
-
-            List<Hero> ListHeros = ManagerJson.GetHeroes();
-            List<Film> ListFilms = ManagerJson.GetFilms();
-
-
-            //List<Hero> HeroList = JsonConvert.DeserializeObject<List<Hero>>(File.ReadAllText(filePath));
-
-            //Console.WriteLine("HELLO WORLD");
-
-            //Hero IM = HeroList.SingleOrDefault(h => h.HId == "IM");
-
-            //IEnumerable<Hero> SM = HeroList.Where(h => h.HId == "SM");
-
-            //Console.WriteLine(IM.ToString());
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

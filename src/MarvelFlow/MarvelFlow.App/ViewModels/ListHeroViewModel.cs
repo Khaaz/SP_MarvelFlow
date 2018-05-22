@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.App.ViewModels
 {
-    class ListHeroViewModel : ViewModelBase
+    public class ListHeroViewModel : ViewModelBase
     {
     }
 }
