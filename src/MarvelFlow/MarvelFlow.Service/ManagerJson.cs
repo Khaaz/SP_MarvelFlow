@@ -15,6 +15,11 @@ namespace MarvelFlow.Service
 {
     public class ManagerJson
     {
+        /// <summary>
+        /// Init List Heroes with a Json DB.
+        /// Use a temp public class to init
+        /// </summary>
+        /// <returns>List Heroes</returns>
         public static List<Hero> GetHeroes()
         {
             string filePath = ConfigurationManager.AppSettings["jsonPathHero"];
@@ -28,6 +33,11 @@ namespace MarvelFlow.Service
             return listHero;
         }
 
+        /// <summary>
+        /// Init List Films with a Json DB.
+        /// Use a temp public class to init
+        /// </summary>
+        /// <returns>List Films</returns>
         public static List<Film> GetFilms()
         {
             string filePath = ConfigurationManager.AppSettings["jsonPathFilm"];
@@ -39,6 +49,24 @@ namespace MarvelFlow.Service
             List<Film> listFilms = FilmList.ToListFilm().ToList();
 
             return listFilms;
+        }
+
+        /// <summary>
+        /// Init List Series with a Json DB.
+        /// Use a temp public class to init
+        /// </summary>
+        /// <returns>List Series</returns>
+        public static List<Serie> GetSeries()
+        {
+            string filePath = ConfigurationManager.AppSettings["jsonPathSerie"];
+
+            string jsonAsString = File.ReadAllText(filePath);
+
+            List<SerieJson> SerieList = JsonConvert.DeserializeObject<List<SerieJson>>(jsonAsString);
+
+            List<Serie> listSeries = SerieList.ToListSerie().ToList();
+
+            return listSeries;
         }
     }
 }

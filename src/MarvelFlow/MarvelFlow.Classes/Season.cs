@@ -32,6 +32,25 @@ namespace MarvelFlow.Classes
         }
 
         /// <summary>
+        /// Constructor called mainly by the json init
+        /// Create the Season with a List of episode
+        /// </summary>
+        /// <param name="seasonNumber"></param>
+        /// <param name="numberEpisodes"></param>
+        /// <param name="listEpisodes"></param>
+        public Season(int seasonNumber, int numberEpisodes, List<Episode> listEpisodes)
+        {
+            this.SeasonNumber = seasonNumber;
+            this.numberEpisodes = numberEpisodes;
+
+            this.listEpisodes = new Dictionary<int, Episode>();
+            foreach(Episode e in listEpisodes)
+            {
+                this.listEpisodes.Add(e.EpisodeNumber, e);
+            }
+        }
+
+        /// <summary>
         /// Add an episode (to the end) to the list with correct episode number
         /// update number of episodes
         /// 

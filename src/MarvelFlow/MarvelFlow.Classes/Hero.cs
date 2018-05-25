@@ -60,6 +60,8 @@ namespace MarvelFlow.Classes
             this.team = team;
             this.universe = Universe.MCU;
             this.fav = false;
+
+            this.listMovies = new List<Movie>();
         }
 
         /// <summary>

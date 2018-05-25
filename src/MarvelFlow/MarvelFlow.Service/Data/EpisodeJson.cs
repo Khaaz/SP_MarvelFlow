@@ -9,7 +9,7 @@ namespace MarvelFlow.Service.Data
 {
     public class EpisodeJson : MovieJson
     {
-        public string EpisodeNumber { get; set; }
+        public int EpisodeNumber { get; set; }
 
 
         public EpisodeJson() : base() { }

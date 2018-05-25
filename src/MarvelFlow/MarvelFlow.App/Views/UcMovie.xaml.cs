@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarvelFlow.App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace MarvelFlow.App.Views
         public UcMovie()
         {
             InitializeComponent();
+            this.DataContext = new MovieViewModel();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarvelFlow.App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,6 @@ namespace MarvelFlow.App.Views
         public UcListHero()
         {
             InitializeComponent();
-
             List<Hero> test = new List<Hero>();
             Hero Im = new Hero("IM", "IronMan", "pack://application:,,,/MarvelFlow.App;component/ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
             Hero Sm = new Hero("SM", "SpiderMan", "pack://application:,,,/MarvelFlow.App;component/ImagesHero/spiderMan.png", "voici SpiderMan", Team.Avengers);
@@ -36,6 +36,7 @@ namespace MarvelFlow.App.Views
             test.Add(Hu);
 
             ListViewHero.ItemsSource = test;
+            //this.DataContext = new ListHeroViewModel();
         }
     }
 }

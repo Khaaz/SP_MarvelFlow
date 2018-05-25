@@ -20,6 +20,9 @@ namespace MarvelFlow.App.ViewModels
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+
+        //public Stack<int> History; // Historique
+        //public NavigationHandler Navigator;
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -36,6 +39,9 @@ namespace MarvelFlow.App.ViewModels
 
             List<Hero> ListHeros = ManagerJson.GetHeroes();
             List<Film> ListFilms = ManagerJson.GetFilms();
+            List<Serie> ListSerie = ManagerJson.GetSeries();
+
+            //ListViewName.ItemSource = ListHeros
 
             Console.WriteLine("Hello WORLD");
         }
