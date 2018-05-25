@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MarvelFlow.Classes;
 
 namespace MarvelFlow.App.Views
 {
@@ -23,6 +24,18 @@ namespace MarvelFlow.App.Views
         public UcListHero()
         {
             InitializeComponent();
+
+            List<Hero> test = new List<Hero>();
+            Hero Im = new Hero("IM", "IronMan", "pack://application:,,,/MarvelFlow.App;component/ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
+            Hero Sm = new Hero("SM", "SpiderMan", "pack://application:,,,/MarvelFlow.App;component/ImagesHero/spiderMan.png", "voici SpiderMan", Team.Avengers);
+            Hero Ds = new Hero("Ds", "Doctor Strange", "pack://application:,,,/MarvelFlow.App;component/ImagesHero/doctorStrange.png", "voici Doctor Strange", Team.Avengers);
+            Hero Hu = new Hero("HK", "Hulk", "pack://application:,,,/MarvelFlow.App;component/ImagesHero/hulk.jpg", "voici Hulk le géant vert", Team.Avengers);
+            test.Add(Im);
+            test.Add(Sm);
+            test.Add(Ds);
+            test.Add(Hu);
+
+            ListViewHero.ItemsSource = test;
         }
     }
 }
