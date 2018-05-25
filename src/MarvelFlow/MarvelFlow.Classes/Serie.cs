@@ -47,6 +47,43 @@ namespace MarvelFlow.Classes
             this.numberSeasons = numberSeasons;
             this.listSeasons = listSeasons;
             this.isOver = isOver;
+
+            this.listHeroes = new List<Hero>();
+        }
+
+        /// <summary>
+        /// Constructor Serie mainly used by init json
+        /// Create Serie with List of Seasons
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="title"></param>
+        /// <param name="desc"></param>
+        /// <param name="productor"></param>
+        /// <param name="numberSeasons"></param>
+        /// <param name="listSeasons"></param>
+        /// <param name="isOver"></param>
+        public Serie(string id, string title, string affiche, string desc, string real, string date, Universe universe, int numberSeasons, List<Season> listSeasons, bool isOver)
+            : base(title, affiche, desc, real, date)
+        {
+
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new ArgumentException("Id de la serie null", nameof(id));
+            }
+
+            this.Id = id;
+            this.Universe = universe;
+            this.numberSeasons = numberSeasons;
+
+            this.listSeasons = new Dictionary<int, Season>();
+            foreach (Season s in listSeasons)
+            {
+                this.listSeasons.Add(s.SeasonNumber, s);
+            }
+
+            this.isOver = isOver;
+
+            this.listHeroes = new List<Hero>();
         }
 
         /// <summary>

@@ -4,11 +4,11 @@
     "Title": "Dare Devil",
     "Affiche": "source/image",
     "Desc": "description",
-    "Realisateur": "real",
+    "Real": "real",
     "Universe":  0,
-    "Date": "Date",
+    "Date": "11/02/98",
     "NumberSeason": 1,
-    "ListSeason": [
+    "ListSeasons": [
       {
         "SeasonNumber": 1,
         "NumberEpisodes": 2,
@@ -18,16 +18,16 @@
             "Title": "Intro",
             "Affiche": "source/image",
             "Desc": "description",
-            "Realisateur": "real",
-            "Date": "Date"
+            "Real": "real",
+            "Date": "11/02/1998"
           },
           {
             "EpisodeNumber": 2,
             "Title": "1er ep",
             "Affiche": "source/image",
             "Desc": "description",
-            "Realisateur": "real",
-            "Date": "Date"
+            "Real": "real",
+            "Date": "11/02/1998"
           }
         ]
       }

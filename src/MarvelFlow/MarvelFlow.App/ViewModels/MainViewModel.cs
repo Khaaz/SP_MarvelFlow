@@ -36,6 +36,9 @@ namespace MarvelFlow.App.ViewModels
 
             List<Hero> ListHeros = ManagerJson.GetHeroes();
             List<Film> ListFilms = ManagerJson.GetFilms();
+            List<Serie> ListSerie = ManagerJson.GetSeries();
+
+            //ListViewName.ItemSource = ListHeros
 
             Console.WriteLine("Hello WORLD");
         }

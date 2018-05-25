@@ -51,6 +51,7 @@
     <Compile Include="Data\SerieJson.cs" />
     <Compile Include="Data\HeroJson.cs" />
     <Compile Include="Data\FilmJson.cs" />
+    <Compile Include="Factory\SerieFactory.cs" />
     <Compile Include="Factory\HeroFactory.cs" />
     <Compile Include="Factory\FilmFactory.cs" />
     <Compile Include="ManagerJson.cs" />

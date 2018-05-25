@@ -9,9 +9,9 @@ namespace MarvelFlow.Service.Data
 {
     public class SeasonJson
     {
-        public string SeasonNumber { get; set; }
+        public int SeasonNumber { get; set; }
 
-        public string NumberEpisodes { get; set; }
+        public int NumberEpisodes { get; set; }
 
         public List<EpisodeJson> ListEpisodes { get; set; }
 
