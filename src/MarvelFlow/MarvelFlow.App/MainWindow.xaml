@@ -29,7 +29,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Background -->
-        <Rectangle Fill="#1e272e" Grid.RowSpan="3" Grid.ColumnSpan="3" 
+        <Rectangle Fill="#252728" Grid.RowSpan="3" Grid.ColumnSpan="3" 
                    Stroke="Black" UseLayoutRounding="False"/>
 
         <!-- Ligne 1 -->

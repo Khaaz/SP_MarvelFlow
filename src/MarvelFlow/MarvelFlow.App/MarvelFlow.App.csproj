@@ -196,6 +196,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ImagesHero\doctorStrange.png" />
     <Resource Include="Images\marvelLogo.png" />
     <Resource Include="Images\pdp.png" />
     <Resource Include="Images\pdp2.png" />
@@ -210,10 +211,23 @@
     <Resource Include="Images\marvelFlowLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImagesHero\doctorStrange.png" />
-    <Resource Include="ImagesHero\hulk.jpg" />
     <Resource Include="ImagesHero\ironMan.png" />
     <Resource Include="ImagesHero\spiderMan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesHero\vision.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesHero\hulk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesMovie\AntMan.jpg" />
+    <Resource Include="ImagesMovie\Avengers1.jpg" />
+    <Resource Include="ImagesMovie\Avengers3.jpg" />
+    <Resource Include="ImagesMovie\IronMan.jpg" />
+    <Resource Include="ImagesMovie\IronMan2.jpg" />
+    <Resource Include="ImagesMovie\IronMan3.jpg" />
+    <Resource Include="ImagesMovie\Thor3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -29,11 +29,7 @@
 
         <!--Ligne 2-->
         <Grid x:Name="___Grid__Zone_de_recherche" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*" />
-                <ColumnDefinition Width="50" />
-            </Grid.ColumnDefinitions>
-            <ListView x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="0" Height="152">
+            <ListView x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>
@@ -42,13 +38,12 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <Image Source="{Binding image}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill"/>
-                            <TextBlock Text="{Binding image}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            <Image Source="{Binding image}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />
+                            <TextBlock Text="{Binding name}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ScrollBar Grid.Column="1" Margin="16.5,10"/>
         </Grid>
     </Grid>
 </UserControl>
