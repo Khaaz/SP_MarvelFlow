@@ -31,10 +31,6 @@
         </Grid.ColumnDefinitions>
 
         <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding CurrentVM}" />
-        
-        <!-- Background -->
-        <!--<Rectangle Fill="#1e272e" Grid.RowSpan="3" Grid.ColumnSpan="3" 
-                   Stroke="Black" UseLayoutRounding="False"/>-->
 
         <!-- Ligne 1 -->
         <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelFlowLogo.png" Grid.Row="0" Grid.Column="1" 
@@ -48,10 +44,5 @@
             <Button Grid.Column="0" Content="Guest" Background="{x:Null}" Foreground="White" BorderThickness="0" Click="UserButton"  />
             <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/pdp2.png" Grid.Column="1" Height="35" MaxHeight="75" />
         </Grid>
-
-        <!-- Ligne 2 (UC) -->
-        <!-- <View:UcHome Grid.Row="1" Grid.ColumnSpan="3"></View:UcHome> -->
-        
-        
     </Grid>
 </Window>

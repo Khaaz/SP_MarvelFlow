@@ -79,7 +79,6 @@
     <Compile Include="ViewModels\ListMovieViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
-    <Compile Include="ViewModels\NavigationHandler.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="WindowUser.xaml.cs">
@@ -197,7 +196,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImagesHero\doctorStrange.png" />
+    <Resource Include="Images\ImagesHero\doctorStrange.png" />
     <Resource Include="Images\marvelLogo.png" />
     <Resource Include="Images\pdp.png" />
     <Resource Include="Images\pdp2.png" />
@@ -212,23 +211,23 @@
     <Resource Include="Images\marvelFlowLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImagesHero\ironMan.png" />
-    <Resource Include="ImagesHero\spiderMan.png" />
+    <Resource Include="Images\ImagesHero\ironMan.png" />
+    <Resource Include="Images\ImagesHero\spiderMan.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImagesHero\vision.png" />
+    <Resource Include="Images\ImagesHero\vision.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImagesHero\hulk.png" />
+    <Resource Include="Images\ImagesHero\hulk.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImagesMovie\AntMan.jpg" />
-    <Resource Include="ImagesMovie\Avengers1.jpg" />
-    <Resource Include="ImagesMovie\Avengers3.jpg" />
-    <Resource Include="ImagesMovie\IronMan.jpg" />
-    <Resource Include="ImagesMovie\IronMan2.jpg" />
-    <Resource Include="ImagesMovie\IronMan3.jpg" />
-    <Resource Include="ImagesMovie\Thor3.jpg" />
+    <Resource Include="Images\ImagesMovie\AntMan.jpg" />
+    <Resource Include="Images\ImagesMovie\Avengers1.jpg" />
+    <Resource Include="Images\ImagesMovie\Avengers3.jpg" />
+    <Resource Include="Images\ImagesMovie\IronMan.jpg" />
+    <Resource Include="Images\ImagesMovie\IronMan2.jpg" />
+    <Resource Include="Images\ImagesMovie\IronMan3.jpg" />
+    <Resource Include="Images\ImagesMovie\Thor3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

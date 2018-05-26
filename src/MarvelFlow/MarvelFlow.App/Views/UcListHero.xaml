@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MarvelFlow.App.Views"
-             DataContext="{Binding Hero, Source={StaticResource Locator}}"
+             DataContext="{Binding ListHero, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="525">
     <Grid x:Name="___Grid__Générale">
@@ -30,7 +30,7 @@
 
         <!--Ligne 2-->
         <Grid x:Name="___Grid__Zone_de_recherche" Grid.Row="1">
-            <ListView x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
+            <ListView ItemsSource="{Binding ListHeros}" x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>

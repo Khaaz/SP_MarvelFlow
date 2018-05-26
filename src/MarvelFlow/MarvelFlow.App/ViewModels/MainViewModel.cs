@@ -4,6 +4,7 @@ using MarvelFlow.Classes;
 using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace MarvelFlow.App.ViewModels
 {
@@ -56,7 +57,7 @@ namespace MarvelFlow.App.ViewModels
             ////    // Code runs "for real"
             ////}
 
-            this._CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
+            this._CurrentVM = ServiceLocator.Current.GetInstance<ListMovieViewModel>();
 
             List<Hero> ListHeros = ManagerJson.GetHeroes();
             List<Film> ListFilms = ManagerJson.GetFilms();

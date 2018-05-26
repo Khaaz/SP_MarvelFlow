@@ -43,6 +43,10 @@ namespace MarvelFlow.App.ViewModels
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
+            SimpleIoc.Default.Register<HeroViewModel>();
+            SimpleIoc.Default.Register<MovieViewModel>();
+            SimpleIoc.Default.Register<ListHeroViewModel>();
+            SimpleIoc.Default.Register<ListMovieViewModel>();
         }
 
         public MainViewModel Main
