@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes
 {
-    public class Film : Movie, IEnumerableMovie
+    public class Film : Movie
     {
         public string Id { get; private set; }
 
@@ -38,22 +38,12 @@ namespace MarvelFlow.Classes
             this.Universe = Universe;
         }
 
-        public string GetId()
+        public override string GetId()
         {
             return Id;
         }
 
-        public string GetTitle()
-        {
-            return Title;
-        }
-
-        public string GetAffiche()
-        {
-            return Affiche;
-        }
-
-        public Universe GetUniverse()
+        public override Universe GetUniverse()
         {
             return Universe;
         }

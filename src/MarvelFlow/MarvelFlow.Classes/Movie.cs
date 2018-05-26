@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using MarvelFlow.Classes.Lib;
 
 namespace MarvelFlow.Classes
 {
-    public abstract class Movie
+    public abstract class Movie : ISearchableMovie
     {
         public string Title { get; private set; }
 
@@ -62,6 +63,25 @@ namespace MarvelFlow.Classes
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public abstract string GetId();
+
+        public string GetTitle()
+        {
+            return Title;
+        }
+
+        public string GetAffiche()
+        {
+            return Affiche;
+        }
+
+        public abstract Universe GetUniverse();
+
+        public DateTime GetDate()
+        {
+            return date;
         }
     }
 }

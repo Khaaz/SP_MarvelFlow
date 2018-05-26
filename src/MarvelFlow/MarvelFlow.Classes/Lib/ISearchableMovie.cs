@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.Classes.Lib
 {
-    interface IEnumerableMovie
+    public interface ISearchableMovie
     {
         string GetId();
         string GetTitle();
         string GetAffiche();
         Universe GetUniverse();
+        DateTime GetDate();
     }
 }
