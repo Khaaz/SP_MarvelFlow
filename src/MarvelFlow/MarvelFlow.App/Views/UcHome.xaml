@@ -27,9 +27,6 @@
         <Button Content="PROFIL" Grid.Row="0" Grid.Column="2" 
                 Background="Black" Foreground="White" 
                 BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
-
-        <Image x:Name="affichetest_jpg" Source="pack://application:,,,/MarvelFlow.App;component/Images/affichetest.jpg"
-               Grid.Row="1" Grid.Column="0"
-               Margin="10,7.333,12,10" Stretch="Fill"/>
+        
     </Grid>
 </UserControl>

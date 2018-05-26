@@ -82,6 +82,9 @@
     <Compile Include="ViewModels\NavigationHandler.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="WindowUser.xaml.cs">
+      <DependentUpon>WindowUser.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\UcAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +153,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -190,6 +197,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ImagesHero\doctorStrange.png" />
     <Resource Include="Images\marvelLogo.png" />
     <Resource Include="Images\pdp.png" />
     <Resource Include="Images\pdp2.png" />
@@ -199,6 +207,28 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\marvelFlowLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesHero\ironMan.png" />
+    <Resource Include="ImagesHero\spiderMan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesHero\vision.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesHero\hulk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesMovie\AntMan.jpg" />
+    <Resource Include="ImagesMovie\Avengers1.jpg" />
+    <Resource Include="ImagesMovie\Avengers3.jpg" />
+    <Resource Include="ImagesMovie\IronMan.jpg" />
+    <Resource Include="ImagesMovie\IronMan2.jpg" />
+    <Resource Include="ImagesMovie\IronMan3.jpg" />
+    <Resource Include="ImagesMovie\Thor3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

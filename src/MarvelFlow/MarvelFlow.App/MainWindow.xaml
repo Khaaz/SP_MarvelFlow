@@ -8,6 +8,7 @@
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         mc:Ignorable="d"
         Background="#1e272e"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="350" Width="525">
     <!--Defnition style general-->
     <Window.Resources>
@@ -15,7 +16,7 @@
             <Setter Property="Margin" Value="10,0,10,0"></Setter>
         </Style>
     </Window.Resources>
-    
+
     <!--Grid-->
     <Grid x:Name="___Grid__Générale">
 
@@ -36,9 +37,17 @@
                    Stroke="Black" UseLayoutRounding="False"/>-->
 
         <!-- Ligne 1 -->
-        <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png" Grid.Row="0" Grid.Column="1" 
+        <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelFlowLogo.png" Grid.Row="0" Grid.Column="1" 
                Stretch="Fill"  HorizontalAlignment="Center" VerticalAlignment="Center"
-               Height="27.378" Margin="30,7.311" Width="112.334"/>
+               Height="38" Margin="30.2,0,30.6,11.6" Width="112"/>
+        <Grid Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.3*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Guest" Background="{x:Null}" Foreground="White" BorderThickness="0" Click="UserButton"  />
+            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/pdp2.png" Grid.Column="1" Height="35" MaxHeight="75" />
+        </Grid>
 
         <!-- Ligne 2 (UC) -->
         <!-- <View:UcHome Grid.Row="1" Grid.ColumnSpan="3"></View:UcHome> -->

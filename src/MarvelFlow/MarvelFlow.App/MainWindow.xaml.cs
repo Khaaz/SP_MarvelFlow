@@ -32,6 +32,20 @@ namespace MarvelFlow.App
             InitializeComponent();
 
         }
-        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void UserButton (object sender, RoutedEventArgs e)
+        {
+            WindowUser windowUser = new WindowUser();
+            windowUser.Show();
+        }
+
+        /* private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentControl = new TextBlock { Text = "string" };
+            PropertyChanged.Invoke(this,new PropertyChangedEventArgs("CurrentControl"));
+        }
+        */
     }
 }

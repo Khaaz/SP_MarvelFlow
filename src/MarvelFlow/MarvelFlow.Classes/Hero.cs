@@ -11,9 +11,9 @@ namespace MarvelFlow.Classes
 
         private string id { get;  set; }
 
-        private string name { get; set; }
+        public string name { get; set; }
 
-        private string image { get; set; }
+        public string image { get; set; }
 
         private string desc { get; set; }
 
