@@ -7,6 +7,7 @@
         xmlns:View="clr-namespace:MarvelFlow.App.Views"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         mc:Ignorable="d"
+        Background="#1e272e"
         Title="MainWindow" Height="350" Width="525">
     <!--Defnition style general-->
     <Window.Resources>
@@ -17,6 +18,7 @@
     
     <!--Grid-->
     <Grid x:Name="___Grid__Générale">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="5.5*" />
@@ -26,10 +28,12 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding CurrentVM}" />
         
         <!-- Background -->
-        <Rectangle Fill="#1e272e" Grid.RowSpan="3" Grid.ColumnSpan="3" 
-                   Stroke="Black" UseLayoutRounding="False"/>
+        <!--<Rectangle Fill="#1e272e" Grid.RowSpan="3" Grid.ColumnSpan="3" 
+                   Stroke="Black" UseLayoutRounding="False"/>-->
 
         <!-- Ligne 1 -->
         <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelLogo.png" Grid.Row="0" Grid.Column="1" 
@@ -37,6 +41,8 @@
                Height="27.378" Margin="30,7.311" Width="112.334"/>
 
         <!-- Ligne 2 (UC) -->
-        <View:UcHome Grid.Row="1" Grid.ColumnSpan="3"></View:UcHome>
+        <!-- <View:UcHome Grid.Row="1" Grid.ColumnSpan="3"></View:UcHome> -->
+        
+        
     </Grid>
 </Window>

@@ -79,6 +79,7 @@
     <Compile Include="ViewModels\ListMovieViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
+    <Compile Include="ViewModels\NavigationHandler.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Page Include="Views\UcAdmin.xaml">

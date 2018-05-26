@@ -24,7 +24,6 @@ namespace MarvelFlow.App.Views
         public UcProfile()
         {
             InitializeComponent();
-            this.DataContext = new ProfileViewModel();
         }
     }
 }

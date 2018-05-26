@@ -24,25 +24,14 @@ namespace MarvelFlow.App
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
-        public FrameworkElement CurrentControl { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
-            CurrentControl = new UcHome();
 
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /* private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            CurrentControl = new TextBlock { Text = "string" };
-            PropertyChanged.Invoke(this,new PropertyChangedEventArgs("CurrentControl"));
-        }
-        */
+        
     }
 }

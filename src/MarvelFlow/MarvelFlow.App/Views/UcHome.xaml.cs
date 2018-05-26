@@ -24,7 +24,6 @@ namespace MarvelFlow.App.Views
         public UcHome()
         {
             InitializeComponent();
-            this.DataContext = new HomeViewModel();
         }
     }
 }

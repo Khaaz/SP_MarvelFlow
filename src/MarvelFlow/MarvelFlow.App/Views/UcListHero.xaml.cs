@@ -24,7 +24,6 @@ namespace MarvelFlow.App.Views
         public UcListHero()
         {
             InitializeComponent();
-            this.DataContext = new ListHeroViewModel();
         }
     }
 }

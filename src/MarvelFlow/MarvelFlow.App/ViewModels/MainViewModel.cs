@@ -1,3 +1,4 @@
+using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using MarvelFlow.Classes;
 using MarvelFlow.Service;
@@ -23,6 +24,24 @@ namespace MarvelFlow.App.ViewModels
 
         //public Stack<int> History; // Historique
         //public NavigationHandler Navigator;
+
+        private ViewModelBase _CurrentVM;
+
+        public ViewModelBase CurrentVM
+        {
+            get
+            {
+                return _CurrentVM;
+            }
+            set
+            {
+                if (_CurrentVM == value)
+                    return;
+                _CurrentVM = value;
+                RaisePropertyChanged(() => CurrentVM);
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -36,6 +55,8 @@ namespace MarvelFlow.App.ViewModels
             ////{
             ////    // Code runs "for real"
             ////}
+
+            this._CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
 
             List<Hero> ListHeros = ManagerJson.GetHeroes();
             List<Film> ListFilms = ManagerJson.GetFilms();

@@ -24,7 +24,6 @@ namespace MarvelFlow.App.Views
         public UcMovie()
         {
             InitializeComponent();
-            this.DataContext = new MovieViewModel();
         }
     }
 }

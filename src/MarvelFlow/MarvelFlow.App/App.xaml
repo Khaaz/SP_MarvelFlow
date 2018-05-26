@@ -4,11 +4,29 @@
              xmlns:local="clr-namespace:MarvelFlow.App" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vs="clr-namespace:MarvelFlow.App.Views"
+             xmlns:vm="clr-namespace:MarvelFlow.App.ViewModels"
              StartupUri="MainWindow.xaml"
              d1p1:Ignorable="d" >
-  <Application.Resources>
-    <ResourceDictionary>
-      <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MarvelFlow.App.ViewModels" />
-    </ResourceDictionary>
-  </Application.Resources>
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MarvelFlow.App.ViewModels" />
+
+            <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+                <vs:UcHome />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:HeroViewModel}">
+                <vs:UcHero />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:MovieViewModel}">
+                <vs:UcMovie />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ListHeroViewModel}">
+                <vs:UcListHero />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ListMovieViewModel}">
+                <vs:UcListMovie />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
