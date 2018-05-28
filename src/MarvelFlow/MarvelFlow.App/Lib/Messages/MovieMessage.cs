@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.App.Lib.Messages
 {
-    public class HomeMessage : MessageBase
+    public class MovieMessage : MessageBase
     {
         public string Status { get; private set; }
 
-        public HomeMessage(string status) : base()
+        public MovieMessage(string status) : base()
         {
             Status = status;
         }
 
-        public HomeMessage(object sender, string status) : base(sender)
+        public MovieMessage(object sender, string status) : base(sender)
         {
             Status = status;
         }
 
-        public HomeMessage(object sender, object target, string status): base(sender, target)
+        public MovieMessage(object sender, object target, string status): base(sender, target)
         {
             Status = status;
         }

@@ -10,7 +10,7 @@
              d1p1:Ignorable="d" >
     <Application.Resources>
         <ResourceDictionary>
-            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MarvelFlow.App.ViewModels" />
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MarvelFlow.App.Lib" />
 
             <DataTemplate DataType="{x:Type vm:HomeViewModel}">
                 <vs:UcHome />
@@ -20,6 +20,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:MovieViewModel}">
                 <vs:UcMovie />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ProfileViewModel}">
+                <vs:UcProfile />
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:ListHeroViewModel}">
                 <vs:UcListHero />

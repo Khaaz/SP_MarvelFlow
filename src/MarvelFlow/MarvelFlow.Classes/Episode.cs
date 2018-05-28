@@ -25,5 +25,15 @@ namespace MarvelFlow.Classes
         {
             this.EpisodeNumber = episodeNumber;
         }
+
+        public override string GetId()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Universe GetUniverse()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

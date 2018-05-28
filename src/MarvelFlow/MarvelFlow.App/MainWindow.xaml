@@ -10,6 +10,7 @@
         Background="#1e272e"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="350" Width="525">
+    
     <!--Defnition style general-->
     <Window.Resources>
         <Style x:Name="buttonStyle" TargetType="Button">
@@ -41,7 +42,10 @@
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="0.3*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Guest" Background="{x:Null}" Foreground="White" BorderThickness="0" Click="UserButton"  />
+            <Button Grid.Column="0" Content="Guest" 
+                    Background="{x:Null}" Foreground="White"
+                    BorderThickness="0" 
+                    Command="{Binding NavigateUserWindowCommand}"/>
             <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/pdp2.png" Grid.Column="1" Height="35" MaxHeight="75" />
         </Grid>
     </Grid>

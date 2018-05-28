@@ -22,13 +22,10 @@ namespace MarvelFlow.App.Views
     /// </summary>
     public partial class UcListHero : UserControl
     {
-       
-
         public UcListHero()
         {
             InitializeComponent();
         }
-
 
     }
 }

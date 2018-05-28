@@ -1,4 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
 using MarvelFlow.Classes.Lib;
 using System;
@@ -11,10 +13,17 @@ namespace MarvelFlow.App.ViewModels
 {
     public class ListMovieViewModel : ViewModelBase
     {
+        public RelayCommand NavigateMovieCommand { get; private set; }
+        public RelayCommand ReturnBackCommand { get; private set; }
+
         public List<ISearchableMovie> ListMovies { get; set; }
 
         public ListMovieViewModel()
         {
+            this.NavigateMovieCommand = new RelayCommand(this.SendNavigateMovie, CanDisplayMessage);
+            this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
+
+
             ListMovies = new List<ISearchableMovie>();
 
 
@@ -25,6 +34,21 @@ namespace MarvelFlow.App.ViewModels
             ListMovies.Add(f1);
             ListMovies.Add(f2);
             ListMovies.Add(f3);
+        }
+
+        public bool CanDisplayMessage()
+        {
+            return true;
+        }
+
+        public void SendNavigateMovie()
+        {
+            MessengerInstance.Send<MovieMessage>(new MovieMessage(this, "Navigate Movie Message"));
+        }
+
+        public void SendReturnBack()
+        {
+            MessengerInstance.Send<HistoryMessage>(new HistoryMessage(this, "Navigate Back History"));
         }
     }
 }

@@ -32,11 +32,5 @@ namespace MarvelFlow.App
             InitializeComponent();
 
         }
-
-        private void UserButton(object sender, RoutedEventArgs e)
-        {
-            WindowUser windowUser = new WindowUser();
-            windowUser.Show();
-        }
     }
 }

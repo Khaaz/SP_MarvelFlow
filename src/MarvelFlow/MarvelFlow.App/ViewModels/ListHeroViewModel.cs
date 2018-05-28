@@ -1,4 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
 using System;
 using System.Collections.Generic;
@@ -10,10 +12,16 @@ namespace MarvelFlow.App.ViewModels
 {
     public class ListHeroViewModel : ViewModelBase
     {
+        public RelayCommand NavigateHeroCommand { get; private set; }
+        public RelayCommand ReturnBackCommand { get; private set; }
+
         public List<Hero> ListHeros { get; set; }
 
         public ListHeroViewModel()
         {
+            this.NavigateHeroCommand = new RelayCommand(this.SendNavigateHero, CanDisplayMessage);
+            this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
+
             ListHeros = new List<Hero>();
 
             Hero Im = new Hero("IM", "IronMan", "pack://application:,,,/MarvelFlow.App;component/ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
@@ -40,6 +48,20 @@ namespace MarvelFlow.App.ViewModels
             ListHeros.Add(Vi5);
             ListHeros.Add(Vi6);
         }
-        
+
+        public bool CanDisplayMessage()
+        {
+            return true;
+        }
+
+        public void SendNavigateHero()
+        {
+            MessengerInstance.Send<HeroMessage>(new HeroMessage(this, "Navigate Hero Message"));
+        }
+
+        public void SendReturnBack()
+        {
+            MessengerInstance.Send<HistoryMessage>(new HistoryMessage(this, "Navigate Back History"));
+        }
     }
 }

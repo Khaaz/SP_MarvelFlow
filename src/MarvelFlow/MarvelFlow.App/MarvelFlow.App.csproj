@@ -72,6 +72,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Lib\Messages\ListMovieMessage.cs" />
+    <Compile Include="Lib\Messages\MovieMessage.cs" />
+    <Compile Include="Lib\Messages\ProfileMessage.cs" />
+    <Compile Include="Lib\Messages\ListHeroMessage.cs" />
+    <Compile Include="Lib\Messages\HeroMessage.cs" />
+    <Compile Include="Lib\Messages\HistoryMessage.cs" />
     <Compile Include="Lib\Messages\HomeMessage.cs" />
     <Compile Include="ViewModels\HeroViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
@@ -79,9 +85,10 @@
     <Compile Include="ViewModels\ListMovieViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
+    <Compile Include="ViewModels\WindowUserViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="Lib\ViewModelLocator.cs" />
-    <Compile Include="WindowUser.xaml.cs">
+    <Compile Include="Views\WindowUser.xaml.cs">
       <DependentUpon>WindowUser.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\UcAdmin.xaml">
@@ -152,7 +159,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WindowUser.xaml">
+    <Page Include="Views\WindowUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

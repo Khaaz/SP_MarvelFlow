@@ -20,13 +20,16 @@
 
         <Button Content="HERO" Grid.Row="0" Grid.Column="0"
                 Background="Black" Foreground="White" 
-                BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
+                BorderBrush="White" FontWeight="Bold" BorderThickness="2"
+                Command='{Binding NavigateListHeroCommand}' />
         <Button Content="FILM" Grid.Row="0" Grid.Column="1"
                 Background="Black" Foreground="White" 
-                BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
+                BorderBrush="White" FontWeight="Bold" BorderThickness="2"
+                Command='{Binding NavigateListMovieCommand}' />
         <Button Content="PROFIL" Grid.Row="0" Grid.Column="2" 
                 Background="Black" Foreground="White" 
-                BorderBrush="White" FontWeight="Bold" BorderThickness="2"/>
+                BorderBrush="White" FontWeight="Bold" BorderThickness="2"
+                Command='{Binding NavigateProfileCommand}' />
         
     </Grid>
 </UserControl>
