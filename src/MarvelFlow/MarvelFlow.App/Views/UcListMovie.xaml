@@ -38,7 +38,9 @@
                 <ColumnDefinition Width="5*" />
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
-            <ListView ItemsSource="{Binding ListMovies}" x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
+            <ListView ItemsSource="{Binding ListMovies}" x:Name="ListViewHero" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                      Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>

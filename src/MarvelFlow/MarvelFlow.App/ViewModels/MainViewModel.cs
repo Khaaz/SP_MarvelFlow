@@ -29,6 +29,7 @@ namespace MarvelFlow.App.ViewModels
 
         private ViewModelBase _CurrentVM;
 
+        public RelayCommand NavigateHomeCommand { get; private set; }
         public RelayCommand NavigateUserWindowCommand { get; private set; }
 
         public ViewModelBase CurrentVM
@@ -73,10 +74,11 @@ namespace MarvelFlow.App.ViewModels
             MessengerInstance.Register<ListHeroMessage>(this, (ListHeroMessage obj) => Navigator((ViewModelBase)obj.Sender, "ListHeroViewModel"));
             MessengerInstance.Register<ListMovieMessage>(this, (ListMovieMessage obj) => Navigator((ViewModelBase)obj.Sender, "ListMovieViewModel"));
             
-            MessengerInstance.Register<HistoryMessage>(this, (HistoryMessage obj) => Navigator((ViewModelBase)obj.Sender, ""));
+            MessengerInstance.Register<HistoryMessage>(this, (HistoryMessage obj) => Navigator((ViewModelBase)obj.Sender, string.Empty));
 
             // Commands
             this.NavigateUserWindowCommand = new RelayCommand(this.OpenUserWindow, CanDisplayMessage);
+            this.NavigateHomeCommand = new RelayCommand(this.DisplayHome, CanDisplayMessage);
 
             // Init Data
             List<Hero> ListHeros = ManagerJson.GetHeroes();
@@ -86,9 +88,17 @@ namespace MarvelFlow.App.ViewModels
 
         public void Navigator(ViewModelBase source, string dest)
         {
-            string pageName = string.IsNullOrEmpty(dest) ? this.History.Pop() : dest; // call the history or the ViewModel Name - (get the class name as string)
+            string pageName;
+            if (string.IsNullOrEmpty(dest)) // call the history or the ViewModel Name - (get the class name as string)
+            {
+                pageName = this.History.Pop();
 
-            this.History.Push(source.GetType().Name); // push the source ViewModel in History (as his className string)
+            }
+            else
+            {
+                pageName = dest;
+                this.History.Push(source.GetType().Name); // push the source ViewModel in History (as his className string)
+            }
 
             switch (pageName)
             {
@@ -112,7 +122,8 @@ namespace MarvelFlow.App.ViewModels
                     this.CurrentVM = ServiceLocator.Current.GetInstance<ListMovieViewModel>();
                     break;
                 default:
-                    Console.WriteLine("this doesn't work");
+                    this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
+                    this.History.Clear(); // Clear history
                     break;
             }
         }
@@ -157,6 +168,11 @@ namespace MarvelFlow.App.ViewModels
         public bool CanDisplayMessage()
         {
             return true;
+        }
+
+        public void DisplayHome()
+        {
+            Navigator(this, "HomeViewModel");
         }
 
         public void OpenUserWindow()

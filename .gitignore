@@ -13,6 +13,9 @@
 # Service
 /src/MarvelFlow/MarvelFlow.Service/bin/Debug
 /src/MarvelFlow/MarvelFlow.Service/obj/Debug
+# Test
+/src/MarvelFlow/MarvelFlow.Test/bin/Debug
+/src/MarvelFlow/MarvelFlow.Test/obj/Debug
 
 # Build results
 [Dd]ebug/

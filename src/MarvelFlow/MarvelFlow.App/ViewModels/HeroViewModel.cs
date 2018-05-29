@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib.Messages;
+using MarvelFlow.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace MarvelFlow.App.ViewModels
     public class HeroViewModel : ViewModelBase
     {
         public RelayCommand ReturnBackCommand { get; private set; }
+
+        public Hero Hero { get; set; }
 
         public HeroViewModel()
         {

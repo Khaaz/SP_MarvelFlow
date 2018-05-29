@@ -34,9 +34,14 @@
         <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding CurrentVM}" />
 
         <!-- Ligne 1 -->
-        <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelFlowLogo.png" Grid.Row="0" Grid.Column="1" 
-               Stretch="Fill"  HorizontalAlignment="Center" VerticalAlignment="Center"
-               Height="38" Margin="30.2,0,30.6,11.6" Width="112"/>
+        <Button Grid.Row="0" Grid.Column="1"
+                Background="{x:Null}" BorderThickness="0"
+                Command='{Binding NavigateHomeCommand}' >
+            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelFlowLogo.png"
+                   Stretch="Uniform">
+            </Image>
+        </Button>
+        
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
