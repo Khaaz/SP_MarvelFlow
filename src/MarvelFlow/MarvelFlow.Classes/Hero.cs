@@ -15,7 +15,7 @@ namespace MarvelFlow.Classes
 
         public string image { get; set; }
 
-        private string desc { get; set; }
+        public string desc { get; set; }
 
         private Status status { get; set; }
 
@@ -23,7 +23,7 @@ namespace MarvelFlow.Classes
 
         private Universe universe { get; set; }
 
-        private List<Movie> listMovies { get; set; }
+        public List<Movie> listMovies { get; set; }
 
         private Boolean fav { get; set; }
 
@@ -87,8 +87,10 @@ namespace MarvelFlow.Classes
             this.universe = universe;
         }
 
-        // Generic //
+
         
+        // Generic //
+
         public override string ToString()
         {
             return name;

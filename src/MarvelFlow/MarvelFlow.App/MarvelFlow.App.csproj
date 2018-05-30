@@ -243,12 +243,12 @@
     <Resource Include="Images\ImagesMovie\CaptainAmerica2.jpg" />
     <Resource Include="Images\ImagesMovie\CaptainAmerica3.jpg" />
     <Resource Include="Images\ImagesMovie\DoctorStrange.jpg" />
-    <Resource Include="Images\ImagesMovie\guardienGalaxy.jpg" />
-    <Resource Include="Images\ImagesMovie\guardienGalaxy2.jpg" />
-    <Resource Include="Images\ImagesMovie\hulk1.jpg" />
-    <Resource Include="Images\ImagesMovie\spidermanHomecoming.jpg" />
+    <Resource Include="Images\ImagesMovie\GuardienGalaxy.jpg" />
+    <Resource Include="Images\ImagesMovie\GuardienGalaxy2.jpg" />
+    <Resource Include="Images\ImagesMovie\Hulk1.jpg" />
+    <Resource Include="Images\ImagesMovie\SpidermanHomecoming.jpg" />
     <Resource Include="Images\ImagesMovie\Thor1.jpg" />
-    <Resource Include="Images\ImagesMovie\thor2.jpg" />
+    <Resource Include="Images\ImagesMovie\Thor2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ImagesMovie\Avengers2.jpg" />

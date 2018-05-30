@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="525">
     <Grid x:Name="___Grid__Générale">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.75*" />
+            <RowDefinition Height="1*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
         
