@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using MarvelFlow.Classes.Lib;
+using System.Configuration;
 
 namespace MarvelFlow.Classes
 {
@@ -14,13 +15,13 @@ namespace MarvelFlow.Classes
 
         public string Affiche { get; private set; } // image
 
-        private string desc { get; set; }
+        public string Desc { get; private set; }
 
         private string real { get; set; } // realisateur
 
         private bool isOut { get; set; }
 
-        private DateTime date { get; set; } // date de sortie
+        public DateTime Date { get; private set; } // date de sortie
 
         /// <summary>
         /// Default constructor Movie
@@ -40,19 +41,19 @@ namespace MarvelFlow.Classes
             }
 
             this.Title = title;
-            this.Affiche = affiche;
-            this.desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
+            this.Affiche = ConfigurationManager.AppSettings["AffichePath"] + affiche;
+            this.Desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
             this.real = real;
 
             DateTime tmpDate = Convert.ToDateTime(date);
 
-            this.date = tmpDate;
+            this.Date = tmpDate;
             this.isOut = tmpDate < DateTime.Now ? false : true;
         }
 
         public override string ToString()
         {
-            return Title + " - " + date;
+            return Title + " - " + Date;
         }
 
         public override bool Equals(object obj)
@@ -81,7 +82,7 @@ namespace MarvelFlow.Classes
 
         public DateTime GetDate()
         {
-            return date;
+            return Date;
         }
     }
 }

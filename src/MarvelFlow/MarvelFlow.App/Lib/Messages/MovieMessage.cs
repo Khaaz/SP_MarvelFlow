@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
+using MarvelFlow.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +12,23 @@ namespace MarvelFlow.App.Lib.Messages
     {
         public string Status { get; private set; }
 
-        public MovieMessage(string status) : base()
+        public Movie Movie { get; private set; }
+
+        public MovieMessage(Movie movie, string status) : base()
         {
+            Movie = movie;
             Status = status;
         }
 
-        public MovieMessage(object sender, string status) : base(sender)
+        public MovieMessage(object sender, Movie movie, string status) : base(sender)
         {
+            Movie = movie;
             Status = status;
         }
 
-        public MovieMessage(object sender, object target, string status): base(sender, target)
+        public MovieMessage(Movie movie, object sender, object target, string status): base(sender, target)
         {
+            Movie = movie;
             Status = status;
         }
         

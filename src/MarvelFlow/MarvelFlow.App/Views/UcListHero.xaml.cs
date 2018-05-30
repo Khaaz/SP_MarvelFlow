@@ -26,6 +26,5 @@ namespace MarvelFlow.App.Views
         {
             InitializeComponent();
         }
-
     }
 }

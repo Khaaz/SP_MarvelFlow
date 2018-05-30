@@ -1,6 +1,8 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using MarvelFlow.App.Lib;
 using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
 using MarvelFlow.Service;
@@ -25,13 +27,12 @@ namespace MarvelFlow.App.ViewModels
     public class MainViewModel : ViewModelBase
     {
 
-        public Stack<string> History { get; set; } // Historique
-
-        private ViewModelBase _CurrentVM;
+        public Stack<HistoryObject> History { get; set; } // Historique
 
         public RelayCommand NavigateHomeCommand { get; private set; }
         public RelayCommand NavigateUserWindowCommand { get; private set; }
 
+        private ViewModelBase _CurrentVM;
         public ViewModelBase CurrentVM
         {
             get
@@ -62,19 +63,21 @@ namespace MarvelFlow.App.ViewModels
             ////}
 
             // MAIN
-            this.History = new Stack<string>();
+            this.History = new Stack<HistoryObject>();
 
-            this._CurrentVM = ServiceLocator.Current.GetInstance<ListHeroViewModel>();
+            this._CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
 
             // Init Messaging
-            MessengerInstance.Register<HomeMessage>(this, (HomeMessage obj) => Navigator((ViewModelBase)obj.Sender, "HomeViewModel"));
-            MessengerInstance.Register<HeroMessage>(this, (HeroMessage obj) => Navigator((ViewModelBase)obj.Sender, "HeroViewModel"));
-            MessengerInstance.Register<MovieMessage>(this, (MovieMessage obj) => Navigator((ViewModelBase)obj.Sender, "MovieViewModel"));
-            MessengerInstance.Register<ProfileMessage>(this, (ProfileMessage obj) => Navigator((ViewModelBase)obj.Sender, "ProfileViewModel"));
-            MessengerInstance.Register<ListHeroMessage>(this, (ListHeroMessage obj) => Navigator((ViewModelBase)obj.Sender, "ListHeroViewModel"));
-            MessengerInstance.Register<ListMovieMessage>(this, (ListMovieMessage obj) => Navigator((ViewModelBase)obj.Sender, "ListMovieViewModel"));
+            MessengerInstance.Register<HomeMessage>(this, (HomeMessage obj) => Navigator(obj, "HomeViewModel"));
+
+            MessengerInstance.Register<HeroMessage>(this, (HeroMessage obj) => Navigator(obj, "HeroViewModel"));
+            MessengerInstance.Register<MovieMessage>(this, (MovieMessage obj) => Navigator(obj, "MovieViewModel"));
+
+            MessengerInstance.Register<ProfileMessage>(this, (ProfileMessage obj) => Navigator(obj, "ProfileViewModel"));
+            MessengerInstance.Register<ListHeroMessage>(this, (ListHeroMessage obj) => Navigator(obj, "ListHeroViewModel"));
+            MessengerInstance.Register<ListMovieMessage>(this, (ListMovieMessage obj) => Navigator(obj, "ListMovieViewModel"));
             
-            MessengerInstance.Register<HistoryMessage>(this, (HistoryMessage obj) => Navigator((ViewModelBase)obj.Sender, string.Empty));
+            MessengerInstance.Register<HistoryMessage>(this, (HistoryMessage obj) => Navigator(obj, string.Empty));
 
             // Commands
             this.NavigateUserWindowCommand = new RelayCommand(this.OpenUserWindow, CanDisplayMessage);
@@ -86,18 +89,21 @@ namespace MarvelFlow.App.ViewModels
             List<Serie> ListSerie = ManagerJson.GetSeries();
         }
 
-        public void Navigator(ViewModelBase source, string dest)
+        public void Navigator(MessageBase obj, string dest)
         {
+            ViewModelBase Source = (ViewModelBase)obj.Sender;
+
+            HistoryObject HistoryObject = null;
             string pageName;
             if (string.IsNullOrEmpty(dest)) // call the history or the ViewModel Name - (get the class name as string)
             {
-                pageName = this.History.Pop();
-
+                HistoryObject = this.History.Pop();
+                pageName = HistoryObject.NomVM;
             }
             else
             {
                 pageName = dest;
-                this.History.Push(source.GetType().Name); // push the source ViewModel in History (as his className string)
+                this.History.Push(new HistoryObject(Source)); // push the source ViewModel in History (as his className string)
             }
 
             switch (pageName)
@@ -107,10 +113,32 @@ namespace MarvelFlow.App.ViewModels
                     this.History.Clear(); // Clear history
                     break;
                 case "HeroViewModel":
-                    this.CurrentVM = ServiceLocator.Current.GetInstance<HeroViewModel>();
+                    HeroMessage messHero = (HeroMessage)obj;
+                    if (messHero.Hero == null)
+                    {
+                        this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
+                        this.History.Clear(); // Clear history
+                    }
+                    else
+                    {
+                        HeroViewModel tempHeroVM = ServiceLocator.Current.GetInstance<HeroViewModel>();
+                        tempHeroVM.Hero = HistoryObject != null ? HistoryObject.Hero : messHero.Hero;
+                        this.CurrentVM = tempHeroVM;
+                    }
                     break;
                 case "MovieViewModel":
-                    this.CurrentVM = ServiceLocator.Current.GetInstance<MovieViewModel>();
+                    MovieMessage messMovie = (MovieMessage)obj;
+                    if (messMovie.Movie == null)
+                    {
+                        this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
+                        this.History.Clear(); // Clear history
+                    }
+                    else
+                    {
+                        MovieViewModel tempMovieVM = ServiceLocator.Current.GetInstance<MovieViewModel>();
+                        tempMovieVM.Movie = HistoryObject != null ? HistoryObject.Movie : messMovie.Movie;
+                        this.CurrentVM = tempMovieVM;
+                    }
                     break;
                 case "ProfileViewModel":
                     this.CurrentVM = ServiceLocator.Current.GetInstance<ProfileViewModel>();
@@ -133,17 +161,18 @@ namespace MarvelFlow.App.ViewModels
         {
             Navigator((ViewModelBase)obj.Sender, "HomeViewModel");
         }
-
+        
         public void LoadHeroPage(HeroMessage obj)
         {
-            Navigator((ViewModelBase) obj.Sender, "HeroViewModel");
+            HeroViewModel tempVM = (HeroViewModel)Navigator((ViewModelBase) obj.Sender, "HeroViewModel");
+            tempVM.Hero = obj.Hero;
         }
 
         public void LoadMoviePage(MovieMessage obj)
         {
             Navigator((ViewModelBase)obj.Sender, "MovieViewModel");
         }
-
+        
         public void LoadProfilePage(ProfileMessage obj)
         {
             Navigator((ViewModelBase)obj.Sender, "ProfileViewModel");
@@ -158,7 +187,7 @@ namespace MarvelFlow.App.ViewModels
         {
             Navigator((ViewModelBase)obj.Sender, "ListMovieViewModel");
         }
-
+        
         private void LoadPageFromHistory(HistoryMessage obj)
         {
             Navigator((ViewModelBase)obj.Sender, "");
@@ -172,7 +201,7 @@ namespace MarvelFlow.App.ViewModels
 
         public void DisplayHome()
         {
-            Navigator(this, "HomeViewModel");
+            Navigator(new HomeMessage(this, "Navigate Home"), "HomeViewModel");
         }
 
         public void OpenUserWindow()

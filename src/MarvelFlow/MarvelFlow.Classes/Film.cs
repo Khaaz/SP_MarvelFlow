@@ -13,7 +13,7 @@ namespace MarvelFlow.Classes
 
         public Universe Universe { get; private set; }
 
-        private List<Hero> listHeroes { get; set; }
+        public List<Hero> ListHeroes { get; set; }
 
         /// <summary>
         /// Default constructor Film

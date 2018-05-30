@@ -7,6 +7,7 @@
              DataContext="{Binding ListHero, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
+    
     <Grid x:Name="___Grid__Générale">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -20,7 +21,9 @@
                 <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
-
+            
+            <!-- Text="{Binding truc, UpdateSourceTrigger=PropertyChanged}" -->
+            
             <Button Grid.Column="0" Grid.Row="0"
                 Background="{x:Null}" BorderThickness="0"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
@@ -36,15 +39,19 @@
             </UniformGrid>
             
             <TextBox Grid.Column="2" Text="..." 
-                       BorderBrush="White" Background="Black" 
+                     BorderBrush="White" Background="Black" 
                      Foreground="White" BorderThickness="2" Margin="20,30"  />
         </Grid>
 
         <!--Ligne 2-->
         <Grid x:Name="___Grid__Zone_de_recherche" Grid.Row="1">
-            <ListView ItemsSource="{Binding ListHeros}" x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
-                      Grid.Row="0"
-                      Grid.ColumnSpan="3" Background="{x:Null}" BorderThickness="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="32*"/>
+            </Grid.ColumnDefinitions>
+            <ListView ItemsSource="{Binding ListHeros}"
+                      x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                      Grid.Row="0" Grid.ColumnSpan="3" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="5" />
@@ -52,15 +59,18 @@
                 </ItemsControl.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Background="{x:Null}" BorderThickness="0">
-                        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <Image Source="{Binding image}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />
-                            <TextBlock Text="{Binding name}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
-                        </StackPanel>
+                        <Button Background="{x:Null}" BorderThickness="0"
+                                Command="{Binding DataContext.NavigateHeroCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcListHero}}}"
+                                CommandParameter="{Binding .}">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <Image Source="{Binding Image}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />
+                                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
+                            </StackPanel>
                         </Button>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
         </Grid>
     </Grid>
 </UserControl>

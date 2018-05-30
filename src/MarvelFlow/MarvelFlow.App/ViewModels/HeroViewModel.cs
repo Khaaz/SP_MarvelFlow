@@ -15,7 +15,7 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand ReturnBackCommand { get; private set; }
 
         public List<Movie> ListMovies { get; set; }
-        public Hero Im {get; set; }
+        public Hero Hero { get; set; }
 
         public HeroViewModel()
         {
@@ -27,9 +27,9 @@ namespace MarvelFlow.App.ViewModels
             ListMovies.Add(f1);
             ListMovies.Add(f3);
 
-            Im = new Hero("IM", "IronMan", "pack://application:,,,/MarvelFlow.App;component/Images/ImagesHero/ironMan.png", "Voici IronMan,l'homme de fer", Status.Gentil, Team.Avengers, Universe.MCU);
+            Hero = new Hero("IM", "IronMan", "pack://application:,,,/MarvelFlow.App;component/Images/ImagesHero/ironMan.png", "Voici IronMan,l'homme de fer", Status.Gentil, Team.Avengers, Universe.MCU);
 
-            Im.listMovies = ListMovies;
+            Hero.ListMovies = ListMovies;
             
         }
 

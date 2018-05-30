@@ -155,7 +155,7 @@ namespace MarvelFlow.Classes
         /// Check if the season number match the id insert id in the dictionnary
         /// Raise an Exception if it's not the case
         /// </summary>
-        /// <param name="epNbr"></param>
+        /// <param name="seasonNbr"></param>
         /// <param name="index"></param>
         /// <exception cref="SerieException">NOTMATCH</exception>
         private void checkSeasonNumberIndex(int seasonNbr, int index)

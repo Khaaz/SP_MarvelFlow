@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,19 +12,19 @@ namespace MarvelFlow.Classes
 
         private string id { get;  set; }
 
-        public string name { get; set; }
+        public string Name { get; private set; }
 
-        public string image { get; set; }
+        public string Image { get; private set; }
 
-        public string desc { get; set; }
+        public string Desc { get; private set; }
 
         private Status status { get; set; }
 
-        private Team team { get; set; }
+        public Team Team { get; private set; }
 
         private Universe universe { get; set; }
 
-        public List<Movie> listMovies { get; set; }
+        public List<Movie> ListMovies { get; set; }
 
         private Boolean fav { get; set; }
 
@@ -53,15 +54,15 @@ namespace MarvelFlow.Classes
             }
 
             this.id = id;
-            this.name = name;
-            this.image = image;
-            this.desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
+            this.Name = name;
+            this.Image = ConfigurationManager.AppSettings["AffichePath"] + image;
+            this.Desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
             this.status = Status.Neutre;
-            this.team = team;
+            this.Team = team;
             this.universe = Universe.MCU;
             this.fav = false;
 
-            this.listMovies = new List<Movie>();
+            this.ListMovies = new List<Movie>();
         }
 
         /// <summary>
@@ -93,7 +94,7 @@ namespace MarvelFlow.Classes
 
         public override string ToString()
         {
-            return name;
+            return Name;
         }
 
         public override bool Equals(object obj)
