@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MarvelFlow.App.Views"
              DataContext="{Binding Movie, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="525">
+             d:DesignHeight="700" d:DesignWidth="1200">
     <Grid x:Name="___Grid__Générale">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -20,13 +20,17 @@
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
 
-            <Button Content="Retour"  Grid.Column="0" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center" 
-                    Background="Black" Foreground="White" 
-                    BorderBrush="White" FontWeight="Bold" BorderThickness="2" 
-                    Command='{Binding ReturnBackCommand}'/>
-            <TextBlock Foreground="White" FontWeight="Bold"  TextAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Run Text="TITRE DU FILM"/>
+            <Button Grid.Column="0" Grid.Row="0"
+                Background="{x:Null}" BorderThickness="0"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                Command='{Binding ReturnBackCommand}' >
+                <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
+                   Stretch="Uniform">
+                </Image>
+            </Button>
+            
+            <TextBlock Foreground="White" FontWeight="Bold"  TextAlignment="Center"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Run Text="TITRE DU FILM" FontSize="48"/>
             </TextBlock>
         </Grid>
         

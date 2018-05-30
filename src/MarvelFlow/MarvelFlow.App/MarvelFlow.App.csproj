@@ -237,6 +237,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\ImagesMovie\Antman.jpg" />
+    <Resource Include="Images\row.png" />
     <Resource Include="Images\ImagesMovie\AntMan2.jpg" />
     <Resource Include="Images\ImagesMovie\BlackPanther.jpg" />
     <Resource Include="Images\ImagesMovie\CaptainAmerica1.jpg" />

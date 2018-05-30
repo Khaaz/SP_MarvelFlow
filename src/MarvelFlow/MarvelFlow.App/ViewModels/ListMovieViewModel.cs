@@ -17,7 +17,8 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand ReturnBackCommand { get; private set; }
 
         public List<ISearchableMovie> ListMovies { get; set; }
-
+        public List<String> ListUniverses { get; private set; }
+        
         public ListMovieViewModel()
         {
             this.NavigateMovieCommand = new RelayCommand(this.SendNavigateMovie, CanDisplayMessage);
@@ -28,12 +29,16 @@ namespace MarvelFlow.App.ViewModels
 
 
             Film f1 = new Film("AV3", "Avengers Infinity Wars", "pack://application:,,,/MarvelFlow.App;component/Images/ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU);
-            Film f2 = new Film("AM", "AntMan", "pack://application:,,,/MarvelFlow.App;component/Images/ImagesMovie/Antman.jpg", "film homme fourmi", "Payton Reed", "14/07/15", Universe.MCU);
+            Film f2 = new Film("AM", "AntMan", "pack://application:,,,/MarvelFlow.App;component/Images/ImagesMovie/Thor1.jpg", "film homme fourmi", "Payton Reed", "14/07/15", Universe.MCU);
             Film f3 = new Film("IM1", "IronMan", "pack://application:,,,/MarvelFlow.App;component/Images/ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/08", Universe.MCU);
 
             ListMovies.Add(f1);
             ListMovies.Add(f2);
             ListMovies.Add(f3);
+
+            ListUniverses.Add()
+
+
         }
 
         public bool CanDisplayMessage()
