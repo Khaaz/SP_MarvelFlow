@@ -5,8 +5,133 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MarvelFlow.App.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="700" d:DesignWidth="1200">
+    
+    <Grid x:Name="___Grid__Générale">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+
+        <!--Ligne 1-->
+        <Grid x:Name="___Grid__3_Boutons_Home" Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="0"
+                Background="{x:Null}" BorderThickness="0"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                Command='{Binding ReturnBackCommand}' >
+                <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
+                   Stretch="Uniform">
+                </Image>
+            </Button>
+
+            <TextBlock Text="NOM DE PROFIL" Grid.Row="0" Grid.Column="1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="SemiBold"/>
+
+            <Button Grid.Column="2" Grid.Row="0" Margin="30,20" Background="#e23636" BorderBrush="White" BorderThickness="4">
+                <Run Foreground="White" FontSize="20" FontWeight="Medium">ADMIN MODE</Run>
+            </Button>
+        </Grid>
+
+        <!--Ligne 2-->
+        <Grid x:Name="___Grid__Zone_de_recherche" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <!--MIDDLE-->
+            <Border Grid.Column="1" Grid.RowSpan="2" BorderBrush="White" BorderThickness="3">
+                <UniformGrid Columns="1" Rows="3" Margin="0,11,0,0">
+                    <Border BorderThickness="2" BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
+                        <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/profilTest.jpg" />
+                    </Border>
+                    <ComboBox Margin="30,70"/>
+                    <!--INFOS DU PROFIL-->
+                    <UniformGrid Rows="4" Columns="2">
+                        <TextBlock Text="Nom :" Foreground="#FFFFDC00" FontStyle="Italic" FontSize="20"/>
+                        <TextBlock Text="{Binding User.Name}" Foreground="White" 
+                               FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <TextBlock Text="Prénom :" Foreground="#7DDA77" 
+                               FontStyle="Italic" FontSize="20"/>
+                        <TextBlock Text="{Binding User.Prenom}" Foreground="White" 
+                               FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <TextBlock Text="Date d'Inscripiton :" Foreground="#C95CE7" 
+                               FontStyle="Italic" FontSize="20"/>
+                        <TextBlock Text="{Binding User.DateInsc}" Foreground="White" 
+                               FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <TextBlock Text="Email :" Foreground="#FF546F" 
+                               FontStyle="Italic" FontSize="20"/>
+                        <TextBlock Text="{Binding User.Mail}" Foreground="White" 
+                               FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    </UniformGrid>
+
+                </UniformGrid>
+            </Border>
+
+
+            <!--LISTE GAUCHE HERO-->
+            <TextBlock Text="Hero Favoris :" FontSize="30" Foreground="White" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Grid.Column="0"/>
+            <ListView ItemsSource="{Binding ListMoviesView}" x:Name="ListViewHeroFav" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                      Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Background="{x:Null}" BorderThickness="0"
+                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcListMovie}}}"
+                                CommandParameter="{Binding .}">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <Image Source="{Binding Affiche}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />
+                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
+                            </StackPanel>
+                        </Button>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!--LISTE DROITE FILM-->
+            <TextBlock Text="Film Favoris :" FontSize="30" Foreground="White" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Grid.Column="2"/>
+            <ListView ItemsSource="{Binding ListMoviesView}" x:Name="ListViewFilmFav" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                      Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Background="{x:Null}" BorderThickness="0"
+                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcListMovie}}}"
+                                CommandParameter="{Binding .}">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <Image Source="{Binding Affiche}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />
+                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
+                            </StackPanel>
+                        </Button>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </Grid>
     </Grid>
 </UserControl>
