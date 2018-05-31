@@ -35,5 +35,10 @@ namespace MarvelFlow.Classes
         {
             throw new NotImplementedException();
         }
+
+        public override List<Hero> GetListHeros()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

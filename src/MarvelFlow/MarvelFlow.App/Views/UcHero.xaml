@@ -16,13 +16,13 @@
         <!--Ligne 1-->
         <Grid x:Name="___Grid___NOM_HERO" Grid.Row="0" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0"
+            <Button Grid.Column="0" Grid.Row="0"
                 Background="{x:Null}" BorderThickness="0"
-                VerticalAlignment="Center" HorizontalAlignment="Center"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
                 Command='{Binding ReturnBackCommand}' >
                 <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
                    Stretch="Uniform">
@@ -49,8 +49,35 @@
             <Image  Source="{Binding Hero.Image}" Grid.Column="0" Stretch="Uniform" StretchDirection="Both" Margin="0,5,0,0"/>
             <Button Content="FAV"  Grid.Row="1" Grid.Column="0" Margin="7,24,7,15" MaxWidth="100" MaxHeight="80" Foreground="White" FontWeight="Bold" Background="#FFEEA200" />
             <Rectangle Grid.Column="0"  Stroke="White" StrokeThickness="1"/>
-            <TextBlock Grid.Column="1" Grid.RowSpan="1"  Background="{x:Null}" Foreground="White" Text="{Binding Hero.Desc}" Margin="10.4,5,-0.2,0.4"/>
+            
+            <!-- BLOC DESCRIPTION -->
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
+            <TextBlock Grid.Column="0"  Grid.RowSpan="3" Background="{x:Null}" Foreground="White" Text="{Binding Hero.Desc}" Margin="10.4,5,-0.2,0.4"/>
+                <!-- UNIVERSE / STATUS / TEAM -->
+                <Border Grid.Column="1" BorderThickness="3" BorderBrush="White">
+                <UniformGrid  Columns="1"  Rows="6" Margin="15">
+
+                    <TextBlock Text="Universe :" Foreground="#FF546F" FontStyle="Italic" FontSize="20"/>
+                        <TextBlock Text="{Binding Hero.Universe}" Foreground="White" 
+                               FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock Text="Status :" Foreground="#85FFF1" 
+                               FontStyle="Italic" FontSize="20"/>
+                        <TextBlock Text="{Binding Hero.Status}" Foreground="White" 
+                               FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock Text="Team :" Foreground="#FF7F00" 
+                               FontStyle="Italic" FontSize="20"/>
+                        <TextBlock Text="{Binding Hero.Team}" Foreground="White" 
+                               FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    
+                    
+                </UniformGrid>
+                </Border>
+            </Grid>
 
             <ListView ItemsSource="{Binding Hero.ListMovies }" x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel >
@@ -61,7 +88,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Button Background="{x:Null}" BorderThickness="0">
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch">
                                 <Image Source="{Binding Affiche}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="60" MaxWidth="60" />
                                 <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
                             </StackPanel>

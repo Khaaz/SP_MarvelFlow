@@ -46,14 +46,15 @@
         
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="0.3*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Guest" 
+            <Button Grid.Column="0"  Content="Guest"
                     Background="{x:Null}" Foreground="White"
                     BorderThickness="0" 
-                    Command="{Binding NavigateUserWindowCommand}"/>
-            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/pdp2.png" Grid.Column="1" Height="35" MaxHeight="75" />
+                    Command="{Binding NavigateUserWindowCommand}" FontSize="28" HorizontalAlignment="Right" VerticalAlignment="Center" FontStyle="Italic" TextOptions.TextHintingMode="Animated"/>
+            
+            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/pdp2.png" Grid.Column="1" Margin="10"/>
         </Grid>
     </Grid>
 </Window>

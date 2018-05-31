@@ -28,7 +28,7 @@ namespace MarvelFlow.App.Lib
         {
             this.NomVM = Source.GetType().Name;
             this.Hero = this.NomVM == "HeroViewModel" ? ((HeroViewModel)Source).Hero : null;
-            this.Movie = this.NomVM == "MovieViewModel" ? ((MovieViewModel)Source).Movie : null; ;
+            this.Movie = (Movie) (this.NomVM == "MovieViewModel" ? ((MovieViewModel)Source).Movie : null);
         }
 
         public HistoryObject(string NomVM, Hero Hero)

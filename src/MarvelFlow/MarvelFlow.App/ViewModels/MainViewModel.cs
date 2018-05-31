@@ -65,7 +65,7 @@ namespace MarvelFlow.App.ViewModels
             // MAIN
             this.History = new Stack<HistoryObject>();
 
-            this._CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
+            this._CurrentVM = ServiceLocator.Current.GetInstance<MovieViewModel>();
 
             // Init Messaging
             MessengerInstance.Register<HomeMessage>(this, (HomeMessage obj) => Navigator(obj, "HomeViewModel"));

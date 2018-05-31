@@ -48,6 +48,11 @@ namespace MarvelFlow.Classes
             return Universe;
         }
 
+        public override List<Hero> GetListHeros()
+        {
+            return ListHeroes;
+        }
+
         // Custom //
     }
 }
