@@ -72,16 +72,17 @@ namespace MarvelFlow.App.ViewModels
             this.ListMoviesView = new ObservableCollection<ISearchableMovie>(this.ListMovies); 
 
             //
-            ListMoviesView = new ObservableCollection<ISearchableMovie>();
+            ListMovies = new List<ISearchableMovie>();
 
 
             Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU);
             Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/15", Universe.MCU);
             Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/08", Universe.MCU);
 
-            ListMoviesView.Add(f1);
-            ListMoviesView.Add(f2);
-            ListMoviesView.Add(f3);
+            ListMovies.Add(f1);
+            ListMovies.Add(f2);
+            ListMovies.Add(f3);
+            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(this.ListMovies);
         }
 
         public bool CanDisplayMessage()
