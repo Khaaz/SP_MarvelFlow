@@ -2,19 +2,27 @@
   {
     "ID": "IM",
     "Title": "Iron Man",
-    "Affiche": "source/image",
+    "Affiche": "ImagesMovie/IronMan.jpg",
     "Desc": "description",
     "Universe": 0,
     "Real": "realisateur",
-    "Date": "11/02/98"
+    "Date": "11/02/98",
+    "BA": "/BA/IronMan",
+    "ListHeros": [
+      "IM"
+    ]
   },
   {
     "ID": "IM2",
     "Title": "Iron Man 2",
-    "Affiche": "source/image",
+    "Affiche": "ImagesMovie/IronMan2.jpg",
     "Desc": "description",
-    "Universe":  0,
+    "Universe": 0,
     "Real": "realisateur",
-    "Date": "11/02/98"
+    "Date": "11/02/98",
+    "ListHeros": [
+      "IM",
+      "SM"
+    ]
   }
 ]

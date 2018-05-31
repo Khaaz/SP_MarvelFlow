@@ -13,6 +13,10 @@ namespace MarvelFlow.Classes
 
         public Universe Universe { get; private set; }
 
+        public string BA { get; private set; }
+
+        public List<string> ListHeroString { get; private set; }
+
         public List<Hero> ListHeroes { get; set; }
 
         /// <summary>
@@ -26,7 +30,7 @@ namespace MarvelFlow.Classes
         /// <param name="productor"></param>
         /// <param name="real"></param>
         /// <param name="date"></param>
-        public Film(string id, string title, string affiche, string desc, string real, string date, Universe universe) 
+        public Film(string id, string title, string affiche, string desc, string real, string date, Universe universe, string BA, List<string> listHeros) 
             : base(title, affiche, desc, real, date)
         {
             if (string.IsNullOrEmpty(id))
@@ -36,6 +40,9 @@ namespace MarvelFlow.Classes
 
             this.Id = id;
             this.Universe = Universe;
+            this.BA = BA;
+            this.ListHeroString = listHeros;
+            this.ListHeroes = new List<Hero>();
         }
 
         public override string GetId()
@@ -51,6 +58,16 @@ namespace MarvelFlow.Classes
         public override List<Hero> GetListHeros()
         {
             return ListHeroes;
+        }
+
+        public override List<string> GetHeroString()
+        {
+            return ListHeroString;
+        }
+
+        public override void AddListHero(Hero h)
+        {
+           this.ListHeroes.Add(h);
         }
 
         // Custom //

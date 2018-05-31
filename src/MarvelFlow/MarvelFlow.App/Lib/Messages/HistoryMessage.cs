@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using MarvelFlow.Classes;
+using MarvelFlow.Classes.Lib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace MarvelFlow.App.Lib.Messages
     {
         public string Status { get; private set; }
 
-        public Movie Movie { get; private set; }
+        public ISearchableMovie Movie { get; private set; }
 
         public Hero Hero { get; private set; }
 
@@ -31,7 +32,7 @@ namespace MarvelFlow.App.Lib.Messages
             Status = status;
         }
 
-        public HistoryMessage(Movie movie, string status) : base()
+        public HistoryMessage(ISearchableMovie movie, string status) : base()
         {
             Hero = null;
             Movie = movie;
@@ -54,7 +55,7 @@ namespace MarvelFlow.App.Lib.Messages
             Status = status;
         }
 
-        public HistoryMessage(object sender, Movie movie, string status) : base(sender)
+        public HistoryMessage(object sender, ISearchableMovie movie, string status) : base(sender)
         {
             Hero = null;
             Movie = movie;
@@ -77,7 +78,7 @@ namespace MarvelFlow.App.Lib.Messages
             Status = status;
         }
 
-        public HistoryMessage(object sender, object target, Movie movie, string status) : base(sender, target)
+        public HistoryMessage(object sender, object target, ISearchableMovie movie, string status) : base(sender, target)
         {
             Hero = null;
             Movie = movie;

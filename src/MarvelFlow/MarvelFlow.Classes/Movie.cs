@@ -86,5 +86,7 @@ namespace MarvelFlow.Classes
         }
 
         public abstract List<Hero> GetListHeros();
+        public abstract List<string> GetHeroString();
+        public abstract void AddListHero(Hero h);
     }
 }

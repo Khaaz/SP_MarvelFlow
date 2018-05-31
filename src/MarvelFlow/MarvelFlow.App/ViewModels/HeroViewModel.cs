@@ -34,32 +34,10 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        private ObservableCollection<ISearchableMovie> _ListMovies;
-        public ObservableCollection<ISearchableMovie> ListMovies
-        {
-            get
-            {
-                return _ListMovies;
-            }
-            set
-            {
-                if (_ListMovies == value)
-                    return;
-                _ListMovies = value;
-                RaisePropertyChanged(() => ListMovies);
-            }
-        }
-
         public HeroViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
             this.NavigateMovieCommand = new RelayCommand<Movie>(this.SendNavigateMovie, CanDisplayMessage());
-
-            ListMovies = new ObservableCollection<ISearchableMovie>();
-            Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU);
-            Film f3 = new Film("IM1", "Iron Man", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/08", Universe.MCU);
-            ListMovies.Add(f1);
-            ListMovies.Add(f3);
             
         }
 
@@ -73,7 +51,7 @@ namespace MarvelFlow.App.ViewModels
             MessengerInstance.Send<HistoryMessage>(new HistoryMessage(this, "Navigate Back History"));
         }
 
-        public void SendNavigateMovie(Movie movie)
+        public void SendNavigateMovie(ISearchableMovie movie)
         {
             MessengerInstance.Send<MovieMessage>(new MovieMessage(this, movie, "Navigate Movie Message"));
         }

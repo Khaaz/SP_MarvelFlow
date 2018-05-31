@@ -5,9 +5,12 @@ using GalaSoft.MvvmLight.Messaging;
 using MarvelFlow.App.Lib;
 using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
+using MarvelFlow.Classes.Lib;
 using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 
 namespace MarvelFlow.App.ViewModels
@@ -48,6 +51,9 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        public List<Hero> ListHeros { get; set; }
+        public List<ISearchableMovie> ListMovies { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -83,10 +89,91 @@ namespace MarvelFlow.App.ViewModels
             this.NavigateUserWindowCommand = new RelayCommand(this.OpenUserWindow, CanDisplayMessage);
             this.NavigateHomeCommand = new RelayCommand(this.DisplayHome, CanDisplayMessage);
 
-            // Init Data
-            List<Hero> ListHeros = ManagerJson.GetHeroes();
-            List<Film> ListFilms = ManagerJson.GetFilms();
-            List<Serie> ListSerie = ManagerJson.GetSeries();
+            // Init datas
+            this.InitData();
+
+            // Init Data (Hardcode - test)
+
+            List<string> stringheros = new List<string>
+            {
+                "Im",
+                "SM"
+            };
+
+            Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU, "/ba/im", stringheros);
+            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/15", Universe.MCU, "/ba/im", stringheros);
+            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/08", Universe.MCU, "/ba/im", stringheros);
+
+            Hero Im = new Hero("IM", "IronMan", "ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
+            Hero Sm = new Hero("SM", "SpiderMan", "ImagesHero/spiderMan.png", "voici SpiderMan", Team.Avengers);
+            Hero Ds = new Hero("Ds", "Doctor Strange", "ImagesHero/doctorStrange.png", "voici Doctor Strange", Team.Avengers);
+            Hero Hu = new Hero("HK", "Hulk", "ImagesHero/hulk.png", "voici Hulk le géant vert", Team.Avengers);
+            Hero Vi = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.BlackOrder);
+            Hero Vi1 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.BlackOrder);
+            Hero Vi2 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
+            Hero Vi3 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
+            Hero Vi4 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
+            Hero Vi5 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
+            Hero Vi6 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
+
+            f1.ListHeroes.Add(Im);
+            f1.ListHeroes.Add(Sm);
+            f1.ListHeroes.Add(Ds);
+
+            this.ListMovies.Add(f1);
+            this.ListMovies.Add(f2);
+            this.ListMovies.Add(f3);
+
+            List<Movie> ListMoviesTemp = new List<Movie>();
+            ListMoviesTemp.Add(f1);
+            ListMoviesTemp.Add(f2);
+            ListMoviesTemp.Add(f3);
+
+            Im.ListMovies = ListMoviesTemp;
+
+            ListHeros.Add(Im);
+            ListHeros.Add(Sm);
+            ListHeros.Add(Ds);
+            ListHeros.Add(Hu);
+            ListHeros.Add(Vi);
+            ListHeros.Add(Vi1);
+            ListHeros.Add(Vi2);
+            ListHeros.Add(Vi3);
+            ListHeros.Add(Vi4);
+            ListHeros.Add(Vi5);
+            ListHeros.Add(Vi6);
+
+        }
+
+        public void InitData()
+        {
+            // Init Data from Json
+            this.ListHeros = ManagerJson.GetHeroes().OrderBy(h => h.Name).ToList(); // Sort by Name Default
+
+            List<ISearchableMovie> ListFilms = new List<ISearchableMovie>(ManagerJson.GetFilms()); // ISearchaBleMovie instead of Movie
+            this.ListMovies = ListFilms.Concat(ManagerJson.GetSeries()).OrderBy(m => m.GetTitle()).ToList(); // Sort by Title default
+
+            // Init heros per movies
+            foreach (ISearchableMovie m in this.ListMovies)
+            {
+                foreach (string h in m.GetHeroString())
+                {
+                    m.AddListHero(ListHeros.Find(hero => hero.Id == h));
+                }
+
+            }
+
+            // init movies per heroes
+            foreach (Hero h in this.ListHeros)
+            {
+                foreach(Movie m in this.ListMovies)
+                {
+                    if (m.GetListHeros().Contains(h))
+                    {
+                        h.ListMovies.Add(m);
+                    }
+                }
+            }
         }
 
         public void Navigator(MessageBase obj, string dest)
@@ -142,10 +229,22 @@ namespace MarvelFlow.App.ViewModels
                     this.CurrentVM = ServiceLocator.Current.GetInstance<ProfileViewModel>();
                     break;
                 case "ListHeroViewModel":
-                    this.CurrentVM = ServiceLocator.Current.GetInstance<ListHeroViewModel>();
+                    ListHeroViewModel tempListHVM = ServiceLocator.Current.GetInstance<ListHeroViewModel>();
+                    if (tempListHVM.ListHeros == null)
+                    {
+                        tempListHVM.ListHeros = this.ListHeros;
+                        tempListHVM.ListHerosView = new ObservableCollection<Hero>(this.ListHeros);
+                    }
+                    this.CurrentVM = tempListHVM;
                     break;
                 case "ListMovieViewModel":
-                    this.CurrentVM = ServiceLocator.Current.GetInstance<ListMovieViewModel>();
+                    ListMovieViewModel tempListMVM = ServiceLocator.Current.GetInstance<ListMovieViewModel>();
+                    if (tempListMVM.ListMovies == null)
+                    {
+                        tempListMVM.ListMovies = this.ListMovies;
+                        tempListMVM.ListMoviesView = new ObservableCollection<ISearchableMovie>(this.ListMovies);
+                    }
+                    this.CurrentVM = tempListMVM;
                     break;
                 default:
                     this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
