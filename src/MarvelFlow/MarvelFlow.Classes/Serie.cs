@@ -20,7 +20,9 @@ namespace MarvelFlow.Classes
 
         private bool isOver { get; set; }
 
-        private List<Hero> listHeroes { get; set; }
+        public List<string> ListHeroString { get; private set; }
+
+        public List<Hero> ListHeroes { get; set; }
 
         /// <summary>
         /// Default constructor for Serie
@@ -33,7 +35,7 @@ namespace MarvelFlow.Classes
         /// <param name="numberSeasons"></param>
         /// <param name="listSeasons"></param>
         /// <param name="isOver"></param>
-        public Serie(string id, string title, string affiche, string desc, string real, string date, Universe universe, int numberSeasons, Dictionary<int, Season> listSeasons, bool isOver) 
+        public Serie(string id, string title, string affiche, string desc, string real, string date, Universe universe, int numberSeasons, Dictionary<int, Season> listSeasons, bool isOver, List<string> listHeros) 
             : base(title, affiche, desc, real, date)
         {
 
@@ -48,7 +50,9 @@ namespace MarvelFlow.Classes
             this.listSeasons = listSeasons;
             this.isOver = isOver;
 
-            this.listHeroes = new List<Hero>();
+            ListHeroString = listHeros;
+
+            this.ListHeroes = new List<Hero>();
         }
 
         /// <summary>
@@ -62,7 +66,7 @@ namespace MarvelFlow.Classes
         /// <param name="numberSeasons"></param>
         /// <param name="listSeasons"></param>
         /// <param name="isOver"></param>
-        public Serie(string id, string title, string affiche, string desc, string real, string date, Universe universe, int numberSeasons, List<Season> listSeasons, bool isOver)
+        public Serie(string id, string title, string affiche, string desc, string real, string date, Universe universe, int numberSeasons, List<Season> listSeasons, bool isOver, List<string> listHeros)
             : base(title, affiche, desc, real, date)
         {
 
@@ -83,7 +87,9 @@ namespace MarvelFlow.Classes
 
             this.isOver = isOver;
 
-            this.listHeroes = new List<Hero>();
+            ListHeroString = listHeros;
+
+            this.ListHeroes = new List<Hero>();
         }
 
         /// <summary>
@@ -178,7 +184,17 @@ namespace MarvelFlow.Classes
 
         public override List<Hero> GetListHeros()
         {
-            return listHeroes;
+            return ListHeroes;
+        }
+
+        public override List<string> GetHeroString()
+        {
+            return ListHeroString;
+        }
+
+        public override void AddListHero(Hero h)
+        {
+            this.ListHeroes.Add(h);
         }
     }
 }

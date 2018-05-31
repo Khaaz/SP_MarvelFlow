@@ -5,6 +5,7 @@ using MarvelFlow.Classes;
 using MarvelFlow.Classes.Lib;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,12 +15,28 @@ namespace MarvelFlow.App.ViewModels
     public class MovieViewModel : ViewModelBase
     {
         public RelayCommand ReturnBackCommand { get; private set; }
+        public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
 
-        public ISearchableMovie Movie { get; set; }
+        public ISearchableMovie _Movie;
+        public ISearchableMovie Movie
+        {
+            get
+            {
+                return _Movie;
+            }
+            set
+            {
+                if (_Movie == value)
+                    return;
+                _Movie = value;
+                RaisePropertyChanged(() => Movie);
+            }
+        }
 
         public MovieViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
+            this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());
         }
 
         public bool CanDisplayMessage()
@@ -32,7 +49,10 @@ namespace MarvelFlow.App.ViewModels
             MessengerInstance.Send<HistoryMessage>(new HistoryMessage(this, "Navigate Back History"));
         }
 
-        Film f1 = new Film("AV3", "Avengers Infinity Wars", "pack://application:,,,/MarvelFlow.App;component/Images/ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU);
-
+        public void SendNavigateHero(Hero hero)
+        {
+            MessengerInstance.Send<HeroMessage>(new HeroMessage(this, hero, "Navigate Hero Message"));
+        }
+        
     }
 }

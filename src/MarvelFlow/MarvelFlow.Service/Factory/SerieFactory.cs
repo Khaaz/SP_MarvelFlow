@@ -20,7 +20,7 @@ namespace MarvelFlow.Service.Factory
 
         public static Serie ToSerie(this SerieJson f)
         {
-            Serie NewSerie = new Serie(f.Id, f.Title, f.Affiche, f.Desc, f.Real, f.Date, f.Universe, f.NumberSeason, f.ListSeasons.ToListSeason().ToList(), f.IsOver);
+            Serie NewSerie = new Serie(f.Id, f.Title, f.Affiche, f.Desc, f.Real, f.Date, f.Universe, f.NumberSeason, f.ListSeasons.ToListSeason().ToList(), f.IsOver, f.ListHeros);
 
             return NewSerie;
         }

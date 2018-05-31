@@ -10,7 +10,7 @@ namespace MarvelFlow.Classes
     public class Hero
     {
 
-        private string id { get;  set; }
+        public string Id { get;  private set; }
 
         public string Name { get; private set; }
 
@@ -53,13 +53,14 @@ namespace MarvelFlow.Classes
                 throw new ArgumentException("Nom du hero null", nameof(name));
             }
 
-            this.id = id;
+            this.Id = id;
             this.Name = name;
             this.Image = ConfigurationManager.AppSettings["AffichePath"] + image;
             this.Desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
             this.Status = Status.Neutre;
             this.Team = team;
             this.Universe = Universe.MCU;
+
             this.fav = false;
 
             this.ListMovies = new List<Movie>();

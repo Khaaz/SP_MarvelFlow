@@ -63,26 +63,6 @@ namespace MarvelFlow.App.ViewModels
 
             this.SortByNameCommand = new RelayCommand(this.SortByName, CanDisplayMessage);
             this.SortByDateCommand = new RelayCommand(this.SortByDate, CanDisplayMessage);
-
-            // List (get List from Json DB - order by name - int in the Observable Collection
-            this.ListMovies = new List<ISearchableMovie>(ManagerJson.GetFilms());
-            this.ListMovies.Concat(ManagerJson.GetSeries());
-            this.ListMovies = this.ListMovies.OrderBy(h => h.GetTitle()).ToList();
-
-            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(this.ListMovies); 
-
-            //
-            ListMovies = new List<ISearchableMovie>();
-
-
-            Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU);
-            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/15", Universe.MCU);
-            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/08", Universe.MCU);
-
-            ListMovies.Add(f1);
-            ListMovies.Add(f2);
-            ListMovies.Add(f3);
-            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(this.ListMovies);
         }
 
         public bool CanDisplayMessage()

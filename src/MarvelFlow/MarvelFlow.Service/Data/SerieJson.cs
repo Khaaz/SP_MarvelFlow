@@ -20,6 +20,8 @@ namespace MarvelFlow.Service.Data
 
         public bool IsOver { get; set; }
 
+        public List<string> ListHeros { get; set; }
+
 
         public SerieJson() : base() { }
     }

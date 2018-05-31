@@ -57,52 +57,6 @@ namespace MarvelFlow.App.ViewModels
             // Commands
             this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
-
-            // List (get List from Json DB - order by name - int in the Observable Collection
-            this.ListHeros = ManagerJson.GetHeroes().OrderBy(h => h.Name).ToList();
-            this.ListHerosView = new ObservableCollection<Hero>(this.ListHeros);
-
-
-            // temp (bind)
-            ListHeros = new List<Hero>();
-
-            Hero Im = new Hero("IM", "IronMan", "ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
-            Hero Sm = new Hero("SM", "SpiderMan", "ImagesHero/spiderMan.png", "voici SpiderMan", Team.Avengers);
-            Hero Ds = new Hero("Ds", "Doctor Strange", "ImagesHero/doctorStrange.png", "voici Doctor Strange", Team.Avengers);
-            Hero Hu = new Hero("HK", "Hulk", "ImagesHero/hulk.png", "voici Hulk le géant vert", Team.Avengers);
-            Hero Vi = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.BlackOrder);
-            Hero Vi1 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.BlackOrder);
-            Hero Vi2 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-            Hero Vi3 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-            Hero Vi4 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-            Hero Vi5 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-            Hero Vi6 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-
-            Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU);
-            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/15", Universe.MCU);
-            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/08", Universe.MCU);
-
-            List<Movie> ListMovies = new List<Movie>();
-            ListMovies.Add(f1);
-            ListMovies.Add(f2);
-            ListMovies.Add(f3);
-
-            Im.ListMovies = ListMovies;
-
-            ListHeros.Add(Im);
-            ListHeros.Add(Sm);
-            ListHeros.Add(Ds);
-            ListHeros.Add(Hu);
-            ListHeros.Add(Vi);
-            ListHeros.Add(Vi1);
-            ListHeros.Add(Vi2);
-            ListHeros.Add(Vi3);
-            ListHeros.Add(Vi4);
-            ListHeros.Add(Vi5);
-            ListHeros.Add(Vi6);
-
-            ListHerosView = new ObservableCollection<Hero>(this.ListHeros);
-
         }
 
         public void SortName(string input)
