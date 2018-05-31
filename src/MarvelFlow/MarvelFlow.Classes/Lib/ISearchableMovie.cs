@@ -12,6 +12,7 @@ namespace MarvelFlow.Classes.Lib
         string GetTitle();
         string GetAffiche();
         Universe GetUniverse();
+        List<Hero> GetListHeros();
         DateTime GetDate();
     }
 }

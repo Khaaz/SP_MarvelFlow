@@ -18,11 +18,11 @@ namespace MarvelFlow.Classes
 
         public string Desc { get; private set; }
 
-        private Status status { get; set; }
+        public Status Status { get; private set; }
 
         public Team Team { get; private set; }
 
-        private Universe universe { get; set; }
+        public Universe Universe { get; private set; }
 
         public List<Movie> ListMovies { get; set; }
 
@@ -57,9 +57,9 @@ namespace MarvelFlow.Classes
             this.Name = name;
             this.Image = ConfigurationManager.AppSettings["AffichePath"] + image;
             this.Desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
-            this.status = Status.Neutre;
+            this.Status = Status.Neutre;
             this.Team = team;
-            this.universe = Universe.MCU;
+            this.Universe = Universe.MCU;
             this.fav = false;
 
             this.ListMovies = new List<Movie>();
@@ -84,8 +84,8 @@ namespace MarvelFlow.Classes
         public Hero(string id, string name, string image, string desc, Status status, Team team, Universe universe) 
             : this(id, name, image, desc, team)
         {
-            this.status = status;
-            this.universe = universe;
+            this.Status = status;
+            this.Universe = universe;
         }
 
 

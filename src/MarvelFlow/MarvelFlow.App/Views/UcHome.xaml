@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MarvelFlow.App.Views"
              DataContext="{Binding Home, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="525">
+             d:DesignHeight="700" d:DesignWidth="1200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -21,14 +21,19 @@
         <Button Content="HERO" Grid.Row="0" Grid.Column="0"
                 Background="Black" Foreground="White" 
                 BorderBrush="White" FontWeight="Bold" BorderThickness="2"
-                Command='{Binding NavigateListHeroCommand}' />
+                FontSize="24" Margin="10"
+                Command='{Binding NavigateListHeroCommand}'  />
+        
         <Button Content="FILM" Grid.Row="0" Grid.Column="1"
                 Background="Black" Foreground="White" 
                 BorderBrush="White" FontWeight="Bold" BorderThickness="2"
+                FontSize="24" Margin="10"
                 Command='{Binding NavigateListMovieCommand}' />
+        
         <Button Content="PROFIL" Grid.Row="0" Grid.Column="2" 
                 Background="Black" Foreground="White" 
                 BorderBrush="White" FontWeight="Bold" BorderThickness="2"
+                FontSize="24" Margin="10"
                 Command='{Binding NavigateProfileCommand}' />
         
     </Grid>

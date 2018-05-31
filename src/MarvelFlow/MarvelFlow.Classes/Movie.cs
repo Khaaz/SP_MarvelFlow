@@ -17,9 +17,9 @@ namespace MarvelFlow.Classes
 
         public string Desc { get; private set; }
 
-        private string real { get; set; } // realisateur
+        public string Real { get; private set; } // realisateur
 
-        private bool isOut { get; set; }
+        public bool IsOut { get; private set; }
 
         public DateTime Date { get; private set; } // date de sortie
 
@@ -43,12 +43,12 @@ namespace MarvelFlow.Classes
             this.Title = title;
             this.Affiche = ConfigurationManager.AppSettings["AffichePath"] + affiche;
             this.Desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
-            this.real = real;
+            this.Real = real;
 
             DateTime tmpDate = Convert.ToDateTime(date);
 
             this.Date = tmpDate;
-            this.isOut = tmpDate < DateTime.Now ? false : true;
+            this.IsOut = tmpDate < DateTime.Now ? false : true;
         }
 
         public override string ToString()
@@ -84,5 +84,7 @@ namespace MarvelFlow.Classes
         {
             return Date;
         }
+
+        public abstract List<Hero> GetListHeros();
     }
 }
