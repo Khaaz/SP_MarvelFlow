@@ -38,7 +38,7 @@
                 <ComboBox  Foreground="Black" Background="White"  Margin="26,30" />
             </UniformGrid>
 
-            <TextBox Grid.Column="2" Text="..."  
+            <TextBox Grid.Column="2" Text="{Binding SearchBar, UpdateSourceTrigger=PropertyChanged}"  
                      BorderBrush="White" Background="Black"  
                      Foreground="White" BorderThickness="2" Margin="20,30"  />
         </Grid>
@@ -49,7 +49,7 @@
                 <ColumnDefinition Width="43*"/>
                 <ColumnDefinition Width="32*"/>
             </Grid.ColumnDefinitions>
-            <ListView ItemsSource="{Binding ListHeros}"
+            <ListView ItemsSource="{Binding ListHerosView}"
                       x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                       Grid.Row="0" Grid.ColumnSpan="3" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>

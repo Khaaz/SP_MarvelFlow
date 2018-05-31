@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
+using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,28 +17,54 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
         public RelayCommand ReturnBackCommand { get; private set; }
 
-        private ObservableCollection<Hero> _ListHeros;
-        public ObservableCollection<Hero> ListHeros
+        public List<Hero> ListHeros { get; set; }
+
+        private ObservableCollection<Hero> _ListHerosView;
+        public ObservableCollection<Hero> ListHerosView
         {
             get
             {
-                return _ListHeros;
+                return _ListHerosView;
             }
             set
             {
-                if (_ListHeros == value)
+                if (_ListHerosView == value)
                     return;
-                _ListHeros = value;
-                RaisePropertyChanged(() => ListHeros);
+                _ListHerosView = value;
+                RaisePropertyChanged(() => ListHerosView);
+            }
+        }
+
+        private string _SearchBar;
+        public string SearchBar
+        {
+            get
+            {
+                return _SearchBar;
+            }
+            set
+            {
+                if (_SearchBar == value)
+                    return;
+                _SearchBar = value;
+                RaisePropertyChanged(() => SearchBar);
+                SortName(SearchBar);
             }
         }
 
         public ListHeroViewModel()
         {
+            // Commands
             this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
 
-            ListHeros = new ObservableCollection<Hero>();
+            // List (get List from Json DB - order by name - int in the Observable Collection
+            this.ListHeros = ManagerJson.GetHeroes().OrderBy(h => h.Name).ToList();
+            this.ListHerosView = new ObservableCollection<Hero>(this.ListHeros);
+
+
+            // temp (bind)
+            ListHeros = new List<Hero>();
 
             Hero Im = new Hero("IM", "IronMan", "ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
             Hero Sm = new Hero("SM", "SpiderMan", "ImagesHero/spiderMan.png", "voici SpiderMan", Team.Avengers);
@@ -51,6 +78,17 @@ namespace MarvelFlow.App.ViewModels
             Hero Vi5 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
             Hero Vi6 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
 
+            Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU);
+            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/15", Universe.MCU);
+            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/08", Universe.MCU);
+
+            List<Movie> ListMovies = new List<Movie>();
+            ListMovies.Add(f1);
+            ListMovies.Add(f2);
+            ListMovies.Add(f3);
+
+            Im.ListMovies = ListMovies;
+
             ListHeros.Add(Im);
             ListHeros.Add(Sm);
             ListHeros.Add(Ds);
@@ -63,9 +101,15 @@ namespace MarvelFlow.App.ViewModels
             ListHeros.Add(Vi5);
             ListHeros.Add(Vi6);
 
-            // trier par team => Collection View Source
-            ListHeros = new ObservableCollection<Hero>(ListHeros.OrderBy(h => h.Team).ToList());
+            ListHerosView = new ObservableCollection<Hero>(this.ListHeros);
 
+        }
+
+        public void SortName(string input)
+        {
+            List<Hero> tempList = this.ListHeros.Where(h => h.Name.ToLower().StartsWith(input.ToLower())).ToList();
+            this.ListHerosView.Clear();
+            this.ListHerosView = new ObservableCollection<Hero>(tempList);
         }
 
         public bool CanDisplayMessage()

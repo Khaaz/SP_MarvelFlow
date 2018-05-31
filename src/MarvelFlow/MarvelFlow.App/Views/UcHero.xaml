@@ -87,8 +87,10 @@
                 </ItemsControl.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Background="{x:Null}" BorderThickness="0">
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch">
+                        <Button Background="{x:Null}" BorderThickness="0"
+                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcHero}}}"
+                                CommandParameter="{Binding .}">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                 <Image Source="{Binding Affiche}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="60" MaxWidth="60" />
                                 <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
                             </StackPanel>

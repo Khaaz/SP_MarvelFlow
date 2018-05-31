@@ -33,8 +33,10 @@
             <UniformGrid Grid.Column="1"  HorizontalAlignment="Stretch" Rows="1" Columns="2">
                 
                 <StackPanel VerticalAlignment="Center" Margin="19,0,0,0" >
-                    <RadioButton Foreground="White" Margin="0,0,0,25" >A-Z</RadioButton>
-                    <RadioButton Foreground="White" >Date Croissant </RadioButton>
+                    <RadioButton IsChecked="True" Command="{Binding SortByNameCommand}"
+                        Foreground="White" Margin="0,0,0,25" >A-Z</RadioButton>
+                    <RadioButton Command="{Binding SortByDateCommand}"
+                        Foreground="White" >Date Croissant </RadioButton>
                 </StackPanel>
 
                 <ComboBox  Foreground="Black" Background="White"  Margin="26,30"
@@ -50,7 +52,7 @@
 
             </UniformGrid>
 
-            <TextBox Grid.Column="2" Text="..." 
+            <TextBox Grid.Column="2" Text="{Binding SearchBar, UpdateSourceTrigger=PropertyChanged}"
                        BorderBrush="White" Background="Black" 
                      Foreground="White" BorderThickness="2" Margin="20,30"  />
         </Grid>
@@ -61,7 +63,7 @@
                 <ColumnDefinition Width="5*" />
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
-            <ListView ItemsSource="{Binding ListMovies}" x:Name="ListViewHero" 
+            <ListView ItemsSource="{Binding ListMoviesView}" x:Name="ListViewHero" 
                       HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                       Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>

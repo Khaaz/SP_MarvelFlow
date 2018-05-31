@@ -113,8 +113,7 @@ namespace MarvelFlow.App.ViewModels
                     this.History.Clear(); // Clear history
                     break;
                 case "HeroViewModel":
-                    HeroMessage messHero = (HeroMessage)obj;
-                    if (messHero.Hero == null)
+                    if (HistoryObject == null && ((HeroMessage)obj).Hero == null)
                     {
                         this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
                         this.History.Clear(); // Clear history
@@ -122,13 +121,12 @@ namespace MarvelFlow.App.ViewModels
                     else
                     {
                         HeroViewModel tempHeroVM = ServiceLocator.Current.GetInstance<HeroViewModel>();
-                        tempHeroVM.Hero = HistoryObject != null ? HistoryObject.Hero : messHero.Hero;
+                        tempHeroVM.Hero = HistoryObject != null ? HistoryObject.Hero : ((HeroMessage)obj).Hero;
                         this.CurrentVM = tempHeroVM;
                     }
                     break;
                 case "MovieViewModel":
-                    MovieMessage messMovie = (MovieMessage)obj;
-                    if (messMovie.Movie == null)
+                    if (HistoryObject == null && ((MovieMessage)obj).Movie == null)
                     {
                         this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
                         this.History.Clear(); // Clear history
@@ -136,7 +134,7 @@ namespace MarvelFlow.App.ViewModels
                     else
                     {
                         MovieViewModel tempMovieVM = ServiceLocator.Current.GetInstance<MovieViewModel>();
-                        tempMovieVM.Movie = HistoryObject != null ? HistoryObject.Movie : messMovie.Movie;
+                        tempMovieVM.Movie = HistoryObject != null ? HistoryObject.Movie : ((MovieMessage)obj).Movie;
                         this.CurrentVM = tempMovieVM;
                     }
                     break;
