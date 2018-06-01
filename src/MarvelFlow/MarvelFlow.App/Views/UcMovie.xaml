@@ -47,7 +47,11 @@
             </Grid.RowDefinitions>
 
             <Image  Source="{Binding Movie.Affiche}" Grid.Column="0" Stretch="Uniform" StretchDirection="Both" Margin="0,5,0,0"/>
-            <Button Content="FAV"  Grid.Row="1" Grid.Column="0" Margin="7,24,7,15" MaxWidth="100" MaxHeight="80" Foreground="White" FontWeight="Bold" Background="#FFEEA200" />
+            <Button Content="FAV" 
+                    Command="{Binding PlayTeaserCommand}" CommandParameter="{Binding Movie.BA}"
+                    Grid.Row="1" Grid.Column="0" Margin="7,24,7,15" 
+                    MaxWidth="100" MaxHeight="80" 
+                    Foreground="White" FontWeight="Bold" Background="#FFEEA200" />
             <Rectangle Grid.Column="0"  Stroke="White" StrokeThickness="1"/>
 
             <!-- BLOC DESCRIPTION -->
