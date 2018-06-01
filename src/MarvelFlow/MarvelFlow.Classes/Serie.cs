@@ -16,9 +16,9 @@ namespace MarvelFlow.Classes
 
         private int numberSeasons { get; set; }
 
-        private Dictionary<int, Season> listSeasons { get; set; }
+        public Dictionary<int, Season> ListSeasons { get; private set; }
 
-        private bool isOver { get; set; }
+        public bool IsOver { get; private set; }
 
         public List<string> ListHeroString { get; private set; }
 
@@ -47,8 +47,8 @@ namespace MarvelFlow.Classes
             this.Id = id;
             this.Universe = universe;
             this.numberSeasons = numberSeasons;
-            this.listSeasons = listSeasons;
-            this.isOver = isOver;
+            this.ListSeasons = listSeasons;
+            this.IsOver = isOver;
 
             ListHeroString = listHeros;
 
@@ -79,13 +79,13 @@ namespace MarvelFlow.Classes
             this.Universe = universe;
             this.numberSeasons = numberSeasons;
 
-            this.listSeasons = new Dictionary<int, Season>();
+            this.ListSeasons = new Dictionary<int, Season>();
             foreach (Season s in listSeasons)
             {
-                this.listSeasons.Add(s.SeasonNumber, s);
+                this.ListSeasons.Add(s.SeasonNumber, s);
             }
 
-            this.isOver = isOver;
+            this.IsOver = isOver;
 
             ListHeroString = listHeros;
 
@@ -105,9 +105,9 @@ namespace MarvelFlow.Classes
         {
             checkSeasonNumberIndex(season.SeasonNumber, numberSeasons + 1);
 
-            listSeasons.Add(season.SeasonNumber, season);
+            ListSeasons.Add(season.SeasonNumber, season);
             numberSeasons += 1;
-            return listSeasons;
+            return ListSeasons;
         }
 
         /// <summary>
@@ -125,13 +125,13 @@ namespace MarvelFlow.Classes
         {
             checkSeasonNumberIndex(season.SeasonNumber, index);
 
-            if (listSeasons.ContainsKey(index))
+            if (ListSeasons.ContainsKey(index))
             {
                 throw new SerieException(SerieEnum.EXIST);
             }
-            listSeasons.Add(index, season);
+            ListSeasons.Add(index, season);
             numberSeasons += 1;
-            return listSeasons;
+            return ListSeasons;
         }
 
         /// <summary>
@@ -149,12 +149,12 @@ namespace MarvelFlow.Classes
         {
             checkSeasonNumberIndex(season.SeasonNumber, index);
 
-            if (!listSeasons.ContainsKey(index))
+            if (!ListSeasons.ContainsKey(index))
             {
                 throw new SerieException(SerieEnum.NOTEXIST);
             }
-            listSeasons[index] = season;
-            return listSeasons;
+            ListSeasons[index] = season;
+            return ListSeasons;
         }
 
         /// <summary>

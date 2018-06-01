@@ -27,7 +27,7 @@ namespace MarvelFlow.App.Lib.Messages
             Status = status;
         }
 
-        public MovieMessage(ISearchableMovie movie, object sender, object target, string status): base(sender, target)
+        public MovieMessage(object sender, object target, ISearchableMovie movie, string status): base(sender, target)
         {
             Movie = movie;
             Status = status;

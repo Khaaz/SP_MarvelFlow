@@ -88,10 +88,14 @@
     <Compile Include="ViewModels\ListHeroViewModel.cs" />
     <Compile Include="ViewModels\ListMovieViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\MovieViewModel.cs" />
+    <Compile Include="ViewModels\FilmViewModel.cs" />
+    <Compile Include="ViewModels\SerieViewModel.cs" />
     <Compile Include="ViewModels\WindowUserViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="Lib\ViewModelLocator.cs" />
+    <Compile Include="Views\UcSerie.xaml.cs">
+      <DependentUpon>UcSerie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowsBandeAnnonce.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,7 +129,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UcMovie.xaml">
+    <Page Include="Views\UcFilm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,8 +163,8 @@
     <Compile Include="Views\UcLogin.xaml.cs">
       <DependentUpon>UcLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UcMovie.xaml.cs">
-      <DependentUpon>UcMovie.xaml</DependentUpon>
+    <Compile Include="Views\UcFilm.xaml.cs">
+      <DependentUpon>UcFilm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UcProfile.xaml.cs">
       <DependentUpon>UcProfile.xaml</DependentUpon>
@@ -169,6 +173,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\UcSerie.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\WindowUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -225,6 +233,7 @@
     <Resource Include="Images\affichetest.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Component\Teaser\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

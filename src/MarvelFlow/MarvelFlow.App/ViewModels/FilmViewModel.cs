@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.App.ViewModels
 {
-    public class MovieViewModel : ViewModelBase
+    public class FilmViewModel : ViewModelBase
     {
         public RelayCommand ReturnBackCommand { get; private set; }
         public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
@@ -35,7 +35,7 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        public MovieViewModel()
+        public FilmViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
             this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());

@@ -18,8 +18,11 @@
             <DataTemplate DataType="{x:Type vm:HeroViewModel}">
                 <vs:UcHero />
             </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:MovieViewModel}">
-                <vs:UcMovie />
+            <DataTemplate DataType="{x:Type vm:FilmViewModel}">
+                <vs:UcFilm />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:SerieViewModel}">
+                <vs:UcSerie />
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:ProfileViewModel}">
                 <vs:UcProfile />

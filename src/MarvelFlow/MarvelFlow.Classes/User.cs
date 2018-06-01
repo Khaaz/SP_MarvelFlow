@@ -8,21 +8,34 @@ namespace MarvelFlow.Classes
 {
     public class User
     {
-        private string UserID { get; set; }
 
-        private string Mail { get; set; }
+        public string UserID { get; private set; }
 
-        private string Login { get; set; }
+        public string Mail { get; private set; }
 
-        private string Pswd { get; set; }
+        public string Login { get; private set; }
 
-        private DateTime DateInsc { get; set; }
+        public string Pswd { get; private set; }
 
-        private string Nom { get; set; }
+        public DateTime DateInsc { get; private set; }
 
-        private string Prenom { get; set; }
+        public string Nom { get; private set; }
+
+        public string Prenom { get; private set; }
+
+        public bool IsAdmin { get; private set; }
 
 
-
+        public User(string userID, string mail, string login, string pswd, DateTime dateInsc, string nom, string prenom, bool isAdmin)
+        {
+            this.UserID = userID;
+            this.Mail = mail;
+            this.Login = login;
+            this.Pswd = pswd;
+            this.DateInsc = dateInsc;
+            this.Nom = nom;
+            this.Prenom = prenom;
+            this.IsAdmin = isAdmin;
+        }
     }
 }

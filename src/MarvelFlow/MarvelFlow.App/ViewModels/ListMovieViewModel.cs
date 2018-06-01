@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CommonServiceLocator;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
@@ -20,8 +21,6 @@ namespace MarvelFlow.App.ViewModels
 
         public RelayCommand SortByNameCommand { get; private set; }
         public RelayCommand SortByDateCommand { get; private set; }
-        
-        public List<ISearchableMovie> ListMovies { get; set; }
 
         private ObservableCollection<ISearchableMovie> _ListMoviesView;
         public ObservableCollection<ISearchableMovie> ListMoviesView {
@@ -51,18 +50,46 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _SearchBar = value;
                 RaisePropertyChanged(() => SearchBar);
-                SortName(SearchBar);
+                FindByString(SearchBar);
             }
         }
 
         public ListMovieViewModel()
         {
             // Command
-            this.NavigateMovieCommand = new RelayCommand<Movie>(this.SendNavigateMovie, CanDisplayMessage());
+            this.NavigateMovieCommand = new RelayCommand<Movie>(this.SendNavigateMovie, m => CanDisplayMessage());
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
 
             this.SortByNameCommand = new RelayCommand(this.SortByName, CanDisplayMessage);
             this.SortByDateCommand = new RelayCommand(this.SortByDate, CanDisplayMessage);
+        }
+
+        public void FindByString(string input)
+        {
+            List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetTitle().ToLower().StartsWith(input.ToLower())).ToList();
+            this.ListMoviesView.Clear();
+            foreach (Movie m in tempList)
+            {
+                this.ListMoviesView.Add(m);
+            }
+        }
+
+        public void SortByName()
+        {
+            List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetTitle()).ToList();
+            foreach (Movie m in tempList)
+            {
+                this.ListMoviesView.Add(m);
+            }
+        }
+
+        public void SortByDate()
+        {
+            List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetDate()).ToList();
+            foreach (Movie m in tempList)
+            {
+                this.ListMoviesView.Add(m);
+            }
         }
 
         public bool CanDisplayMessage()
@@ -70,7 +97,7 @@ namespace MarvelFlow.App.ViewModels
             return true;
         }
 
-        public void SendNavigateMovie(Movie movie)
+        public void SendNavigateMovie(ISearchableMovie movie)
         {
             MessengerInstance.Send<MovieMessage>(new MovieMessage(this, movie, "Navigate Movie Message"));
         }
@@ -78,23 +105,6 @@ namespace MarvelFlow.App.ViewModels
         public void SendReturnBack()
         {
             MessengerInstance.Send<HistoryMessage>(new HistoryMessage(this, "Navigate Back History"));
-        }
-
-        public void SortName(string input)
-        {
-            List<ISearchableMovie> tempList = this.ListMovies.Where(m => m.GetTitle().ToLower().StartsWith(input.ToLower())).ToList();
-            this.ListMoviesView.Clear();
-            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(tempList);
-        }
-
-        public void SortByName()
-        {
-            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(this.ListMovies.OrderBy(h => h.GetTitle()).ToList() );
-        }
-
-        public void SortByDate()
-        {
-            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(this.ListMovies.OrderBy(h => h.GetDate()).ToList());
         }
     }
 }
