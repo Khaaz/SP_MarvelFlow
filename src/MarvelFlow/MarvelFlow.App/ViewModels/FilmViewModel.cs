@@ -15,11 +15,11 @@ namespace MarvelFlow.App.ViewModels
 {
     public class FilmViewModel : ViewModelBase
     {
-        public RelayCommand ReturnBackCommand { get; private set; }
-        public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
-        public RelayCommand<string> PlayTeaserCommand { get; private set; }
+        public RelayCommand ReturnBackCommand { get; private set; } // history command
+        public RelayCommand<Hero> NavigateHeroCommand { get; private set; } // navigate to next Movie binded (ListView)
+        public RelayCommand<string> PlayTeaserCommand { get; private set; } // BA Command (show the teaser)
 
-        public ISearchableMovie _Movie;
+        public ISearchableMovie _Movie; // Mobie binded to show (Film)
         public ISearchableMovie Movie
         {
             get
@@ -42,6 +42,8 @@ namespace MarvelFlow.App.ViewModels
             this.PlayTeaserCommand = new RelayCommand<string>(this.OpenTeaser, CanDisplayMessage());
         }
 
+        // Commands methods
+
         public bool CanDisplayMessage()
         {
             return true;
@@ -57,6 +59,10 @@ namespace MarvelFlow.App.ViewModels
             MessengerInstance.Send<HeroMessage>(new HeroMessage(this, hero, "Navigate Hero Message"));
         }
 
+        /// <summary>
+        /// Open Tease view (new windows - Winform)
+        /// </summary>
+        /// <param name="pathBA"></param>
         public void OpenTeaser(string pathBA)
         {
             WindowsBandeAnnonce TeaserWindow = new WindowsBandeAnnonce(pathBA);

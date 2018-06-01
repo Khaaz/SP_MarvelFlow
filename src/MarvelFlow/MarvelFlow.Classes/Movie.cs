@@ -49,7 +49,7 @@ namespace MarvelFlow.Classes
             DateTime.TryParseExact(date, "dd/MM/yy", null, DateTimeStyles.None, out tmpDate);
 
             this.Date = tmpDate;
-            this.IsOut = tmpDate < DateTime.Now ? false : true;
+            this.IsOut = DateTime.Now > tmpDate ? true : false;
         }
 
         public override string ToString()

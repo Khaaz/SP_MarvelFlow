@@ -11,9 +11,9 @@ namespace MarvelFlow.Classes
     {
         public int SeasonNumber { get; private set; }
 
-        private int numberEpisodes { get; set; }
+        public int NumberEpisodes { get; private set; }
 
-        private Dictionary<int, Episode> listEpisodes { get; set; }
+        public Dictionary<int, Episode> ListEpisodes { get; private set; }
 
 
         /// <summary>
@@ -27,8 +27,8 @@ namespace MarvelFlow.Classes
         public Season(int seasonNumber, int numberEpisodes, Dictionary<int, Episode> listEpisodes)
         {
             this.SeasonNumber = seasonNumber;
-            this.numberEpisodes = numberEpisodes;
-            this.listEpisodes = listEpisodes;
+            this.NumberEpisodes = numberEpisodes;
+            this.ListEpisodes = listEpisodes;
         }
 
         /// <summary>
@@ -41,12 +41,12 @@ namespace MarvelFlow.Classes
         public Season(int seasonNumber, int numberEpisodes, List<Episode> listEpisodes)
         {
             this.SeasonNumber = seasonNumber;
-            this.numberEpisodes = numberEpisodes;
+            this.NumberEpisodes = numberEpisodes;
 
-            this.listEpisodes = new Dictionary<int, Episode>();
+            this.ListEpisodes = new Dictionary<int, Episode>();
             foreach(Episode e in listEpisodes)
             {
-                this.listEpisodes.Add(e.EpisodeNumber, e);
+                this.ListEpisodes.Add(e.EpisodeNumber, e);
             }
         }
 
@@ -61,11 +61,11 @@ namespace MarvelFlow.Classes
         /// <returns>Updated Dictionary of Episodes</returns>
         public Dictionary<int, Episode> AddEpisode(Episode episode)
         {
-            checkEpNumberIndex(episode.EpisodeNumber, numberEpisodes + 1);
+            checkEpNumberIndex(episode.EpisodeNumber, NumberEpisodes + 1);
 
-            listEpisodes.Add(episode.EpisodeNumber, episode);
-            numberEpisodes += 1;
-            return listEpisodes;
+            ListEpisodes.Add(episode.EpisodeNumber, episode);
+            NumberEpisodes += 1;
+            return ListEpisodes;
         }
 
         /// <summary>
@@ -83,13 +83,13 @@ namespace MarvelFlow.Classes
         {
             checkEpNumberIndex(episode.EpisodeNumber, index);
 
-            if (listEpisodes.ContainsKey(index))
+            if (ListEpisodes.ContainsKey(index))
             {
                 throw new SeasonException(SeasonEnum.EXIST);
             }
-            listEpisodes.Add(index, episode);
-            numberEpisodes += 1;
-            return listEpisodes;
+            ListEpisodes.Add(index, episode);
+            NumberEpisodes += 1;
+            return ListEpisodes;
         }
 
         /// <summary>
@@ -107,13 +107,13 @@ namespace MarvelFlow.Classes
         {
             checkEpNumberIndex(episode.EpisodeNumber, index);
 
-            if (!listEpisodes.ContainsKey(index))
+            if (!ListEpisodes.ContainsKey(index))
             {
                 throw new SeasonException(SeasonEnum.NOTEXIST);
             }
 
-            listEpisodes[index] = episode;
-            return listEpisodes;
+            ListEpisodes[index] = episode;
+            return ListEpisodes;
         }
 
         /// <summary>

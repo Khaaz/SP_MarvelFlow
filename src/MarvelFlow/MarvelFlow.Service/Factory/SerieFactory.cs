@@ -10,6 +10,7 @@ namespace MarvelFlow.Service.Factory
 {
     public static class SerieFactory
     {
+        // Factory Serie
         public static IEnumerable<Serie> ToListSerie(this IEnumerable<SerieJson> l)
         {
             foreach (SerieJson s in l)
@@ -57,13 +58,53 @@ namespace MarvelFlow.Service.Factory
             return NewEpisode;
         }
 
-        /*
-        public static HeroJson ToJsonHero(this Hero h)
+        ////////////
+        
+        // Factory Json Serie
+        public static SerieJson ToJsonSerie(this Serie s)
         {
-           Hero NewHero = new Hero();
+           SerieJson NewSerie = new SerieJson(s.Title, s.Affiche, s.Desc, s.Real, s.Date, s.Id, s.Universe, s.NumberSeasons, s.ListSeasons.ToJsonListSeason(), s.IsOver, s.ListHeroString);
 
-           return NewHero
+            return NewSerie;
         } 
-        */
+        
+        public static List<SeasonJson> ToJsonListSeason(this Dictionary<int, Season> l)
+        {
+            List<SeasonJson> NewList = new List<SeasonJson>();
+
+            foreach(Season s in l.Values) {
+                NewList.Add(s.ToJsonSeason());
+            }
+
+            return NewList;
+        }
+
+        // Factory Json Season
+        public static SeasonJson ToJsonSeason(this Season s)
+        {
+            SeasonJson NewSeason = new SeasonJson(s.SeasonNumber, s.NumberEpisodes, s.ListEpisodes.ToJsonListEpisode());
+
+            return NewSeason;
+        }
+
+        public static List<EpisodeJson> ToJsonListEpisode(this Dictionary<int, Episode> l)
+        {
+            List<EpisodeJson> NewList = new List<EpisodeJson>();
+
+            foreach (Episode e in l.Values)
+            {
+                NewList.Add(e.ToJsonEpisode());
+            }
+
+            return NewList;
+        }
+
+        // Factory Json Episode
+        public static EpisodeJson ToJsonEpisode(this Episode e)
+        {
+            EpisodeJson NewEpisode = new EpisodeJson(e.Title, e.Affiche, e.Desc, e.Real, e.Date, e.EpisodeNumber);
+
+            return NewEpisode;
+        }
     }
 }

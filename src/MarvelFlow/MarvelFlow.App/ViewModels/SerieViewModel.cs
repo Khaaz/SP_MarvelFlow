@@ -13,10 +13,10 @@ namespace MarvelFlow.App.ViewModels
 {
     public class SerieViewModel : ViewModelBase
     {
-        public RelayCommand ReturnBackCommand { get; private set; }
-        public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
+        public RelayCommand ReturnBackCommand { get; private set; } // history command
+        public RelayCommand<Hero> NavigateHeroCommand { get; private set; } // navigate to next Movie binded (ListView)
 
-        public ISearchableMovie _Movie;
+        public ISearchableMovie _Movie; // Movie binded to show (Serie)
         public ISearchableMovie Movie
         {
             get
@@ -37,6 +37,8 @@ namespace MarvelFlow.App.ViewModels
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
             this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());
         }
+
+        // Commands methods
 
         public bool CanDisplayMessage()
         {

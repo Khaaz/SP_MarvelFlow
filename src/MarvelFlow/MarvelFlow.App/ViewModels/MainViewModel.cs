@@ -51,9 +51,6 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        public List<Hero> ListHeros { get; set; }
-        public List<ISearchableMovie> ListMovies { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -71,7 +68,7 @@ namespace MarvelFlow.App.ViewModels
             // MAIN
             this.History = new Stack<HistoryObject>();
 
-            this._CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
+            this._CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>(); // Default VM
 
             // Init Messaging
             MessengerInstance.Register<HomeMessage>(this, (HomeMessage obj) => Navigator(obj, "HomeViewModel"));
@@ -83,7 +80,7 @@ namespace MarvelFlow.App.ViewModels
             MessengerInstance.Register<ListHeroMessage>(this, (ListHeroMessage obj) => Navigator(obj, "ListHeroViewModel"));
             MessengerInstance.Register<ListMovieMessage>(this, (ListMovieMessage obj) => Navigator(obj, "ListMovieViewModel"));
             
-            MessengerInstance.Register<HistoryMessage>(this, (HistoryMessage obj) => Navigator(obj, string.Empty));
+            MessengerInstance.Register<HistoryMessage>(this, (HistoryMessage obj) => Navigator(obj, string.Empty)); // Empty string because no dest (loaded from history)
 
             // Commands
             this.NavigateUserWindowCommand = new RelayCommand(this.OpenUserWindow, CanDisplayMessage);
@@ -91,6 +88,13 @@ namespace MarvelFlow.App.ViewModels
 
         }
 
+        /// <summary>
+        /// Handle Navigation though the app
+        /// Handle history
+        /// Get the Message and the dest string, add/remove from history, load correct ViewModel
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="dest"></param>
         public void Navigator(MessageBase obj, string dest)
         {
             ViewModelBase Source = (ViewModelBase)obj.Sender;
@@ -157,20 +161,10 @@ namespace MarvelFlow.App.ViewModels
                     this.CurrentVM = ServiceLocator.Current.GetInstance<ProfileViewModel>();
                     break;
                 case "ListHeroViewModel":
-                    ListHeroViewModel tempListHVM = ServiceLocator.Current.GetInstance<ListHeroViewModel>();
-                    if (tempListHVM.ListHerosView == null)
-                    {
-                        tempListHVM.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes());
-                    }
-                    this.CurrentVM = tempListHVM;
+                    this.CurrentVM = ServiceLocator.Current.GetInstance<ListHeroViewModel>();
                     break;
                 case "ListMovieViewModel":
-                    ListMovieViewModel tempListMVM = ServiceLocator.Current.GetInstance<ListMovieViewModel>();
-                    if (tempListMVM.ListMoviesView == null)
-                    {
-                        tempListMVM.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies());
-                    }
-                    this.CurrentVM = tempListMVM;
+                    this.CurrentVM = ServiceLocator.Current.GetInstance<ListMovieViewModel>();
                     break;
                 default:
                     this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>();
@@ -179,7 +173,11 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        
+        /// <summary>
+        /// Movie Message Associated Method
+        /// choose the dest to be Serie or Film depending the Movie
+        /// </summary>
+        /// <param name="obj"></param>
         public void LoadMoviePage(MovieMessage obj)
         {
             string target = obj.Movie.GetType().Name.Equals("Serie") ? "SerieViewModel" : "FilmViewModel";
@@ -187,12 +185,13 @@ namespace MarvelFlow.App.ViewModels
         }
         
 
-
+        // Commands methods
         public bool CanDisplayMessage()
         {
             return true;
         }
 
+        // Auto Message (Respect Navigator Parameters)
         public void DisplayHome()
         {
             Navigator(new HomeMessage(this, "Navigate Home"), "HomeViewModel");

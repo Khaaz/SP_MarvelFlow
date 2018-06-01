@@ -11,9 +11,9 @@ namespace MarvelFlow.App.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        public RelayCommand NavigateListHeroCommand { get; private set; }
-        public RelayCommand NavigateListMovieCommand { get; private set; }
-        public RelayCommand NavigateProfileCommand { get; private set; }
+        public RelayCommand NavigateListHeroCommand { get; private set; } // Navigate to ListHeros
+        public RelayCommand NavigateListMovieCommand { get; private set; } // Navigate to ListMovies
+        public RelayCommand NavigateProfileCommand { get; private set; } // Navigate to Profile
 
         public HomeViewModel()
         {
@@ -21,6 +21,8 @@ namespace MarvelFlow.App.ViewModels
             this.NavigateListMovieCommand = new RelayCommand(this.SendNavigateListMovie, CanDisplayMessage);
             this.NavigateProfileCommand = new RelayCommand(this.SendNavigateProfile, CanDisplayMessage);
         }
+
+        // Commands methods
 
         public bool CanDisplayMessage()
         {

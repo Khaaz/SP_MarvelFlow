@@ -18,7 +18,7 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
         public RelayCommand ReturnBackCommand { get; private set; }
 
-        private ObservableCollection<Hero> _ListHerosView;
+        private ObservableCollection<Hero> _ListHerosView; // List to show in the View
         public ObservableCollection<Hero> ListHerosView
         {
             get
@@ -34,7 +34,7 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        private string _SearchBar;
+        private string _SearchBar; // Textbox content - trigger filtering the view list
         public string SearchBar
         {
             get
@@ -54,10 +54,18 @@ namespace MarvelFlow.App.ViewModels
         public ListHeroViewModel()
         {
             // Commands
-            this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());
+            this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, h => CanDisplayMessage());
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
+
+            // Init ObservableCollection when creatingthe instance
+            this.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes());
         }
 
+        /// <summary>
+        /// Method associated with search bar
+        /// Filter View List with the input string to match
+        /// </summary>
+        /// <param name="input"></param>
         public void FindByString(string input)
         {
             List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Name.ToLower().StartsWith(input.ToLower())).ToList();
@@ -68,6 +76,7 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        // Commands methods
         public bool CanDisplayMessage()
         {
             return true;
