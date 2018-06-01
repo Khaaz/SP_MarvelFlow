@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="MarvelFlow.App.Views.UcMovie"
+﻿<UserControl x:Class="MarvelFlow.App.Views.UserControl1"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MarvelFlow.App.Views"
-             DataContext="{Binding Movie, Source={StaticResource Locator}}"
+             DataContext="{Binding Serie, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
     <Grid x:Name="___Grid__Générale">
@@ -32,7 +32,7 @@
             <TextBlock 
                 Foreground="White" FontWeight="Bold"  TextAlignment="Center"  Grid.Column="1" FontSize="40"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Text="{Binding Movie.Title}"/>
+                Text="{Binding Serie.Title}"/>
         </Grid>
 
         <!--Ligne 2-->
@@ -46,12 +46,10 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Image  Source="{Binding Movie.Affiche}" Grid.Column="0" Stretch="Uniform" StretchDirection="Both" Margin="0,5,0,0"/>
-
-            <Rectangle Grid.Column="0"  Stroke="White" StrokeThickness="1"/>
+            <Image  Source="{Binding Serie.Affiche}" Grid.Column="0" Stretch="Uniform" StretchDirection="Both" Margin="0,5,0,0"/>
             <UniformGrid Columns="2" Rows="1" Grid.Row="1" Grid.Column="0">
-                <Button Content="B.A" Command="{Binding PlayTeaserCommand}" CommandParameter="{Binding Movie.BA}"
-                        Foreground="White" FontWeight="Bold" Background="#e23636" Margin="20,60" />
+                <Button Content="B.A" Foreground="White"  
+                        FontWeight="Bold" Background="#e23636" Margin="20,60" />
                 <Button Content="FAV" Foreground="White" 
                         FontWeight="Bold" Background="#FFEEA200" Margin="20,60"/>
             </UniformGrid>
@@ -63,29 +61,32 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0"  Grid.RowSpan="3" Background="{x:Null}" Foreground="White" Text="{Binding Movie.Desc}" Margin="10.4,5,-0.2,0.4"/>
+                <TextBlock Grid.Column="0"  Grid.RowSpan="3" Background="{x:Null}" Foreground="White" Text="{Binding Serie.Desc}" Margin="10.4,5,-0.2,0.4"/>
                 <!-- UNIVERSE / STATUS / TEAM -->
                 <Border Grid.Column="1" BorderThickness="3" BorderBrush="White">
                     <UniformGrid  Columns="1"  Rows="6" Margin="15">
 
-                        <TextBlock Text="Réalisateur :" Foreground="#C95CE7" FontStyle="Italic" FontSize="20"/>
-                        <TextBlock Text="{Binding Movie.Real}" Foreground="White" 
+                        <TextBlock Text="Univers :" Foreground="#C95CE7" FontStyle="Italic" FontSize="20"/>
+                        <TextBlock Text="{Binding Serie.Universe}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                        <TextBlock Text="Date de Sortie :" Foreground="#7DDA77" 
+                        <TextBlock Text="En cours de diffusion :" Foreground="#7DDA77" 
                                FontStyle="Italic" FontSize="20"/>
-                        <TextBlock Text="{Binding Movie.Date}" Foreground="White" 
+                        <TextBlock Text="{Binding Serie.IsOver}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                        <TextBlock Text="Disponible :" Foreground="#FFFFDC00" 
+                        <TextBlock Text="Saison(s) :" Foreground="#FFFFDC00" 
                                FontStyle="Italic" FontSize="20"/>
-                        <TextBlock Text="{Binding Movie.IsOut}" Foreground="White" 
-                               FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-
-
+                        <ComboBox Name="cmbColors" ItemsSource="{Binding Serie.listSeasons}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Saison}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </UniformGrid>
                 </Border>
             </Grid>
 
-            <ListView ItemsSource="{Binding Movie.ListHeroes }" x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Background="{x:Null}" BorderThickness="0" >
+            <ListView ItemsSource="{Binding Serie.ListHeroes }" x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel >
                     <ItemsPanelTemplate>
                         <UniformGrid  Columns="4" HorizontalAlignment="Stretch"  />
@@ -101,10 +102,11 @@
                                 <TextBlock Text="{Binding Name}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
                             </StackPanel>
                         </Button>
-                    </DataTemplate> 
+                    </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
         </Grid>
+
     </Grid>
 </UserControl>
