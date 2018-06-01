@@ -7,6 +7,9 @@
              DataContext="{Binding Home, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
+
+
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -22,9 +25,9 @@
                 Background="Black" Foreground="White" 
                 BorderBrush="White" FontWeight="Bold" BorderThickness="2"
                 FontSize="24" Margin="10"
-                Command='{Binding NavigateListHeroCommand}'  />
-        
-        <Button Content="FILM" Grid.Row="0" Grid.Column="1"
+                Command='{Binding NavigateListHeroCommand}' />
+
+            <Button Content="FILM" Grid.Row="0" Grid.Column="1"
                 Background="Black" Foreground="White" 
                 BorderBrush="White" FontWeight="Bold" BorderThickness="2"
                 FontSize="24" Margin="10"

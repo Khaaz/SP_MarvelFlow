@@ -90,6 +90,9 @@
     <Compile Include="ViewModels\WindowUserViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="Lib\ViewModelLocator.cs" />
+    <Compile Include="Views\UcSerie.xaml.cs">
+      <DependentUpon>UcSerie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowUser.xaml.cs">
       <DependentUpon>WindowUser.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\UcSerie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
