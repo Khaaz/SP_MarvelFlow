@@ -172,5 +172,21 @@ namespace MarvelFlow.Service
 
             return listSeries;
         }
+
+        public void SaveHero(Hero h)
+        {
+            HeroJson Hero = h.ToJsonHero();
+        }
+
+        public void SaveFilm(Film f)
+        {
+            FilmJson Film = f.ToJsonFilm();
+        }
+
+        public void SaveSerie(Serie s)
+        {
+
+        }
+        
     }
 }

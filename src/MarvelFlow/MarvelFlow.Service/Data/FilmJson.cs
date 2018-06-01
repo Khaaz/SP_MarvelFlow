@@ -1,4 +1,5 @@
 ﻿using MarvelFlow.Classes;
+using System;
 using System.Collections.Generic;
 
 namespace MarvelFlow.Service.Data
@@ -15,5 +16,14 @@ namespace MarvelFlow.Service.Data
 
 
         public FilmJson() : base() { }
+
+        public FilmJson(string title, string affiche, string desc, string real, DateTime date, string id, Universe universe, string bA, List<string> listHeros) :
+            base(title, affiche, desc, real, date)
+        {
+            Id = id;
+            Universe = universe;
+            BA = bA;
+            ListHeros = listHeros;
+        }
     }
 }

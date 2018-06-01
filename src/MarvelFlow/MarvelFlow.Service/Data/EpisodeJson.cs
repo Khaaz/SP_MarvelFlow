@@ -13,5 +13,11 @@ namespace MarvelFlow.Service.Data
 
 
         public EpisodeJson() : base() { }
+
+        public EpisodeJson(string title, string affiche, string desc, string real, DateTime date, int episodeNumber) :
+            base(title, affiche, desc, real, date)
+        {
+            EpisodeNumber = episodeNumber;
+        }
     }
 }

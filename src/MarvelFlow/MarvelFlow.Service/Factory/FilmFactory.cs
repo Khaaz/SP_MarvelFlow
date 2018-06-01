@@ -25,13 +25,12 @@ namespace MarvelFlow.Service.Factory
             return NewFilm;
         }
 
-        /*
-        public static HeroJson ToJsonHero(this Hero h)
+        public static FilmJson ToJsonFilm(this Film f)
         {
-           Hero NewHero = new Hero();
+            FilmJson NewFilm = new FilmJson(f.Title, f.Affiche, f.Desc, f.Real, f.Date, f.Id, f.Universe, f.BA, f.ListHeroString);
 
-           return NewHero
-        } 
-        */
+            return NewFilm;
+        }
+
     }
 }

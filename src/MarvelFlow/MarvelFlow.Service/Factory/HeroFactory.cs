@@ -26,13 +26,11 @@ namespace MarvelFlow.Service.Factory
             return NewHero;
         }
 
-        /*
         public static HeroJson ToJsonHero(this Hero h)
         {
-           Hero NewHero = new Hero();
+            HeroJson NewHero = new HeroJson(h.Id, h.Name, h.Image, h.Desc, h.Status, h.Team, h.Universe);
 
-           return NewHero
-        } 
-        */
+            return NewHero;
+        }
     }
 }

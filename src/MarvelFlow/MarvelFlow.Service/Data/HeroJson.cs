@@ -26,6 +26,15 @@ namespace MarvelFlow.Service.Data
 
         public HeroJson() { }
 
-       
+        public HeroJson(string id, string name, string image, string desc, Status status, Team team, Universe universe)
+        {
+            Id = id;
+            Name = name;
+            Image = image;
+            Desc = desc;
+            Status = status;
+            Team = team;
+            Universe = universe;
+        }
     }
 }
