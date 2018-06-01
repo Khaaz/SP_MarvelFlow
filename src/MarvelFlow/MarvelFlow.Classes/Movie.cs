@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using MarvelFlow.Classes.Lib;
 using System.Configuration;
+using System.Globalization;
 
 namespace MarvelFlow.Classes
 {
@@ -44,8 +45,8 @@ namespace MarvelFlow.Classes
             this.Affiche = ConfigurationManager.AppSettings["AffichePath"] + affiche;
             this.Desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
             this.Real = real;
-
-            DateTime tmpDate = Convert.ToDateTime(date);
+            DateTime tmpDate;
+            DateTime.TryParseExact(date, "dd/MM/yy", null, DateTimeStyles.None, out tmpDate);
 
             this.Date = tmpDate;
             this.IsOut = tmpDate < DateTime.Now ? false : true;

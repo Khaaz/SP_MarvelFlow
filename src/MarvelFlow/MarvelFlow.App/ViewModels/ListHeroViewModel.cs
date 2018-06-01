@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CommonServiceLocator;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
@@ -16,8 +17,6 @@ namespace MarvelFlow.App.ViewModels
     {
         public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
         public RelayCommand ReturnBackCommand { get; private set; }
-
-        public List<Hero> ListHeros { get; set; }
 
         private ObservableCollection<Hero> _ListHerosView;
         public ObservableCollection<Hero> ListHerosView
@@ -48,7 +47,7 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _SearchBar = value;
                 RaisePropertyChanged(() => SearchBar);
-                SortName(SearchBar);
+                FindByString(SearchBar);
             }
         }
 
@@ -59,11 +58,14 @@ namespace MarvelFlow.App.ViewModels
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
         }
 
-        public void SortName(string input)
+        public void FindByString(string input)
         {
-            List<Hero> tempList = this.ListHeros.Where(h => h.Name.ToLower().StartsWith(input.ToLower())).ToList();
+            List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Name.ToLower().StartsWith(input.ToLower())).ToList();
             this.ListHerosView.Clear();
-            this.ListHerosView = new ObservableCollection<Hero>(tempList);
+            foreach(Hero h in tempList)
+            {
+                this.ListHerosView.Add(h);
+            }
         }
 
         public bool CanDisplayMessage()

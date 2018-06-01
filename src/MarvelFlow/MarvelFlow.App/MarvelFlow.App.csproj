@@ -50,6 +50,8 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -86,12 +88,19 @@
     <Compile Include="ViewModels\ListHeroViewModel.cs" />
     <Compile Include="ViewModels\ListMovieViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\MovieViewModel.cs" />
+    <Compile Include="ViewModels\FilmViewModel.cs" />
+    <Compile Include="ViewModels\SerieViewModel.cs" />
     <Compile Include="ViewModels\WindowUserViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="Lib\ViewModelLocator.cs" />
     <Compile Include="Views\UcSerie.xaml.cs">
       <DependentUpon>UcSerie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowsBandeAnnonce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WindowsBandeAnnonce.Designer.cs">
+      <DependentUpon>WindowsBandeAnnonce.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowUser.xaml.cs">
       <DependentUpon>WindowUser.xaml</DependentUpon>
@@ -120,7 +129,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UcMovie.xaml">
+    <Page Include="Views\UcFilm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,8 +163,8 @@
     <Compile Include="Views\UcLogin.xaml.cs">
       <DependentUpon>UcLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UcMovie.xaml.cs">
-      <DependentUpon>UcMovie.xaml</DependentUpon>
+    <Compile Include="Views\UcFilm.xaml.cs">
+      <DependentUpon>UcFilm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UcProfile.xaml.cs">
       <DependentUpon>UcProfile.xaml</DependentUpon>
@@ -165,8 +174,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\UcSerie.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\WindowUser.xaml">
       <SubType>Designer</SubType>
@@ -190,6 +199,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WindowsBandeAnnonce.resx">
+      <DependentUpon>WindowsBandeAnnonce.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -221,6 +233,7 @@
     <Resource Include="Images\affichetest.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Component\Teaser\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +275,25 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ImagesMovie\Avengers2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

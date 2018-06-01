@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace MarvelFlow.App.Views
 {
     /// <summary>
-    /// Logique d'interaction pour UcMovie.xaml
+    /// Logique d'interaction pour UcFilm.xaml
     /// </summary>
-    public partial class UcMovie : UserControl
+    public partial class UcFilm : UserControl
     {
-        public UcMovie()
+        public UcFilm()
         {
             InitializeComponent();
         }

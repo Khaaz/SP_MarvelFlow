@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib.Messages;
+using MarvelFlow.App.Views;
 using MarvelFlow.Classes;
 using MarvelFlow.Classes.Lib;
 using System;
@@ -12,10 +13,11 @@ using System.Threading.Tasks;
 
 namespace MarvelFlow.App.ViewModels
 {
-    public class MovieViewModel : ViewModelBase
+    public class FilmViewModel : ViewModelBase
     {
         public RelayCommand ReturnBackCommand { get; private set; }
         public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
+        public RelayCommand<string> PlayTeaserCommand { get; private set; }
 
         public ISearchableMovie _Movie;
         public ISearchableMovie Movie
@@ -33,10 +35,11 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        public MovieViewModel()
+        public FilmViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
             this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());
+            this.PlayTeaserCommand = new RelayCommand<string>(this.OpenTeaser, CanDisplayMessage());
         }
 
         public bool CanDisplayMessage()
@@ -53,6 +56,11 @@ namespace MarvelFlow.App.ViewModels
         {
             MessengerInstance.Send<HeroMessage>(new HeroMessage(this, hero, "Navigate Hero Message"));
         }
-        
+
+        public void OpenTeaser(string pathBA)
+        {
+            WindowsBandeAnnonce TeaserWindow = new WindowsBandeAnnonce(pathBA);
+            TeaserWindow.Show();
+        }
     }
 }

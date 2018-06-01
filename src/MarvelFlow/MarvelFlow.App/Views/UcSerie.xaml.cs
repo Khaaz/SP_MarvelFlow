@@ -18,9 +18,9 @@ namespace MarvelFlow.App.Views
     /// <summary>
     /// Logique d'interaction pour UserControl1.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class UcSerie : UserControl
     {
-        public UserControl1()
+        public UcSerie()
         {
             InitializeComponent();
         }

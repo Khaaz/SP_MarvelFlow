@@ -15,6 +15,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using MarvelFlow.App.ViewModels;
+using MarvelFlow.Service;
 
 namespace MarvelFlow.App.Lib
 {
@@ -44,13 +45,20 @@ namespace MarvelFlow.App.Lib
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
+
             SimpleIoc.Default.Register<HeroViewModel>();
-            SimpleIoc.Default.Register<MovieViewModel>();
+            SimpleIoc.Default.Register<FilmViewModel>();
+            SimpleIoc.Default.Register<SerieViewModel>();
+
             SimpleIoc.Default.Register<ProfileViewModel>();
+
             SimpleIoc.Default.Register<ListHeroViewModel>();
             SimpleIoc.Default.Register<ListMovieViewModel>();
 
             SimpleIoc.Default.Register<WindowUserViewModel>();
+
+            // Services
+            SimpleIoc.Default.Register<ManagerJson>();
         }
 
         public MainViewModel Main
@@ -77,11 +85,19 @@ namespace MarvelFlow.App.Lib
             }
         }
 
-        public MovieViewModel Movie
+        public FilmViewModel Film
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MovieViewModel>();
+                return ServiceLocator.Current.GetInstance<FilmViewModel>();
+            }
+        }
+
+        public SerieViewModel Serie
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SerieViewModel>();
             }
         }
 
