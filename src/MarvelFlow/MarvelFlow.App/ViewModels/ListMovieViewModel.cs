@@ -22,7 +22,8 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand SortByNameCommand { get; private set; }
         public RelayCommand SortByDateCommand { get; private set; }
 
-        private ObservableCollection<ISearchableMovie> _ListMoviesView;
+
+        private ObservableCollection<ISearchableMovie> _ListMoviesView; // List to show in the View
         public ObservableCollection<ISearchableMovie> ListMoviesView {
             get
             {
@@ -37,7 +38,7 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        private string _SearchBar;
+        private string _SearchBar; // Textbox content - trigger filtering the view list
         public string SearchBar
         {
             get
@@ -54,6 +55,25 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        public Array EnumUniverse { get; set; } // Enum to show in combobox
+
+        private Universe _SelectedUniverse; // Selected Item in Universe Combobox
+        public Universe SelectedUniverse
+        {
+            get
+            {
+                return _SelectedUniverse;
+            }
+            set
+            {
+                if (_SelectedUniverse == value)
+                    return;
+                _SelectedUniverse = value;
+                RaisePropertyChanged(() => SelectedUniverse);
+                FindEnumUniverse(SelectedUniverse);
+            }
+        }
+
         public ListMovieViewModel()
         {
             // Command
@@ -62,18 +82,47 @@ namespace MarvelFlow.App.ViewModels
 
             this.SortByNameCommand = new RelayCommand(this.SortByName, CanDisplayMessage);
             this.SortByDateCommand = new RelayCommand(this.SortByDate, CanDisplayMessage);
+
+            // Init ObservableCollection when creatingthe instance
+            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies());
+
+            // Init misc
+            EnumUniverse = Enum.GetValues(typeof(Universe));
         }
 
+        /// <summary>
+        /// Method associated with search bar
+        /// Filter View List with the input string to match
+        /// </summary>
+        /// <param name="input"></param>
         public void FindByString(string input)
         {
             List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetTitle().ToLower().StartsWith(input.ToLower())).ToList();
             this.ListMoviesView.Clear();
-            foreach (Movie m in tempList)
+            foreach (ISearchableMovie m in tempList)
             {
                 this.ListMoviesView.Add(m);
             }
         }
 
+        /// <summary>
+        /// Method associated with combo box
+        /// Filter View List with the input Universe to match
+        /// </summary>
+        /// <param name="u"></param>
+        public void FindEnumUniverse(Universe u)
+        {
+            List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetUniverse() == u).ToList();
+            this.ListMoviesView.Clear();
+            foreach (ISearchableMovie m in tempList)
+            {
+                this.ListMoviesView.Add(m);
+            }
+        }
+
+        /// <summary>
+        /// Sort View List by Name (alphabetical order)
+        /// </summary>
         public void SortByName()
         {
             List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetTitle()).ToList();
@@ -83,6 +132,9 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        /// <summary>
+        /// Sort View List by Date (older to newer)
+        /// </summary>
         public void SortByDate()
         {
             List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetDate()).ToList();
@@ -92,6 +144,7 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        //Commands methods
         public bool CanDisplayMessage()
         {
             return true;

@@ -14,7 +14,7 @@ namespace MarvelFlow.Classes
 
         public Universe Universe { get; private set; }
 
-        private int numberSeasons { get; set; }
+        public int NumberSeasons { get; private set; }
 
         public Dictionary<int, Season> ListSeasons { get; private set; }
 
@@ -46,7 +46,7 @@ namespace MarvelFlow.Classes
 
             this.Id = id;
             this.Universe = universe;
-            this.numberSeasons = numberSeasons;
+            this.NumberSeasons = numberSeasons;
             this.ListSeasons = listSeasons;
             this.IsOver = isOver;
 
@@ -77,7 +77,7 @@ namespace MarvelFlow.Classes
 
             this.Id = id;
             this.Universe = universe;
-            this.numberSeasons = numberSeasons;
+            this.NumberSeasons = numberSeasons;
 
             this.ListSeasons = new Dictionary<int, Season>();
             foreach (Season s in listSeasons)
@@ -103,10 +103,10 @@ namespace MarvelFlow.Classes
         /// <returns>Updated Dictionary of Seasons</returns>
         public Dictionary<int, Season> AddSeason(Season season)
         {
-            checkSeasonNumberIndex(season.SeasonNumber, numberSeasons + 1);
+            checkSeasonNumberIndex(season.SeasonNumber, NumberSeasons + 1);
 
             ListSeasons.Add(season.SeasonNumber, season);
-            numberSeasons += 1;
+            NumberSeasons += 1;
             return ListSeasons;
         }
 
@@ -130,7 +130,7 @@ namespace MarvelFlow.Classes
                 throw new SerieException(SerieEnum.EXIST);
             }
             ListSeasons.Add(index, season);
-            numberSeasons += 1;
+            NumberSeasons += 1;
             return ListSeasons;
         }
 

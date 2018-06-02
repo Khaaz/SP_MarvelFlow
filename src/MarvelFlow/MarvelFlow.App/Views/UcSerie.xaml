@@ -73,10 +73,10 @@
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                         <TextBlock Text="Saison(s) :" Foreground="#FFFFDC00" 
                                FontStyle="Italic" FontSize="20"/>
-                        <ComboBox Name="cmbColors" ItemsSource="{Binding Movie.listSeasons}">
+                        <ComboBox ItemsSource="{Binding Movie.ListSeasons}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Saison}" />
+                                    <TextBlock Text="{Binding Value.SeasonNumber, StringFormat=Saison {0}}" />
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
@@ -84,7 +84,7 @@
                 </Border>
             </Grid>
 
-            <ListView ItemsSource="{Binding Serie.ListHeroes }" x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Background="{x:Null}" BorderThickness="0" >
+            <ListView ItemsSource="{Binding Movie.ListHeroes }" x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel >
                     <ItemsPanelTemplate>
                         <UniformGrid  Columns="4" HorizontalAlignment="Stretch"  />

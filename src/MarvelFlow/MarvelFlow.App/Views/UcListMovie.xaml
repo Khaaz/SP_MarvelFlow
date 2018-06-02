@@ -39,12 +39,11 @@
                         Foreground="White" >Date Croissant </RadioButton>
                 </StackPanel>
 
-                <ComboBox  Foreground="Black" Background="White"  Margin="26,30"
-                           ItemsSource="{Binding L}"
-                           SelectedItem="{Binding Team}">
+                <ComboBox ItemsSource="{Binding EnumUniverse}" SelectedItem="{Binding SelectedUniverse,Mode=TwoWay}"
+                          Foreground="Black" Background="White" Margin="26,30" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Team}"/>
+                            <TextBlock Text="{Binding .}" />
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
