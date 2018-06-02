@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Lib\Messages\AdminMessage.cs" />
     <Compile Include="Lib\Util.cs" />
     <Compile Include="Lib\HistoryObject.cs" />
     <Compile Include="Lib\Messages\ListMovieMessage.cs" />
