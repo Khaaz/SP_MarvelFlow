@@ -51,6 +51,7 @@ namespace MarvelFlow.App.Lib
             SimpleIoc.Default.Register<SerieViewModel>();
 
             SimpleIoc.Default.Register<ProfileViewModel>();
+            SimpleIoc.Default.Register<AdminPanelViewModel>();
 
             SimpleIoc.Default.Register<ListHeroViewModel>();
             SimpleIoc.Default.Register<ListMovieViewModel>();
@@ -108,6 +109,15 @@ namespace MarvelFlow.App.Lib
                 return ServiceLocator.Current.GetInstance<ProfileViewModel>();
             }
         }
+
+        public AdminPanelViewModel AdminPanel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AdminPanelViewModel>();
+            }
+        }
+
 
         public ListHeroViewModel ListHero
         {

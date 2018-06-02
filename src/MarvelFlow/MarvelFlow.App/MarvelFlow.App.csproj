@@ -83,6 +83,7 @@
     <Compile Include="Lib\Messages\HeroMessage.cs" />
     <Compile Include="Lib\Messages\HistoryMessage.cs" />
     <Compile Include="Lib\Messages\HomeMessage.cs" />
+    <Compile Include="ViewModels\AdminPanelViewModel.cs" />
     <Compile Include="ViewModels\HeroViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ListHeroViewModel.cs" />
@@ -93,6 +94,9 @@
     <Compile Include="ViewModels\WindowUserViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="Lib\ViewModelLocator.cs" />
+    <Compile Include="Views\UcAdminPanel.xaml.cs">
+      <DependentUpon>UcAdminPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UcSerie.xaml.cs">
       <DependentUpon>UcSerie.xaml</DependentUpon>
     </Compile>
@@ -105,7 +109,7 @@
     <Compile Include="Views\WindowUser.xaml.cs">
       <DependentUpon>WindowUser.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\UcAdmin.xaml">
+    <Page Include="Views\UcAdminPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,9 +148,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\UcAdmin.xaml.cs">
-      <DependentUpon>UcAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UcHero.xaml.cs">
       <DependentUpon>UcHero.xaml</DependentUpon>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MarvelFlow.App.Views
 {
     /// <summary>
-    /// Logique d'interaction pour UcAdmin.xaml
+    /// Logique d'interaction pour UcAdminPanel.xaml
     /// </summary>
-    public partial class UcAdmin : UserControl
+    public partial class UcAdminPanel : UserControl
     {
-        public UcAdmin()
+        public UcAdminPanel()
         {
             InitializeComponent();
         }
