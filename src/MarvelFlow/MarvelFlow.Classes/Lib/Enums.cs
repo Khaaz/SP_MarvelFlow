@@ -10,7 +10,7 @@ namespace MarvelFlow.Classes
     {
         Avengers,
         GuardienGalaxy,
-        Dora,
+        Titan,
         BlackOrder,
         FamilleAsgardian,
         DoraMilajes,
