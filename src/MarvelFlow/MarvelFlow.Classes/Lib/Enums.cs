@@ -12,7 +12,9 @@ namespace MarvelFlow.Classes
         GuardienGalaxy,
         Dora,
         BlackOrder,
-        FamilleAsgardian
+        FamilleAsgardian,
+        DoraMilajes,
+        Aucun
     }
 
     public enum Status
