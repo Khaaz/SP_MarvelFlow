@@ -84,10 +84,10 @@
     "Id": "BP",
     "Name": "Black Panther",
     "Image": "ImagesHero/blackPanther.png",
-    "Desc": "T'Challa is a brilliant tactician, strategist, scientist, tracker and a master of all forms of unarmed combat whose unique hybrid fighting style incorporates acrobatics and aspects of animal mimicry. T'Challa being a royal descendent of a warrior race is also a master of armed combat, able to use a variety of weapons but prefers unarmed combat. He is a master planner who always thinks several steps ahead and will go to extreme measures to achieve his goals and protect the kingdom of Wakanda.",
-    "Team": 0,
+    "Desc": "T'Challa is a brilliant tactician, strategist, scientist, tracker and a master of all forms of unarmed combat whose unique hybrid fighting style incorporates acrobatics and aspects of animal mimicry. T'Challa being a royal descendent of a warrior race is also a master of armed combat, able to use a variety of weapons but prefers unarmed combat. \n He is a master planner who always thinks several steps ahead and will go to extreme measures to achieve his goals and protect the kingdom of Wakanda.",
+    "Team": 5,
     "Status": 1,
-    "Universe": 5
+    "Universe": 0
   },
   {
     "Id": "WM",
@@ -103,27 +103,27 @@
     "Name": "Winter Soldier",
     "Image": "ImagesHero/warMachine.png",
     "Desc": "He is an Olympic-class athlete and expectional acrobat highly skilled in both unarmed and armed hand-to-hand combat and extremely accurate marksman. he is fluent in four languages including German and Russian",
-    "Team": 0,
+    "Team": 6,
     "Status": 1,
-    "Universe": 6
+    "Universe": 0
   },
   {
     "Id": "OE",
     "Name": "Okoye",
     "Image": "ImagesHero/okoye.png",
     "Desc": "Okoye is the general of the Dora Milaje and the head of Wakanda's armed forces and intel. Witnessing T'Challa's coronation, she joins him in tracking down Ulysses Klaue. After Erik Killmonger overthrew T'Challa, Okoye found herself conflicted between her friendship with T'Challa, or her duty to her new king, Erik Killmonger. T'Challa soon returned and Okoye soon joined him in the fight against Killmonger and successfully taking back the throne. When Thanos and his forces arrived on Earth to forcefully take the Mind Stone from Vision, Okoye soon was forced to defend Wakanda alongside her king and the Avengers. Although they succeeded in killing Thanos's forces, when Thanos himself came on Wakanda, Okoye and the other heroes were completely overpowered and unable to stop him from completing the Infinity Gauntlet, though Okoye remained one of the survivors.",
-    "Team": 0,
+    "Team": 5,
     "Status": 1,
-    "Universe": 5
+    "Universe": 0
   },
   {
     "Id": "WG",
     "Name": "Wong",
     "Image": "ImagesHero/wong.png",
     "Desc": "Wong is a master in the martial arts of Kamar-Taj, although he has rarely used them in recent years. Hence, although Wong can overpower many adversaries, he is no longer a match for a master of the martial arts who keeps himself at or near peak condition.",
-    "Team": 0,
+    "Team": 6,
     "Status": 1,
-    "Universe": 6
+    "Universe": 0
   },
   {
     "Id": "SI",
@@ -132,7 +132,7 @@
     "Desc": "Wong is a master in the martial arts of Kamar-Taj, although he has rarely used them in recent years. Hence, although Wong can overpower many adversaries, he is no longer a match for a master of the martial arts who keeps himself at or near peak condition.",
     "Team": 0,
     "Status": 1,
-    "Universe": 6
+    "Universe": 0
   },
 
 

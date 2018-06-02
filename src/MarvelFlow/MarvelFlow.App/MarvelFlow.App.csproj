@@ -258,6 +258,24 @@
     <Resource Include="Images\ImagesMovie\Thor3.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\ImagesHero\blackPanther.png" />
+    <Resource Include="Images\ImagesHero\blackWindow.png" />
+    <Resource Include="Images\ImagesHero\captainAmerica.png" />
+    <Resource Include="Images\ImagesHero\drax.png" />
+    <Resource Include="Images\ImagesHero\falcon.png" />
+    <Resource Include="Images\ImagesHero\gamora.png" />
+    <Resource Include="Images\ImagesHero\groot.png" />
+    <Resource Include="Images\ImagesHero\mantis.png" />
+    <Resource Include="Images\ImagesHero\nebula.png" />
+    <Resource Include="Images\ImagesHero\rocketRacoon.png" />
+    <Resource Include="Images\ImagesHero\scarletWitch.png" />
+    <Resource Include="Images\ImagesHero\shuri.png" />
+    <Resource Include="Images\ImagesHero\starLord.png" />
+    <Resource Include="Images\ImagesHero\thanos.png" />
+    <Resource Include="Images\ImagesHero\thor.png" />
+    <Resource Include="Images\ImagesHero\warMachine.png" />
+    <Resource Include="Images\ImagesHero\winterSoldier.png" />
+    <Resource Include="Images\ImagesHero\wong.png" />
     <Content Include="Images\ImagesMovie\Antman.jpg" />
     <Resource Include="Images\row.png" />
     <Resource Include="Images\ImagesMovie\AntMan2.jpg" />
