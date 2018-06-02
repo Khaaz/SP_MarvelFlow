@@ -35,7 +35,7 @@ namespace MarvelFlow.App.ViewModels
         public SerieViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
-            this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());
+            this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, h => CanDisplayMessage());
         }
 
         // Commands methods

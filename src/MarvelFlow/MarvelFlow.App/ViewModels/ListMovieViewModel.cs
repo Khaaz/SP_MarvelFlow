@@ -55,6 +55,25 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        public Array EnumUniverse { get; set; } // Enum to show in combobox
+
+        private Universe _SelectedUniverse; // Selected Item in Universe Combobox
+        public Universe SelectedUniverse
+        {
+            get
+            {
+                return _SelectedUniverse;
+            }
+            set
+            {
+                if (_SelectedUniverse == value)
+                    return;
+                _SelectedUniverse = value;
+                RaisePropertyChanged(() => SelectedUniverse);
+                FindEnumUniverse(SelectedUniverse);
+            }
+        }
+
         public ListMovieViewModel()
         {
             // Command
@@ -66,6 +85,9 @@ namespace MarvelFlow.App.ViewModels
 
             // Init ObservableCollection when creatingthe instance
             this.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies());
+
+            // Init misc
+            EnumUniverse = Enum.GetValues(typeof(Universe));
         }
 
         /// <summary>
@@ -77,7 +99,22 @@ namespace MarvelFlow.App.ViewModels
         {
             List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetTitle().ToLower().StartsWith(input.ToLower())).ToList();
             this.ListMoviesView.Clear();
-            foreach (Movie m in tempList)
+            foreach (ISearchableMovie m in tempList)
+            {
+                this.ListMoviesView.Add(m);
+            }
+        }
+
+        /// <summary>
+        /// Method associated with combo box
+        /// Filter View List with the input Universe to match
+        /// </summary>
+        /// <param name="u"></param>
+        public void FindEnumUniverse(Universe u)
+        {
+            List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetUniverse() == u).ToList();
+            this.ListMoviesView.Clear();
+            foreach (ISearchableMovie m in tempList)
             {
                 this.ListMoviesView.Add(m);
             }

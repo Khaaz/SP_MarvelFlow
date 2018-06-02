@@ -9,19 +9,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MarvelFlow.Test
 {
+    public enum test
+    {
+        test1,
+        test2,
+        test3
+    }
+
     [TestClass]
     public class MiscTest
     {
         [TestMethod]
         public void Test1()
         {
-            ManagerJson Manager = new ManagerJson();
-
-            List<Hero> ListHeros = Manager.GetHeroes();
-            List<ISearchableMovie> ListMovies = Manager.GetMovies();
-
-            Debug.WriteLine(ListHeros);
-            Debug.WriteLine(ListMovies);
+            Array tab = Enum.GetValues(typeof(test));
+            Debug.WriteLine(tab);
+            foreach(test t in tab)
+            {
+                Debug.WriteLine(t);
+            }
         }
 
         [TestMethod]

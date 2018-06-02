@@ -38,8 +38,8 @@ namespace MarvelFlow.App.ViewModels
         public FilmViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
-            this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, CanDisplayMessage());
-            this.PlayTeaserCommand = new RelayCommand<string>(this.OpenTeaser, CanDisplayMessage());
+            this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, h => CanDisplayMessage());
+            this.PlayTeaserCommand = new RelayCommand<string>(this.OpenTeaser, s => CanDisplayMessage());
         }
 
         // Commands methods
