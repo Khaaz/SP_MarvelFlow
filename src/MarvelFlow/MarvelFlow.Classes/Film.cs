@@ -1,6 +1,7 @@
 ﻿using MarvelFlow.Classes.Lib;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,7 @@ namespace MarvelFlow.Classes
 
             this.Id = id;
             this.Universe = Universe;
-            this.BA = BA;
+            this.BA = ConfigurationManager.AppSettings["TeaserPath"] + BA ;
             this.ListHeroString = listHeros;
             this.ListHeroes = new List<Hero>();
         }

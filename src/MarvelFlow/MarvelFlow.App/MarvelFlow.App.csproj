@@ -212,7 +212,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarvelFlow.Classes\MarvelFlow.Classes.csproj">
@@ -234,7 +236,6 @@
     <Resource Include="Images\affichetest.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Component\Teaser\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +278,7 @@
     <Resource Include="Images\ImagesHero\warMachine.png" />
     <Resource Include="Images\ImagesHero\winterSoldier.png" />
     <Resource Include="Images\ImagesHero\wong.png" />
+    <Content Include="Component\Teaser\trailerInfinityWar.mp4" />
     <Content Include="Images\ImagesMovie\Antman.jpg" />
     <Resource Include="Images\row.png" />
     <Resource Include="Images\ImagesMovie\AntMan2.jpg" />
