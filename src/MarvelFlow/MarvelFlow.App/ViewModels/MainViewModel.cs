@@ -77,6 +77,8 @@ namespace MarvelFlow.App.ViewModels
             MessengerInstance.Register<MovieMessage>(this, LoadMoviePage);
 
             MessengerInstance.Register<ProfileMessage>(this, (ProfileMessage obj) => Navigator(obj, "ProfileViewModel"));
+            MessengerInstance.Register<AdminMessage>(this, (AdminMessage obj) => Navigator(obj, "AdminPanelViewModel"));
+
             MessengerInstance.Register<ListHeroMessage>(this, (ListHeroMessage obj) => Navigator(obj, "ListHeroViewModel"));
             MessengerInstance.Register<ListMovieMessage>(this, (ListMovieMessage obj) => Navigator(obj, "ListMovieViewModel"));
             
@@ -159,6 +161,9 @@ namespace MarvelFlow.App.ViewModels
                     break;
                 case "ProfileViewModel":
                     this.CurrentVM = ServiceLocator.Current.GetInstance<ProfileViewModel>();
+                    break;
+                case "AdminPanelViewModel":
+                    this.CurrentVM = ServiceLocator.Current.GetInstance<AdminPanelViewModel>();
                     break;
                 case "ListHeroViewModel":
                     this.CurrentVM = ServiceLocator.Current.GetInstance<ListHeroViewModel>();

@@ -12,10 +12,12 @@ namespace MarvelFlow.App.ViewModels
     public class ProfileViewModel : ViewModelBase
     {
         public RelayCommand ReturnBackCommand { get; private set; } // history command
+        public RelayCommand NavigateAdminCommand { get; private set; }
 
         public ProfileViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
+            this.NavigateAdminCommand = new RelayCommand(this.SendNavigateAdmin, CanDisplayMessage);
         }
 
         // Commands methods
@@ -29,5 +31,11 @@ namespace MarvelFlow.App.ViewModels
         {
             MessengerInstance.Send<HistoryMessage>(new HistoryMessage(this, "Navigate Back History"));
         }
+
+        public void SendNavigateAdmin()
+        {
+            MessengerInstance.Send<AdminMessage>(new AdminMessage(this, "Navigate Admin Panel"));
+        }
+
     }
 }
