@@ -128,7 +128,7 @@ namespace MarvelFlow.Service
             List<HeroJson> HeroList = JsonConvert.DeserializeObject<List<HeroJson>>(jsonAsString); // raise an exception - catch in caller
 
             List<HeroJson> HeroListValid = new List<HeroJson>();
-            foreach (HeroJson h in HeroList) // remove not valid heroes
+            foreach (HeroJson h in HeroList) // Add valid heroes
             {
                 if (h.CheckValidity())
                 {
@@ -182,8 +182,8 @@ namespace MarvelFlow.Service
 
             List<FilmJson> FilmList = JsonConvert.DeserializeObject<List<FilmJson>>(jsonAsString); // raise an exception - catch in caller
 
-           /* List<FilmJson> FilmListValid = new List<FilmJson>();
-            foreach (FilmJson f in FilmList) // remove not valid movies
+            List<FilmJson> FilmListValid = new List<FilmJson>();
+            foreach (FilmJson f in FilmList) // Add valid movies
             {
                 if (f.CheckValidity())
                 {
@@ -193,10 +193,10 @@ namespace MarvelFlow.Service
 
             if (FilmListValid.Count < 1) // List empty
             {
-                throw new Exception("List Hero empty");
+                throw new Exception("List Film empty");
             }
-            */
-            List<Film> listFilms = FilmList.ToListFilm().ToList();
+            
+            List<Film> listFilms = FilmListValid.ToListFilm().ToList();
 
             return listFilms;
         }
@@ -222,17 +222,12 @@ namespace MarvelFlow.Service
             List<SerieJson> SerieList = JsonConvert.DeserializeObject<List<SerieJson>>(jsonAsString); // raise an exception - catch in caller
 
             List<SerieJson> SerieListValid = new List<SerieJson>();
-            foreach (SerieJson s in SerieList) // remove not valid movies
+            foreach (SerieJson s in SerieList) // Add valid movies
             {
                 if (s.CheckValidity())
                 {
                     SerieListValid.Add(s);
                 }
-            }
-
-            if (SerieList.Count < 1) // List empty
-            {
-                throw new Exception("List Hero empty");
             }
 
             List<Serie> listSeries = SerieListValid.ToListSerie().ToList();

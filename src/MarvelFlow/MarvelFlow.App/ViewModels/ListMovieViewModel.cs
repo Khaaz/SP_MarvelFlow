@@ -126,7 +126,8 @@ namespace MarvelFlow.App.ViewModels
         public void SortByName()
         {
             List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetTitle()).ToList();
-            foreach (Movie m in tempList)
+            this.ListMoviesView.Clear();
+            foreach (ISearchableMovie m in tempList)
             {
                 this.ListMoviesView.Add(m);
             }
@@ -138,7 +139,8 @@ namespace MarvelFlow.App.ViewModels
         public void SortByDate()
         {
             List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetDate()).ToList();
-            foreach (Movie m in tempList)
+            this.ListMoviesView.Clear();
+            foreach (ISearchableMovie m in tempList)
             {
                 this.ListMoviesView.Add(m);
             }
