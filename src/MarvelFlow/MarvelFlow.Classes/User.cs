@@ -26,13 +26,13 @@ namespace MarvelFlow.Classes
         public bool IsAdmin { get; private set; }
 
 
-        public User(string userID, string mail, string login, string pswd, DateTime dateInsc, string nom, string prenom, bool isAdmin)
+        public User(string userID, string mail, string login, string pswd, string dateInsc, string nom, string prenom, bool isAdmin)
         {
             this.UserID = userID;
             this.Mail = mail;
             this.Login = login;
             this.Pswd = pswd;
-            this.DateInsc = dateInsc;
+            this.DateInsc = DateTime.ParseExact(dateInsc, "dd/MM/yy", null); ;
             this.Nom = nom;
             this.Prenom = prenom;
             this.IsAdmin = isAdmin;

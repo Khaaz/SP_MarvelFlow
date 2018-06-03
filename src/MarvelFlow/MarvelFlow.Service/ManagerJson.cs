@@ -58,9 +58,9 @@ namespace MarvelFlow.Service
                 "SM"
             };
 
-            Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/18", Universe.MCU, "/ba/im", stringheros);
-            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/15", Universe.MCU, "/ba/im", stringheros);
-            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/08", Universe.MCU, "/ba/im", stringheros);
+            Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/2018", Universe.MCU, "/ba/im", stringheros);
+            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/2015", Universe.MCU, "/ba/im", stringheros);
+            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/2008", Universe.MCU, "/ba/im", stringheros);
 
             Hero Im = new Hero("IM", "IronMan", "ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
             Hero Sm = new Hero("SM", "SpiderMan", "ImagesHero/spiderMan.png", "voici SpiderMan", Team.Avengers);
@@ -108,6 +108,8 @@ namespace MarvelFlow.Service
         /// Use a temp public class to init
         /// </summary>
         /// <returns>List Heroes</returns>
+        /// <exception cref="FileNotFoundException">Incorrect path</exception>
+        /// <exception cref="Exception">List Empty</exception>
         public List<Hero> GetHeroes()
         {
             if (this.ListHeros != null)
@@ -116,15 +118,38 @@ namespace MarvelFlow.Service
             }
             string filePath = ConfigurationManager.AppSettings["jsonPathHero"];
 
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("Incorrect Path to Hero.json");
+            }
+
             string jsonAsString = File.ReadAllText(filePath);
 
-            List<HeroJson> HeroList = JsonConvert.DeserializeObject<List<HeroJson>>(jsonAsString);
+            List<HeroJson> HeroList = JsonConvert.DeserializeObject<List<HeroJson>>(jsonAsString); // raise an exception - catch in caller
 
-            List<Hero> listHero = HeroList.ToListHero().ToList();
+            List<HeroJson> HeroListValid = new List<HeroJson>();
+            foreach (HeroJson h in HeroList) // remove not valid heroes
+            {
+                if (h.CheckValidity())
+                {
+                    HeroListValid.Add(h);
+                }
+            }
+
+            if (HeroList.Count < 1) // List empty
+            {
+                throw new Exception("List Hero empty");
+            }
+
+            List<Hero> listHero = HeroListValid.ToListHero().ToList();
 
             return listHero;
         }
 
+        /// <summary>
+        /// Concat films and series in a new ISearchableMovie List
+        /// </summary>
+        /// <returns>List ISearchableMovie</returns>
         public List<ISearchableMovie> GetMovies()
         {
             if (this.ListMovies != null)
@@ -142,15 +167,36 @@ namespace MarvelFlow.Service
         /// Use a temp public class to init
         /// </summary>
         /// <returns>List Films</returns>
+        /// <exception cref="FileNotFoundException">Incorrect path</exception>
+        /// <exception cref="Exception">List Empty</exception>
         public List<Film> GetFilms()
         {
             string filePath = ConfigurationManager.AppSettings["jsonPathFilm"];
 
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("Incorrect Path to Film.json");
+            }
+
             string jsonAsString = File.ReadAllText(filePath);
 
-            List<FilmJson> FilmList = JsonConvert.DeserializeObject<List<FilmJson>>(jsonAsString);
+            List<FilmJson> FilmList = JsonConvert.DeserializeObject<List<FilmJson>>(jsonAsString); // raise an exception - catch in caller
 
-            List<Film> listFilms = FilmList.ToListFilm().ToList();
+            List<FilmJson> FilmListValid = new List<FilmJson>();
+            foreach (FilmJson f in FilmList) // remove not valid movies
+            {
+                if (f.CheckValidity())
+                {
+                    FilmListValid.Add(f);
+                }
+            }
+
+            if (FilmList.Count < 1) // List empty
+            {
+                throw new Exception("List Hero empty");
+            }
+
+            List<Film> listFilms = FilmListValid.ToListFilm().ToList();
 
             return listFilms;
         }
@@ -160,18 +206,74 @@ namespace MarvelFlow.Service
         /// Use a temp public class to init
         /// </summary>
         /// <returns>List Series</returns>
+        /// <exception cref="FileNotFoundException">Incorrect path</exceptiony
+        /// <exception cref="Exception">List Empty</exception>
         public List<Serie> GetSeries()
         {
             string filePath = ConfigurationManager.AppSettings["jsonPathSerie"];
 
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("Incorrect Path to Serie.json");
+            }
+
             string jsonAsString = File.ReadAllText(filePath);
 
-            List<SerieJson> SerieList = JsonConvert.DeserializeObject<List<SerieJson>>(jsonAsString);
+            List<SerieJson> SerieList = JsonConvert.DeserializeObject<List<SerieJson>>(jsonAsString); // raise an exception - catch in caller
 
-            List<Serie> listSeries = SerieList.ToListSerie().ToList();
+            List<SerieJson> SerieListValid = new List<SerieJson>();
+            foreach (SerieJson s in SerieList) // remove not valid movies
+            {
+                if (s.CheckValidity())
+                {
+                    SerieListValid.Add(s);
+                }
+            }
+
+            if (SerieList.Count < 1) // List empty
+            {
+                throw new Exception("List Hero empty");
+            }
+
+            List<Serie> listSeries = SerieListValid.ToListSerie().ToList();
 
             return listSeries;
         }
+
+        // ADD - REMOVE - contains
+
+        public bool ContainsHero(Hero h)
+        {
+            return true;
+        }
+        
+        public void AddHero(Hero h)
+        {
+
+        }
+
+        public Hero RemoveHero(Hero h)
+        {
+            return h;
+        }
+
+        public bool ContainsMovie(ISearchableMovie m)
+        {
+            return true;
+        }
+
+        public void AddMovie(ISearchableMovie m)
+        {
+
+        }
+
+        public ISearchableMovie RemoveMovie(ISearchableMovie m)
+        {
+            return m;
+        }
+
+
+        // SAVE
 
         public void SaveHero(Hero h)
         {
@@ -185,6 +287,7 @@ namespace MarvelFlow.Service
 
         public void SaveSerie(Serie s)
         {
+            if (s == null) throw new ArgumentNullException(nameof(s));
 
         }
         

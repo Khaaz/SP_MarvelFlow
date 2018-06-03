@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MarvelFlow.App.Views"
+             DataContext="{Binding Profile, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
     
@@ -60,19 +61,19 @@
                     <!--INFOS DU PROFIL-->
                     <UniformGrid Rows="4" Columns="2">
                         <TextBlock Text="Nom :" Foreground="#FFFFDC00" FontStyle="Italic" FontSize="20"/>
-                        <TextBlock Text="{Binding User.Name}" Foreground="White" 
+                        <TextBlock Text="{Binding CurrentUser.Name}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                         <TextBlock Text="Prénom :" Foreground="#7DDA77" 
                                FontStyle="Italic" FontSize="20"/>
-                        <TextBlock Text="{Binding User.Prenom}" Foreground="White" 
+                        <TextBlock Text="{Binding CurrentUser.Prenom}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                         <TextBlock Text="Date d'Inscripiton :" Foreground="#C95CE7" 
                                FontStyle="Italic" FontSize="20"/>
-                        <TextBlock Text="{Binding User.DateInsc}" Foreground="White" 
+                        <TextBlock Text="{Binding CurrentUser.DateInsc}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                         <TextBlock Text="Email :" Foreground="#FF546F" 
                                FontStyle="Italic" FontSize="20"/>
-                        <TextBlock Text="{Binding User.Mail}" Foreground="White" 
+                        <TextBlock Text="{Binding CurrentUser.Mail}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </UniformGrid>
 
@@ -95,7 +96,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Button Background="{x:Null}" BorderThickness="0"
-                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcListMovie}}}"
+                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcProfile}}}"
                                 CommandParameter="{Binding .}">
                             <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                 <Image Source="{Binding Affiche}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />
@@ -121,7 +122,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Button Background="{x:Null}" BorderThickness="0"
-                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcListMovie}}}"
+                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcProfile}}}"
                                 CommandParameter="{Binding .}">
                             <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                                 <Image Source="{Binding Affiche}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />

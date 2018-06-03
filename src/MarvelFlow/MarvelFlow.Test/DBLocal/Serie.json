@@ -1,0 +1,40 @@
+﻿[
+  {
+    "ID": "DD",
+    "Title": "Dare Devil",
+    "Affiche": "source/image",
+    "Desc": "description",
+    "Real": "real",
+    "Universe": 0,
+    "Date": "11/02/98",
+    "NumberSeason": 1,
+    "ListSeasons": [
+      {
+        "SeasonNumber": 1,
+        "NumberEpisodes": 2,
+        "ListEpisodes": [
+          {
+            "EpisodeNumber": 1,
+            "Title": "Intro",
+            "Affiche": "source/image",
+            "Desc": "description",
+            "Real": "real",
+            "Date": "11/02/1998"
+          },
+          {
+            "EpisodeNumber": 2,
+            "Title": "1er ep",
+            "Affiche": "source/image",
+            "Desc": "description",
+            "Real": "real",
+            "Date": "11/02/1998"
+          }
+        ]
+      }
+    ],
+    "isOver": false,
+    "ListHeros": [
+      "IM"
+    ]
+  }
+]

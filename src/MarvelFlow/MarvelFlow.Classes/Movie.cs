@@ -46,7 +46,7 @@ namespace MarvelFlow.Classes
             this.Desc = string.IsNullOrEmpty(desc) ? "desc" : desc;
             this.Real = real;
             DateTime tmpDate;
-            DateTime.TryParseExact(date, "dd/MM/yy", null, DateTimeStyles.None, out tmpDate);
+            DateTime.TryParseExact(date, "dd/MM/yyyy", null, DateTimeStyles.None, out tmpDate);
 
             this.Date = tmpDate;
             this.IsOut = DateTime.Now > tmpDate ? true : false;

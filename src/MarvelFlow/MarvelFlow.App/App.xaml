@@ -36,6 +36,8 @@
             <DataTemplate DataType="{x:Type vm:ListMovieViewModel}">
                 <vs:UcListMovie />
             </DataTemplate>
+            
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

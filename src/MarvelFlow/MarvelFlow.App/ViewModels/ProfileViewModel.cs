@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib.Messages;
+using MarvelFlow.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,41 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand ReturnBackCommand { get; private set; } // history command
         public RelayCommand NavigateAdminCommand { get; private set; }
 
+        private User _CurrentUser;
+        public User CurrentUser
+        {
+            get
+            {
+                return _CurrentUser;
+            }
+            set
+            {
+                if (_CurrentUser == value)
+                    return;
+                _CurrentUser = value;
+                RaisePropertyChanged(() => CurrentUser);
+            }
+        }
+
         public ProfileViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
-            this.NavigateAdminCommand = new RelayCommand(this.SendNavigateAdmin, CanDisplayMessage);
+            this.NavigateAdminCommand = new RelayCommand(this.SendNavigateAdmin, CanOpenAdmin);
+            this.CurrentUser = new User("LB", "louison@mail.com", "louisonAdmin", "passwdSecret", "02/06/16", "Bellec", "Louison", true);
         }
 
         // Commands methods
-
         public bool CanDisplayMessage()
         {
+            return true;
+        }
+
+        public bool CanOpenAdmin()
+        {
+            if (!CurrentUser.IsAdmin)
+            {
+                return false;
+            }
             return true;
         }
 

@@ -24,5 +24,29 @@ namespace MarvelFlow.Service.Data
             NumberEpisodes = numberEpisodes;
             ListEpisodes = listEpisodes;
         }
+
+        /// <summary>
+        /// Check if the Object respect all checker
+        /// True if yes | false if not
+        /// </summary>
+        /// <returns>boolean</returns>
+        public bool CheckValidity()
+        {
+            if (ListEpisodes.Count < 1 || NumberEpisodes != ListEpisodes.Count) // List Episodes accuracy
+            {
+                return false;
+            }
+
+            for (int i = 0; i < ListEpisodes.Count; i++) // Episodes validity
+            {
+                EpisodeJson e = ListEpisodes[i];
+                if (e.EpisodeNumber != i + 1 || !e.CheckValidity())
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

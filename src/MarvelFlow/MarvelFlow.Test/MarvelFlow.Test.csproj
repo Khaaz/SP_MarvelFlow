@@ -52,6 +52,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="DBLocal\Film.json" />
+    <None Include="DBLocal\Hero.json" />
+    <None Include="DBLocal\Serie.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
