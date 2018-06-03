@@ -15,8 +15,12 @@
     
     <!--Defnition style general-->
     <Window.Resources>
-        <Style x:Name="buttonStyle" TargetType="Button">
-            <Setter Property="Margin" Value="10,0,10,0"></Setter>
+        <Style TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{x:Null}"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
 
