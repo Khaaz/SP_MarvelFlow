@@ -68,7 +68,7 @@
                       Grid.Row="0" Grid.ColumnSpan="3" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Columns="5" />
+                        <UniformGrid Columns="5"  VerticalAlignment="Center" Margin="40,0"  />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ListView.ItemTemplate>

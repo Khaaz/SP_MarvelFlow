@@ -40,7 +40,7 @@
     "Name": "Thor",
     "Image": "ImagesHero/thor.png",
     "Desc": "As the son of Odin and Gaea, Thor's strength, endurance and resistance to injury are greater than the vast majority of his superhuman race. He is extremely long-lived (though not completely immune to aging), immune to conventional disease and highly resistant to injury. His flesh and bones are several times denser than a human's.As Lord of Asgard, Thor possessed the Odinforce, which enabled him to tap into the near-infinite resources of cosmic and mystical energies, enhancing all of his abilities. With the vast magical power of the Odinforce, Thor was even able to dent Captain America’s virtually indestructible shield with Mjolnir.Thor complete powers, Click here for complete list of Thor's powers",
-    "Team": 0,
+    "Team": 4,
     "Status": 1,
     "Universe": 0
   },
@@ -101,7 +101,7 @@
   {
     "Id": "WS",
     "Name": "Winter Soldier",
-    "Image": "ImagesHero/warMachine.png",
+    "Image": "ImagesHero/winterSoldier.png",
     "Desc": "He is an Olympic-class athlete and expectional acrobat highly skilled in both unarmed and armed hand-to-hand combat and extremely accurate marksman. he is fluent in four languages including German and Russian",
     "Team": 6,
     "Status": 1,
@@ -129,13 +129,82 @@
     "Id": "SI",
     "Name": "Shuri",
     "Image": "ImagesHero/shuri.png",
-    "Desc": "Wong is a master in the martial arts of Kamar-Taj, although he has rarely used them in recent years. Hence, although Wong can overpower many adversaries, he is no longer a match for a master of the martial arts who keeps himself at or near peak condition.",
-    "Team": 0,
+    "Desc": "Shuri is a fictional superhero appearing in American comic books published by Marvel Comics. The character was created by writer Reginald Hudlin and artist John Romita, Jr., first appearing in Black Panther vol. 4 #2 (May 2005). Shuri is a princess of the fictional African kingdom of Wakanda. She is the daughter of T'Chaka and sister of T'Challa, who is the king of Wakanda and the Black Panther, an earned title and rank given to the chief of the nation. She has a genius level intellect alongside her brother T’Challa \n After T'Challa is left recovering from critical injuries sustained in battle, Shuri is tested and found suitable for the role of Black Panther and ruler of Wakanda. She possesses all the enhanced abilities given to the Black Panther via ancient Wakandan ritual, is a skilled martial artist, allowed access to extensive advanced technologies and wealth, and uses learned transmorphic capabilities.",
+    "Team": 5,
     "Status": 1,
     "Universe": 0
   },
-
-
-
+  {
+    "Id": "SL",
+    "Name": "Star Lord",
+    "Image": "ImagesHero/starLord.png",
+    "Desc": "Star-Lord wore a costume that enabled him to survive in space. It is possible that the costume has actually altered his physical structure, as he does not need to wear any helmet, or any form of life support to survive the nearly absolute zero, airless vacuum. He can fly through air or in space, presumably another attribute of his costume. He possesses enhanced healing and uses personal energy shields. In the event that he were injured beyond his own ability to recover, Ship could administer emergency medical or surgical care.Star-Lord later received a number of cybernetic implants, including his left eye, which allows him to see all energy spectra, as well as a memory chip in his brain, which gives 100% recall",
+    "Team": 1,
+    "Status": 1,
+    "Universe": 0
+  },
+  {
+    "Id": "GA",
+    "Name": "Gamora",
+    "Image": "ImagesHero/gamora.png",
+    "Desc": "The last of the Zen-Whoberi race, Gamora was adopted by the villainous Thanos and raised as an assassin. Gamora turned on her adopted father and now uses her abilities to help those who cannot help themselves. A veteran of the Annihilation Wave, Gamora now travels with the Guardians of the Galaxy and is known as the Most Dangerous Woman in the Universe",
+    "Team": 1,
+    "Status": 1,
+    "Universe": 0
+  },
+  {
+    "Id": "DX",
+    "Name": "Drax The Destroyer",
+    "Image": "ImagesHero/drax.png",
+    "Desc": "Drax possesses a variety of super-human powers that utilize the cosmic energy bestowed upon his artificially created form by Kronos and Mentor (Alars), Mentor, including superhuman strength and durability.The Destroyer's body, while inhabited by Drax's spirit, is nearly invulnerable to all forms of physical injury. It is not known how great a force is necessary to injure him. His artificially created body could exist indefinitely in the vacuum of outer space, and he could survive for an unknown length without air, food, or water.Drax can fly by harnessing cosmic energy as a propulsion source. The maximum rate of speed that Drax could attain is not known, but he could make interplanetary journeys in a matter of weeks. It is unknown if he has retained this ability in his current form.Drax can also harness his cosmic energy and project it through his arms as concussive blasts. The maximum amount of force Drax can project is not known; he can, however, project enough energy to shatter large, ferrous meteors. It is unknown if he has retained this ability in his current form",
+    "Team": 1,
+    "Status": 1,
+    "Universe": 0
+  },
+  {
+    "Id": "RR",
+    "Name": "Rocket Racoon",
+    "Image": "ImagesHero/rocketRacoon.png",
+    "Desc": "An expert marksman with a penchant for large weaponry, Rocket Raccoon is the last of his kind. After being captured by the Kree, Rocket teams up with Star-Lord and other adventurers to form the Guardians of the Galaxy. Together, they travel the galaxy and defend it from those who wish it harm.",
+    "Team": 1,
+    "Status": 1,
+    "Universe": 0
+  },
+  {
+    "Id": "NA",
+    "Name": "Nebula",
+    "Image": "ImagesHero/nebula.png",
+    "Desc": "Nebula, feared across numerous star systems for her ruthless piracy, set her sights on Sanctuary II, the solar-orbiting satellite built and once used as a base of operations by the Thanos. She had sent a small band of her most trusted aides to Sanctuary II to repair its hyper-drive engines and teleport the station out of the solar system, but the activity coincided with the arrival of the hero Monica Rambeau (as Captain Marvel), who had been sent to investigate the craft by her team the Avengers. Nebula's minions warped the satellite out of the solar system with Captain Marvel aboard and rendezvoused with Nebula.",
+    "Team": 2,
+    "Status": 1,
+    "Universe": 0
+  },
+  {
+    "Id": "MS",
+    "Name": "Mantis",
+    "Image": "ImagesHero/mantis.png",
+    "Desc": "The powers she adapted from the Cotati enabled her to communicate telepathically with plants, survive in space, and transfer herself (and her son) from plant life to plant life across interstellar distances or interdimensionally. Once reborn, she could fire powerful energy blasts, form energy fields, communicate directly with cosmic beings such as Eternity and Death (embodiment), Death, and gained complete control of her personal energies as well as her physical form. Her mind, a human/plant hybrid, is largely immune to mental or metaphysical assault, and her physical durability is greatly enhanced. She can achieve a meditative state in which she is largely immune to physical, mental or spiritual harm. She also seems to have limited powers of flight, though it is possible these function only in the vacuum of space",
+    "Team": 1,
+    "Status": 1,
+    "Universe": 0
+  },
+  {
+    "Id": "GT",
+    "Name": "Groot",
+    "Image": "ImagesHero/Groot.png",
+    "Desc": "Groot was extremely powerful and resilient, he has the power or regeneration allowing him to re-grow limbs and even his entire form. He also has powers of the mind, although they only appear to work on plant life, allowing him to communicate with other trees and command them to attack those that oppose him. He is highly vulnerable to attacks of fire",
+    "Team": 1,
+    "Status": 1,
+    "Universe": 0
+  },
+  {
+    "Id": "TS",
+    "Name": "Thanos",
+    "Image": "ImagesHero/thanos.png",
+    "Desc": "Thanos possesses the superhuman physiology of all Eternals, granting him superhuman strength, endurance, reflexes, and agility. His skin in nearly invulnerable, particulary against heat, cold, electricity, radiation, toxins, aging, and disease, and he can survive indefinitely without food or water even before his curse from Death left him immortal, unable to die. His mind is also invulnerable to most forms of psychic attack, and can project a psionic blast of energy as well as blasts of plasma/cosmic energy from his eyes and hands",
+    "Team": 4,
+    "Status": 1,
+    "Universe": 0
+  },
 
 ]

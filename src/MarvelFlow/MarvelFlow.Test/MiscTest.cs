@@ -78,7 +78,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("test", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("test", "ImagesMovie/IronMan.jpg", "desc", "real", "11/02/1998", "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsTrue(Film.CheckValidity());
         }
 
@@ -132,7 +132,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -145,7 +145,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesHero/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesHero/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -158,7 +158,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan8.jpg", "desc", "real", DateTime.Now, "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan8.jpg", "desc", "real", DateTime.Now, "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -171,7 +171,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", "11-02-1998", "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", "11-02-1998", "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -184,7 +184,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", "54/02/1998", "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", "54/02/1998", "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -197,7 +197,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", "11/13/1998", "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", "11/13/1998", "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -210,7 +210,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", "11/02/85", "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", "11/02/85", "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -223,7 +223,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "IronMan8.mp4", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "trailerInfinityWar8.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -236,7 +236,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "BA", null);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "trailerInfinityWar.mp4", null);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -245,7 +245,7 @@ namespace MarvelFlow.Test
         {
             List<string> list = new List<string>();
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
 
@@ -258,7 +258,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "BA", list);
+            FilmJson Film = new FilmJson("", "ImagesMovie/IronMan.jpg", "desc", "real", DateTime.Now, "IM", 0, "trailerInfinityWar.mp4", list);
             Assert.IsFalse(Film.CheckValidity());
         }
     }

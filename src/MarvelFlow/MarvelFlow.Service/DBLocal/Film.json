@@ -1,25 +1,26 @@
 ﻿[
   {
-    "ID": "IM",
+    "Id": "IM",
     "Title": "Iron Man",
     "Affiche": "ImagesMovie/IronMan.jpg",
     "Desc": "description",
     "Universe": 0,
     "Real": "realisateur",
     "Date": "11/02/1998",
-    "BA": "/BA/IronMan",
+    "BA": "trailerInfinityWar.mp4",
     "ListHeros": [
       "IM"
     ]
   },
   {
-    "ID": "IM2",
+    "Id": "IM2",
     "Title": "Iron Man 2",
     "Affiche": "ImagesMovie/IronMan2.jpg",
     "Desc": "description",
     "Universe": 0,
     "Real": "realisateur",
     "Date": "11/02/1998",
+    "BA": "trailerInfinityWar.mp4",
     "ListHeros": [
       "IM",
       "SM"

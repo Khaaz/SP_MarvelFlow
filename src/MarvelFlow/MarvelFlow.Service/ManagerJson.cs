@@ -191,7 +191,7 @@ namespace MarvelFlow.Service
                 }
             }
 
-            if (FilmList.Count < 1) // List empty
+            if (FilmListValid.Count < 1) // List empty
             {
                 throw new Exception("List Hero empty");
             }

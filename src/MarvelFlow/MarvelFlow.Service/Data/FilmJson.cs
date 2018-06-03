@@ -58,7 +58,7 @@ namespace MarvelFlow.Service.Data
                 }
             }
 
-            if (Util.IsPathTeaser(Affiche)) // path correct affiche
+            if (Util.IsPathMovie(Affiche)) // path correct affiche
             {
                 string path = ConfigurationManager.AppSettings["AffichePath"] + Affiche;
                 if (!File.Exists(path)) // file exist
@@ -71,7 +71,7 @@ namespace MarvelFlow.Service.Data
                 return false;
             }
 
-            if (Util.IsPathMovie(Affiche)) // path correct teaser
+            if (Util.IsPathTeaser(BA)) // path correct teaser
             {
                 string path = ConfigurationManager.AppSettings["TeaserPath"] + BA;
                 if (!File.Exists(path)) // file exist
