@@ -22,11 +22,11 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             
-            <!-- Text="{Binding truc, UpdateSourceTrigger=PropertyChanged}" -->
             
             <Button Grid.Column="0" Grid.Row="0"
-                Background="{x:Null}" BorderThickness="0"
+                Background="Transparent" BorderThickness="0"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                    Style="{StaticResource OtherButton}"
                 Command='{Binding ReturnBackCommand}' >
                 <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
                    Stretch="Uniform">
