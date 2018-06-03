@@ -19,7 +19,7 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand NavigateListHeroCommand { get; private set; } // Navigate to ListHeros
         public RelayCommand NavigateListMovieCommand { get; private set; } // Navigate to ListMovies
         public RelayCommand NavigateProfileCommand { get; private set; } // Navigate to Profile
-        public RelayCommand<Movie> NavigateMovieCommand { get; private set; } //Navigate to HomeVideo
+        public RelayCommand NavigateMovieCommand { get; private set; } //Navigate to HomeVideo
 
 
         private Film _HomeVideo;
@@ -48,6 +48,8 @@ namespace MarvelFlow.App.ViewModels
             this.NavigateListMovieCommand = new RelayCommand(this.SendNavigateListMovie, CanDisplayMessage);
             this.NavigateProfileCommand = new RelayCommand(this.SendNavigateProfile, CanDisplayMessage);
 
+            this.NavigateMovieCommand = new RelayCommand(this.SendNavigateMovie,CanDisplayMessage);
+
         }
 
         public void FindLastVideo()
@@ -56,8 +58,6 @@ namespace MarvelFlow.App.ViewModels
                 .Where(m => m.GetType() == typeof(Film))
                 .OrderBy(m => m.GetDate())
                 .LastOrDefault();
-
-            //this.NavigateMovieCommand = new RelayCommand<Film>(this.SendNavigateMovie(HomeVideo),CanDisplayMessage());
         }
 
         // Commands methods
@@ -82,9 +82,9 @@ namespace MarvelFlow.App.ViewModels
             MessengerInstance.Send<ProfileMessage>(new ProfileMessage(this, "Navigate Profile Message"));
         }
 
-        public void SendNavigateMovie(Film HomeVideo)
+        public void SendNavigateMovie()
         {
-            MessengerInstance.Send<MovieMessage>(new MovieMessage(this, HomeVideo, "Navigate Movie Message"));
+            MessengerInstance.Send<MovieMessage>(new MovieMessage(this, (ISearchableMovie) HomeVideo, "Navigate Movie Message"));
         }
     }
 }
