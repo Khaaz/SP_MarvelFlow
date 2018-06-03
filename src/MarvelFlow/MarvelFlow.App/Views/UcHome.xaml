@@ -47,7 +47,7 @@
                    FontSize="30" FontStyle="Italic"/>
         
         
-        <Button Grid.Row="1" Grid.ColumnSpan="3" Background="{x:Null}">
+        <Button Grid.Row="1" Grid.ColumnSpan="3" Background="{x:Null}" BorderThickness="0" Margin="0,0,0,15">
         <MediaElement Name="myMediaElement"   Volume="0">
             <MediaElement.Triggers>
                 <EventTrigger RoutedEvent="MediaElement.Loaded">
