@@ -59,15 +59,30 @@ namespace MarvelFlow.Service.Factory
         }
 
         ////////////
-        
+
         // Factory Json Serie
+        public static List<SerieJson> ToJsonListSerie(this List<Serie> l)
+        {
+            List<SerieJson> NewList = new List<SerieJson>();
+            foreach (Serie s in l)
+            {
+                SerieJson sjson = s.ToJsonSerie();
+                if (sjson.CheckValidity())
+                {
+                    NewList.Add(sjson);
+                }
+            }
+            return NewList;
+        }
+
         public static SerieJson ToJsonSerie(this Serie s)
         {
            SerieJson NewSerie = new SerieJson(s.Title, s.Affiche, s.Desc, s.Real, s.Date, s.Id, s.Universe, s.NumberSeasons, s.ListSeasons.ToJsonListSeason(), s.IsOver, s.ListHeroString);
 
             return NewSerie;
-        } 
-        
+        }
+
+        // Factory Json Season
         public static List<SeasonJson> ToJsonListSeason(this Dictionary<int, Season> l)
         {
             List<SeasonJson> NewList = new List<SeasonJson>();
@@ -78,8 +93,7 @@ namespace MarvelFlow.Service.Factory
 
             return NewList;
         }
-
-        // Factory Json Season
+        
         public static SeasonJson ToJsonSeason(this Season s)
         {
             SeasonJson NewSeason = new SeasonJson(s.SeasonNumber, s.NumberEpisodes, s.ListEpisodes.ToJsonListEpisode());
@@ -87,6 +101,7 @@ namespace MarvelFlow.Service.Factory
             return NewSeason;
         }
 
+        // Factory Json Episode
         public static List<EpisodeJson> ToJsonListEpisode(this Dictionary<int, Episode> l)
         {
             List<EpisodeJson> NewList = new List<EpisodeJson>();
@@ -99,7 +114,6 @@ namespace MarvelFlow.Service.Factory
             return NewList;
         }
 
-        // Factory Json Episode
         public static EpisodeJson ToJsonEpisode(this Episode e)
         {
             EpisodeJson NewEpisode = new EpisodeJson(e.Title, e.Affiche, e.Desc, e.Real, e.Date, e.EpisodeNumber);

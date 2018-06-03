@@ -18,21 +18,21 @@ namespace MarvelFlow.Service
 
         public static bool IsPathHero(string input)
         {
-            Regex r = new Regex(@"^ImagesHero\/.*\.(png|jpg|jpeg)$", RegexOptions.IgnoreCase);
+            Regex r = new Regex(@"^ImagesHero[\/\\].*\.(png|jpg|jpeg)$", RegexOptions.IgnoreCase);
 
             return r.IsMatch(input);
         }
 
         public static bool IsPathMovie(string input)
         {
-            Regex r = new Regex(@"^ImagesMovie\/.*\.(png|jpg|jpeg)$", RegexOptions.IgnoreCase);
+            Regex r = new Regex(@"^ImagesMovie[\/\\].*\.(png|jpg|jpeg)$", RegexOptions.IgnoreCase);
 
             return r.IsMatch(input);
         }
 
         public static bool IsPathTeaser(string input)
         {
-            Regex r = new Regex(@"^.*\.mp4$", RegexOptions.IgnoreCase);
+            Regex r = new Regex(@"^Trailer[\/\\].*\.mp4$", RegexOptions.IgnoreCase);
 
             return r.IsMatch(input);
         }
@@ -47,6 +47,27 @@ namespace MarvelFlow.Service
             Regex r = new Regex(regexDate, RegexOptions.IgnoreCase);
 
             return r.IsMatch(date);
+        }
+
+        public static string FormatPathHero(string input)
+        {
+            Regex r = new Regex(@"ImagesHero[\/\\].*\.(png|jpg|jpeg)", RegexOptions.IgnoreCase | RegexOptions.ECMAScript);
+
+            return r.Match(input).Value;
+        }
+
+        public static string FormatPathMovie(string input)
+        {
+            Regex r = new Regex(@"ImagesMovie[\/\\].*\.(png|jpg|jpeg)", RegexOptions.IgnoreCase | RegexOptions.ECMAScript);
+
+            return r.Match(input).Value;
+        }
+
+        public static string FormatPathTrailer(string input)
+        {
+            Regex r = new Regex(@"Trailer[\/\\].*\.mp4", RegexOptions.IgnoreCase | RegexOptions.ECMAScript);
+
+            return r.Match(input).Value;
         }
     }
 }

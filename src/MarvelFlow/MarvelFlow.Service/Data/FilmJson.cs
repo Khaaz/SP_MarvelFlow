@@ -24,7 +24,7 @@ namespace MarvelFlow.Service.Data
         {
             Id = id;
             Universe = universe;
-            BA = bA;
+            BA = Util.FormatPathTrailer(bA);
             ListHeros = listHeros;
         }
 
@@ -33,7 +33,7 @@ namespace MarvelFlow.Service.Data
         {
             Id = id;
             Universe = universe;
-            BA = bA;
+            BA = Util.FormatPathTrailer(bA);
             ListHeros = listHeros;
         }
 

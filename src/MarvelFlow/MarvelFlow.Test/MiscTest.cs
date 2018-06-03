@@ -19,7 +19,7 @@ namespace MarvelFlow.Test
         public void AddNullSerieFailed()
         {
             var manager = new ManagerJson();
-            manager.SaveSerie(null);
+            manager.SaveListSerie(null);
         }
 
         //
@@ -43,7 +43,7 @@ namespace MarvelFlow.Test
         }
 
         [TestMethod]
-        public void TestGetSerieSuccess()
+        public void TestGetSerieSuccess() // will error cause bad json file
         {
             var manager = new ManagerJson();
             Assert.IsTrue(manager.GetSeries().Count > 0);
@@ -59,10 +59,33 @@ namespace MarvelFlow.Test
 
         // Write Json
         [TestMethod]
-        public void TestWriteJsonSuccess()
+        public void TestWriteJsonHeroSuccess()
         {
+            List<Hero> listHero = new List<Hero>()
+            {
+                new Hero("im", "iron man", "ImagesHero/ironMan.png", "desc", 0, 0, 0),
+                new Hero("sm", "spider man", "ImagesHero/ironMan.png", "desc", 0, 0, 0)
+            };
             var manager = new ManagerJson();
-            manager.SaveHero(new Hero("im", "iron man", "ImagesHero/ironMan.jpg", "desc", 0, 0, 0));
+            manager.SaveListHero(listHero);
+        }
+
+        [TestMethod]
+        public void TestWriteJsonFilmSuccess()
+        {
+            List<string> list = new List<string>()
+            {
+                "IM",
+                "SM"
+            };
+
+            List<Film> listFilm = new List<Film>()
+            {
+                new Film("im", "iron man", "ImagesMovie/IronMan.jpg", "desc", "real", "11/02/1998", 0, "Trailer/trailerInfinityWar.mp4", list),
+                new Film("im", "iron man", "ImagesMovie/IronMan.jpg", "desc", "real", "11/02/1998", 0, "Trailer/trailerInfinityWar.mp4", list)
+            };
+            var manager = new ManagerJson();
+            manager.SaveListFilm(listFilm);
         }
 
 

@@ -10,6 +10,7 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MarvelFlow.Service
@@ -136,7 +137,7 @@ namespace MarvelFlow.Service
                 }
             }
 
-            if (HeroList.Count < 1) // List empty
+            if (HeroListValid.Count < 1) // List empty
             {
                 throw new Exception("List Hero empty");
             }
@@ -270,23 +271,49 @@ namespace MarvelFlow.Service
 
         // SAVE
 
-        public void SaveHero(Hero h)
+        public void SaveListHero(List<Hero> h)
         {
-            HeroJson Hero = h.ToJsonHero();
+            List<HeroJson> listHero = h.ToJsonListHero();
 
-            string json = JsonConvert.SerializeObject(Hero, Formatting.Indented);
+            string filePath = ConfigurationManager.AppSettings["jsonPathHeroSave"];
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("Incorrect Path to HeroSave.json");
+            }
 
-            File.WriteAllText(@"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.Service\DBLocal\TestHero.json", json);
+            string jsonString = JsonConvert.SerializeObject(listHero, Formatting.Indented);
+
+            File.WriteAllText(filePath, jsonString);
         }
 
-        public void SaveFilm(Film f)
+        public void SaveListFilm(List<Film> f)
         {
-            FilmJson Film = f.ToJsonFilm();
+            List<FilmJson> listFilm = f.ToJsonListFilm();
+
+            string filePath = ConfigurationManager.AppSettings["jsonPathFilmSave"];
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("Incorrect Path to FilmSave.json");
+            }
+
+            string jsonString = JsonConvert.SerializeObject(listFilm, Formatting.Indented);
+
+            File.WriteAllText(filePath, jsonString);
         }
 
-        public void SaveSerie(Serie s)
+        public void SaveListSerie(List<Serie> s)
         {
-            if (s == null) throw new ArgumentNullException(nameof(s));
+            List<SerieJson> listSerie = s.ToJsonListSerie();
+
+            string filePath = ConfigurationManager.AppSettings["jsonPathSerieSave"];
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("Incorrect Path to SerieSave.json");
+            }
+
+            string jsonString = JsonConvert.SerializeObject(listSerie, Formatting.Indented);
+
+            File.WriteAllText(filePath, jsonString);
 
         }
         

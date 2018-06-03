@@ -29,7 +29,7 @@ namespace MarvelFlow.Service.Data
         protected MovieJson(string title, string affiche, string desc, string real, string date)
         {
             Title = title;
-            Affiche = affiche;
+            Affiche = Util.FormatPathMovie(affiche);
             Desc = desc;
             Real = real;
             Date = date;
@@ -38,7 +38,7 @@ namespace MarvelFlow.Service.Data
         protected MovieJson(string title, string affiche, string desc, string real, DateTime date)
         {
             Title = title;
-            Affiche = affiche;
+            Affiche = Util.FormatPathMovie(affiche);
             Desc = desc;
             Real = real;
             Date = date.ToString("dd/MM/yyyy");

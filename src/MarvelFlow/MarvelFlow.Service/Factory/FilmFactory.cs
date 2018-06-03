@@ -25,6 +25,20 @@ namespace MarvelFlow.Service.Factory
             return NewFilm;
         }
 
+        public static List<FilmJson> ToJsonListFilm(this List<Film> l)
+        {
+            List<FilmJson> NewList = new List<FilmJson>();
+            foreach (Film f in l)
+            {
+                FilmJson fjson = f.ToJsonFilm();
+                if (fjson.CheckValidity())
+                {
+                    NewList.Add(fjson);
+                }
+            }
+            return NewList;
+        }
+
         public static FilmJson ToJsonFilm(this Film f)
         {
             FilmJson NewFilm = new FilmJson(f.Title, f.Affiche, f.Desc, f.Real, f.Date, f.Id, f.Universe, f.BA, f.ListHeroString);

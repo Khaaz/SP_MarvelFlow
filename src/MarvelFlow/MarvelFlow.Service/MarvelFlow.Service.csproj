@@ -60,8 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DBLocal\Film.json" />
+    <None Include="DBLocal\FilmSave.json" />
+    <None Include="DBLocal\HeroSave.json" />
     <None Include="DBLocal\Serie.json" />
     <None Include="DBLocal\Hero.json" />
+    <None Include="DBLocal\SerieSave.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

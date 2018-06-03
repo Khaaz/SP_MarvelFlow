@@ -34,7 +34,7 @@ namespace MarvelFlow.Service.Data
         {
             Id = id;
             Name = name;
-            Image = image;
+            Image = Util.FormatPathHero(image);
             Desc = desc;
             Status = status;
             Team = team;
