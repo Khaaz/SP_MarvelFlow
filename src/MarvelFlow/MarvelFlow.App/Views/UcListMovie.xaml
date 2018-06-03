@@ -24,6 +24,7 @@
             <Button Grid.Column="0" Grid.Row="0"
                 Background="{x:Null}" BorderThickness="0"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                Style="{StaticResource OtherButton}"
                 Command='{Binding ReturnBackCommand}' >
                 <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
                    Stretch="Uniform">
@@ -34,9 +35,9 @@
                 
                 <StackPanel VerticalAlignment="Center" Margin="19,0,0,0" >
                     <RadioButton IsChecked="True" Command="{Binding SortByNameCommand}"
-                        Foreground="White" Margin="0,0,0,25" >A-Z</RadioButton>
+                        Foreground="White" Margin="0,0,0,25" FontSize="15" FontWeight="Bold" >A-Z</RadioButton>
                     <RadioButton Command="{Binding SortByDateCommand}"
-                        Foreground="White" >Date Croissant </RadioButton>
+                        Foreground="White" FontSize="15" FontWeight="Bold" >Date Croissant </RadioButton>
                 </StackPanel>
 
                 <ComboBox ItemsSource="{Binding EnumUniverse}" SelectedItem="{Binding SelectedUniverse,Mode=TwoWay}"
