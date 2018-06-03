@@ -278,6 +278,10 @@ namespace MarvelFlow.Service
         public void SaveHero(Hero h)
         {
             HeroJson Hero = h.ToJsonHero();
+
+            string json = JsonConvert.SerializeObject(Hero, Formatting.Indented);
+
+            File.WriteAllText(@"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.Service\DBLocal\TestHero.json", json);
         }
 
         public void SaveFilm(Film f)

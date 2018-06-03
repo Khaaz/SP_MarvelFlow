@@ -57,6 +57,14 @@ namespace MarvelFlow.Test
             Assert.IsTrue(list.Count > 0);
         }
 
+        // Write Json
+        [TestMethod]
+        public void TestWriteJsonSuccess()
+        {
+            var manager = new ManagerJson();
+            manager.SaveHero(new Hero("im", "iron man", "ImagesHero/ironMan.jpg", "desc", 0, 0, 0));
+        }
+
 
         // Testing Json class validity
         // (Doesn't send back Exceptionbut boolean for CheckValidity() method)
