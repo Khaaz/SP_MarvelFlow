@@ -64,17 +64,32 @@
                        Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Columns="5"  VerticalAlignment="Center" Margin="50,0"  />
+                        <UniformGrid Columns="4"  VerticalAlignment="Center" Margin="50,0"  />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Background="{x:Null}" BorderThickness="0" Style="{StaticResource ListSelect}"
+                        <Button Background="{x:Null}" Style="{StaticResource ListSelect}"  Margin="0,0,0,30"
+                                BorderThickness="0"
                                 Command="{Binding DataContext.NavigateHeroCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcListHero}}}"
                                 CommandParameter="{Binding .}">
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                <Image Source="{Binding Image}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />
-                                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,10" >
+                                <Image Source="{Binding Image}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill"  Height="200" Width="200"/>
+                                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" 
+                                           VerticalAlignment="Bottom" FontWeight="Medium" TextAlignment="Center" 
+                                           TextTrimming="WordEllipsis" TextWrapping="Wrap" Foreground="White" FontSize="20"/>
                             </StackPanel>
                         </Button>
                     </DataTemplate>

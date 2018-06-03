@@ -23,6 +23,7 @@
             <Button Grid.Column="0" Grid.Row="0"
                 Background="{x:Null}" BorderThickness="0"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                Style="{StaticResource OtherButton}"
                 Command='{Binding ReturnBackCommand}' >
                 <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
                    Stretch="Uniform">
@@ -51,9 +52,11 @@
             <Rectangle Grid.Column="0"  Stroke="White" StrokeThickness="1"/>
             <UniformGrid Columns="2" Rows="1" Grid.Row="1" Grid.Column="0">
                 <Button Content="B.A" Command="{Binding PlayTeaserCommand}" CommandParameter="{Binding Movie.BA}"
-                        Foreground="White" FontWeight="Bold" Background="#e23636" Margin="20,60" />
+                        Foreground="White" FontWeight="Bold" Background="#e23636" Margin="20,60" 
+                        Style="{StaticResource ButtonHome}"/>
                 <Button Content="FAV" Foreground="White" 
-                        FontWeight="Bold" Background="#FFEEA200" Margin="20,60"/>
+                        FontWeight="Bold" Background="#FFEEA200" Margin="20,60"
+                        Style="{StaticResource ButtonHome}"/>
             </UniformGrid>
 
             <!-- BLOC DESCRIPTION -->
@@ -63,7 +66,9 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0"  Grid.RowSpan="3" Background="{x:Null}" Foreground="White" Text="{Binding Movie.Desc}" Margin="10.4,5,-0.2,0.4"/>
+                <TextBlock Grid.Column="0"  Grid.RowSpan="3" Background="{x:Null}" Foreground="White" Text="{Binding Hero.Desc}" 
+                           TextWrapping="Wrap" FontSize="20" TextTrimming="WordEllipsis"
+                           Margin="40,20"/>
                 <!-- UNIVERSE / STATUS / TEAM -->
                 <Border Grid.Column="1" BorderThickness="3" BorderBrush="White">
                     <UniformGrid  Columns="1"  Rows="6" Margin="15">
@@ -91,13 +96,26 @@
                         <UniformGrid  Columns="4" HorizontalAlignment="Stretch"  />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Background="{x:Null}" BorderThickness="0"
+                        <Button Background="{x:Null}" BorderThickness="0" Style="{StaticResource ListSelect}"
                                 Command="{Binding DataContext.NavigateHeroCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcFilm}}}"
-                                CommandParameter="{Binding .}">
+                                CommandParameter="{Binding .}"
+                                Margin="0,10,0,0">
                             <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                <Image Source="{Binding Image}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="60" MaxWidth="60" />
+                                <Image Source="{Binding Image}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" Height="150" Width="150" />
                                 <TextBlock Text="{Binding Name}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
                             </StackPanel>
                         </Button>

@@ -8,94 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
 
-    <UserControl.Resources>
-
-        <!-- Style Button Home -->
-        <Style TargetType="{x:Type Button}" x:Key="ButtonHome1">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="BorderBrush" Value="White"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Template" >
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FF222222" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            
-        </Style>
-
-        
-
-
-        
-
-
-  
-        <Style TargetType="{x:Type Button}" x:Key="ButtonHome">
-            <Setter Property="Foreground" Value="White"/>
-                <Setter Property="Background" Value="Black"/>
-                <Setter Property="BorderBrush" Value="White"/>
-                <Setter Property="BorderThickness" Value="2"/>
-                <Setter Property="FontSize" Value="24"/>
-                <Setter Property="Margin" Value="10"/>
-                <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Template" >
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="Black" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-             </Setter>
-                <Style.Triggers>
-
-                <!-- Animates the button's opacity on mouse over. -->
-                <EventTrigger RoutedEvent="Button.MouseEnter">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation
-                  Storyboard.TargetProperty="(Button.FontSize)"
-                  From="24" To="30" Duration="0:0:0.2" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-
-                <!-- Returns the button's opacity to 1 when the mouse leaves. -->
-                <EventTrigger RoutedEvent="Button.MouseLeave">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation
-                  Storyboard.TargetProperty="(Button.FontSize)"
-                  To="24" Duration="0:0:0.1" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-        </Style.Triggers>
-        </Style>
-
-    </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -132,7 +44,7 @@
                    FontSize="30" FontStyle="Italic"/>
 
         <!-- HOME VIDEO PART -->
-        <Button Grid.Row="1" Grid.ColumnSpan="3" Background="{x:Null}" BorderThickness="0" Margin="0,0,0,15" Style="{StaticResource OtherButton}" 
+        <Button Grid.Row="1" Grid.ColumnSpan="3" Background="{x:Null}" BorderThickness="0" Margin="0,0,0,15" Style="{StaticResource ButtonHomeVideo}" 
                 Command="{Binding NavigateMovieCommand }">
         <MediaElement Name="myMediaElement"   Volume="0">
             <MediaElement.Triggers>

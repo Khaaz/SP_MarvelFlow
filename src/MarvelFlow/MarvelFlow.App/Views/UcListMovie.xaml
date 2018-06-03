@@ -59,26 +59,40 @@
 
         <!--Ligne 2-->
         <Grid x:Name="___Grid__Zone_de_recherche" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*" />
-                <ColumnDefinition Width="50" />
-            </Grid.ColumnDefinitions>
+ 
             <ListView ItemsSource="{Binding ListMoviesView}" x:Name="ListViewHero" 
-                      HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top"  
                       Grid.Column="0" Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>
+                    
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Background="{x:Null}" BorderThickness="0"
+                        <Button Background="{x:Null}" BorderThickness="0" Height="300" Width="150"
+                                Style="{StaticResource ListSelect}"  Margin="0,0,0,30"
                                 Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcListMovie}}}"
                                 CommandParameter="{Binding .}">
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                <Image Source="{Binding Affiche}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="90" MaxWidth="80" />
-                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                <Image Source="{Binding Affiche}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill"  />
+                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" 
+                                           VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center"
+                                           TextTrimming="WordEllipsis" Foreground="White" FontSize="20"
+                                           TextWrapping="Wrap"/>
                             </StackPanel>
                         </Button>
                     </DataTemplate>
