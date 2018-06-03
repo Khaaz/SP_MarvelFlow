@@ -279,6 +279,7 @@
     <Resource Include="Images\ImagesHero\warMachine.png" />
     <Resource Include="Images\ImagesHero\winterSoldier.png" />
     <Resource Include="Images\ImagesHero\wong.png" />
+    <Content Include="Component\Teaser\pnl.mp4" />
     <Content Include="Component\Teaser\trailerInfinityWar.mp4" />
     <Content Include="Images\ImagesMovie\Antman.jpg" />
     <Resource Include="Images\row.png" />

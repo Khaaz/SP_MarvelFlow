@@ -37,5 +37,35 @@
                 FontSize="24" Margin="10"
                 Command='{Binding NavigateProfileCommand}' />
         
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Panel.ZIndex="1" 
+                   Text=" WELCOME TO MARVEL FLOW &#x0a;" 
+                   Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" 
+                   FontSize="58" FontWeight="Bold" TextDecorations="{x:Null}"/>
+        <TextBlock  Grid.Row="1" Grid.ColumnSpan="3" Panel.ZIndex="1" 
+                   Text="&#x0a; because we care about how you see marvel" 
+                   Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" 
+                   FontSize="30" FontStyle="Italic"/>
+        
+        
+        <Button Grid.Row="1" Grid.ColumnSpan="3" Background="{x:Null}">
+        <MediaElement Name="myMediaElement"   Volume="0">
+            <MediaElement.Triggers>
+                <EventTrigger RoutedEvent="MediaElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <!-- The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
+                     over and over indefinitely.-->
+                                <MediaTimeline Source="{Binding HomeVideo.BA }" Storyboard.TargetName="myMediaElement"  
+                 RepeatBehavior="Forever" />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </MediaElement.Triggers>
+        </MediaElement>
+        </Button>
     </Grid>
 </UserControl>

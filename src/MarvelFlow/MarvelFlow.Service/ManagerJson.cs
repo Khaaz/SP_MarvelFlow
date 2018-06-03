@@ -59,8 +59,8 @@ namespace MarvelFlow.Service
             };
 
             Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/2018", Universe.MCU, "/ba/im", stringheros);
-            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/2015", Universe.MCU, "/ba/im", stringheros);
-            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/2008", Universe.MCU, "/ba/im", stringheros);
+            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/2015", Universe.MCU, "pnl.mp4", stringheros);
+            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/2008", Universe.MCU, "pnl.mp4", stringheros);
 
             Hero Im = new Hero("IM", "IronMan", "ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
             Hero Sm = new Hero("SM", "SpiderMan", "ImagesHero/spiderMan.png", "voici SpiderMan", Team.Avengers);
@@ -182,7 +182,7 @@ namespace MarvelFlow.Service
 
             List<FilmJson> FilmList = JsonConvert.DeserializeObject<List<FilmJson>>(jsonAsString); // raise an exception - catch in caller
 
-            List<FilmJson> FilmListValid = new List<FilmJson>();
+           /* List<FilmJson> FilmListValid = new List<FilmJson>();
             foreach (FilmJson f in FilmList) // remove not valid movies
             {
                 if (f.CheckValidity())
@@ -195,8 +195,8 @@ namespace MarvelFlow.Service
             {
                 throw new Exception("List Hero empty");
             }
-
-            List<Film> listFilms = FilmListValid.ToListFilm().ToList();
+            */
+            List<Film> listFilms = FilmList.ToListFilm().ToList();
 
             return listFilms;
         }

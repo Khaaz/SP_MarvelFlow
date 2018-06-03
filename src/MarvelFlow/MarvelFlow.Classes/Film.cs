@@ -71,6 +71,12 @@ namespace MarvelFlow.Classes
            this.ListHeroes.Add(h);
         }
 
+        public string GetBA()
+        {
+            return BA;
+        }
+
+
         // Custom //
     }
 }

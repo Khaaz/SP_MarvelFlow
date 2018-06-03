@@ -1,8 +1,13 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CommonServiceLocator;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib.Messages;
+using MarvelFlow.Classes;
+using MarvelFlow.Classes.Lib;
+using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +20,41 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand NavigateListMovieCommand { get; private set; } // Navigate to ListMovies
         public RelayCommand NavigateProfileCommand { get; private set; } // Navigate to Profile
 
+
+        private Film _HomeVideo;
+
+        public Film HomeVideo
+        {
+            get
+            {
+                return _HomeVideo;
+            }
+            set
+            {
+                if (_HomeVideo == value)
+                    return;
+                _HomeVideo = value;
+                RaisePropertyChanged(() => HomeVideo);
+            }
+        }
+
+
+
         public HomeViewModel()
         {
+            FindLastVideo();
             this.NavigateListHeroCommand = new RelayCommand(this.SendNavigateListHero, CanDisplayMessage);
             this.NavigateListMovieCommand = new RelayCommand(this.SendNavigateListMovie, CanDisplayMessage);
             this.NavigateProfileCommand = new RelayCommand(this.SendNavigateProfile, CanDisplayMessage);
+
+        }
+
+        public void FindLastVideo()
+        {
+            HomeVideo = (Film) ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies()
+                .Where(m => m.GetType() == typeof(Film))
+                .OrderBy(m => m.GetDate())
+                .LastOrDefault();
         }
 
         // Commands methods
