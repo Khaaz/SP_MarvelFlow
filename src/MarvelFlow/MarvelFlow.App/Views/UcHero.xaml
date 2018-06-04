@@ -23,6 +23,7 @@
             <Button Grid.Column="0" Grid.Row="0"
                 Background="{x:Null}" BorderThickness="0"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                    Style="{StaticResource OtherButton}"
                 Command='{Binding ReturnBackCommand}' >
                 <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
                    Stretch="Uniform">
@@ -45,10 +46,17 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-
+            
+            
+            <Rectangle Grid.Column="0"  Stroke="White" StrokeThickness="2"/>
             <Image  Source="{Binding Hero.Image}" Grid.Column="0" Stretch="Uniform" StretchDirection="Both" Margin="0,5,0,0"/>
-            <Button Content="FAV"  Grid.Row="1" Grid.Column="0" Margin="7,24,7,15" MaxWidth="100" MaxHeight="80" Foreground="White" FontWeight="Bold" Background="#FFEEA200" />
-            <Rectangle Grid.Column="0"  Stroke="White" StrokeThickness="1"/>
+
+            <!-- FAV BUTTON -->
+            <Button Content="FAV"  Grid.Row="1" Grid.Column="0" Margin="7,24,7,15" MaxWidth="100" MaxHeight="80" 
+                    Foreground="White" FontWeight="Bold" Background="#FFEEA200" 
+                    Style="{StaticResource ButtonHome}"/>
+            
+            
             
             <!-- BLOC DESCRIPTION -->
             <Grid Grid.Row="0" Grid.Column="1">
@@ -75,8 +83,7 @@
                                FontStyle="Italic" FontSize="20"/>
                         <TextBlock Text="{Binding Hero.Team}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    
-                    
+
                 </UniformGrid>
                 </Border>
             </Grid>
@@ -87,14 +94,29 @@
                         <UniformGrid  Columns="4" HorizontalAlignment="Stretch"  />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Button Background="{x:Null}" BorderThickness="0"
+                        <Button Background="{x:Null}" BorderThickness="0" Style="{StaticResource ListSelect}"
                                 Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcHero}}}"
                                 CommandParameter="{Binding .}">
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                <Image Source="{Binding Affiche}" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" MaxHeight="60" MaxWidth="60" />
-                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center" Foreground="White" />
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                <Image Source="{Binding Affiche}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" Height="150" Width="100" />
+                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" 
+                                           VerticalAlignment="Bottom" FontWeight="Bold" TextAlignment="Center"
+                                           TextTrimming="WordEllipsis" Foreground="White" FontSize="20"
+                                           TextWrapping="Wrap"/>
                             </StackPanel>
                         </Button>
                     </DataTemplate>

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Background="#1e272e"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="840" Width="1440" 
+        Title="MarvelFlow" Height="840" Width="1440" 
         ResizeMode="CanMinimize">
         
     

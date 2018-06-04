@@ -12,24 +12,36 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
 
         <!--Ligne 1-->
-        <Grid x:Name="___Grid___NOM_HERO" Grid.Row="0" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="3*" />
-            </Grid.ColumnDefinitions>
-
             <Button Grid.Column="0" Grid.Row="0"
                 Background="{x:Null}" BorderThickness="0"
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
-                Command='{Binding ReturnBackCommand}' >
+                Command='{Binding ReturnBackCommand}'
+                 Style="{StaticResource OtherButton}">
                 <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
                    Stretch="Uniform">
                 </Image>
             </Button>
 
-        </Grid>
+            <TextBlock 
+                Foreground="White" FontWeight="Bold" FontStyle="Italic" TextAlignment="Center"  
+                Grid.Column="2" Grid.Row="0" FontSize="40"
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Text="ADD OR DELETE DATA"/>
 
+                <ComboBox  Grid.Column="1" ItemsSource="{Binding MediaList}" SelectedItem="{Binding SelectedMedia,Mode=TwoWay}"
+                      VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="30" 
+                      IsReadOnly="True" Focusable="False" IsEditable="True"
+                      Text="SELECT HERO/MOVIE" FontWeight="Bold" FontSize="15"/>
+        <!--Ligne 2-->
+        
+        <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding CurrentVM}" />
+        
     </Grid>
 </UserControl>
