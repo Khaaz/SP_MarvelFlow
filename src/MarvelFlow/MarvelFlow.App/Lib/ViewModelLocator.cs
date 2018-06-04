@@ -15,7 +15,10 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using MarvelFlow.App.ViewModels;
+using MarvelFlow.DataBase;
 using MarvelFlow.Service;
+using Newtonsoft.Json;
+using System;
 
 namespace MarvelFlow.App.Lib
 {
@@ -43,6 +46,15 @@ namespace MarvelFlow.App.Lib
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            // Services
+            SimpleIoc.Default.Register<ManagerJson>(); // Service - handler Json
+            SimpleIoc.Default.Register<CurrentUserHandler>(); // Handler Current User
+            
+            // Service DB
+            //SimpleIoc.Default.Register<SelectDB>();
+            //SimpleIoc.Default.Register<UpdateDB>();
+
+            // ViewModels
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
 
@@ -57,9 +69,7 @@ namespace MarvelFlow.App.Lib
             SimpleIoc.Default.Register<ListMovieViewModel>();
 
             SimpleIoc.Default.Register<WindowUserViewModel>();
-
-            // Services
-            SimpleIoc.Default.Register<ManagerJson>();
+            
         }
 
         public MainViewModel Main

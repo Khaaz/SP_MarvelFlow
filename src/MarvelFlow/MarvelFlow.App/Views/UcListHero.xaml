@@ -35,6 +35,8 @@
 
             <UniformGrid Grid.Column="1"  HorizontalAlignment="Stretch" Rows="1" Columns="2" >
                 <ComboBox ItemsSource="{Binding EnumUniverse}" SelectedItem="{Binding SelectedUniverse,Mode=TwoWay}"
+                          SelectedIndex="0"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"
                           Foreground="Black" Background="White" Margin="26,30" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -43,6 +45,8 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <ComboBox ItemsSource="{Binding EnumTeam}" SelectedItem="{Binding SelectedTeam,Mode=TwoWay}"
+                          SelectedIndex="0"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"
                           Foreground="Black" Background="White" Margin="26,30" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -52,7 +56,8 @@
                 </ComboBox>
             </UniformGrid>
 
-            <TextBox Grid.Column="2" Text="{Binding SearchBar, UpdateSourceTrigger=PropertyChanged}"  
+            <TextBox Grid.Column="2" Text="{Binding SearchBar, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold"
                      BorderBrush="White" Background="Black"  
                      Foreground="White" BorderThickness="2" Margin="20,30"  />
         </Grid>

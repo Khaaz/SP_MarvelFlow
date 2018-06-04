@@ -51,11 +51,11 @@ namespace MarvelFlow.App.ViewModels
             }
         }
         
-        public Array EnumUniverse { get; set; } // Enum to show in combobox
-        public Array EnumTeam { get; set; } // Enum to show in combobox
+        public List<string> EnumUniverse { get; set; } // Enum to show in combobox
+        public List<string> EnumTeam { get; set; } // Enum to show in combobox
 
-        private Universe _SelectedUniverse; // Selected Item in Universe Combobox
-        public Universe SelectedUniverse
+        private string _SelectedUniverse; // Selected Item in Universe Combobox
+        public string SelectedUniverse
         {
             get
             {
@@ -71,8 +71,8 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        private Team _SelectedTeam; // Selected Item in Team Combobox
-        public Team SelectedTeam
+        private string _SelectedTeam; // Selected Item in Team Combobox
+        public string SelectedTeam
         {
             get
             {
@@ -99,8 +99,22 @@ namespace MarvelFlow.App.ViewModels
             this.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes());
 
             // Init misc
-            EnumUniverse = Enum.GetValues(typeof(Universe));
-            EnumTeam = Enum.GetValues(typeof(Team));
+            Array arrUniverse = Enum.GetValues(typeof(Universe));
+            Array arrTeam = Enum.GetValues(typeof(Team));
+
+            EnumUniverse = new List<string>();
+            EnumUniverse.Add("Select a Universe");
+            foreach (Universe u in arrUniverse)
+            {
+                EnumUniverse.Add(u.ToString());
+            }
+
+            EnumTeam = new List<string>();
+            EnumTeam.Add("Select a Team");
+            foreach (Team t in arrTeam)
+            {
+                EnumTeam.Add(t.ToString());
+            }
         }
 
         /// <summary>
@@ -123,13 +137,21 @@ namespace MarvelFlow.App.ViewModels
         /// Filter View List with the input Universe to match
         /// </summary>
         /// <param name="u"></param>
-        public void FindEnumUniverse(Universe u)
+        public void FindEnumUniverse(string u)
         {
-            List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Universe == u).ToList();
-            this.ListHerosView.Clear();
-            foreach (Hero h in tempList)
+
+            if (u.Equals("Select a Universe"))
             {
-                this.ListHerosView.Add(h);
+                ResetListView();
+            }
+            else
+            {
+                List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Universe.ToString() == u).ToList();
+                this.ListHerosView.Clear();
+                foreach (Hero h in tempList)
+                {
+                    this.ListHerosView.Add(h);
+                }
             }
         }
 
@@ -138,9 +160,29 @@ namespace MarvelFlow.App.ViewModels
         /// Filter View List with the input Team to match
         /// </summary>
         /// <param name="t"></param>
-        public void FindEnumTeam(Team t)
+        public void FindEnumTeam(string t)
         {
-            List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Team == t).ToList();
+            if (t.Equals("Select a Team"))
+            {
+                ResetListView();
+            }
+            else
+            {
+                List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Team.ToString() == t).ToList();
+                this.ListHerosView.Clear();
+                foreach (Hero h in tempList)
+                {
+                    this.ListHerosView.Add(h);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reset List View to default values (all list)
+        /// </summary>
+        public void ResetListView()
+        {
+            List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes();
             this.ListHerosView.Clear();
             foreach (Hero h in tempList)
             {

@@ -35,7 +35,7 @@ namespace MarvelFlow.App.ViewModels
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
             this.NavigateAdminCommand = new RelayCommand(this.SendNavigateAdmin, CanOpenAdmin);
-            this.CurrentUser = new User("LB", "louison@mail.com", "louisonAdmin", "passwdSecret", "02/06/16", "Bellec", "Louison", true);
+            this.CurrentUser = new User("louisonAdmin", "passwdSecret", "02/06/2016", "louison@mail.com", "Bellec", "Louison", true);
         }
 
         // Commands methods

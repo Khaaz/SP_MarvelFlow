@@ -55,10 +55,10 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        public Array EnumUniverse { get; set; } // Enum to show in combobox
+        public List<string> EnumUniverse { get; set; } // Enum to show in combobox
 
-        private Universe _SelectedUniverse; // Selected Item in Universe Combobox
-        public Universe SelectedUniverse
+        private string _SelectedUniverse; // Selected Item in Universe Combobox
+        public string SelectedUniverse
         {
             get
             {
@@ -87,7 +87,14 @@ namespace MarvelFlow.App.ViewModels
             this.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies());
 
             // Init misc
-            EnumUniverse = Enum.GetValues(typeof(Universe));
+            Array arrUniverse = Enum.GetValues(typeof(Universe));
+            EnumUniverse = new List<string>();
+            EnumUniverse.Add("Select a Universe");
+            foreach(Universe u in arrUniverse)
+            {
+                EnumUniverse.Add(u.ToString());
+            }
+            
         }
 
         /// <summary>
@@ -110,14 +117,27 @@ namespace MarvelFlow.App.ViewModels
         /// Filter View List with the input Universe to match
         /// </summary>
         /// <param name="u"></param>
-        public void FindEnumUniverse(Universe u)
+        public void FindEnumUniverse(string u)
         {
-            List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetUniverse() == u).ToList();
-            this.ListMoviesView.Clear();
-            foreach (ISearchableMovie m in tempList)
+            if(u.Equals("Select a Universe")) 
             {
-                this.ListMoviesView.Add(m);
+                List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies();
+                this.ListMoviesView.Clear();
+                foreach (ISearchableMovie m in tempList)
+                {
+                    this.ListMoviesView.Add(m);
+                }
             }
+            else
+            {
+                List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetUniverse().ToString() == u).ToList();
+                this.ListMoviesView.Clear();
+                foreach (ISearchableMovie m in tempList)
+                {
+                    this.ListMoviesView.Add(m);
+                }
+            }
+            
         }
 
         /// <summary>

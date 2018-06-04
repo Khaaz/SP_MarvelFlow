@@ -28,7 +28,7 @@
                 <vs:UcProfile />
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:AdminPanelViewModel}">
-                <vs:UcAdminPanel/>
+                <vs:UcAdminPanel />
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:ListHeroViewModel}">
                 <vs:UcListHero />
@@ -68,7 +68,7 @@
                         </EventTrigger.Actions>
                     </EventTrigger>
 
-                    <!-- Animation Mouleave -->
+                    <!-- Animation Mouseleave -->
                     <EventTrigger RoutedEvent="Button.MouseLeave">
                         <EventTrigger.Actions>
                             <BeginStoryboard>

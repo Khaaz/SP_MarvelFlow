@@ -47,6 +47,9 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -74,6 +77,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Lib\CurrentUserHandler.cs" />
     <Compile Include="Lib\Messages\AdminMessage.cs" />
     <Compile Include="Lib\Util.cs" />
     <Compile Include="Lib\HistoryObject.cs" />
@@ -89,9 +93,11 @@
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ListHeroViewModel.cs" />
     <Compile Include="ViewModels\ListMovieViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FilmViewModel.cs" />
     <Compile Include="ViewModels\SerieViewModel.cs" />
+    <Compile Include="ViewModels\WindowErrViewModel.cs" />
     <Compile Include="ViewModels\WindowUserViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="Lib\ViewModelLocator.cs" />
@@ -100,6 +106,9 @@
     </Compile>
     <Compile Include="Views\UcSerie.xaml.cs">
       <DependentUpon>UcSerie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowErr.xaml.cs">
+      <DependentUpon>WindowErr.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowsBandeAnnonce.cs">
       <SubType>Form</SubType>
@@ -179,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\WindowErr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -221,6 +234,10 @@
     <ProjectReference Include="..\MarvelFlow.Classes\MarvelFlow.Classes.csproj">
       <Project>{7d5a9ff3-e584-4f7f-8e25-e8011ada1de5}</Project>
       <Name>MarvelFlow.Classes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarvelFlow.DataBase\MarvelFlow.DataBase.csproj">
+      <Project>{781fa113-9c5d-41f2-b50a-2c45e23556b5}</Project>
+      <Name>MarvelFlow.DataBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\MarvelFlow.Service\MarvelFlow.Service.csproj">
       <Project>{3858f0aa-486e-4d21-a4f8-808202b24be6}</Project>

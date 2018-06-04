@@ -7,9 +7,11 @@ using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
 using MarvelFlow.Classes.Lib;
 using MarvelFlow.Service;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows;
 
@@ -51,6 +53,22 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        private User _CurrentUser; // current user in the app
+        public User CurrentUser
+        {
+            get
+            {
+                return _CurrentUser;
+            }
+            set
+            {
+                if (_CurrentUser == value)
+                    return;
+                _CurrentUser = value;
+                RaisePropertyChanged(() => CurrentUser);
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -65,10 +83,30 @@ namespace MarvelFlow.App.ViewModels
             ////    // Code runs "for real"
             ////}
 
+            // Error Handling
+            try
+            {
+                ServiceLocator.Current.GetInstance<ManagerJson>();
+            }
+            catch (FileNotFoundException e)
+            {
+                WindowErrViewModel WindowErr = new WindowErrViewModel(e);
+            }
+            catch (JsonException e)
+            {
+                WindowErrViewModel WindowErr = new WindowErrViewModel(e);
+            }
+            catch (Exception e)
+            {
+                WindowErrViewModel WindowErr = new WindowErrViewModel(e);
+            }
+
             // MAIN
             this.History = new Stack<HistoryObject>();
 
-            this._CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>(); // Default VM
+            this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>(); // Default VM
+
+            this.CurrentUser = null;
 
             // Init Messaging
             MessengerInstance.Register<HomeMessage>(this, (HomeMessage obj) => Navigator(obj, "HomeViewModel"));

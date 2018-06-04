@@ -65,8 +65,8 @@ namespace MarvelFlow.App.ViewModels
         /// <param name="pathBA"></param>
         public void OpenTeaser(string pathBA)
         {
-            WindowsBandeAnnonce TeaserWindow = new WindowsBandeAnnonce(pathBA);
-            TeaserWindow.Show();
+            WindowsBandeAnnonce TrailerWindow = new WindowsBandeAnnonce(pathBA);
+            TrailerWindow.Show();
         }
     }
 }
