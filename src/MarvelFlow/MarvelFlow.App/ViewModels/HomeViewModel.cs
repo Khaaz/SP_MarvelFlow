@@ -39,8 +39,6 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-
-
         public HomeViewModel()
         {
             FindLastVideo();

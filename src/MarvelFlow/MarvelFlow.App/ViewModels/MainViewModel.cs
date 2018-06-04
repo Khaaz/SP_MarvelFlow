@@ -139,6 +139,11 @@ namespace MarvelFlow.App.ViewModels
         {
             ViewModelBase Source = (ViewModelBase)obj.Sender;
 
+            if (Source.GetType() == typeof(AdminPanelViewModel))
+            {
+                this.RefreshListView();
+            }
+
             HistoryObject HistoryObject = null;
             string pageName;
             if (string.IsNullOrEmpty(dest)) // call the history or the ViewModel Name - (get the class name as string)
@@ -198,7 +203,17 @@ namespace MarvelFlow.App.ViewModels
                     }
                     break;
                 case "ProfileViewModel":
-                    this.CurrentVM = ServiceLocator.Current.GetInstance<ProfileViewModel>();
+                    if (ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser() != null)
+                    {
+                        ProfileViewModel tempProfile = ServiceLocator.Current.GetInstance<ProfileViewModel>();
+                        tempProfile.CurrentUser = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser();
+                        this.CurrentVM = tempProfile;
+
+                    }
+                    else
+                    {
+                        this.CurrentVM = ServiceLocator.Current.GetInstance<LoginViewModel>();
+                    }
                     break;
                 case "AdminPanelViewModel":
                     this.CurrentVM = ServiceLocator.Current.GetInstance<AdminPanelViewModel>();
@@ -226,7 +241,20 @@ namespace MarvelFlow.App.ViewModels
             string target = obj.Movie.GetType().Name.Equals("Serie") ? "SerieViewModel" : "FilmViewModel";
             Navigator(obj, target);
         }
-        
+
+        /// <summary>
+        /// Refresh List views in ListMovieViewModel and ListHeroViewModel
+        /// to be synced with new addition/deletion/changesmade in admin panel
+        /// </summary>
+        public void RefreshListView()
+        {
+            ListHeroViewModel tempHero = ServiceLocator.Current.GetInstance<ListHeroViewModel>();
+            ListMovieViewModel tempMovies = ServiceLocator.Current.GetInstance<ListMovieViewModel>();
+
+            tempHero.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes());
+            tempMovies.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies());
+        }
+
 
         // Commands methods
         public bool CanDisplayMessage()
@@ -242,7 +270,7 @@ namespace MarvelFlow.App.ViewModels
 
         public void OpenUserWindow()
         {
-            ServiceLocator.Current.GetInstance<WindowUserViewModel>();
+            Navigator(new ProfileMessage(this, "Navigate Profile"), "ProfileViewModel");
         }
     }
 }
