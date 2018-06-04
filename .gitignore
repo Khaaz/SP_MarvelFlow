@@ -10,6 +10,9 @@
 # Classes
 /src/MarvelFlow/MarvelFlow.Classes/bin/Debug
 /src/MarvelFlow/MarvelFlow.Classes/obj/Debug
+# Test
+/src/MarvelFlow/MarvelFlow.DataBase/bin/Debug
+/src/MarvelFlow/MarvelFlow.DataBase/obj/Debug
 # Service
 /src/MarvelFlow/MarvelFlow.Service/bin/Debug
 /src/MarvelFlow/MarvelFlow.Service/obj/Debug

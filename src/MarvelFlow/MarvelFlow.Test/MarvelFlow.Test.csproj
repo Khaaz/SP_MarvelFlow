@@ -67,6 +67,10 @@
       <Project>{7d5a9ff3-e584-4f7f-8e25-e8011ada1de5}</Project>
       <Name>MarvelFlow.Classes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MarvelFlow.DataBase\MarvelFlow.DataBase.csproj">
+      <Project>{781fa113-9c5d-41f2-b50a-2c45e23556b5}</Project>
+      <Name>MarvelFlow.DataBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MarvelFlow.Service\MarvelFlow.Service.csproj">
       <Project>{3858f0aa-486e-4d21-a4f8-808202b24be6}</Project>
       <Name>MarvelFlow.Service</Name>

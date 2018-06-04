@@ -109,7 +109,7 @@ namespace MarvelFlow.Test
                 "SM"
             };
 
-            FilmJson Film = new FilmJson("test", "ImagesMovie/IronMan.jpg", "desc", "real", "11/02/1998", "IM", 0, "trailerInfinityWar.mp4", list);
+            FilmJson Film = new FilmJson("test", "ImagesMovie/IronMan.jpg", "desc", "real", "11/02/1998", "IM", 0, "Trailer/trailerInfinityWar.mp4", list);
             Assert.IsTrue(Film.CheckValidity());
         }
 
