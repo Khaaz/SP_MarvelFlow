@@ -19,6 +19,9 @@
 # Test
 /src/MarvelFlow/MarvelFlow.Test/bin/Debug
 /src/MarvelFlow/MarvelFlow.Test/obj/Debug
+# Setup
+/src/MarvelFlow/MarvelFlow.Setup/bin/Debug
+/src/MarvelFlow/MarvelFlow.Setup/obj/Debug
 
 # Build results
 [Dd]ebug/

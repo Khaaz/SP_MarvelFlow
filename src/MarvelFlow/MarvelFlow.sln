@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarvelFlow.Test", "MarvelFl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarvelFlow.DataBase", "MarvelFlow.DataBase\MarvelFlow.DataBase.csproj", "{781FA113-9C5D-41F2-B50A-2C45E23556B5}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MarvelFlow.Setup", "MarvelFlow.Setup\MarvelFlow.Setup.vdproj", "{2E5F68C0-D88C-49AC-A5D6-498B4CA6EEB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,8 @@ Global
 		{781FA113-9C5D-41F2-B50A-2C45E23556B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{781FA113-9C5D-41F2-B50A-2C45E23556B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{781FA113-9C5D-41F2-B50A-2C45E23556B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E5F68C0-D88C-49AC-A5D6-498B4CA6EEB6}.Debug|Any CPU.ActiveCfg = Debug
+		{2E5F68C0-D88C-49AC-A5D6-498B4CA6EEB6}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
