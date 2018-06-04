@@ -125,6 +125,7 @@ namespace MarvelFlow.App.ViewModels
         /// <param name="u"></param>
         public void FindEnumUniverse(Universe u)
         {
+            
             List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Universe == u).ToList();
             this.ListHerosView.Clear();
             foreach (Hero h in tempList)

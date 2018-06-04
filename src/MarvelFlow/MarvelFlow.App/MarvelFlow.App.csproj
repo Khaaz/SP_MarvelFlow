@@ -104,6 +104,8 @@
     <Compile Include="Lib\Messages\HistoryMessage.cs" />
     <Compile Include="Lib\Messages\HomeMessage.cs" />
     <Compile Include="ViewModels\AdminPanelViewModel.cs" />
+    <Compile Include="ViewModels\EditFilmViewModel.cs" />
+    <Compile Include="ViewModels\EditHeroViewModel.cs" />
     <Compile Include="ViewModels\HeroViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ListHeroViewModel.cs" />
@@ -116,6 +118,12 @@
     <Compile Include="Lib\ViewModelLocator.cs" />
     <Compile Include="Views\UcAdminPanel.xaml.cs">
       <DependentUpon>UcAdminPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcEditFilm.xaml.cs">
+      <DependentUpon>UcEditFilm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcEditHero.xaml.cs">
+      <DependentUpon>UcEditHero.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UcSerie.xaml.cs">
       <DependentUpon>UcSerie.xaml</DependentUpon>
@@ -130,6 +138,14 @@
       <DependentUpon>WindowUser.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\UcAdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UcEditFilm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UcEditHero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

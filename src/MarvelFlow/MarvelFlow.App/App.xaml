@@ -36,6 +36,12 @@
             <DataTemplate DataType="{x:Type vm:ListMovieViewModel}">
                 <vs:UcListMovie />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:EditFilmViewModel}">
+                <vs:UcEditFilm />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:EditHeroViewModel}">
+                <vs:UcEditHero />
+            </DataTemplate>
 
             <!-- Style Button Home -->
             <Style TargetType="{x:Type Button}" x:Key="ButtonHome">
