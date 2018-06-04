@@ -22,8 +22,10 @@ namespace MarvelFlow.Classes
 
         public bool IsAdmin { get; private set; }
 
+        public string HeroFav { get; private set; }
 
-        public User(string login, string pswd, string dateInsc, string mail, string nom, string prenom, bool isAdmin)
+
+        public User(string login, string pswd, string dateInsc, string mail, string nom, string prenom, bool isAdmin, string heroFav)
         {
             this.Login = login;
             this.Pswd = pswd;
@@ -32,6 +34,7 @@ namespace MarvelFlow.Classes
             this.Nom = nom;
             this.Prenom = prenom;
             this.IsAdmin = isAdmin;
+            this.HeroFav = heroFav;
         }
     }
 }

@@ -53,19 +53,35 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
-        private User _CurrentUser; // current user in the app
-        public User CurrentUser
+        private string _NameUser; // current user in the app
+        public string NameUser
         {
             get
             {
-                return _CurrentUser;
+                return _NameUser;
             }
             set
             {
-                if (_CurrentUser == value)
+                if (_NameUser == value)
                     return;
-                _CurrentUser = value;
-                RaisePropertyChanged(() => CurrentUser);
+                _NameUser = value;
+                RaisePropertyChanged(() => NameUser);
+            }
+        }
+
+        private string _ImageUser; // current user in the app
+        public string ImageUser
+        {
+            get
+            {
+                return _ImageUser;
+            }
+            set
+            {
+                if (_ImageUser == value)
+                    return;
+                _ImageUser = value;
+                RaisePropertyChanged(() => ImageUser);
             }
         }
 
@@ -106,7 +122,9 @@ namespace MarvelFlow.App.ViewModels
 
             this.CurrentVM = ServiceLocator.Current.GetInstance<HomeViewModel>(); // Default VM
 
-            this.CurrentUser = null;
+            User cur = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser();
+            this.NameUser = cur == null ? "Guest" : cur.Login;
+            this.ImageUser = cur == null ? @"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.App\Images/pdp2.png" : ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Find(h => h.Id == cur.HeroFav).Image;
 
             // Init Messaging
             MessengerInstance.Register<HomeMessage>(this, (HomeMessage obj) => Navigator(obj, "HomeViewModel"));
@@ -142,6 +160,11 @@ namespace MarvelFlow.App.ViewModels
             if (Source.GetType() == typeof(AdminPanelViewModel))
             {
                 this.RefreshListView();
+            }
+
+            if (Source.GetType() == typeof(LoginViewModel))
+            {
+                this.RefreshUser();
             }
 
             HistoryObject HistoryObject = null;
@@ -208,7 +231,6 @@ namespace MarvelFlow.App.ViewModels
                         ProfileViewModel tempProfile = ServiceLocator.Current.GetInstance<ProfileViewModel>();
                         tempProfile.CurrentUser = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser();
                         this.CurrentVM = tempProfile;
-
                     }
                     else
                     {
@@ -255,6 +277,12 @@ namespace MarvelFlow.App.ViewModels
             tempMovies.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies());
         }
 
+        public void RefreshUser()
+        {
+            User cur = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser(); ;
+            this.ImageUser = cur == null ? @"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.App\Images/pdp2.png" : ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Find(h => h.Id == cur.HeroFav).Image;
+            this.NameUser = cur == null ? "Guest" : cur.Login;
+        }
 
         // Commands methods
         public bool CanDisplayMessage()

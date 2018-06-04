@@ -15,7 +15,7 @@ namespace MarvelFlow.App.Lib
         public CurrentUserHandler()
         {
             CurrentUser = null;
-            CurrentUser = new User("louisonAdmin", "passwdSecret", "02/06/2016", "louison@mail.com", "Bellec", "Louison", true);
+            CurrentUser = new User("louisonAdmin", "passwdSecret", "02/06/2016", "louison@mail.com", "Bellec", "Louison", true, "IM");
         }
 
 

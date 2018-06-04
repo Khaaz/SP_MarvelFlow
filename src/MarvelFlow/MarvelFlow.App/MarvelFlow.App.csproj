@@ -297,6 +297,7 @@
     <Resource Include="Images\ImagesHero\winterSoldier.png" />
     <Resource Include="Images\ImagesHero\wong.png" />
     <Content Include="Component\Trailer\trailerInfinityWar.mp4" />
+    <Resource Include="Images\ImagesHero\okoye.png" />
     <Content Include="Images\ImagesMovie\Antman.jpg" />
     <Resource Include="Images\row.png" />
     <Resource Include="Images\ImagesMovie\AntMan2.jpg" />

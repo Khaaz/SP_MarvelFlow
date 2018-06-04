@@ -18,21 +18,24 @@ namespace MarvelFlow.DataBase
             dbCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MarvelFlowDB"].ConnectionString);
         }
 
-        public void Inscription(string login, string password, DateTime date, string mail,string nom, string prenom, bool isAdmin)
+        public void Inscription(string login, string password, DateTime date, string mail,string nom, string prenom, bool isAdmin, string heroFav)
         {
+            int admin = isAdmin ? 1 : 0;
             using(dbCon)
             {
                 dbCon.Open();
 
                 SqlCommand Inscription = new SqlCommand("Inscription", dbCon);
                 Inscription.CommandType = CommandType.StoredProcedure;
+
                 Inscription.Parameters.AddWithValue("@Login", login);
                 Inscription.Parameters.AddWithValue("@Password", password);
                 Inscription.Parameters.AddWithValue("@Date", date);
                 Inscription.Parameters.AddWithValue("@Mail", mail);
                 Inscription.Parameters.AddWithValue("@Nom", nom);
                 Inscription.Parameters.AddWithValue("@Prenom", prenom);
-                Inscription.Parameters.AddWithValue("@IsAdmin", isAdmin);
+                Inscription.Parameters.AddWithValue("@IsAdmin", admin);
+                Inscription.Parameters.AddWithValue("@HeroFav", heroFav);
 
                 Inscription.ExecuteNonQuery();
             };
