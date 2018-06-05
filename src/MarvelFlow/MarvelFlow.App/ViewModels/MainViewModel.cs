@@ -165,7 +165,6 @@ namespace MarvelFlow.App.ViewModels
             if (Source.GetType() == typeof(LoginViewModel) || Source.GetType() == typeof(ProfileViewModel))
             {
                 this.RefreshUser();
-                Console.WriteLine("refresh");
             }
 
             HistoryObject HistoryObject = null;

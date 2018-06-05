@@ -78,7 +78,7 @@
                 <DataTemplate>
                     <Button Background="{x:Null}" Style="{StaticResource ListSelect}"
                                 BorderThickness="0"
-                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcEditHero}}}"
+                                Command="{Binding DataContext.NavigateHeroCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcEditHero}}}"
                                 CommandParameter="{Binding .}">
                         <TextBlock Text="{Binding  Name}" HorizontalAlignment="Center" 
                                            VerticalAlignment="Bottom"  TextAlignment="Center" 
