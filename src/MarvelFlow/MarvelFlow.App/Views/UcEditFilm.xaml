@@ -81,9 +81,9 @@
                     <DataTemplate>
                         <Button Background="{x:Null}" Style="{StaticResource ListSelect}"
                                 BorderThickness="0"
-                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcEditFilm}}}"
+                                Command="{Binding DataContext.DisplayMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcEditFilm}}}"
                                 CommandParameter="{Binding .}">
-                            <TextBlock Text="{Binding  Title}" HorizontalAlignment="Center" 
+                            <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" 
                                            VerticalAlignment="Bottom"  TextAlignment="Center" 
                                            TextTrimming="WordEllipsis" TextWrapping="Wrap" Foreground="White" FontSize="20" FontWeight="Light" FontStyle="Italic"/>
 
@@ -95,7 +95,8 @@
         <!--ADD MOVIE BUTTON-->
         <Button  Grid.Row="2" Grid.Column="0" Content="ADD FILM" Foreground="White" 
                         FontWeight="Bold" Background="#FF00C3EE" Margin="10"
-                        Style="{StaticResource ButtonHome}"/>
+                        Style="{StaticResource ButtonHome}"
+                        Command="{Binding FilmReset}"/>
 
         <!--RIGHT PART-->
         <UniformGrid Grid.Row="0" Grid.Column="1" Rows="18" Margin="50,0">
@@ -118,12 +119,12 @@
             
             <TextBlock Text="Description :" 
                                Style="{StaticResource MovieTextBlock}" />
-            <TextBox  Text="{Binding Desc,Mode=TwoWay}"
+            <TextBox  Text="{Binding Description,Mode=TwoWay}"
                      Style="{StaticResource MovieTextBox}"  />
 
             <TextBlock Text="Realisateur :" 
                                Style="{StaticResource MovieTextBlock}" />
-            <TextBox  Text="{Binding Real,Mode=TwoWay}"
+            <TextBox  Text="{Binding Realisateur,Mode=TwoWay}"
                      Style="{StaticResource MovieTextBox}"  />
 
             <TextBlock Text="Date :" 
@@ -151,7 +152,7 @@
 
             <TextBlock Text="Liste des Heros du film :" 
                                Style="{StaticResource MovieTextBlock}" />
-            <TextBox  Text="{Binding BA,Mode=TwoWay}"
+            <TextBox  Text="{Binding ListHeroDisplay,Mode=TwoWay}"
                      Style="{StaticResource MovieTextBox}"  />
 
         </UniformGrid>
@@ -159,10 +160,12 @@
         <UniformGrid Columns="2" Rows="1" Grid.Column="1" Grid.Row="1">
             <Button  Grid.Row="2" Grid.Column="1" Content="DELETE MOVIE" Foreground="White" 
                         FontWeight="Bold" Background="#FFEE2000" Margin="130,10"
-                        Style="{StaticResource ButtonHome}" />
+                        Style="{StaticResource ButtonHome}"
+                        Command="{Binding DeleteMovieCommand}"/>
             <Button  Grid.Row="2" Grid.Column="1" Content="VALIDATE" Foreground="White" 
                         FontWeight="Bold" Background="#FF00EE82" Margin="130,10"
-                        Style="{StaticResource ButtonHome}" />
+                        Style="{StaticResource ButtonHome}"
+                        Command="{Binding ValidateCommand}"/>
             
         </UniformGrid>
     </Grid>

@@ -49,7 +49,7 @@
             
             
             <Rectangle Grid.Column="0"  Stroke="White" StrokeThickness="2"/>
-            <Image  Source="{Binding Hero.Image}" Grid.Column="0" Stretch="Uniform" StretchDirection="Both" Margin="0,5,0,0"/>
+            <Image  Source="{Binding Hero.Image}" Grid.Column="0" Stretch="Uniform" StretchDirection="Both" Margin="10"/>
 
             <!-- FAV BUTTON -->
             <Button Content="FAV"  Grid.Row="1" Grid.Column="0" Margin="7,24,7,15" MaxWidth="100" MaxHeight="80" 

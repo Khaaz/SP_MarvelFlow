@@ -24,5 +24,39 @@ namespace MarvelFlow.App.Lib
 
             return r.IsMatch(input);
         }
+
+        public static bool ValidNameHero(string input)
+        {
+            Regex r = new Regex(@"^([A-Z][a-z]*( [A-Za-z][a-z]*)*)$");
+
+            return r.IsMatch(input);
+        }
+
+        public static string ConvertList (List<Hero> listHero)
+        {
+
+            return String.Join(", ", listHero.Select(h => h.Id));
+        }
+
+        public static bool IsIdMovieValid (string input)
+        {
+            Regex r = new Regex(@"^[A-Za-z][A-Za-z]([0-9])*$");
+            return r.IsMatch(input);
+        }
+
+        public static bool IsDisplayListValid (string input)
+        {
+            Regex r = new Regex(@"^([A-Za-z][A-Za-z]([0-9])*, )*[A-Za-z][A-Za-z]([0-9])*$");
+
+            return r.IsMatch(input);
+
+        }
+
+        public static bool IsIdHeroValid (string input)
+        {
+            Regex r = new Regex(@"^[A-Za-z][A-Za-z]$");
+            return r.IsMatch(input);
+        }
+
     }
 }

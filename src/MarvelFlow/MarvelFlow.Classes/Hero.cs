@@ -108,6 +108,11 @@ namespace MarvelFlow.Classes
         {
             return base.GetHashCode();
         }
+
+        public string GetID()
+        {
+            return Id;
+        }
         
         // Custom //
     }
