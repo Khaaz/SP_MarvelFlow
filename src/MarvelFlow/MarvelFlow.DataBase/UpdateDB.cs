@@ -18,12 +18,22 @@ namespace MarvelFlow.DataBase
             dbCon = new SqlConnection(ConfigurationManager.ConnectionStrings["MarvelFlowDB"].ConnectionString);
         }
 
-        public void Inscription(string login, string password, DateTime date, string mail,string nom, string prenom, bool isAdmin, string heroFav)
+        public bool Inscription(string login, string password, DateTime date, string mail,string nom, string prenom, bool isAdmin, string heroFav)
         {
             int admin = isAdmin ? 1 : 0;
             using(dbCon)
             {
                 dbCon.Open();
+
+                SqlCommand CheckLogin = new SqlCommand("CheckLogin", dbCon);
+                CheckLogin.CommandType = CommandType.StoredProcedure;
+                CheckLogin.Parameters.AddWithValue("@Login", login);
+                int count = Convert.ToInt32(CheckLogin.ExecuteScalar());
+
+                if (count !=0)
+                {
+                    return false;
+                }
 
                 SqlCommand Inscription = new SqlCommand("Inscription", dbCon);
                 Inscription.CommandType = CommandType.StoredProcedure;
@@ -39,6 +49,36 @@ namespace MarvelFlow.DataBase
 
                 Inscription.ExecuteNonQuery();
             };
+
+            return true;
+        }
+
+        public bool UpdateHeroFav(string login, string heroFav)
+        {
+            using (dbCon)
+            {
+                dbCon.Open();
+
+                SqlCommand CheckLogin = new SqlCommand("CheckLogin", dbCon);
+                CheckLogin.CommandType = CommandType.StoredProcedure;
+                CheckLogin.Parameters.AddWithValue("@Login", login);
+                int count = Convert.ToInt32(CheckLogin.ExecuteScalar());
+
+                if (count == 0)
+                {
+                    return false;
+                }
+
+                SqlCommand UpdateHeroFav = new SqlCommand("UpdateHeroFav", dbCon);
+                UpdateHeroFav.CommandType = CommandType.StoredProcedure;
+
+                UpdateHeroFav.Parameters.AddWithValue("@Login", login);
+                UpdateHeroFav.Parameters.AddWithValue("@HeroFav", heroFav);
+
+                UpdateHeroFav.ExecuteNonQuery();
+            };
+
+            return true;
         }
     }
 }

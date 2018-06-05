@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib;
 using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
+using MarvelFlow.DataBase;
 using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
@@ -110,7 +111,7 @@ namespace MarvelFlow.App.ViewModels
         public void SendReturnBack()
         {
             MessengerInstance.Send<HistoryMessage>(new HistoryMessage(this, "Navigate Back History"));
-            // save
+            new UpdateDB().UpdateHeroFav(CurrentUser.Login, SelectedHero.Id);
         }
 
         public void SendNavigateAdmin()

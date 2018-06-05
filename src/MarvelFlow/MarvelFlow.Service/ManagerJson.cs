@@ -24,6 +24,13 @@ namespace MarvelFlow.Service
 
         public ManagerJson()
         {
+        }
+
+        /// <summary>
+        /// Init All list + dispatch exception
+        /// </summary>
+        public void LoadHero()
+        {
             // Init Data from Json
             this.ListHeros = this.GetHeroes().OrderBy(h => h.Name).ToList(); // Sort by Name Default
 
@@ -101,7 +108,6 @@ namespace MarvelFlow.Service
             ListHeros.Add(Vi4);
             ListHeros.Add(Vi5);
             ListHeros.Add(Vi6);
-
         }
 
         /// <summary>
@@ -137,7 +143,7 @@ namespace MarvelFlow.Service
                 }
             }
 
-            if (HeroListValid.Count < 1) // List empty
+            if (HeroListValid.Count == 0) // List empty
             {
                 throw new Exception("List Hero empty");
             }
