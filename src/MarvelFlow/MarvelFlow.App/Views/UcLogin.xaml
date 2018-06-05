@@ -73,9 +73,9 @@
 
             <Button Grid.Column="0" Grid.Row="0"
                     Background="{x:Null}" BorderThickness="0"
-                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20,10"
                     Style="{StaticResource OtherButton}"
-                    Command="{Binding ReturnBackCommand}" >
+                    Command="{Binding ReturnBackCommand}" Height="58" Width="107" >
                 <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
                    Stretch="Uniform">
                 </Image>

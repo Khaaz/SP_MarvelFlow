@@ -141,7 +141,7 @@ namespace MarvelFlow.App.ViewModels
             MessengerInstance.Register<HistoryMessage>(this, (HistoryMessage obj) => Navigator(obj, string.Empty)); // Empty string because no dest (loaded from history)
 
             // Commands
-            this.NavigateUserWindowCommand = new RelayCommand(this.OpenUserWindow, CanDisplayMessage);
+            this.NavigateUserWindowCommand = new RelayCommand(this.NavigateProfile, CanDisplayMessage);
             this.NavigateHomeCommand = new RelayCommand(this.DisplayHome, CanDisplayMessage);
 
         }
@@ -162,9 +162,10 @@ namespace MarvelFlow.App.ViewModels
                 this.RefreshListView();
             }
 
-            if (Source.GetType() == typeof(LoginViewModel))
+            if (Source.GetType() == typeof(LoginViewModel) || Source.GetType() == typeof(ProfileViewModel))
             {
                 this.RefreshUser();
+                Console.WriteLine("refresh");
             }
 
             HistoryObject HistoryObject = null;
@@ -279,7 +280,7 @@ namespace MarvelFlow.App.ViewModels
 
         public void RefreshUser()
         {
-            User cur = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser(); ;
+            User cur = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser();
             this.ImageUser = cur == null ? @"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.App\Images/pdp2.png" : ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Find(h => h.Id == cur.HeroFav).Image;
             this.NameUser = cur == null ? "Guest" : cur.Login;
         }
@@ -293,12 +294,12 @@ namespace MarvelFlow.App.ViewModels
         // Auto Message (Respect Navigator Parameters)
         public void DisplayHome()
         {
-            Navigator(new HomeMessage(this, "Navigate Home"), "HomeViewModel");
+            Navigator(new HomeMessage(this.CurrentVM, "Navigate Home"), "HomeViewModel");
         }
 
-        public void OpenUserWindow()
+        public void NavigateProfile()
         {
-            Navigator(new ProfileMessage(this, "Navigate Profile"), "ProfileViewModel");
+            Navigator(new ProfileMessage(this.CurrentVM, "Navigate Profile"), "ProfileViewModel");
         }
     }
 }
