@@ -1,6 +1,9 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
+using MarvelFlow.Classes.Lib;
 using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
@@ -13,7 +16,8 @@ namespace MarvelFlow.App.ViewModels
 {
     public class EditHeroViewModel : ViewModelBase
     {
-
+        public RelayCommand<Hero> NavigateHeroCommand { get; private set; }
+        
         private ObservableCollection<Hero> _ListHerosView; // List to show in the View
         public ObservableCollection<Hero> ListHerosView
         {
@@ -86,18 +90,26 @@ namespace MarvelFlow.App.ViewModels
 
         public EditHeroViewModel()
         {
-
+            this.NavigateHeroCommand = new RelayCommand<Hero>(this.SendNavigateHero, h => CanDisplayMessage());
             this.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes());
             EnumUniverse = Enum.GetValues(typeof(Universe));
             EnumStatus = Enum.GetValues(typeof(Status));
             EnumTeam = Enum.GetValues(typeof(Team));
         }
-        /* ListChosen.Clear();
-                 List<Hero> ListTemp = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes();
-                 foreach (Hero h in ListTemp)
-                 {
-                     ListChosen.Add((IEditable) h);
-                 } */
+
+
+        public bool CanDisplayMessage()
+        {
+            return true;
+        }
+
+
+        public void SendNavigateHero(Hero hero)
+        {
+            MessengerInstance.Send<HeroMessage>(new HeroMessage(this, hero, "Navigate Hero Message"));
+        }
+
+
 
     }
 }
