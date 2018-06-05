@@ -1,5 +1,7 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
 using MarvelFlow.Classes.Lib;
 using MarvelFlow.Service;
@@ -14,6 +16,9 @@ namespace MarvelFlow.App.ViewModels
 {
     public class EditFilmViewModel : ViewModelBase
     {
+        public RelayCommand<Film> NavigateMovieCommand { get; private set; }
+
+        
         private ObservableCollection<Film> _ListMoviesView; // List to show in the View
         public ObservableCollection<Film> ListMoviesView
         {
@@ -69,7 +74,7 @@ namespace MarvelFlow.App.ViewModels
 
         public EditFilmViewModel()
         {
-
+            this.NavigateMovieCommand = new RelayCommand<Film>(this.SendNavigateMovie, m => CanDisplayMessage());
             ListMoviesView = new ObservableCollection<Film>();
 
             List<ISearchableMovie> ListTemp = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies();
@@ -88,6 +93,16 @@ namespace MarvelFlow.App.ViewModels
 
         }
 
-        
+        public bool CanDisplayMessage()
+        {
+            return true;
+        }
+
+        public void SendNavigateMovie(ISearchableMovie movie)
+        {
+            MessengerInstance.Send<MovieMessage>(new MovieMessage(this, movie, "Navigate Movie Message"));
+        }
+
+
     }
 }
