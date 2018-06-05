@@ -99,24 +99,6 @@ namespace MarvelFlow.App.ViewModels
             ////    // Code runs "for real"
             ////}
 
-            // Error Handling
-            try
-            {
-                ServiceLocator.Current.GetInstance<ManagerJson>();
-            }
-            catch (FileNotFoundException e)
-            {
-                WindowErrViewModel WindowErr = new WindowErrViewModel(e);
-            }
-            catch (JsonException e)
-            {
-                WindowErrViewModel WindowErr = new WindowErrViewModel(e);
-            }
-            catch (Exception e)
-            {
-                WindowErrViewModel WindowErr = new WindowErrViewModel(e);
-            }
-
             // MAIN
             this.History = new Stack<HistoryObject>();
 

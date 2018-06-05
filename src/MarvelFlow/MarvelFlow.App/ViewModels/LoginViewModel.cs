@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib;
 using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
+using MarvelFlow.DataBase;
 using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _LoginCon = value;
                 RaisePropertyChanged(() => LoginCon);
+                ConnexionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -49,6 +51,7 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _PasswordCon = value;
                 RaisePropertyChanged(() => PasswordCon);
+                ConnexionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -66,6 +69,7 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _LoginIns = value;
                 RaisePropertyChanged(() => LoginIns);
+                InscriptionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -82,6 +86,7 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _PasswordIns = value;
                 RaisePropertyChanged(() => PasswordIns);
+                InscriptionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -98,6 +103,7 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _MailIns = value;
                 RaisePropertyChanged(() => MailIns);
+                InscriptionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -114,6 +120,7 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _NomIns = value;
                 RaisePropertyChanged(() => NomIns);
+                InscriptionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -130,6 +137,7 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _PrenomIns = value;
                 RaisePropertyChanged(() => PrenomIns);
+                InscriptionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -235,9 +243,19 @@ namespace MarvelFlow.App.ViewModels
             }
 
             // Db check login existant
+            bool updated = new SelectDB().CheckLogin(LoginIns);
+            if (updated)
+            {
+                this.LoginIns = "Already taken";
+                return;
+            }
 
-            User u = new User(LoginIns, PasswordIns, DateTime.Now.ToString("dd/MM/yyyy"), MailIns, NomIns, PrenomIns, false, PickRandomHero());
+            string hero = PickRandomHero();
+            User u = new User(LoginIns, PasswordIns, DateTime.Now.ToString("dd/MM/yyyy"), MailIns, NomIns, PrenomIns, false, hero);
             // DB call inscription
+            new UpdateDB().Inscription(LoginIns, PasswordIns, DateTime.Now, MailIns, NomIns, PrenomIns, false, hero);
+
+            ServiceLocator.Current.GetInstance<CurrentUserHandler>().EditUser(u);
 
             MessengerInstance.Send<ProfileMessage>(new ProfileMessage(this, "Navigate Profile Message"));
         }
@@ -257,8 +275,16 @@ namespace MarvelFlow.App.ViewModels
             }
 
             //DB check for existing match
+            bool existing = new SelectDB().CheckConnexion(LoginCon, PasswordCon);
+            if (!existing)
+            {
+                this.PasswordCon = "Invalid Password Or Login";
+                return;
+            }
             // get from DB , create User Update User
+            User u = new SelectDB().SelectUser(LoginCon);
 
+            ServiceLocator.Current.GetInstance<CurrentUserHandler>().EditUser(u);
             MessengerInstance.Send<ProfileMessage>(new ProfileMessage(this, "Navigate Profile Message"));
         }
 

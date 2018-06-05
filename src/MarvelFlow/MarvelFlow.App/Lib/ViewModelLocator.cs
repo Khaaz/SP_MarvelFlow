@@ -71,7 +71,6 @@ namespace MarvelFlow.App.Lib
             SimpleIoc.Default.Register<ListHeroViewModel>();
             SimpleIoc.Default.Register<ListMovieViewModel>();
 
-            SimpleIoc.Default.Register<WindowUserViewModel>();
             
         }
 
@@ -170,14 +169,6 @@ namespace MarvelFlow.App.Lib
             get
             {
                 return ServiceLocator.Current.GetInstance<ListMovieViewModel>();
-            }
-        }
-
-        public WindowUserViewModel WindowUser
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<WindowUserViewModel>();
             }
         }
 

@@ -45,5 +45,11 @@
     <Compile Include="SelectDB.cs" />
     <Compile Include="UpdateDB.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarvelFlow.Classes\MarvelFlow.Classes.csproj">
+      <Project>{7D5A9FF3-E584-4F7F-8E25-E8011ADA1DE5}</Project>
+      <Name>MarvelFlow.Classes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

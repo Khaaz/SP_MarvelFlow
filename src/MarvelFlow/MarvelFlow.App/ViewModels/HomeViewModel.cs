@@ -5,12 +5,15 @@ using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
 using MarvelFlow.Classes.Lib;
 using MarvelFlow.Service;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MarvelFlow.App.ViewModels
 {
@@ -47,6 +50,27 @@ namespace MarvelFlow.App.ViewModels
             this.NavigateProfileCommand = new RelayCommand(this.SendNavigateProfile, CanDisplayMessage);
 
             this.NavigateMovieCommand = new RelayCommand(this.SendNavigateMovie,CanDisplayMessage);
+
+            // Error Handling
+            try
+            {
+                ServiceLocator.Current.GetInstance<ManagerJson>().LoadHero();
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message, "Path error:", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.Application.Current.Shutdown();
+            }
+            catch (JsonException e)
+            {
+                MessageBox.Show(e.Message, "Corrupted Json:", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.Application.Current.Shutdown();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "No Data:", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.Application.Current.Shutdown();
+            }
 
         }
 
