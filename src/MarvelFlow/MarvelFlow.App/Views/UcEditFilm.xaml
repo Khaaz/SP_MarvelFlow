@@ -7,22 +7,57 @@
              xmlns:local="clr-namespace:MarvelFlow.App.Views"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid>
 
-        <Grid Name="GridUserControl" Grid.Column="0" Grid.Row="1">
+
+    <!--STYLES -->
+    <UserControl.Resources>
+
+        <!--TEXTBLOCK -->
+        <Style TargetType="{x:Type TextBlock}" x:Key="MovieTextBlock">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Background" Value="Transparent"/> 
+            <Setter Property="FontSize" Value="15"/>
+            
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,4" />
+
+        </Style>
+
+        <!--TEXTBOX -->
+        <Style TargetType="{x:Type TextBox}" x:Key="MovieTextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+
+        </Style>
+    </UserControl.Resources>
+
+
+    <Grid Name="GridUserControl">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
                 <RowDefinition Height="6*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
 
+        
 
+           
 
-
-            <Border Grid.Column="0" Grid.RowSpan="2" BorderBrush="White" BorderThickness="2"/>
-
-
-            <ListView ItemsSource="{Binding ListChosen}" Grid.Column="0" Grid.Row="1"
+        <!--LEFT PART -->
+            
+        <!--LIST MOVIE -->
+        <Border Grid.Column="0" Grid.RowSpan="2" BorderBrush="White" BorderThickness="2"/>
+        <ListView ItemsSource="{Binding ListMoviesView}" Grid.Column="0" Grid.Row="0"
                       x:Name="ListViewHero" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                        Background="{x:Null}" BorderThickness="0" >
                 <ItemsControl.ItemsPanel>
@@ -46,27 +81,90 @@
                     <DataTemplate>
                         <Button Background="{x:Null}" Style="{StaticResource ListSelect}"
                                 BorderThickness="0"
-                                Command="{Binding DataContext.NavigateHeroCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcAdminPanel}}}"
-                                CommandParameter="{Binding Element}">
-                            <TextBlock Text="{Binding  }" HorizontalAlignment="Center" 
-                                           VerticalAlignment="Bottom" FontWeight="Medium" TextAlignment="Center" 
-                                           TextTrimming="WordEllipsis" TextWrapping="Wrap" Foreground="White" FontSize="40"/>
+                                Command="{Binding DataContext.NavigateMovieCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UcEditFilm}}}"
+                                CommandParameter="{Binding .}">
+                            <TextBlock Text="{Binding  Title}" HorizontalAlignment="Center" 
+                                           VerticalAlignment="Bottom"  TextAlignment="Center" 
+                                           TextTrimming="WordEllipsis" TextWrapping="Wrap" Foreground="White" FontSize="20" FontWeight="Light" FontStyle="Italic"/>
 
                         </Button>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <UniformGrid Columns="2" Rows="1" Grid.Row="2" Grid.Column="0">
-                <Button Content="+HERO" Command='{Binding AddHero}'
-                        CommandParameter="{Binding Movie.BA}"
-                        Foreground="White" FontWeight="Medium" Background="#FF4D36E2" Margin="20"
+        <!--ADD MOVIE BUTTON-->
+        <Button  Grid.Row="2" Grid.Column="0" Content="ADD FILM" Foreground="White" 
+                        FontWeight="Bold" Background="#FF00C3EE" Margin="10"
                         Style="{StaticResource ButtonHome}"/>
-                <Button Content="+FILM" Foreground="White" 
-                        FontWeight="Bold" Background="#FF00C3EE" Margin="20"
-                        Style="{StaticResource ButtonHome}"/>
-            </UniformGrid>
-        </Grid>
 
+        <!--RIGHT PART-->
+        <UniformGrid Grid.Row="0" Grid.Column="1" Rows="18" Margin="50,0">
+
+            <TextBlock Text="Id :"  Style="{StaticResource MovieTextBlock}"/>
+            
+            <TextBox  Text="{Binding Id,Mode=TwoWay}"
+                     Style="{StaticResource MovieTextBox}"  />
+            
+            <TextBlock Text="Title :"  
+                               Style="{StaticResource MovieTextBlock}"/>
+
+            <TextBox  Text="{Binding Title,Mode=TwoWay}"
+                     Style="{StaticResource MovieTextBox}"  />
+            
+            <TextBlock Text="Affiche :" 
+                               Style="{StaticResource MovieTextBlock}" />
+            <TextBox  Text="{Binding Affiche,Mode=TwoWay}"
+                     Style="{StaticResource MovieTextBox}"  />
+            
+            <TextBlock Text="Description :" 
+                               Style="{StaticResource MovieTextBlock}" />
+            <TextBox  Text="{Binding Desc,Mode=TwoWay}"
+                     Style="{StaticResource MovieTextBox}"  />
+
+            <TextBlock Text="Realisateur :" 
+                               Style="{StaticResource MovieTextBlock}" />
+            <TextBox  Text="{Binding Real,Mode=TwoWay}"
+                     Style="{StaticResource MovieTextBox}"  />
+
+            <TextBlock Text="Date :" 
+                               Style="{StaticResource MovieTextBlock}" />
+            <TextBox  Text="{Binding Date,Mode=TwoWay}"
+                     Style="{StaticResource MovieTextBox}"  />
+
+            <TextBlock Text="Universe :" 
+                               Style="{StaticResource MovieTextBlock}" />
+            <ComboBox ItemsSource="{Binding EnumUniverse}" SelectedItem="{Binding SelectedUniverse,Mode=TwoWay}"
+                          SelectedIndex="0"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"
+                          Foreground="Black" Background="White" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding .}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Text="Source Teaser :" 
+                               Style="{StaticResource MovieTextBlock}" />
+            <TextBox  Text="{Binding BA,Mode=TwoWay}"
+                     Style="{StaticResource MovieTextBox}"  />
+
+            <TextBlock Text="Liste des Heros du film :" 
+                               Style="{StaticResource MovieTextBlock}" />
+            <TextBox  Text="{Binding BA,Mode=TwoWay}"
+                     Style="{StaticResource MovieTextBox}"  />
+
+        </UniformGrid>
+
+        <UniformGrid Columns="2" Rows="1" Grid.Column="1" Grid.Row="1">
+            <Button  Grid.Row="2" Grid.Column="1" Content="DELETE MOVIE" Foreground="White" 
+                        FontWeight="Bold" Background="#FFEE2000" Margin="130,10"
+                        Style="{StaticResource ButtonHome}" />
+            <Button  Grid.Row="2" Grid.Column="1" Content="VALIDATE" Foreground="White" 
+                        FontWeight="Bold" Background="#FF00EE82" Margin="130,10"
+                        Style="{StaticResource ButtonHome}" />
+            
+        </UniformGrid>
     </Grid>
+
 </UserControl>
