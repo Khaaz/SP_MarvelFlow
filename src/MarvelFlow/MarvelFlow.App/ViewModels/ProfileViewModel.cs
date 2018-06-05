@@ -110,6 +110,7 @@ namespace MarvelFlow.App.ViewModels
         public void SendReturnBack()
         {
             MessengerInstance.Send<HistoryMessage>(new HistoryMessage(this, "Navigate Back History"));
+            // save
         }
 
         public void SendNavigateAdmin()
@@ -120,6 +121,7 @@ namespace MarvelFlow.App.ViewModels
         public void Deconnexion()
         {
             ServiceLocator.Current.GetInstance<CurrentUserHandler>().EditUser(null);
+            MessengerInstance.Send<HomeMessage>(new HomeMessage(this, "Navigate Home Page"));
         }
     }
 }

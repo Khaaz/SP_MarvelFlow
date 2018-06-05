@@ -98,7 +98,7 @@
     </ApplicationDefinition>
     <Compile Include="Lib\CurrentUserHandler.cs" />
     <Compile Include="Lib\Messages\AdminMessage.cs" />
-    <Compile Include="Lib\Util.cs" />
+    <Compile Include="Lib\AppUtils.cs" />
     <Compile Include="Lib\HistoryObject.cs" />
     <Compile Include="Lib\Messages\ListMovieMessage.cs" />
     <Compile Include="Lib\Messages\MovieMessage.cs" />

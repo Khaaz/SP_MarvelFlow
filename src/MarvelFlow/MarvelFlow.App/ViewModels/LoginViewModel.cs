@@ -1,6 +1,10 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CommonServiceLocator;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using MarvelFlow.App.Lib;
 using MarvelFlow.App.Lib.Messages;
+using MarvelFlow.Classes;
+using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -134,14 +138,63 @@ namespace MarvelFlow.App.ViewModels
         public LoginViewModel()
         {
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
-            this.ConnexionCommand = new RelayCommand(this.Inscription, CanDisplayMessage);
-            this.InscriptionCommand= new RelayCommand(this.Connexion, CanDisplayMessage);
+
+            this.ConnexionCommand = new RelayCommand(this.Connexion, CanConnexion);
+            this.InscriptionCommand= new RelayCommand(this.Inscription, CanInscription);
         }
 
 
         // Commands methods
+
         public bool CanDisplayMessage()
         {
+            return true;
+        }
+
+        /// <summary>
+        /// Check that all fields for connexion are already fieled with values (not null/not empty/ not whitespace)
+        /// </summary>
+        /// <returns>bool - can run connexion checkers or not</returns>
+        public bool CanConnexion()
+        {
+            if (string.IsNullOrEmpty(LoginCon) || string.IsNullOrWhiteSpace(LoginCon))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(PasswordCon) || string.IsNullOrWhiteSpace(PasswordCon))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Check that all fields for inscription are already fieled with values (not null/not empty/ not whitespace)
+        /// </summary>
+        /// <returns>bool - can run inscription checkers or not</returns>
+        public bool CanInscription()
+        {
+            if (string.IsNullOrEmpty(LoginIns) || string.IsNullOrWhiteSpace(LoginIns))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(PasswordIns) || string.IsNullOrWhiteSpace(PasswordIns))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(MailIns) || string.IsNullOrWhiteSpace(MailIns))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(NomIns) || string.IsNullOrWhiteSpace(NomIns))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(PrenomIns) || string.IsNullOrWhiteSpace(PrenomIns))
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -152,10 +205,71 @@ namespace MarvelFlow.App.ViewModels
 
         public void Inscription()
         {
+            if (Util.ContainsQuotes(LoginIns))
+            {
+                this.LoginIns = "Not Valid";
+                return;
+            }
+
+            if (Util.ContainsQuotes(PasswordIns))
+            {
+                this.PasswordIns = "Not Valid";
+                return;
+            }
+
+            if (Util.ContainsQuotes(MailIns) || !AppUtils.ValidMail(MailIns)) {
+                this.MailIns = "Not Valid";
+                return;
+            }
+
+            if (Util.ContainsQuotes(NomIns) || !AppUtils.ValidName(NomIns))
+            {
+                this.NomIns = "Not Valid";
+                return;
+            }
+
+            if (Util.ContainsQuotes(PrenomIns) || !AppUtils.ValidName(PrenomIns))
+            {
+                this.PrenomIns = "Not Valid";
+                return;
+            }
+
+            // Db check login existant
+
+            User u = new User(LoginIns, PasswordIns, DateTime.Now.ToString("dd/MM/yyyy"), MailIns, NomIns, PrenomIns, false, PickRandomHero());
+            // DB call inscription
+
+            MessengerInstance.Send<ProfileMessage>(new ProfileMessage(this, "Navigate Profile Message"));
         }
 
         public void Connexion()
         {
+            if (Util.ContainsQuotes(LoginCon))
+            {
+                this.LoginCon = "Not Valid";
+                return;
+            }
+
+            if (Util.ContainsQuotes(PasswordCon))
+            {
+                this.PasswordCon = "Not Valid";
+                return;
+            }
+
+            //DB check for existing match
+            // get from DB , create User Update User
+
+            MessengerInstance.Send<ProfileMessage>(new ProfileMessage(this, "Navigate Profile Message"));
+        }
+
+        public string PickRandomHero()
+        {
+            List<Hero> listHeros = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes();
+
+            Random rnd = new Random();
+            int indexH = rnd.Next(0, listHeros.Count);
+
+            return listHeros[indexH].Id;
         }
     }
 }

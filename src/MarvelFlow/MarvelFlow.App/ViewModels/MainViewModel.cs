@@ -177,7 +177,11 @@ namespace MarvelFlow.App.ViewModels
             else
             {
                 pageName = dest;
-                this.History.Push(new HistoryObject(Source)); // push the source ViewModel in History (as his className string)
+                if (Source.GetType() != typeof(LoginViewModel)) {
+                    this.History.Push(new HistoryObject(Source)); // push the source ViewModel in History (as his className string)
+                    // don't add to history if it's LoginViewModel
+                }
+                
             }
 
             switch (pageName)
