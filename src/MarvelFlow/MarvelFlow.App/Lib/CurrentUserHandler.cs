@@ -15,7 +15,7 @@ namespace MarvelFlow.App.Lib
         public CurrentUserHandler()
         {
             CurrentUser = null;
-            CurrentUser = new User("louisonAdmin", "passwdSecret", "02/06/2016", "louison@mail.com", "Bellec", "Louison", true, "IM");
+            //CurrentUser = new User("louisonAdmin", "passwdSecret", "02/06/2016", "louison@mail.com", "Bellec", "Louison", true, "IM");
         }
 
 
@@ -27,6 +27,11 @@ namespace MarvelFlow.App.Lib
         public void EditUser(User u)
         {
             CurrentUser = u;
+        }
+
+        public void EditUserHero(string s)
+        {
+            CurrentUser.HeroFav = s;
         }
     }
 }

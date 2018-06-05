@@ -7,7 +7,7 @@
              DataContext="{Binding Profile, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-    
+
     <Grid x:Name="___Grid__Générale">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -23,16 +23,16 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Grid.Row="0"
-                Background="{x:Null}" BorderThickness="0"
-                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                    Background="{x:Null}" BorderThickness="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
                     Style="{StaticResource OtherButton}"
-                Command="{Binding ReturnBackCommand}" >
+                    Command="{Binding ReturnBackCommand}" >
                 <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
                    Stretch="Uniform">
                 </Image>
             </Button>
 
-            <TextBlock Text="NOM DE PROFIL" Grid.Row="0" Grid.Column="1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="SemiBold"/>
+            <TextBlock Text="{Binding CurrentUser.Login}" Grid.Row="0" Grid.Column="1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="SemiBold"/>
 
             <Button Grid.Column="2" Grid.Row="0" Margin="30,20" Background="#e23636" BorderBrush="White" BorderThickness="4"
                     Command="{Binding NavigateAdminCommand}" 
@@ -55,15 +55,25 @@
 
             <!--MIDDLE-->
             <Border Grid.Column="1" Grid.RowSpan="2" BorderBrush="White" BorderThickness="3">
-                <UniformGrid Columns="1" Rows="3" Margin="0,11,0,0">
+                <UniformGrid Columns="1" Rows="4" Margin="0,11,0,0">
                     <Border BorderThickness="2" BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
-                        <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/profilTest.jpg" />
+                        <Image Source="{Binding Image}" />
                     </Border>
-                    <ComboBox Margin="30,70"/>
+
+                    <ComboBox ItemsSource="{Binding HeroList}" SelectedItem="{Binding SelectedHero, Mode=TwoWay}"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"
+                          Foreground="Black" Background="White" Margin="26,66,26,26" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
                     <!--INFOS DU PROFIL-->
                     <UniformGrid Rows="4" Columns="2">
                         <TextBlock Text="Nom :" Foreground="#FFFFDC00" FontStyle="Italic" FontSize="20"/>
-                        <TextBlock Text="{Binding CurrentUser.Name}" Foreground="White" 
+                        <TextBlock Text="{Binding CurrentUser.Nom}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                         <TextBlock Text="Prénom :" Foreground="#7DDA77" 
                                FontStyle="Italic" FontSize="20"/>
@@ -78,6 +88,13 @@
                         <TextBlock Text="{Binding CurrentUser.Mail}" Foreground="White" 
                                FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </UniformGrid>
+
+                    <Button Background="DarkRed" Foreground="White" FontWeight="Bold" 
+                            BorderThickness="2" BorderBrush="White"
+                            VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                            Style="{StaticResource OtherButton}"
+                            Command="{Binding DeconnexionCommand}" Content="DECONNEXION" Height="46" Width="177" RenderTransformOrigin="0.525,1.37">
+                    </Button>
 
                 </UniformGrid>
             </Border>

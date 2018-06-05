@@ -15,8 +15,6 @@ namespace MarvelFlow.App.ViewModels
 
         public WindowUserViewModel()
         {
-            WindowUser = new WindowUser();
-            WindowUser.Show();
         }
     }
 }

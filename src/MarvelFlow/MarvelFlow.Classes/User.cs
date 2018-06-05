@@ -22,7 +22,7 @@ namespace MarvelFlow.Classes
 
         public bool IsAdmin { get; private set; }
 
-        public string HeroFav { get; private set; }
+        public string HeroFav { get; set; }
 
 
         public User(string login, string pswd, string dateInsc, string mail, string nom, string prenom, bool isAdmin, string heroFav)

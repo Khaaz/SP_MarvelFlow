@@ -34,7 +34,7 @@
             </Button>
 
             <UniformGrid Grid.Column="1"  HorizontalAlignment="Stretch" Rows="1" Columns="2" >
-                <ComboBox ItemsSource="{Binding EnumUniverse}" SelectedItem="{Binding SelectedUniverse,Mode=TwoWay}"
+                <ComboBox ItemsSource="{Binding EnumUniverse}" SelectedItem="{Binding SelectedUniverse, Mode=TwoWay}"
                           SelectedIndex="0"
                           HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"
                           Foreground="Black" Background="White" Margin="26,30" >
@@ -44,7 +44,7 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <ComboBox ItemsSource="{Binding EnumTeam}" SelectedItem="{Binding SelectedTeam,Mode=TwoWay}"
+                <ComboBox ItemsSource="{Binding EnumTeam}" SelectedItem="{Binding SelectedTeam, Mode=TwoWay}"
                           SelectedIndex="0"
                           HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"
                           Foreground="Black" Background="White" Margin="26,30" >

@@ -19,8 +19,6 @@ namespace MarvelFlow.App.ViewModels
 
         public WindowErrViewModel(Exception error)
         {
-            Window WindowErr = new WindowErr();
-            
 
             if (error.GetType() == typeof(FileNotFoundException))
             {
@@ -35,8 +33,6 @@ namespace MarvelFlow.App.ViewModels
                 this.TypeError = "Corrupted Json, No valid data found";
             }
             this.TextError = error.ToString();
-
-            WindowErr.Show();
         }
     }
 }

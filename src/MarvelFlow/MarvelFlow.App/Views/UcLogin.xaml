@@ -7,7 +7,131 @@
              DataContext="{Binding Login, Source={StaticResource Locator}}"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
+    <!--TEXTBOX -->
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}" x:Key="TextBoxCon">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="45,20"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockCon">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,3" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}" x:Key="TextBoxIns">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="45, 0"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockIns">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,3" />
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Ligne 1-->
+        <Grid x:Name="___Grid__3_Boutons_Home" Grid.Row="0" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="0"
+                    Background="{x:Null}" BorderThickness="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
+                    Style="{StaticResource OtherButton}"
+                    Command="{Binding ReturnBackCommand}" >
+                <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
+                   Stretch="Uniform">
+                </Image>
+            </Button>
+
+            <TextBlock Text="Connexion/Inscription" Grid.Row="0" Grid.Column="1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="SemiBold"/>
+        </Grid>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockCon}"
+                   Text="- Connexion - "
+                   VerticalAlignment="Center"></TextBlock>
+        <TextBlock  Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBlockCon}"
+                   Text="- Inscription- "
+                    VerticalAlignment="Center"></TextBlock>
+
+        <UniformGrid Grid.Row="2" Grid.Column="0" Rows="5" Columns="1">
+            <TextBlock Style="{StaticResource TextBlockCon}"
+                           Text="Login:"></TextBlock>
+            <TextBox Style="{StaticResource TextBoxCon}" Text="{Binding LoginCon, Mode=TwoWay}"></TextBox>
+            <TextBlock Style="{StaticResource TextBlockCon}"
+                           Text="Password:"></TextBlock>
+            <TextBox Style="{StaticResource TextBoxCon}" Text="{Binding PasswordCon, Mode=TwoWay}"></TextBox>
+        </UniformGrid>
+
+        <UniformGrid Grid.Row="2" Grid.Column="1" Rows="11" Columns="1">
+            <TextBlock Style="{StaticResource TextBlockIns}"
+                           Text="Login:"></TextBlock>
+            <TextBox Style="{StaticResource TextBoxIns}" Text="{Binding LoginIns, Mode=TwoWay}"></TextBox>
+            <TextBlock Style="{StaticResource TextBlockIns}"
+                           Text="Password:"></TextBlock>
+            <TextBox Style="{StaticResource TextBoxIns}" Text="{Binding PasswordIns, Mode=TwoWay}"></TextBox>
+            <TextBlock Style="{StaticResource TextBlockIns}"
+                           Text="Mail:"></TextBlock>
+            <TextBox Style="{StaticResource TextBoxIns}" Text="{Binding MailIns, Mode=TwoWay}"></TextBox>
+            <TextBlock Style="{StaticResource TextBlockIns}"
+                           Text="Nom:"></TextBlock>
+            <TextBox Style="{StaticResource TextBoxIns}" Text="{Binding NomIns, Mode=TwoWay}"></TextBox>
+            <TextBlock Style="{StaticResource TextBlockIns}"
+                           Text="Prenom:"></TextBlock>
+            <TextBox Style="{StaticResource TextBoxIns}" Text="{Binding PrenomIns, Mode=TwoWay}"></TextBox>
+        </UniformGrid>
+
+        <Button Grid.Column="0" Grid.Row="4"
+                    Background="#FFFF5709" BorderThickness="2" BorderBrush="White"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Content="Connexion"
+                    Style="{StaticResource ButtonHome}"
+                    Command="{Binding ConnexionCommand}" Width="300" Height="60" >
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="3"
+                    Background="#FFFF9A09" BorderThickness="2" BorderBrush="White"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Content="Inscription"
+                    Style="{StaticResource ButtonHome}"
+                    Command="{Binding InscriptionCommand}" Width="300" Height="60" >
+        </Button>
     </Grid>
 </UserControl>

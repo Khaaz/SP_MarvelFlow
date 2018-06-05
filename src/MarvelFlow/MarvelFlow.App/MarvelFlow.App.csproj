@@ -134,17 +134,11 @@
     <Compile Include="Views\UcSerie.xaml.cs">
       <DependentUpon>UcSerie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WindowErr.xaml.cs">
-      <DependentUpon>WindowErr.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\WindowsBandeAnnonce.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\WindowsBandeAnnonce.Designer.cs">
       <DependentUpon>WindowsBandeAnnonce.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WindowUser.xaml.cs">
-      <DependentUpon>WindowUser.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\UcAdminPanel.xaml">
       <SubType>Designer</SubType>
@@ -222,14 +216,6 @@
     <Page Include="Views\UcSerie.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\WindowErr.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WindowUser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
