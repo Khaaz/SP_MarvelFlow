@@ -76,7 +76,7 @@
                     VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20,10"
                     Style="{StaticResource OtherButton}"
                     Command="{Binding ReturnBackCommand}" Height="58" Width="107" >
-                <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
+                <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png" Opacity="0.7"
                    Stretch="Uniform">
                 </Image>
             </Button>

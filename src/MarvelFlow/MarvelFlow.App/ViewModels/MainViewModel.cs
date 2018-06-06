@@ -142,7 +142,6 @@ namespace MarvelFlow.App.ViewModels
             if (Source.GetType() == typeof(AdminPanelViewModel))
             {
                 this.RefreshListView();
-                this.SaveData();
             }
 
             if (Source.GetType() == typeof(LoginViewModel) || Source.GetType() == typeof(ProfileViewModel))
@@ -265,33 +264,8 @@ namespace MarvelFlow.App.ViewModels
         }
 
         /// <summary>
-        /// Save all datas (Current List etc in json file)
-        /// handleexceptionand print info box
+        /// Get CurrentUser and refresh MainWindow (image/Name)
         /// </summary>
-        public void SaveData()
-        {
-            try
-            {
-                ServiceLocator.Current.GetInstance<ManagerJson>().SaveDatas();
-            }
-            catch (FileNotFoundException e)
-            {
-                MessageBox.Show(e.Message, "Path error:", MessageBoxButton.OK, MessageBoxImage.Error);
-                System.Windows.Application.Current.Shutdown();
-            }
-            catch (JsonException e)
-            {
-                MessageBox.Show(e.Message, "Corrupted Json:", MessageBoxButton.OK, MessageBoxImage.Error);
-                System.Windows.Application.Current.Shutdown();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "No Data:", MessageBoxButton.OK, MessageBoxImage.Error);
-                System.Windows.Application.Current.Shutdown();
-            }
-
-        }
-
         public void RefreshUser()
         {
             User cur = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser();

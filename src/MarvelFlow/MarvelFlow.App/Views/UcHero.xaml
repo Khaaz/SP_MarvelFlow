@@ -25,7 +25,7 @@
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="26,20"
                     Style="{StaticResource OtherButton}"
                 Command='{Binding ReturnBackCommand}' >
-                <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png"
+                <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/row.png" Opacity="0.7"
                    Stretch="Uniform">
                 </Image>
             </Button>

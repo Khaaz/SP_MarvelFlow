@@ -77,8 +77,8 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation
-                  Storyboard.TargetProperty="(Button.FontSize)"
-                  From="24" To="30" Duration="0:0:0.2" />
+                                      Storyboard.TargetProperty="(Button.FontSize)"
+                                      From="24" To="30" Duration="0:0:0.2" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger.Actions>
@@ -90,8 +90,8 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation
-                  Storyboard.TargetProperty="(Button.FontSize)"
-                  To="24" Duration="0:0:0.1" />
+                                      Storyboard.TargetProperty="(Button.FontSize)"
+                                      To="24" Duration="0:0:0.1" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger.Actions>
@@ -140,8 +140,8 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation
-                  Storyboard.TargetProperty="(Button.Opacity)"
-                  From="0.7" To="1" Duration="0:0:0.3" />
+                                      Storyboard.TargetProperty="(Button.Opacity)"
+                                      From="0.7" To="1" Duration="0:0:0.3" />
 
                                 </Storyboard>
                             </BeginStoryboard>

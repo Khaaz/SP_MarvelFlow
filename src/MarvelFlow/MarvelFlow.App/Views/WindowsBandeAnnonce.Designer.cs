@@ -50,6 +50,7 @@
             this.Controls.Add(this.TeaserMediaPlayer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "WindowsBandeAnnonce";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trailer";
             ((System.ComponentModel.ISupportInitialize)(this.TeaserMediaPlayer)).EndInit();
             this.ResumeLayout(false);
