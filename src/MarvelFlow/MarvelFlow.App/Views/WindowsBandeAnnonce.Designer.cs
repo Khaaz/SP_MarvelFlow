@@ -46,10 +46,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(813, 451);
             this.Controls.Add(this.TeaserMediaPlayer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "WindowsBandeAnnonce";
-            this.Text = "WindowsBandeAnnonce";
+            this.Text = "Trailer";
             ((System.ComponentModel.ISupportInitialize)(this.TeaserMediaPlayer)).EndInit();
             this.ResumeLayout(false);
 
