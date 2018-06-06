@@ -4,10 +4,12 @@ using GalaSoft.MvvmLight.Command;
 using MarvelFlow.App.Lib;
 using MarvelFlow.App.Lib.Messages;
 using MarvelFlow.Classes;
+using MarvelFlow.Classes.Lib;
 using MarvelFlow.DataBase;
 using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,38 @@ namespace MarvelFlow.App.ViewModels
         public RelayCommand ReturnBackCommand { get; private set; } // history command
         public RelayCommand NavigateAdminCommand { get; private set; }
         public RelayCommand DeconnexionCommand { get; private set; }
+
+        private ObservableCollection<Hero> _ListHeroesView;
+        public ObservableCollection<Hero> ListHeroesView
+        {
+            get
+            {
+                return _ListHeroesView;
+            }
+            set
+            {
+                if (_ListHeroesView == value)
+                    return;
+                _ListHeroesView = value;
+                RaisePropertyChanged(() => ListHeroesView);
+            }
+        }
+
+        private ObservableCollection<ISearchableMovie> _ListMoviesView;
+        public ObservableCollection<ISearchableMovie> ListMoviesView
+        {
+            get
+            {
+                return _ListMoviesView;
+            }
+            set
+            {
+                if (_ListMoviesView == value)
+                    return;
+                _ListMoviesView = value;
+                RaisePropertyChanged(() => ListMoviesView);
+            }
+        }
 
         private User _CurrentUser;
         public User CurrentUser
@@ -33,9 +67,12 @@ namespace MarvelFlow.App.ViewModels
                     return;
                 _CurrentUser = value;
                 RaisePropertyChanged(() => CurrentUser);
+                NavigateAdminCommand.RaiseCanExecuteChanged();
 
-                this.SelectedHero = _CurrentUser == null ? HeroList.FirstOrDefault() : HeroList.Find(h => h.Id == CurrentUser.HeroFav);
+                this.SelectedHero = CurrentUser == null ? HeroList.FirstOrDefault() : HeroList.Find(h => h.Id == CurrentUser.HeroFav);
                 this.Image = CurrentUser == null ? @"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.App\Images/pdp2.png" : HeroList.Find(h => h.Id == CurrentUser.HeroFav).Image;
+                this.ListHeroesView = CurrentUser == null ? new ObservableCollection<Hero>() : new ObservableCollection<Hero>(CurrentUser.ListHeros);
+                this.ListMoviesView = CurrentUser == null ? new ObservableCollection<ISearchableMovie>() : new ObservableCollection<ISearchableMovie>(CurrentUser.ListMovie);
             }
         }
 

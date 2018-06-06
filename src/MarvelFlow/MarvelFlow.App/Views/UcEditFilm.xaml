@@ -96,7 +96,7 @@
         <Button  Grid.Row="2" Grid.Column="0" Content="ADD FILM" Foreground="White" 
                         FontWeight="Bold" Background="#FF00C3EE" Margin="10"
                         Style="{StaticResource ButtonHome}"
-                        Command="{Binding FilmReset}"/>
+                        Command="{Binding FilmResetCommand}"/>
 
         <!--RIGHT PART-->
         <UniformGrid Grid.Row="0" Grid.Column="1" Rows="18" Margin="50,0">

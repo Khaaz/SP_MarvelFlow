@@ -84,7 +84,7 @@ namespace MarvelFlow.App.ViewModels
             this.SortByDateCommand = new RelayCommand(this.SortByDate, CanDisplayMessage);
 
             // Init ObservableCollection when creatingthe instance
-            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies());
+            this.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetTitle()).ToList()); // Sorted by title
 
             // Init misc
             Array arrUniverse = Enum.GetValues(typeof(Universe));
@@ -104,7 +104,10 @@ namespace MarvelFlow.App.ViewModels
         /// <param name="input"></param>
         public void FindByString(string input)
         {
-            List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetTitle().ToLower().StartsWith(input.ToLower())).ToList();
+            List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies()
+                .Where(m => m.GetTitle().ToLower().StartsWith(input.ToLower()))
+                .OrderBy(m => m.GetTitle())
+                .ToList();
             this.ListMoviesView.Clear();
             foreach (ISearchableMovie m in tempList)
             {
@@ -121,7 +124,7 @@ namespace MarvelFlow.App.ViewModels
         {
             if(u.Equals("Select a Universe")) 
             {
-                List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies();
+                List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetTitle()).ToList();
                 this.ListMoviesView.Clear();
                 foreach (ISearchableMovie m in tempList)
                 {
@@ -130,7 +133,10 @@ namespace MarvelFlow.App.ViewModels
             }
             else
             {
-                List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Where(m => m.GetUniverse().ToString() == u).ToList();
+                List<ISearchableMovie> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies()
+                    .Where(m => m.GetUniverse().ToString() == u)
+                    .OrderBy(m => m.GetTitle())
+                    .ToList();
                 this.ListMoviesView.Clear();
                 foreach (ISearchableMovie m in tempList)
                 {

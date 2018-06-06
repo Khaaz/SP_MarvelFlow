@@ -21,7 +21,7 @@ namespace MarvelFlow.App.ViewModels
         // COMMANDES //
         public RelayCommand<Film> DisplayMovieCommand { get; private set; }
 
-        public RelayCommand FilmReset { get; private set; }
+        public RelayCommand FilmResetCommand { get; private set; }
 
         public RelayCommand DeleteMovieCommand { get; private set; }
 
@@ -60,9 +60,6 @@ namespace MarvelFlow.App.ViewModels
                 RaisePropertyChanged(() => ListMoviesView);
             }
         }
-
-        public Array EnumUniverse { get; set; }
-
 
         private string _Id;
         public string Id
@@ -166,6 +163,8 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        public Array EnumUniverse { get; set; }
+
         private Universe _SelectedUniverse;
         public Universe SelectedUniverse
         {
@@ -220,30 +219,34 @@ namespace MarvelFlow.App.ViewModels
         {
             CurrentMovie = null;
             this.DisplayMovieCommand = new RelayCommand<Film>(this.DisplayMovie, m => CanDisplayMessage());
-            this.FilmReset = new RelayCommand(this.ResetDisplayMovie,CanDisplayMessage);
+            this.FilmResetCommand = new RelayCommand(this.ResetDisplayMovie,CanDisplayMessage);
             this.DeleteMovieCommand = new RelayCommand(this.DeleteMovie,CanDeleteMovie);
             this.ValidateCommand = new RelayCommand(this.Validate,CanValidate);
 
             ListMoviesView = new ObservableCollection<Film>();
-            List<ISearchableMovie> ListTemp = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies();
+            List<ISearchableMovie> ListTemp = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetTitle()).ToList();
             foreach (ISearchableMovie m in ListTemp)
             {
                 if (m.GetType() == typeof(Film))
                 {
                     ListMoviesView.Add((Film)m);
                 }
-
             }
 
             EnumUniverse = Enum.GetValues(typeof(Universe));
-
         }
+
+        // Commands Methods
 
         public bool CanDisplayMessage()
         {
             return true;
         }
 
+        /// <summary>
+        /// Update the view with value of the selected element in List View
+        /// </summary>
+        /// <param name="movie"></param>
         public void DisplayMovie(Film movie)
         {
             CurrentMovie = movie;
@@ -258,6 +261,10 @@ namespace MarvelFlow.App.ViewModels
             ListHeroDisplay = AppUtils.ConvertList(movie.GetListHeros());
         }
 
+        /// <summary>
+        /// Reset view - all fields to null
+        /// Allow editing a new Film
+        /// </summary>
         public void ResetDisplayMovie()
         {
             CurrentMovie = null;
@@ -273,6 +280,11 @@ namespace MarvelFlow.App.ViewModels
             ListHeroDisplay = empty;
         }
 
+        /// <summary>
+        /// Can delete a Film if it is one existing
+        /// (CurrentHero binded)
+        /// </summary>
+        /// <returns></returns>
         public bool CanDeleteMovie()
         {
             if (CurrentMovie == null)
@@ -281,13 +293,32 @@ namespace MarvelFlow.App.ViewModels
             }
             return true;
         }
-        
+
+        /// <summary>
+        /// Delete the Film in general List
+        /// Refresh View and update List
+        /// </summary>
         public void DeleteMovie()
         {
             // SUPPRIMER DANS MANAGER JSON LE FILM EN QUESTION
-            ResetDisplayMovie();
+            bool val = ServiceLocator.Current.GetInstance<ManagerJson>().RemoveMovie(CurrentMovie);
+            if (val)
+            {
+                this.ResetDisplayMovie();
+                this.RefreshList();
+            }
         }
 
+        public bool CanValidate()
+        {
+            return !CheckChampEmptyOrWhiteSpace();
+        }
+
+        /// <summary>
+        /// Check if all fields respect validity (no null, no empty, no whitespace)
+        /// Can Execute Validate Command
+        /// </summary>
+        /// <returns></returns>
         public bool CheckChampEmptyOrWhiteSpace()
         {
             if (string.IsNullOrEmpty(Id) || string.IsNullOrWhiteSpace(Id))
@@ -325,6 +356,10 @@ namespace MarvelFlow.App.ViewModels
             return false;
         }
 
+        /// <summary>
+        /// Check Validity of all fields
+        /// </summary>
+        /// <returns></returns>
         public bool IsChampValid()
         {
             string notV = "Not Valid";
@@ -372,26 +407,108 @@ namespace MarvelFlow.App.ViewModels
             return true;
         }
 
+        /// <summary>
+        /// Add Or Update a Film
+        /// IF Respect validity
+        /// </summary>
         public void Validate()
         {
             if (IsChampValid())
             {
-                if(CurrentMovie == null)
+                if (CurrentMovie == null)
                 {
-                    //CREER NOUVEAU FILM
+                    this.CreateMovie();
                 }
                 else
                 {
-                   //EDIT FILM
+                    int res = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().FindIndex(m => m.GetId() == Id);
+
+                    if (res == -1 || ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies()[res] == CurrentMovie)
+                    {
+                        this.EditMovie();
+                    }
+                    else
+                    {
+                        this.Id = "Already Used";
+                        return;
+                    }
                 }
             }
         }
 
-      
-
-        public bool CanValidate()
+        /// <summary>
+        /// Create a Movie
+        /// </summary>
+        public void CreateMovie()
         {
-            return !CheckChampEmptyOrWhiteSpace();
+            if (ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().Any(m => m.GetId() == Id))
+            {
+                this.Id = "Already Used";
+                return;
+            }
+
+            //CREER NOUVEAU HERO
+            List<string> listHero = AppUtils.ConvertStringToList(ListHeroDisplay);
+
+            foreach (string h in listHero)
+            {
+                if (!ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Any(hero => hero.Id == h))
+                {
+                    this.ListHeroDisplay = "Invalid ID";
+                    return;
+                }
+            }
+
+            ISearchableMovie movie = new Film(Id, Title, Affiche, Description, Realisateur, Date, SelectedUniverse, BA, listHero);
+
+            bool val = ServiceLocator.Current.GetInstance<ManagerJson>().AddMovie(movie);
+            if (val)
+            {
+                this.ResetDisplayMovie();
+                this.RefreshList();
+            }
+        }
+
+        /// <summary>
+        /// Edit a film
+        /// Update by giving old and new film
+        /// </summary>
+        public void EditMovie()
+        {
+            //EDIT HERO
+            List<string> listHero = AppUtils.ConvertStringToList(ListHeroDisplay);
+
+            foreach (string h in listHero)
+            {
+                if (!ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Any(hero => hero.Id == h))
+                {
+                    ListHeroDisplay = "Invalid ID";
+                    return;
+                }
+            }
+
+            ISearchableMovie movie = new Film(Id, Title, Affiche, Description, Realisateur, Date, SelectedUniverse, BA, listHero);
+
+            bool val = ServiceLocator.Current.GetInstance<ManagerJson>().UpdateMovie(movie, CurrentMovie);
+            if (val)
+            {
+                this.ResetDisplayMovie();
+                this.RefreshList();
+            }
+            return;
+        }
+
+        /// <summary>
+        /// Refresh Current List View
+        /// </summary>
+        public void RefreshList()
+        {
+            List<ISearchableMovie> temp = ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetTitle()).ToList();
+            this.ListMoviesView.Clear();
+            foreach (ISearchableMovie m in temp)
+            {
+                this.ListMoviesView.Add((Film)m);
+            }
         }
     }
 }

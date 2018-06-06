@@ -1,0 +1,10 @@
+USE [MarvelFlow]
+GO
+/****** Object:  StoredProcedure [dbo].[SelectUser]    Script Date: 06/06/2018 04:30:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[SelectUser]
+@Login varchar(50)
+AS SELECT Login,Password,Date,Mail,Nom,Prenom,IsAdmin,HeroFav FROM UserSchema WHERE Login=@Login

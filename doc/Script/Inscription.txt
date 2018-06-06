@@ -1,0 +1,18 @@
+USE [MarvelFlow]
+GO
+/****** Object:  StoredProcedure [dbo].[Inscription]    Script Date: 06/06/2018 04:29:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[Inscription] 
+@Login varchar(50),
+@Password varchar(50),
+@Date varchar(50),
+@Mail varchar(50),
+@Nom varchar(50),
+@Prenom varchar(50),
+@IsAdmin int,
+@HeroFav varchar(50)
+AS INSERT INTO UserSchema(Login, Password, Date, Mail, Nom, Prenom, IsAdmin, HeroFav)
+    VALUES(@Login, @Password, @Date, @Mail, @Nom, @Prenom, @IsAdmin, @HeroFav)

@@ -18,7 +18,7 @@ namespace MarvelFlow.App.ViewModels
     public class EditHeroViewModel : ViewModelBase
     {
         public RelayCommand<Hero> DisplayHeroCommand { get; private set; }
-        public RelayCommand HeroReset { get; private set; }
+        public RelayCommand HeroResetCommand { get; private set; }
 
         public RelayCommand DeleteHeroCommand { get; private set; }
 
@@ -127,8 +127,6 @@ namespace MarvelFlow.App.ViewModels
         }
 
         public Array EnumUniverse { get; set; }
-        public Array EnumStatus { get; set; }
-        public Array EnumTeam { get; set; }
 
         private Universe _SelectedUniverse;
         public Universe SelectedUniverse
@@ -146,6 +144,8 @@ namespace MarvelFlow.App.ViewModels
             }
         }
 
+        public Array EnumStatus { get; set; }
+
         private Status _SelectedStatus;
         public Status SelectedStatus
         {
@@ -161,6 +161,8 @@ namespace MarvelFlow.App.ViewModels
                 RaisePropertyChanged(() => SelectedStatus);
             }
         }
+
+        public Array EnumTeam { get; set; }
 
         private Team _SelectedTeam;
         public Team SelectedTeam
@@ -179,28 +181,33 @@ namespace MarvelFlow.App.ViewModels
         }
 
 
-
         public EditHeroViewModel()
         {
             CurrentHero = null;
             this.DisplayHeroCommand = new RelayCommand<Hero>(this.DisplayHero, h => CanDisplayMessage());
-            this.HeroReset = new RelayCommand(this.ResetDisplayHero, CanDisplayMessage);
-            this.DeleteHeroCommand = new RelayCommand(this.DeleteHero, CanDeleteMovie);
+            this.HeroResetCommand = new RelayCommand(this.ResetDisplayHero, CanDisplayMessage);
+            this.DeleteHeroCommand = new RelayCommand(this.DeleteHero, CanDeleteHero);
             this.ValidateCommand = new RelayCommand(this.Validate, CanValidate);
 
-            this.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes());
+            // Init values
+            this.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().OrderBy(h => h.Name).ToList());
             EnumUniverse = Enum.GetValues(typeof(Universe));
             EnumStatus = Enum.GetValues(typeof(Status));
             EnumTeam = Enum.GetValues(typeof(Team));
         }
 
-
+        // Commands Methods
         public bool CanDisplayMessage()
         {
             return true;
         }
 
-        
+        // display hero binding (lisview)
+
+        /// <summary>
+        /// Update the view with value of the selected element in List View
+        /// </summary>
+        /// <param name="hero"></param>
         public void DisplayHero(Hero hero)
         {
             CurrentHero = hero;
@@ -214,6 +221,10 @@ namespace MarvelFlow.App.ViewModels
 
         }
 
+        /// <summary>
+        /// Reset view - all fields to null
+        /// Allow editing a new Hero
+        /// </summary>
         public void ResetDisplayHero()
         {
             CurrentHero = null;
@@ -227,21 +238,45 @@ namespace MarvelFlow.App.ViewModels
             SelectedUniverse = Universe.MCU;
         }
 
-        public void DeleteHero()
+        /// <summary>
+        /// Can delete a Hero if it is one existing
+        /// (CurrentHero binded)
+        /// </summary>
+        /// <returns></returns>
+        public bool CanDeleteHero()
         {
-            // DELETE HERO
-            ResetDisplayHero();
-        }
-
-        public bool CanDeleteMovie()
-        {
-            if(CurrentHero == null)
+            if (CurrentHero == null)
             {
                 return false;
             }
             return true;
         }
 
+        /// <summary>
+        /// Delete the hero in general List
+        /// Refresh View and update List
+        /// </summary>
+        public void DeleteHero()
+        {
+            // DELETE HERO
+            bool val = ServiceLocator.Current.GetInstance<ManagerJson>().RemoveHero(CurrentHero);
+            if (val)
+            {
+                this.ResetDisplayHero();
+                this.RefreshList();
+            }
+        }
+
+        public bool CanValidate()
+        {
+            return !CheckChampEmptyOrWhiteSpace();
+        }
+
+        /// <summary>
+        /// Check if all fields respect validity (no null, no empty, no whitespace)
+        /// Can Execute Validate Command
+        /// </summary>
+        /// <returns></returns>
         public bool CheckChampEmptyOrWhiteSpace()
         {
             if (string.IsNullOrEmpty(Id) || string.IsNullOrWhiteSpace(Id))
@@ -263,11 +298,16 @@ namespace MarvelFlow.App.ViewModels
             return false;
         }
 
+        /// <summary>
+        /// Check Validity of all fields
+        /// </summary>
+        /// <returns></returns>
         public bool IsChampValid()
         {
             string notV = "Not Valid";
             if (Util.ContainsQuotes(Id) || !AppUtils.IsIdHeroValid(Id))
             {
+                
                 Id = notV;
                 return false;
             }
@@ -289,24 +329,86 @@ namespace MarvelFlow.App.ViewModels
             return true;
         }
 
+        /// <summary>
+        /// Add Or Update a Hero
+        /// IF Respect validity
+        /// </summary>
         public void Validate()
         {
             if (IsChampValid())
             {
                 if (CurrentHero == null)
                 {
-                    //CREER NOUVEAU HERO
+                    this.CreateHero();
                 }
                 else
                 {
-                    //EDIT HERO
+                    int res = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().FindIndex(h => h.Id == Id);
+                    
+                    if (res == -1 || ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes()[res] == CurrentHero)
+                    {
+                        this.EditHero();
+                    }
+                    else
+                    {
+                        Id = "Already Used";
+                        return;
+                    }   
                 }
             }
         }
 
-        public bool CanValidate()
+        /// <summary>
+        /// Create a hero
+        /// </summary>
+        public void CreateHero()
         {
-            return !CheckChampEmptyOrWhiteSpace();
+            if (ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Any(h => h.Id == Id))
+            {
+                Id = "Already Used";
+                return;
+            }
+
+            //CREER NOUVEAU HERO
+            Hero hero = new Hero(Id, Name, Image, Description, SelectedStatus, SelectedTeam, SelectedUniverse);
+
+            bool val = ServiceLocator.Current.GetInstance<ManagerJson>().AddHero(hero);
+            if (val)
+            {
+                this.ResetDisplayHero();
+                this.RefreshList();
+            }
+        }
+
+        /// <summary>
+        /// Edit hero
+        /// Update by giving old and new film
+        /// </summary>
+        public void EditHero()
+        {
+            //EDIT HERO
+            Hero hero = new Hero(Id, Name, Image, Description, SelectedStatus, SelectedTeam, SelectedUniverse);
+            bool val = ServiceLocator.Current.GetInstance<ManagerJson>().UpdateHero(hero, CurrentHero);
+
+            if (val)
+            {
+                this.ResetDisplayHero();
+                this.RefreshList();
+            }
+            return;
+        }
+
+        /// <summary>
+        /// Refresh Current List View
+        /// </summary>
+        public void RefreshList()
+        {
+            List<Hero> temp = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().OrderBy(h => h.Name).ToList();
+            this.ListHerosView.Clear();
+            foreach(Hero h in temp)
+            {
+                this.ListHerosView.Add(h);
+            }
         }
     }
 }

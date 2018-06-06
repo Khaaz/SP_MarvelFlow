@@ -142,6 +142,7 @@ namespace MarvelFlow.App.ViewModels
             if (Source.GetType() == typeof(AdminPanelViewModel))
             {
                 this.RefreshListView();
+                this.SaveData();
             }
 
             if (Source.GetType() == typeof(LoginViewModel) || Source.GetType() == typeof(ProfileViewModel))
@@ -259,8 +260,36 @@ namespace MarvelFlow.App.ViewModels
             ListHeroViewModel tempHero = ServiceLocator.Current.GetInstance<ListHeroViewModel>();
             ListMovieViewModel tempMovies = ServiceLocator.Current.GetInstance<ListMovieViewModel>();
 
-            tempHero.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes());
-            tempMovies.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies());
+            tempHero.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().OrderBy(h => h.Name).ToList());
+            tempMovies.ListMoviesView = new ObservableCollection<ISearchableMovie>(ServiceLocator.Current.GetInstance<ManagerJson>().GetMovies().OrderBy(m => m.GetTitle()).ToList());
+        }
+
+        /// <summary>
+        /// Save all datas (Current List etc in json file)
+        /// handleexceptionand print info box
+        /// </summary>
+        public void SaveData()
+        {
+            try
+            {
+                ServiceLocator.Current.GetInstance<ManagerJson>().SaveDatas();
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message, "Path error:", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.Application.Current.Shutdown();
+            }
+            catch (JsonException e)
+            {
+                MessageBox.Show(e.Message, "Corrupted Json:", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.Application.Current.Shutdown();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "No Data:", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.Application.Current.Shutdown();
+            }
+
         }
 
         public void RefreshUser()

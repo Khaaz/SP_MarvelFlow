@@ -115,5 +115,10 @@ namespace MarvelFlow.Classes
         }
         
         // Custom //
+
+        public void SortListMovies()
+        {
+            ListMovies = ListMovies.OrderBy(m => m.GetTitle()).ToList();
+        }
     }
 }

@@ -1,0 +1,11 @@
+USE [MarvelFlow]
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateHeroFav]    Script Date: 06/06/2018 04:30:20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[UpdateHeroFav]
+@Login varchar(50),
+@HeroFav varchar(50)
+AS UPDATE UserSchema SET HeroFav=@HeroFav WHERE Login=@Login

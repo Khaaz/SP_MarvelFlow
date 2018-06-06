@@ -66,14 +66,37 @@ namespace MarvelFlow.Classes
             return ListHeroString;
         }
 
-        public override void AddListHero(Hero h)
-        {
-           this.ListHeroes.Add(h);
-        }
-
         public string GetBA()
         {
             return BA;
+        }
+
+        /// <summary>
+        /// Ajoute un hero in ListHeros
+        /// </summary>
+        /// <param name="h"></param>
+        public override void AddListHero(Hero h)
+        {
+            this.ListHeroes.Add(h);
+        }
+
+        /// <summary>
+        /// Sort ListHero by hero Name
+        /// </summary>
+        public override void SortListHeros()
+        {
+            ListHeroes = ListHeroes.OrderBy(h => h.Name).ToList();
+        }
+
+        /// <summary>
+        /// Remove a specified hero in ListHeros
+        /// </summary>
+        /// <param name="h"></param>
+        /// <returns>bool : true if removed</returns>
+        public override bool RemoveListHero(Hero h)
+        {
+            this.ListHeroes.Remove(h);
+            return true;
         }
 
 

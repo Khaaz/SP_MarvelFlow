@@ -15,6 +15,8 @@ namespace MarvelFlow.Classes.Lib
         List<string> GetHeroString();
         List<Hero> GetListHeros();
         void AddListHero(Hero h);
+        void SortListHeros();
+        bool RemoveListHero(Hero h);
         DateTime GetDate();
     }
 }

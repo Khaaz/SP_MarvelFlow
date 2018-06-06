@@ -1,0 +1,12 @@
+USE [MarvelFlow]
+GO
+/****** Object:  StoredProcedure [dbo].[CheckConnexion]    Script Date: 06/06/2018 04:28:33 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[CheckConnexion]
+@Login varchar(50),
+@Password varchar(50)
+AS
+SELECT COUNT(1) FROM UserSchema WHERE Login=@Login AND Password=@Password

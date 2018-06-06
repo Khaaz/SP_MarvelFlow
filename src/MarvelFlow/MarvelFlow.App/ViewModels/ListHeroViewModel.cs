@@ -96,7 +96,7 @@ namespace MarvelFlow.App.ViewModels
             this.ReturnBackCommand = new RelayCommand(this.SendReturnBack, CanDisplayMessage);
 
             // Init ObservableCollection when creatingthe instance
-            this.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes());
+            this.ListHerosView = new ObservableCollection<Hero>(ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().OrderBy(h => h.Name).ToList());
 
             // Init misc
             Array arrUniverse = Enum.GetValues(typeof(Universe));
@@ -124,7 +124,10 @@ namespace MarvelFlow.App.ViewModels
         /// <param name="input"></param>
         public void FindByString(string input)
         {
-            List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Name.ToLower().StartsWith(input.ToLower())).ToList();
+            List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes()
+                .Where(h => h.Name.ToLower().StartsWith(input.ToLower()))
+                .OrderBy(h => h.Name)
+                .ToList();
             this.ListHerosView.Clear();
             foreach(Hero h in tempList)
             {
@@ -146,7 +149,10 @@ namespace MarvelFlow.App.ViewModels
             }
             else
             {
-                List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Universe.ToString() == u).ToList();
+                List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes()
+                    .Where(h => h.Universe.ToString() == u)
+                    .OrderBy(h => h.Name)
+                    .ToList();
                 this.ListHerosView.Clear();
                 foreach (Hero h in tempList)
                 {
@@ -168,7 +174,10 @@ namespace MarvelFlow.App.ViewModels
             }
             else
             {
-                List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Where(h => h.Team.ToString() == t).ToList();
+                List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes()
+                    .Where(h => h.Team.ToString() == t)
+                    .OrderBy(h => h.Name)
+                    .ToList();
                 this.ListHerosView.Clear();
                 foreach (Hero h in tempList)
                 {
@@ -182,7 +191,7 @@ namespace MarvelFlow.App.ViewModels
         /// </summary>
         public void ResetListView()
         {
-            List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes();
+            List<Hero> tempList = ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().OrderBy(h => h.Name).ToList();
             this.ListHerosView.Clear();
             foreach (Hero h in tempList)
             {

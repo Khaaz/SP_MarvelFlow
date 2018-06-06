@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarvelFlow.Classes.Lib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,10 @@ namespace MarvelFlow.Classes
 
         public string HeroFav { get; set; }
 
+        public List<ISearchableMovie> ListMovie { get; set; }
+
+        public List<Hero> ListHeros { get; set; }
+
 
         public User(string login, string pswd, string dateInsc, string mail, string nom, string prenom, bool isAdmin, string heroFav)
         {
@@ -35,6 +40,9 @@ namespace MarvelFlow.Classes
             this.Prenom = prenom;
             this.IsAdmin = isAdmin;
             this.HeroFav = heroFav;
+
+            this.ListHeros = new List<Hero>();
+            this.ListMovie = new List<ISearchableMovie>();
         }
     }
 }

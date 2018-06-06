@@ -50,5 +50,15 @@ namespace MarvelFlow.Classes
         {
             throw new NotImplementedException();
         }
+
+        public override void SortListHeros()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool RemoveListHero(Hero h)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

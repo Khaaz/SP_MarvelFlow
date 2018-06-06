@@ -1,0 +1,10 @@
+USE [MarvelFlow]
+GO
+/****** Object:  StoredProcedure [dbo].[InsertAdmin]    Script Date: 06/06/2018 04:47:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[InsertAdmin]
+AS INSERT INTO UserSchema(Login, Password, Date, Mail, Nom, Prenom, IsAdmin, HeroFav)
+    VALUES('Admin', 'Admin!',CAST('2018/01/01' AS DATE), 'Admin@mail.com', 'Admin', 'Admin', 1, 'IM')

@@ -32,12 +32,6 @@ namespace MarvelFlow.App.Lib
             return r.IsMatch(input);
         }
 
-        public static string ConvertList (List<Hero> listHero)
-        {
-
-            return String.Join(", ", listHero.Select(h => h.Id));
-        }
-
         public static bool IsIdMovieValid (string input)
         {
             Regex r = new Regex(@"^[A-Za-z][A-Za-z]([0-9])*$");
@@ -58,5 +52,16 @@ namespace MarvelFlow.App.Lib
             return r.IsMatch(input);
         }
 
+        public static string ConvertList(List<Hero> listHero)
+        {
+
+            return String.Join(", ", listHero.Select(h => h.Id));
+        }
+
+        public static List<string> ConvertStringToList(string listHero)
+        {
+            Regex r = new Regex(@", ");
+            return r.Split(listHero).ToList();
+        }
     }
 }

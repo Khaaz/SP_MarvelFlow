@@ -45,7 +45,6 @@
     <Compile Include="Film.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Episode.cs" />
-    <Compile Include="Lib\IManagableMovie.cs" />
     <Compile Include="Lib\ISearchableMovie.cs" />
     <Compile Include="Lib\ExceptionFormat\SerieException.cs" />
     <Compile Include="Lib\ExceptionFormat\SeasonException.cs" />
