@@ -103,7 +103,7 @@
                 Background="Transparent" BorderThickness="0" Opacity="0.7"
                 Style="{StaticResource ButtonMarvel}"
                 Command="{Binding NavigateHomeCommand}">
-            <Image Source="pack://application:,,,/MarvelFlow.App;component/Images/marvelFlowLogo.png"
+            <Image Source="pack://application:,,,/MarvelFlow.App;component/Component/Images/marvelFlowLogo.png"
                    Stretch="Uniform">
             </Image>
         </Button>

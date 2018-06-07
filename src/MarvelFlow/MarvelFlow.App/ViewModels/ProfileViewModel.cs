@@ -10,6 +10,7 @@ using MarvelFlow.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,7 +71,7 @@ namespace MarvelFlow.App.ViewModels
                 NavigateAdminCommand.RaiseCanExecuteChanged();
 
                 this.SelectedHero = CurrentUser == null ? HeroList.FirstOrDefault() : HeroList.Find(h => h.Id == CurrentUser.HeroFav);
-                this.Image = CurrentUser == null ? @"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.App\Images/pdp2.png" : HeroList.Find(h => h.Id == CurrentUser.HeroFav).Image;
+                this.Image = CurrentUser == null ? ConfigurationManager.AppSettings["AffichePath"] + "pdp2.png" : HeroList.Find(h => h.Id == CurrentUser.HeroFav).Image;
                 this.ListHeroesView = CurrentUser == null ? new ObservableCollection<Hero>() : new ObservableCollection<Hero>(CurrentUser.ListHeros);
                 this.ListMoviesView = CurrentUser == null ? new ObservableCollection<ISearchableMovie>() : new ObservableCollection<ISearchableMovie>(CurrentUser.ListMovie);
             }
@@ -127,7 +128,7 @@ namespace MarvelFlow.App.ViewModels
         {
             ServiceLocator.Current.GetInstance<CurrentUserHandler>().EditUserHero(h.Id);
             this.CurrentUser = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser();
-            this.Image = CurrentUser == null ? @"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.App\Images/pdp2.png" : HeroList.Find(hero => hero.Id == CurrentUser.HeroFav).Image;
+            this.Image = CurrentUser == null ? ConfigurationManager.AppSettings["AffichePath"] + "pdp2.png" : HeroList.Find(hero => hero.Id == CurrentUser.HeroFav).Image;
         }
 
         // Commands methods

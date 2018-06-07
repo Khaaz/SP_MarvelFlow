@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -106,7 +107,7 @@ namespace MarvelFlow.App.ViewModels
 
             User cur = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser();
             this.NameUser = cur == null ? "Guest" : cur.Login;
-            this.ImageUser = cur == null ? @"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.App\Images/pdp2.png" : ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Find(h => h.Id == cur.HeroFav).Image;
+            this.ImageUser = cur == null ? ConfigurationManager.AppSettings["AffichePath"] + "pdp2.png" : ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Find(h => h.Id == cur.HeroFav).Image;
 
             // Init Messaging
             MessengerInstance.Register<HomeMessage>(this, (HomeMessage obj) => Navigator(obj, "HomeViewModel"));
@@ -269,7 +270,7 @@ namespace MarvelFlow.App.ViewModels
         public void RefreshUser()
         {
             User cur = ServiceLocator.Current.GetInstance<CurrentUserHandler>().GetUser();
-            this.ImageUser = cur == null ? @"C:\Users\lbell\Desktop\DEVELOPEMENT\C#\marvelflow\src\MarvelFlow\MarvelFlow.App\Images/pdp2.png" : ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Find(h => h.Id == cur.HeroFav).Image;
+            this.ImageUser = cur == null ? ConfigurationManager.AppSettings["AffichePath"] + "pdp2.png" : ServiceLocator.Current.GetInstance<ManagerJson>().GetHeroes().Find(h => h.Id == cur.HeroFav).Image;
             this.NameUser = cur == null ? "Guest" : cur.Login;
         }
 

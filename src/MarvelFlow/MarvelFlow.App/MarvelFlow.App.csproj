@@ -264,77 +264,77 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ImagesHero\doctorStrange.png" />
-    <Resource Include="Images\marvelLogo.png" />
-    <Resource Include="Images\pdp.png" />
-    <Resource Include="Images\pdp2.png" />
+    <Resource Include="Component\Images\ImagesHero\doctorStrange.png" />
+    <Resource Include="Component\Images\marvelLogo.png" />
+    <Resource Include="Component\Images\pdp.png" />
+    <Resource Include="Component\Images\pdp2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\affichetest.jpg" />
+    <Resource Include="Component\Images\affichetest.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\marvelFlowLogo.png" />
+    <Resource Include="Component\Images\marvelFlowLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ImagesHero\ironMan.png" />
-    <Resource Include="Images\ImagesHero\spiderMan.png" />
+    <Resource Include="Component\Images\ImagesHero\ironMan.png" />
+    <Resource Include="Component\Images\ImagesHero\spiderMan.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ImagesHero\vision.png" />
+    <Resource Include="Component\Images\ImagesHero\vision.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ImagesHero\hulk.png" />
+    <Resource Include="Component\Images\ImagesHero\hulk.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ImagesMovie\Avengers1.jpg" />
-    <Resource Include="Images\ImagesMovie\Avengers3.jpg" />
-    <Resource Include="Images\ImagesMovie\IronMan.jpg" />
-    <Resource Include="Images\ImagesMovie\IronMan2.jpg" />
-    <Resource Include="Images\ImagesMovie\IronMan3.jpg" />
-    <Resource Include="Images\ImagesMovie\Thor3.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\Avengers1.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\Avengers3.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\IronMan.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\IronMan2.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\IronMan3.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\Thor3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ImagesHero\blackPanther.png" />
-    <Resource Include="Images\ImagesHero\blackWindow.png" />
-    <Resource Include="Images\ImagesHero\captainAmerica.png" />
-    <Resource Include="Images\ImagesHero\drax.png" />
-    <Resource Include="Images\ImagesHero\falcon.png" />
-    <Resource Include="Images\ImagesHero\gamora.png" />
-    <Resource Include="Images\ImagesHero\groot.png" />
-    <Resource Include="Images\ImagesHero\mantis.png" />
-    <Resource Include="Images\ImagesHero\nebula.png" />
-    <Resource Include="Images\ImagesHero\rocketRacoon.png" />
-    <Resource Include="Images\ImagesHero\scarletWitch.png" />
-    <Resource Include="Images\ImagesHero\shuri.png" />
-    <Resource Include="Images\ImagesHero\starLord.png" />
-    <Resource Include="Images\ImagesHero\thanos.png" />
-    <Resource Include="Images\ImagesHero\thor.png" />
-    <Resource Include="Images\ImagesHero\warMachine.png" />
-    <Resource Include="Images\ImagesHero\winterSoldier.png" />
-    <Resource Include="Images\ImagesHero\wong.png" />
+    <Resource Include="Component\Images\ImagesHero\blackPanther.png" />
+    <Resource Include="Component\Images\ImagesHero\blackWindow.png" />
+    <Resource Include="Component\Images\ImagesHero\captainAmerica.png" />
+    <Resource Include="Component\Images\ImagesHero\drax.png" />
+    <Resource Include="Component\Images\ImagesHero\falcon.png" />
+    <Resource Include="Component\Images\ImagesHero\gamora.png" />
+    <Resource Include="Component\Images\ImagesHero\groot.png" />
+    <Resource Include="Component\Images\ImagesHero\mantis.png" />
+    <Resource Include="Component\Images\ImagesHero\nebula.png" />
+    <Resource Include="Component\Images\ImagesHero\rocketRacoon.png" />
+    <Resource Include="Component\Images\ImagesHero\scarletWitch.png" />
+    <Resource Include="Component\Images\ImagesHero\shuri.png" />
+    <Resource Include="Component\Images\ImagesHero\starLord.png" />
+    <Resource Include="Component\Images\ImagesHero\thanos.png" />
+    <Resource Include="Component\Images\ImagesHero\thor.png" />
+    <Resource Include="Component\Images\ImagesHero\warMachine.png" />
+    <Resource Include="Component\Images\ImagesHero\winterSoldier.png" />
+    <Resource Include="Component\Images\ImagesHero\wong.png" />
     <Content Include="Component\Trailer\trailerInfinityWar.mp4" />
-    <Resource Include="Images\iconMarvelFlow.ico" />
+    <Resource Include="Component\Images\iconMarvelFlow.ico" />
     <Resource Include="iconMarvelFlow.ico" />
-    <Content Include="Images\ImagesMovie\Antman.jpg" />
-    <Resource Include="Images\row.png" />
-    <Resource Include="Images\ImagesMovie\AntMan2.jpg" />
-    <Resource Include="Images\ImagesMovie\BlackPanther.jpg" />
-    <Resource Include="Images\ImagesMovie\CaptainAmerica1.jpg" />
-    <Resource Include="Images\ImagesMovie\CaptainAmerica2.jpg" />
-    <Resource Include="Images\ImagesMovie\CaptainAmerica3.jpg" />
-    <Resource Include="Images\ImagesMovie\DoctorStrange.jpg" />
-    <Resource Include="Images\ImagesMovie\GuardienGalaxy.jpg" />
-    <Resource Include="Images\ImagesMovie\GuardienGalaxy2.jpg" />
-    <Resource Include="Images\ImagesMovie\Hulk1.jpg" />
-    <Resource Include="Images\ImagesMovie\SpidermanHomecoming.jpg" />
-    <Resource Include="Images\ImagesMovie\Thor1.jpg" />
-    <Resource Include="Images\ImagesMovie\Thor2.jpg" />
+    <Content Include="Component\Images\ImagesMovie\Antman.jpg" />
+    <Resource Include="Component\Images\row.png" />
+    <Resource Include="Component\Images\ImagesMovie\AntMan2.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\BlackPanther.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\CaptainAmerica1.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\CaptainAmerica2.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\CaptainAmerica3.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\DoctorStrange.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\GuardienGalaxy.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\GuardienGalaxy2.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\Hulk1.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\SpidermanHomecoming.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\Thor1.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\Thor2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ImagesMovie\Avengers2.jpg" />
+    <Resource Include="Component\Images\ImagesMovie\Avengers2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">
