@@ -58,57 +58,6 @@ namespace MarvelFlow.Service
                 }
                 h.SortListMovies();
             }
-
-            // Init Data (Hardcode - test)
-
-            List<string> stringheros = new List<string>
-            {
-                "Im",
-                "SM"
-            };
-
-            Film f1 = new Film("AV3", "Avengers Infinity Wars", "ImagesMovie/Avengers3.jpg", "film Avengers 3 avec plein de gens dedans", "Frères Russo", "25/04/2018", Universe.MCU, "/ba/im", stringheros);
-            Film f2 = new Film("AM", "AntMan", "ImagesMovie/Antman2.jpg", "film homme fourmi", "Payton Reed", "14/07/2015", Universe.MCU, "pnl.mp4", stringheros);
-            Film f3 = new Film("IM1", "IronMan", "ImagesMovie/IronMan.jpg", "film homme de fer", "Jon Favreau", "30/04/2008", Universe.MCU, "pnl.mp4", stringheros);
-
-            Hero Im = new Hero("IM", "IronMan", "ImagesHero/ironMan.png", "voici ironMan", Team.Avengers);
-            Hero Sm = new Hero("SM", "SpiderMan", "ImagesHero/spiderMan.png", "voici SpiderMan", Team.Avengers);
-            Hero Ds = new Hero("Ds", "Doctor Strange", "ImagesHero/doctorStrange.png", "voici Doctor Strange", Team.Avengers);
-            Hero Hu = new Hero("HK", "Hulk", "ImagesHero/hulk.png", "voici Hulk le géant vert", Team.Avengers);
-            Hero Vi = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.BlackOrder);
-            Hero Vi1 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.BlackOrder);
-            Hero Vi2 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-            Hero Vi3 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-            Hero Vi4 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-            Hero Vi5 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-            Hero Vi6 = new Hero("VN", "Vision", "ImagesHero/vision.png", "Vision, provenant de Jarvis", Team.Avengers);
-
-            f1.ListHeroes.Add(Im);
-            f1.ListHeroes.Add(Sm);
-            f1.ListHeroes.Add(Ds);
-
-            this.ListMovies.Add(f1);
-            this.ListMovies.Add(f2);
-            this.ListMovies.Add(f3);
-
-            List<Movie> ListMoviesTemp = new List<Movie>();
-            ListMoviesTemp.Add(f1);
-            ListMoviesTemp.Add(f2);
-            ListMoviesTemp.Add(f3);
-
-            Im.ListMovies = ListMoviesTemp;
-
-            ListHeros.Add(Im);
-            ListHeros.Add(Sm);
-            ListHeros.Add(Ds);
-            ListHeros.Add(Hu);
-            ListHeros.Add(Vi);
-            ListHeros.Add(Vi1);
-            ListHeros.Add(Vi2);
-            ListHeros.Add(Vi3);
-            ListHeros.Add(Vi4);
-            ListHeros.Add(Vi5);
-            ListHeros.Add(Vi6);
         }
 
         /// <summary>
