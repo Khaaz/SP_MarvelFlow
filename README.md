@@ -16,7 +16,7 @@ This project is working and was a great experience. There are room to a lot of i
 
 We had to make a master-detail application, with interactive part to display information and link different things together.  
 We were mostly advised to do some kind of listing application, so our idea was right in the theme.  
-We had to use various part of .NET and WPF (binding, Linq, etc...).
+We had to use various part of .NET and WPF (binding, Linq, etc...).  
 A detail about the evaluation criterias can be found [here](./evaluation).  
 Particular care had to be given to documentation (first documentation we ever wrote: API documentation, UML etc...).  
 
